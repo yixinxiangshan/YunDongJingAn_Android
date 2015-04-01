@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" 
+    android:background="@drawable/widget_form_input_style_xml"
+    android:clickable="true">
+
+    <TextView
+        android:id="@+id/widget_form_input_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/widget_form_input_arrow"
+        android:text="@string/app_name"
+        android:layout_alignParentLeft="true"
+        android:textColor="@color/widget_form_input_style_text_color"
+        android:textSize="@dimen/widget_form_input_lable_textview_textsize" />
+
+    <ImageView
+        android:id="@+id/widget_form_input_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:padding="8dp"
+        android:src="@drawable/general_right_parrow"
+        tools:ignore="ContentDescription" />
+
+</RelativeLayout>

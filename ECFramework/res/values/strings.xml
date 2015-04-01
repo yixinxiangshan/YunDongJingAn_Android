@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name"></string>
+    <string name="menu_settings">Settings</string>
+    <string name="default_words">ecloud</string>
+    <string name="loading">加载中&#8230;</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="menu_zoom_enable">Enable Zoom</string>
+    <string name="menu_zoom_disable">Disable Zoom</string>
+    <string name="menu_scale_fit_center">Change to FIT_CENTER</string>
+    <string name="menu_scale_fit_start">Change to FIT_START</string>
+    <string name="menu_scale_fit_end">Change to FIT_END</string>
+    <string name="menu_scale_fit_xy">Change to FIT_XY</string>
+    <string name="menu_scale_center">Change to CENTER</string>
+    <string name="menu_scale_center_inside">Change to CENTER_INSIDE</string>
+    <string name="menu_scale_center_crop">Change to CENTER_CROP</string>
+    <string name="channel_pager_item_layout_id">channel_pager_item_layout_id</string>
+    <string name="slideshow_item_layout_id">slideshow_item_layout_id</string>
+    <string name="widget_formitem_layout_id">widget_formitem_layout_id</string>
+    <string name="group_tableview_id">group_tableview_id</string>
+    <string name="camera">拍照</string>
+    <string name="album">相册</string>
+    <!-- 网络请求相关 -->
+    <string name="base_api_url">http://cloudapi.nowapp.cn</string>
+
+    <!-- 地图相关 -->
+    <string name="activity_map_start_hint">起点</string>
+    <string name="activity_map_end_hint">终点</string>
+
+    <!-- activity_map_location_popview -->
+    <string name="textview_location_address_text">地址：上海市杨浦区国定路335号</string>
+    <string name="textview_location_number_text">电话：123456789</string>
+    <!-- widget_item_news -->
+    <string name="widget_item_news_button_text">查看评论列表</string>
+    <!-- widget_prog_apply -->
+    <string name="widget_prog_apply_button_apply_btn_text">趣味比赛报名</string>
+
+    <!-- widget_panic_buy -->
+    <string name="widget_detail_panic_buy_applybt_text_default">立即抢购</string>
+    <string name="widget_detail_panic_buy_applybt_text_over">抢购结束</string>
+    <!-- <string name="api_key">api_key</string>
+    <string name="api_secret">api_secret</string> -->
+
+    <!-- 支付宝相关 -->
+    <string name="remote_call_failed">Failure calling remote service</string>
+    <string name="partnerHint">"partner"</string>
+    <string name="sellerHint">"seller"</string>
+    <string name="out_trade_noHint">"out_trade_no"</string>
+    <string name="subjectHint">"subject"</string>
+    <string name="bodyHint">"body"</string>
+    <string name="total_feeHint">"total_fee"</string>
+    <string name="notify_urlHint">"http://phpalipay.nowapp.cn/notify_url.php"</string>
+    <string name="charsetHint">"charset"</string>
+    <string name="signTypeHint">"signType"</string>
+    <string name="confirm_install_hint">"安装提示"</string>
+    <string name="confirm_install">"为保证您的交易安全，需要您安装支付宝安全支付服务，才能进行付款。\n\n点击确定，立即安装。"</string>
+    <string name="Ensure">"确定"</string>
+    <string name="Cancel">"取消"</string>
+    <string name="check_sign_failed">您的订单信息已被非法篡改。</string>
+
+    <!-- 调试相关 -->
+    <string name="debug_core_js_url">http://192.168.100.157/js.php</string>
+    <string name="config_js_url">http://192.168.100.51/eceditor/downJs?project=jinganyundong</string>
+	<!-- 加密内容 -->
+    <string name="ori_key"></string>
+    <!-- baidu地图 -->
+    <string name="baidu_apikey">ppfeGWu9QcrqpjS6BQCaIrbI</string>
+    <string name="baidu_debug_apikey">boEStk8IiS4UYFVZQsjFcIQK</string>
+
+</resources>

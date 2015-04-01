@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- 边缘线的宽度和颜色 -->
+    <stroke
+        android:width="@dimen/widget_form_input_style_stroke_width"
+        android:color="@color/widget_form_input_style_shape_stroke_color" />
+    <!-- 中间渐变，角度0从左往右，正值为逆时针，270度为从上到下 -->
+    <gradient
+        android:angle="0"
+        android:centerColor="@color/widget_form_input_style_shape_gradient_centercolor"
+        android:endColor="@color/widget_form_input_style_shape_gradient_endcolor"
+        android:startColor="@color/widget_form_input_style_shape_gradient_startcolor" />
+    <!-- 设置四个角的角度 -->
+    <corners
+        android:bottomLeftRadius="@dimen/corner_radius"
+        android:bottomRightRadius="@dimen/corner_radius"
+        android:topLeftRadius="@dimen/corner_radius"
+        android:topRightRadius="@dimen/corner_radius" />
+    <!-- 设置padding -->
+    <padding
+        android:bottom="@dimen/widget_form_input_style_padding_bottom"
+        android:left="@dimen/widget_form_input_style_padding_left"
+        android:right="@dimen/widget_form_input_style_padding_right"
+        android:top="@dimen/widget_form_input_style_padding_top" />
+    
+    <solid android:color="@color/lightgray"/>
+
+</shape>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    android:background="@drawable/widget_form_input_style"
+    android:padding="@dimen/gen_margin" >
+
+    <LinearLayout
+        android:id="@+id/widget_form_uploads_container"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_marginLeft="5dp" >
+
+            <TextView
+                android:id="@+id/widget_form_uploads_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="6dp"
+                android:text="添加照片"
+                android:textSize="12sp"
+                tools:ignore="HardcodedText" />
+
+            <ImageView
+                android:id="@+id/widget_form_uploads_image"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_centerInParent="true"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/widget_form_upload_camera_xml" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</HorizontalScrollView>

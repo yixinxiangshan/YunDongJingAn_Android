@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- TODO 修改id等名字 -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_item_news_linearlayouttextview_layout_marginbottom"
+        android:layout_marginLeft="@dimen/widget_item_news_linearlayouttextview_layout_marginleft"
+        android:layout_marginRight="@dimen/widget_item_news_linearlayouttextview_layout_marginright"
+        android:layout_marginTop="@dimen/widget_item_news_linearlayouttextview_layout_margintop"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/widget_item_news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/widget_item_news_textview_title_layout_margin"
+            android:maxLines="2"
+            android:text=""
+            android:textColor="@color/widget_item_news_title_textcolor"
+            android:textSize="@dimen/widget_item_news_textview_title_textsize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/widget_item_news_des"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/widget_item_news_textview_des_layout_marginleft"
+            android:text=""
+            android:textColor="#666666"
+            android:textSize="@dimen/widget_item_news_textview_des_textsize" />
+    </LinearLayout>
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/view_image_big"
+        android:visibility="visible" />
+
+</LinearLayout>

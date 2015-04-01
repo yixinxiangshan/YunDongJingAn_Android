@@ -1,0 +1,31 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_actionbar_title_custom_clickview"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="?attr/widget_actionbar_bg"
+    android:orientation="horizontal" >
+
+    <ImageButton
+        android:id="@+id/actionbar_menu_item_custom_imgview"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="5dp"
+        android:background="#00000000"
+        android:clickable="false"
+        android:contentDescription="@string/app_name"
+        android:focusable="false"
+        android:gravity="center"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/actionbar_menu_item_custom_titleview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:gravity="center_vertical"
+        android:text=""
+        android:textColor="#fff"
+        android:textSize="16sp" />
+
+</LinearLayout>

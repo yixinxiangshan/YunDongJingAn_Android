@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_listviewcell_video"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="?attr/listviewcell_bg"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    <!--
+         <VideoView
+        android:id="@+id/widget_listviewcell_video_videoview"
+        android:layout_width="320dp"
+        android:layout_height="240dp"
+        android:layout_marginBottom="50dp"
+        android:visibility="gone" >
+    </VideoView>
+    -->
+
+    <FrameLayout
+        android:layout_width="320dp"
+        android:layout_height="240dp"
+        android:background="#ff000000" >
+
+        <ImageView
+            android:id="@+id/widget_listviewcell_video_imgcover"
+            android:layout_width="320dp"
+            android:layout_height="240dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="fitXY" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/widget_listviewcell_video_play"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="center_vertical|center_horizontal"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/play_xml" >
+        </ImageView>
+
+        <TextView
+            android:id="@+id/widget_listviewcell_video_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center_horizontal"
+            android:background="#99000000"
+            android:gravity="center_vertical"
+            android:paddingBottom="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="5dp"
+            android:textColor="#ffFFFFFF"
+            android:textSize="?attr/text_size_normal" />
+    </FrameLayout>
+
+</LinearLayout>

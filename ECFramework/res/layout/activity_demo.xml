@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".DemoActivity" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:tag="tag111111111111111111111111111111111"
+            android:text="SlideShow" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:tag="tag22222222222222222222"
+            android:text="tabview" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:tag="tag3333333333333333333"
+            android:text="channel" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:tag="pecct://news/list?sortid=217"
+            android:text="getlist(p)" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:tag="ecct://news/list?sortid=217"
+            android:text="getlist" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearlayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <include
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            layout="@layout/widget_loading_default"
+            android:visibility="visible" />
+    </LinearLayout>
+
+</LinearLayout>

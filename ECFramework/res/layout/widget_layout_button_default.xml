@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_gridview_bg"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/widget_index_button_layout_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_layout_button_default_linearlayout_padding" >
+
+    <ImageView
+        android:id="@+id/proj_activity_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/app_name" />
+
+    <GridView
+        android:id="@+id/gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="@dimen/widget_layout_button_default_imageview_layout_margintop"
+        android:cacheColorHint="#00000000"
+        android:gravity="left"
+        android:scrollingCache="@android:color/transparent"
+        android:verticalSpacing="@dimen/widget_layout_button_default_gridview_layout_verticalspacing" />
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_listviewcell_button"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="vertical"
+    android:visibility="visible" >
+
+    <Button
+        android:id="@+id/widget_listviewcell_button_btn_ok"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/widget_listviewcell_button_btn_ok_bg_xml"
+        android:clickable="false"
+        android:padding="3dp"
+        android:textColor="?attr/widget_listviewcell_button_btn_ok_color"
+        android:textSize="?attr/text_size_biger"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/widget_listviewcell_button_btn_cancel"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/widget_listviewcell_button_btn_cancel_bg_xml"
+        android:padding="3dp"
+        android:textColor="?attr/widget_listviewcell_button_btn_cancel_color"
+        android:textSize="?attr/text_size_biger"
+        android:visibility="gone" />
+
+</LinearLayout>

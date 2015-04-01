@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal" >
+    <TextView android:id="@+id/view_count_down_item_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/view_count_down_item_value_textsize"
+        android:textColor="@color/view_count_down_item_value_textcolor"
+        android:padding="@dimen/view_count_down_item_value_padding"/>
+    <TextView android:id="@+id/view_count_down_item_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/view_count_down_item_unit_textsize"
+        android:textColor="@color/view_count_down_item_unit_textcolor"
+        android:padding="@dimen/view_count_down_item_unit_padding"/>
+</LinearLayout>

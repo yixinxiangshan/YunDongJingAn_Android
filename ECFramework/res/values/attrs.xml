@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="VoteView">
+        <attr name="star_icon" format="string" />
+        <attr name="star_icon_press" format="string" />
+        <attr name="stars_count" format="integer" />
+        <attr name="star_score" format="integer" />
+    </declare-styleable>
+    <declare-styleable name="SecondaryMenuView">
+        <attr name="with_submenu" format="boolean" />
+        <attr name="prime_default_selection" format="integer" />
+        <attr name="minor_default_selection" format="integer" />
+        <attr name="prime_item_bg" format="string" />
+        <attr name="prime_item_selection_bg" format="string" />
+        <attr name="minor_item_bg" format="string" />
+        <attr name="minor_item_selection_bg" format="string" />
+        <attr name="divider_height" format="integer" />
+        <attr name="divider_name" format="string" />
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+    </declare-styleable>
+    <!-- 系统通用设置 -->
+    <!-- 字体大小设置 -->
+    <attr name="text_size_biger" format="dimension" />
+    <attr name="text_size_big" format="dimension" />
+    <attr name="text_size_normal" format="dimension" />
+    <attr name="text_size_small" format="dimension" />
+    <attr name="text_size_smaller" format="dimension" />
+
+    <!-- actionabr 设置 -->
+    <attr name="widget_actionbar_title_custom_title_color" format="color" />
+    <attr name="widget_actionbar_bg" format="color" />
+    <attr name="widget_actionbar_back" format="reference" />
+
+    <!-- listviewcell通用设置 -->
+    <attr name="listviewcell_bg" format="color" />
+    <attr name="widget_listview_text_color" format="color" />
+    <attr name="widget_listview_text_notice_color" format="color" />
+    <attr name="widget_listviewcell_circle_progressbar_rightText_color" format="color" />
+    <attr name="widget_listviewcell_button_btn_ok_color" format="color" />
+    <attr name="widget_listviewcell_button_btn_cancel_color" format="color" />
+    <attr name="widget_listviewcell_circle_progressbar_rightText_notice_bg" format="reference" />
+
+    <!-- listviewcelle article -->
+    <attr name="widget_listviewcell_article_content_color" format="color" />
+    <attr name="widget_listviewcell_article_bg" format="color" />
+    <attr name="floatValue" format="float" />
+    <attr name="integerValue" format="integer" />
+    <attr name="booleanValue" format="boolean" />
+    <attr name="dimensionValue" format="dimension" />
+    <attr name="stringValue" format="string" />
+    <attr name="referenceValue" format="reference"></attr>
+
+</resources>

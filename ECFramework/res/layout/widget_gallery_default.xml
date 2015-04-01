@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:widget="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/widget_gallery_default_llayout"
+    android:layout_width="fill_parent"
+    android:layout_height="90dp"
+    android:orientation="vertical"
+   	>
+   	 <EditText
+		       android:id="@+id/text"
+		       android:layout_width="match_parent"
+		       android:layout_height="wrap_content"
+		       android:textColor="#000000"
+		       android:background="#ffffff"
+		       android:layout_margin="10dp"
+		       android:gravity="top"
+		       android:minLines="6"
+		       android:maxLines="10"
+		       android:visibility="gone"
+		/>
+  <com.meetme.android.horizontallistview.HorizontalListView
+  	android:id="@+id/horizontalListView"
+  	android:layout_width="fill_parent"
+  	android:layout_height="wrap_content"
+  	widget:dividerWidth="2dp"
+  />
+     <Button
+        android:id="@+id/cam_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dip"
+        android:background="@drawable/cam_photo" 
+        android:visibility="gone"/>
+
+</LinearLayout>

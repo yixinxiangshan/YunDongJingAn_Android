@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+   <LinearLayout
+            android:id="@+id/widget_edit_layout"
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" />
+	 <android.inputmethodservice.KeyboardView
+            android:id="@+id/keyboard_view"  
+            android:layout_width="fill_parent"  
+            android:layout_height="fill_parent"  
+            android:layout_marginTop="10dip"
+            android:focusable="true"  
+            android:focusableInTouchMode="true" 
+            android:visibility="visible"
+             />  
+</LinearLayout>

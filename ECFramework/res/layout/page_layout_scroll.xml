@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:id="@+id/activity_item_container_llayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/activity_item_container_llayout_bg"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:tag="" >
+    </LinearLayout>
+
+</ScrollView>

@@ -1,0 +1,14 @@
+com.ecloudiot.framework
+com.ecloudiot.framework.activity
+com.ecloudiot.framework.alipay
+com.ecloudiot.framework.appliction
+com.ecloudiot.framework.event
+com.ecloudiot.framework.fragment
+com.ecloudiot.framework.javascript
+com.ecloudiot.framework.service
+com.ecloudiot.framework.utility
+com.ecloudiot.framework.utility.http
+com.ecloudiot.framework.view
+com.ecloudiot.framework.widget
+com.ecloudiot.framework.widget.adapter
+com.ecloudiot.framework.widget.model

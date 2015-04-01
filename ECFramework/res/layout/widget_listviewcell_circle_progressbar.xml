@@ -1,0 +1,122 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000" >
+
+    <ImageButton
+        android:id="@+id/widget_listviewcell_circle_progressbar_leftBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/widget_listviewcell_circle_progressbar_pre_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/widget_listviewcell_circle_progressbar_leftBtn"
+        android:text="前一天"
+        android:textColor="@color/widget_listviewcell_circle_progressbar_pre_tv_color"
+        android:textSize="14dp" />
+
+    <FrameLayout
+        android:id="@+id/circularProgressBar_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="18dp"
+        android:paddingTop="18dp" >
+
+        <com.pascalwelsch.holocircularprogressbar.HoloCircularProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            progress_color="#ffADDB2C"
+            app:progress="0.0" />
+
+        <TextView
+            android:id="@+id/progressBarInnerNum"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_marginTop="0dp"
+            android:gravity="center"
+            android:textColor="?attr/widget_listview_text_color"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/progressBarInnerText"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:gravity="center"
+            android:paddingTop="60dp"
+            android:text=""
+            android:textColor="?attr/widget_listview_text_notice_color"
+            android:textSize="?attr/text_size_smaller" />
+    </FrameLayout>
+
+    <ImageButton
+        android:id="@+id/widget_listviewcell_circle_progressbar_rightBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"
+        android:background="#00000000"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/widget_listviewcell_circle_progressbar_next_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/widget_listviewcell_circle_progressbar_rightBtn"
+        android:text="后一天"
+        android:textColor="@color/widget_listviewcell_circle_progressbar_next_tv_color"
+        android:textSize="14dp" />
+
+    <TextView
+        android:id="@+id/widget_listviewcell_circle_progressbar_rightText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="14dp"
+        android:background="?attr/widget_listviewcell_circle_progressbar_rightText_notice_bg"
+        android:padding="8dp"
+        android:text=""
+        android:textColor="?attr/widget_listviewcell_button_btn_cancel_color"
+        android:textSize="?attr/text_size_smaller" />
+
+    <ImageView
+        android:id="@+id/widget_listviewcell_circle_progressbar_rightText_notice"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignRight="@+id/widget_listviewcell_circle_progressbar_rightText"
+        android:layout_alignTop="@+id/widget_listviewcell_circle_progressbar_rightText"
+        android:layout_marginRight="-10dp"
+        android:layout_marginTop="-10dp"
+        android:background="#00000000"
+        android:contentDescription="@string/app_name"
+        android:gravity="center_horizontal"
+        android:src="@drawable/widget_listviewcell_circle_progressbar_warning"
+        android:textColor="@color/widget_listview_text_white"
+        android:visibility="invisible" />
+
+    <ImageView
+        android:id="@+id/widget_listviewcell_circle_progressbar_divider_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/circularProgressBar_frame"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        android:scaleType="fitCenter" />
+
+</RelativeLayout>

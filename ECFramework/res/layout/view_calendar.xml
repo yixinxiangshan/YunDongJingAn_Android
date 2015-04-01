@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/calendar_view_linearlayout"
+    >
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendar_view_yearmonth_textview"
+        android:gravity="center"
+        android:textSize="10pt"
+        />
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        />
+    <GridView
+        android:id="@+id/calendar_view_week_gridview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:numColumns="7"
+        >
+    </GridView>
+    
+    <GridView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/calendar_view_monthday_gridview"
+        android:numColumns="7"
+        android:background="#ffDDDDDD"
+        >
+    </GridView>
+</LinearLayout>

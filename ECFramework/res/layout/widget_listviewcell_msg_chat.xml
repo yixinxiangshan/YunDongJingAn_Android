@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_listviewcell_msg_chat_msg_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#EBEBEB"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:visibility="visible" >
+
+    <!-- 时间 -->
+
+    <TextView
+        android:id="@+id/widget_listviewcell_msg_chat_msg_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text=""
+        android:textColor="#CDCDCD"
+        android:visibility="gone" />
+    <!-- 发消息布局 -->
+
+    <LinearLayout
+        android:id="@+id/widget_listviewcell_msg_chat_msg_layout_from"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal" >
+
+        <com.ecloudiot.framework.view.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/widget_listviewcell_msg_chat_msgfrom_head"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginRight="8dp"
+            app:border_color="#FFFFFFFF"
+            app:border_width="2dp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/widget_listviewcell_msg_chat_msgfrom_bg"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/widget_listviewcell_msg_chat_msgfrom_content_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/widget_listviewcell_msg_chat_msgfrom_content_img"
+                android:layout_width="150dp"
+                android:layout_height="200dp"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 收消息布局 -->
+
+    <LinearLayout
+        android:id="@+id/widget_listviewcell_msg_chat_msg_layout_to"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:gravity="right"
+        android:orientation="horizontal" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" >
+
+            <com.ecloudiot.framework.view.CircleImageView
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/widget_listviewcell_msg_chat_msgto_head"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginLeft="8dp"
+                app:border_color="#FFFFFFFF"
+                app:border_width="2dp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_toLeftOf="@+id/widget_listviewcell_msg_chat_msgto_head"
+                android:background="@drawable/widget_listviewcell_msg_chat_msgto_bg"
+                android:gravity="right"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/widget_listviewcell_msg_chat_msgto_content_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:text="" />
+
+                <ImageView
+                    android:id="@+id/widget_listviewcell_msg_chat_msgto_content_img"
+                    android:layout_width="120dp"
+                    android:layout_height="160dp"
+                    android:layout_gravity="center_horizontal"
+                    android:scaleType="centerCrop" />
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</LinearLayout>

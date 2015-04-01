@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bitmap xmlns:android="http://schemas.android.com/apk/res/android"
+    android:tileMode="repeat" >
+</bitmap><!-- android:src="@drawable/widget_index_button_layout_bg_img" -->

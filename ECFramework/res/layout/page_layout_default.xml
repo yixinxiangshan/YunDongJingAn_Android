@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" 
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    >
+	<LinearLayout 
+	    android:id="@+id/activity_item_container_llayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:tag="" 
+	    android:background="?attr/listviewcell_bg"
+	    android:layout_above="@+id/activity_item_container_llayout_bottom"
+	    >
+	</LinearLayout>
+	
+	<LinearLayout 
+	    android:id="@+id/activity_item_container_llayout_bottom"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:tag="" 
+	    android:background="?attr/listviewcell_bg"
+	    android:layout_alignParentBottom="true"
+	    >
+	</LinearLayout>
+ -->
+    <!--
+        <include
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        layout="@layout/widget_loading_default"
+        android:visibility="visible" />
+    -->
+    <!-- 
+	</RelativeLayout>
+	 -->
+
+	<LinearLayout 
+    	xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/activity_item_container_llayout"
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:gravity="center_horizontal"
+	    android:orientation="vertical"
+	    android:tag="" 
+	    android:background="?attr/listviewcell_bg"
+	    >
+	</LinearLayout>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_grid_item_rlayout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:gravity="center"
+    android:padding="@dimen/widget_grid_item_rlayout_padding" >
+
+    <LinearLayout
+        android:id="@+id/widget_grid_item_imagell"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/widget_grid_item_linearlayout_background" >
+
+        <ImageView
+            android:id="@+id/widget_grid_item_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/widget_grid_item_imageview_layout_margin"
+            android:clickable="false"
+            android:contentDescription="@string/app_name"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:scaleType="centerCrop"
+            android:src="@drawable/general_default_simage" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_grid_item_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_grid_item_imagell"
+        android:layout_marginLeft="@dimen/widget_grid_item_title_marginleft"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="left"
+        android:singleLine="true"
+        android:text="@string/app_name"
+        android:textColor="@color/widget_grid_item_textview_item_text_textcolor"
+        android:textSize="@dimen/widget_grid_item_textview_textsize" />
+
+    <TextView
+        android:id="@+id/widget_grid_item_abstract"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/widget_grid_item_title"
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="left"
+        android:maxLines="2"
+        android:text="@string/app_name"
+        android:visibility="gone" />
+
+</RelativeLayout>

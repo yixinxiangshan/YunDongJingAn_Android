@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- TEXT -->
+    <style name="content_page_large_text">
+        <item name="android:duplicateParentState">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:typeface">sans</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
+    <!-- number picker -->
+    <style name="NumberPickerUpButton" parent="@android:style/Widget.Holo.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/numberpicker_up_btn_holo_dark</item>
+        <item name="android:paddingTop">2dip</item>
+        <item name="android:paddingBottom">0dip</item>
+    </style>
+
+    <style name="NumberPickerDownButton" parent="@android:style/Widget.Holo.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/numberpicker_down_btn_holo_dark</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingBottom">2dip</item>
+    </style>
+
+    <style name="NumberPickerUpButtonLight" parent="@android:style/Widget.Holo.Light.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/numberpicker_up_btn_holo_light</item>
+        <item name="android:paddingTop">4dip</item>
+        <item name="android:paddingBottom">4dip</item>
+    </style>
+
+    <style name="NumberPickerDownButtonLight" parent="@android:style/Widget.Holo.Light.ImageButton">
+        <item name="android:background">@null</item>
+        <item name="android:src">@drawable/numberpicker_down_btn_holo_light</item>
+        <item name="android:paddingTop">4dip</item>
+        <item name="android:paddingBottom">4dip</item>
+    </style>
+
+    <style name="NumberPickerInputText" parent="@android:style/Widget.Holo.EditText">
+        <item name="android:paddingTop">2sp</item>
+        <item name="android:paddingBottom">2sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="NumberPickerInputTextLight" parent="@android:style/Widget.Holo.Light.EditText">
+        <item name="android:paddingTop">2sp</item>
+        <item name="android:paddingBottom">2sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="ECTHEME" parent="@android:style/Widget.Holo.Light">
+        <item name="actionBarStyle">@style/ECTHEME.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/ECTHEME.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/ECTHEME.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/ECTHEME.ActionBarStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/ECTHEME.ActionBar.ButtonOverflow</item>
+        <item name="android:popupMenuStyle">@style/ECTHEME.ActionBar.PopupMenu</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:itemTextAppearance">@style/ECTHEME.ActionBar.itemText</item>
+    </style>
+
+    <style name="ECTHEME.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="titleTextStyle">@style/ECTHEME.ActionBar.TitleTextStyle</item>
+        <item name="android:titleTextStyle">@style/ECTHEME.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.ButtonOverflow" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/light_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="AppThemeDefault" parent="Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/AppThemeDefault.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppThemeDefault.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/AppThemeDefault.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/AppThemeDefault.ActionBarStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/AppThemeDefault.ActionBar.ButtonOverflow</item>
+        <item name="android:popupMenuStyle">@style/AppThemeDefault.ActionBar.PopupMenu</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:itemTextAppearance">@style/AppThemeDefault.ActionBar.itemText</item>
+
+        <!-- 系统通用设置 -->
+        <!-- 字体大小设置 -->
+        <item name="text_size_biger">22dp</item>
+        <item name="text_size_big">18dp</item>
+        <item name="text_size_normal">16dp</item>
+        <item name="text_size_small">14dp</item>
+        <item name="text_size_smaller">12dp</item>
+        <!-- actionabr 设置 -->
+        <item name="widget_actionbar_title_custom_title_color">#FF000000</item>
+        <item name="widget_actionbar_bg">#FFf9f9f9</item>
+        <item name="widget_actionbar_back">@drawable/default_widget_actionbar_back</item>
+        <!-- listview 设置 -->
+        <item name="listviewcell_bg">#FFFFFFFF</item>
+        <item name="widget_listview_text_color">#FF1a1a1a</item>
+        <item name="widget_listview_text_notice_color">#FF999999</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_color">#FF5793ff</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_notice_bg">@drawable/widget_listviewcell_circle_progressbar_righttext_bg_xml</item>
+        <item name="widget_listviewcell_button_btn_ok_color">@color/widget_listviewcell_button_btn_ok_color</item>
+        <item name="widget_listviewcell_button_btn_cancel_color">@color/widget_listviewcell_button_btn_cancel_color</item>
+        <!-- listviewcelle article -->
+        <item name="widget_listviewcell_article_content_color">#FF333333</item>
+        <item name="widget_listviewcell_article_bg">#FFf7f7f5</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="titleTextStyle">@style/AppThemeDefault.ActionBar.TitleTextStyle</item>
+        <item name="android:titleTextStyle">@style/AppThemeDefault.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.ButtonOverflow" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/default_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!--
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/AppThemeLight.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppThemeLight.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/AppThemeLight.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:actionBarStyle">@style/AppThemeLight.ActionBarStyle</item>
+        <item name="android:actionOverflowButtonStyle">@style/AppThemeLight.ActionBar.ButtonOverflow</item>
+        <item name="android:popupMenuStyle">@style/AppThemeLight.ActionBar.PopupMenu</item>
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <item name="android:itemTextAppearance">@style/AppThemeLight.ActionBar.itemText</item>
+
+        actionabr 设置
+        <item name="widget_actionbar_title_custom_title_color">#FFFFFFFF</item>
+        <item name="widget_actionbar_bg">#FF5C74A8</item>
+
+        listview 设置
+        <item name="listviewcell_bg">#FF5C74A8</item>
+        <item name="widget_listview_text_color">#FFFFFFFF</item>
+        <item name="widget_listview_text_notice_color">#FF999999</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_color">#FF5793ff</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_notice_bg">@drawable/widget_listviewcell_circle_progressbar_righttext_bg</item>
+        <item name="widget_listviewcell_button_btn_ok_color">#FFFFFFFF</item>
+        <item name="widget_listviewcell_button_btn_cancel_color">#FF5793ff</item>
+        
+        
+    </style>
+
+    <style name="AppThemeLight.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="titleTextStyle">@style/AppThemeDefault.ActionBar.TitleTextStyle</item>
+        <item name="android:titleTextStyle">@style/AppThemeLight.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.ButtonOverflow" parent="@android:style/Widget.Holo.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/default_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.PopupMenu" parent="@android:style/Widget.Holo.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    -->
+
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_id"
+    android:layout_width="@dimen/activity_tab_item_relativelayout_layout_width"
+    android:layout_height="@dimen/activity_tab_item_relativelayout_layout_height"
+    android:layout_weight="1"
+    android:background="@drawable/widget_tab_item_default_bg"
+    android:orientation="vertical"
+    android:padding="@dimen/activity_tab_item_relativelayout_padding" >
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        />
+
+    <com.readystatesoftware.viewbadger.BadgeView
+        android:id="@+id/badge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_gravity="center"
+        android:text=""
+        android:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/title"
+        style="?android:attr/tabWidgetStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/default_words"
+        android:textSize="@dimen/activity_tab_item_textview_textsize" />
+
+</RelativeLayout>

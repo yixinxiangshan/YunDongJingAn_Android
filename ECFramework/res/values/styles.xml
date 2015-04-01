@@ -1,0 +1,267 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <!-- 基础主题 -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat"></style>
+
+    <!-- 默认主题 -->
+    <style name="AppThemeDefault" parent="Theme.AppCompat.Light">
+
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionBarStyle">@style/AppThemeDefault.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppThemeDefault.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/AppThemeDefault.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:itemTextAppearance">@style/AppThemeDefault.ActionBar.itemText</item>
+
+        <!-- 系统通用设置 -->
+        <!-- 字体大小设置 -->
+        <item name="text_size_biger">22dp</item>
+        <item name="text_size_big">18dp</item>
+        <item name="text_size_normal">16dp</item>
+        <item name="text_size_small">14dp</item>
+        <item name="text_size_smaller">12dp</item>
+
+        <!-- actionabr 设置 -->
+        <item name="widget_actionbar_title_custom_title_color">#FF000000</item>
+        <item name="widget_actionbar_bg">#FFf9f9f9</item>
+        <item name="widget_actionbar_back">@drawable/default_widget_actionbar_back</item>
+        <!-- listview 设置 -->
+        <item name="listviewcell_bg">#FFFFFFFF</item>
+        <item name="widget_listview_text_color">#FF1a1a1a</item>
+        <item name="widget_listview_text_notice_color">#FF999999</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_color">#FF5793ff</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_notice_bg">@drawable/widget_listviewcell_circle_progressbar_righttext_bg_xml</item>
+        <item name="widget_listviewcell_button_btn_ok_color">@color/widget_listviewcell_button_btn_ok_color</item>
+        <item name="widget_listviewcell_button_btn_cancel_color">@color/widget_listviewcell_button_btn_cancel_color</item>
+
+        <!-- listviewcelle article -->
+        <item name="widget_listviewcell_article_content_color">#FF4d4d4d</item>
+        <item name="widget_listviewcell_article_bg">#FFf7f7f5</item>
+
+        <!-- <item name="widget_listviewcell_button_btn_ok_bg_color">#FF5793ff</item> -->
+        <!-- <item name="widget_listviewcell_button_btn_cancel_color">#FF5793ff</item> -->
+    </style>
+
+    <style name="AppThemeDefault.ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="titleTextStyle">@style/AppThemeDefault.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">#FF000000</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.ButtonOverflow" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/default_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.PopupMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="AppThemeDefault.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- light主题 -->
+    <!--
+    <style name="AppThemeLight" parent="Theme.AppCompat.Light">
+        <item name="actionBarStyle">@style/AppThemeLight.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/AppThemeLight.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/AppThemeLight.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:itemTextAppearance">@style/AppThemeLight.ActionBar.itemText</item>
+        actionabr 设置
+        <item name="widget_actionbar_title_custom_title_color">#FFFFFFFF</item>
+        <item name="widget_actionbar_bg">#FF5C74A8</item>
+
+        listview 设置
+        <item name="listviewcell_bg">#FF5C74A8</item>
+        <item name="widget_listview_text_color">#FFFFFFFF</item>
+        <item name="widget_listview_text_notice_color">#FF999999</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_color">#FF5793ff</item>
+        <item name="widget_listviewcell_circle_progressbar_rightText_notice_bg">@drawable/widget_listviewcell_circle_progressbar_righttext_bg</item>
+        <item name="widget_listviewcell_button_btn_ok_color">#FFFFFFFF</item>
+        <item name="widget_listviewcell_button_btn_cancel_color">#FF5793ff</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="titleTextStyle">@style/AppThemeLight.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.ButtonOverflow" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/default_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.PopupMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="AppThemeLight.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    -->
+
+    <style name="NumberPickerUpButton" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@drawable/numberpicker_up_btn_holo_dark</item>
+        <item name="android:paddingTop">2dip</item>
+        <item name="android:paddingBottom">0dip</item>
+    </style>
+
+    <style name="NumberPickerDownButton" parent="@android:style/Widget.ImageButton">
+        <item name="android:background">@drawable/numberpicker_down_btn_holo_dark</item>
+        <item name="android:paddingTop">0dip</item>
+        <item name="android:paddingBottom">2dip</item>
+    </style>
+
+    <style name="NumberPickerInputText" parent="@android:style/Widget.EditText">
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">#000000</item>
+        <item name="android:paddingTop">2sp</item>
+        <item name="android:paddingBottom">2sp</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <style name="PopupAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/menu_up</item>
+        <item name="android:windowExitAnimation">@anim/menu_down</item>
+    </style>
+
+    <style name="DialogFullscreen">
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="DialogWindowAnim" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/dialog_in_alpha</item>
+        <item name="android:windowExitAnimation">@anim/dialog_out_alpha</item>
+    </style>
+
+    <style name="SecondaryMenuAnimation">
+        <item name="android:windowEnterAnimation">@anim/secondary_menu_show_anim</item>
+        <item name="android:windowExitAnimation">@anim/secondary_menu_hidden_anim</item>
+    </style>
+
+    <style name="ECTHEME" parent="Theme.AppCompat.Light">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="actionBarStyle">@style/ECTHEME.ActionBarStyle</item>
+        <item name="actionOverflowButtonStyle">@style/ECTHEME.ActionBar.ButtonOverflow</item>
+        <item name="popupMenuStyle">@style/ECTHEME.ActionBar.PopupMenu</item>
+        <item name="actionMenuTextColor">@color/white</item>
+        <item name="android:itemTextAppearance">@style/ECTHEME.ActionBar.itemText</item>
+    </style>
+
+    <style name="ECTHEME.ActionBarStyle" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="titleTextStyle">@style/ECTHEME.ActionBar.TitleTextStyle</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.TitleTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.ButtonOverflow" parent="Widget.AppCompat.Light.ActionButton.Overflow">
+        <item name="android:src">@drawable/default_widget_actionbar_button_overflow</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.PopupMenu" parent="Widget.AppCompat.Light.ListPopupWindow">
+        <item name="android:popupBackground">@drawable/widget_actionbar_menu_bg</item>
+    </style>
+
+    <style name="ECTHEME.ActionBar.itemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <!-- pagerIndicators -->
+
+    <style name="Theme.PageIndicatorCustom" parent="Theme.AppCompat">
+        <item name="vpiCirclePageIndicatorStyle">@style/CustomCirclePageIndicator</item>
+        <item name="vpiLinePageIndicatorStyle">@style/CustomLinePageIndicator</item>
+        <item name="vpiTitlePageIndicatorStyle">@style/CustomTitlePageIndicator</item>
+        <item name="vpiTabPageIndicatorStyle">@style/CustomTabPageIndicator</item>
+        <item name="vpiUnderlinePageIndicatorStyle">@style/CustomUnderlinePageIndicator</item>
+    </style>
+
+    <style name="CustomTitlePageIndicator">
+        <item name="android:background">#18FF0000</item>
+        <item name="footerColor">#FFAA2222</item>
+        <item name="footerLineHeight">1dp</item>
+        <item name="footerIndicatorHeight">3dp</item>
+        <item name="footerIndicatorStyle">underline</item>
+        <item name="android:textColor">#AA000000</item>
+        <item name="selectedColor">#FF000000</item>
+        <item name="selectedBold">true</item>
+    </style>
+
+    <style name="CustomLinePageIndicator">
+        <item name="strokeWidth">4dp</item>
+        <item name="lineWidth">30dp</item>
+        <item name="unselectedColor">#FF888888</item>
+        <item name="selectedColor">#FF880000</item>
+    </style>
+
+    <style name="CustomCirclePageIndicator">
+        <item name="fillColor">#FF888888</item>
+        <item name="strokeColor">#FF000000</item>
+        <item name="strokeWidth">2dp</item>
+        <item name="radius">10dp</item>
+        <item name="centered">true</item>
+    </style>
+
+    <style name="CustomTabPageIndicator" parent="Widget.TabPagerIndicator">
+        <item name="android:background">#ffffff</item>
+        <item name="android:textColor">#FFcccccc</item>
+        <item name="android:paddingLeft">1dp</item>
+        <item name="android:paddingRight">1dp</item>
+        <item name="android:paddingTop">3dp</item>
+        <item name="android:paddingBottom">5dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.TabPageIndicator</item>
+    </style>
+
+    <style name="TextAppearance.TabPageIndicator" parent="Widget">
+        <item name="android:textSize">10sp</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@color/vpi__dark_theme</item>
+    </style>
+
+    <style name="CustomUnderlinePageIndicator">
+        <item name="selectedColor">#FFCC0000</item>
+        <item name="android:background">#FFCCCCCC</item>
+        <item name="fadeLength">1000</item>
+        <item name="fadeDelay">1000</item>
+    </style>
+
+    <style name="CollectButtonStyle" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/collectbutton_style</item>
+    </style>
+
+    <style name="AnimationFade">
+        <item name="android:windowEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:windowExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <style name="FullScreenDialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="android:windowBackground">@null</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
+
+</resources>

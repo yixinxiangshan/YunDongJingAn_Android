@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<lint>
+    <issue id="DefaultLocale" severity="ignore" />
+    <issue id="MissingTranslation" severity="warning" />
+    <issue id="NewApi">
+        <ignore path="src/com/ecloudiot/framework/activity/BaseActivity.java" />
+    </issue>
+    <issue id="UselessParent" severity="ignore" />
+    <issue id="ViewConstructor" severity="ignore" />
+</lint>

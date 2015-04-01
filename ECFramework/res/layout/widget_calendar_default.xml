@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <com.squareup.timessquare.CalendarPickerView
+        android:id="@+id/widget_calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/widget_canlendar_view_background"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/widget_calendar_view_padding_bottom"
+        android:paddingLeft="@dimen/widget_calendar_view_padding_left"
+        android:paddingRight="@dimen/widget_calendar_view_padding_right"
+        android:scrollbarStyle="outsideOverlay" />
+
+    <LinearLayout
+        android:id="@+id/widget_calendar_button_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/widget_calendar_button_ok"
+            android:text="@string/ok"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </Button>
+
+        <Button
+            android:text="@string/cancel"
+            android:id="@+id/widget_calendar_button_cancle"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" >
+        </Button>
+    </LinearLayout>
+
+</LinearLayout>

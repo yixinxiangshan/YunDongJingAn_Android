@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_listviewcell_input_text"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    android:gravity="center_vertical|center_horizontal"
+    android:orientation="horizontal"
+    android:paddingBottom="10dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="10dp"
+    android:visibility="visible" >
+
+    <EditText
+        android:id="@+id/widget_listviewcell_input_text_edittext"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/gen_edittext_bg_xml"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="left|top"
+        android:inputType="none"
+        android:textSize="?attr/text_size_biger" />
+
+    <Button
+        android:id="@+id/widget_listviewcell_input_text_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/widget_listviewcell_button_btn_cancel_bg_xml"
+        android:textColor="?attr/widget_listviewcell_button_btn_cancel_color"
+        android:textSize="?attr/text_size_big" />
+
+</LinearLayout>

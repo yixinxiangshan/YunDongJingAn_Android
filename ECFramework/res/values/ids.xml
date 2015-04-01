@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 控件id -->
+    <item name="card_widget" type="id"></item>
+    <item name="form_widget" type="id"></item>
+    <item name="group_widget" type="id"></item>
+    <item name="layoutbutton_widget" type="id"></item>
+    <item name="slide_show_widget" type="id"></item>
+    <item name="number_picker_widget" type="id"></item>
+    <item name="channel_widget" type="id"></item>
+    <item name="list_view_widget" type="id"></item>
+    <item name="list_view_widget_base" type="id"></item>
+    <item name="indexable_list_view_widget" type="id"></item>
+    <item name="multi_viewpager_widget" type="id"></item>
+    <item name="count_down_widget" type="id"></item>
+    <item name="ec_button_widget" type="id"></item>
+    <item name="ec_blank_widget" type="id"></item>
+    <item name="ec_signinput_widget" type="id"></item>
+    <item name="gallery_widget" type="id"></item>
+    <item name="item_news_widget" type="id"></item>
+    <item name="map_widget" type="id"></item>
+    <item name="satelite_menu_widget" type="id"></item>
+    <item name="slide_menu_widget" type="id"></item>
+    <item name="tab_widget" type="id"></item>
+    <item name="widget_item_news" type="id"></item>
+    <item name="grid_widget" type="id"></item>
+    <item name="detail_panic_buy_widget" type="id"></item>
+    <item name="secondary_menu_widget" type="id"></item>
+    <item name="widget_switch_button" type="id"></item>
+    <item name="calendar_widget" type="id"></item>
+    <item name="search_widget" type="id"></item>
+    <item name="badge_widget" type="id"></item>
+    <item name="matrix_widget" type="id"></item>
+    <item name="web_widget" type="id"></item>
+    <item name="action_bar_widget" type="id"></item>
+    <item name="camera_widget" type="id"></item>
+    <item name="chat_input_widget" type="id"></item>
+    <item name="apple_action_bar_widget" type="id"></item>
+    <item name="pager_widget" type="id"></item>
+
+    <!-- for tab activity -->
+    <item name="activity_tab_content_view_0" type="id"></item>
+    <item name="activity_tab_content_view_1" type="id"></item>
+    <item name="activity_tab_content_view_2" type="id"></item>
+    <item name="activity_tab_content_view_3" type="id"></item>
+    <item name="activity_tab_content_view_4" type="id"></item>
+    <item name="activity_tab_content_view_5" type="id"></item>
+    <item name="activity_tab_content_view_6" type="id"></item>
+    <!-- for multi_viewpager_widget -->
+    <item name="multi_viewpager_widget_content_layout_0" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_1" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_2" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_3" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_4" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_5" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_6" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_7" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_8" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_9" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_10" type="id"></item>
+    <item name="multi_viewpager_widget_content_layout_11" type="id"></item>
+    <!-- for channel_pager -->
+    <item name="channel_pager_item_content_layout_0" type="id"></item>
+    <item name="channel_pager_item_content_layout_1" type="id"></item>
+    <item name="channel_pager_item_content_layout_2" type="id"></item>
+    <item name="channel_pager_item_content_layout_3" type="id"></item>
+    <item name="channel_pager_item_content_layout_4" type="id"></item>
+    <item name="channel_pager_item_content_layout_5" type="id"></item>
+
+    <!-- action bar menu items -->
+    <item name="action_bar_menu_item_share" type="id"></item>
+    <item name="action_bar_menu_item_search" type="id"></item>
+    <item name="action_bar_menu_item_setting" type="id"></item>
+    <item name="action_bar_menu_item_custom" type="id"></item>
+    <item name="action_bar_menu_item_refresh" type="id"></item>
+    <item name="action_bar_menu_item_confirm" type="id"></item>
+    <item name="action_bar_menu_item_comment" type="id"></item>
+    <item name="action_bar_menu_item_gen" type="id"></item>
+    <!-- item fragment -->
+    <item name="fragment_item" type="id"></item>
+    <!-- group id -->
+    <item name="group_title" type="id"></item>
+    <item name="group_subtitle" type="id"></item>
+    <item name="group_expand" type="id"></item>
+    <item name="group_image" type="id"></item>
+    <item name="group_arrow" type="id"></item>
+
+</resources>

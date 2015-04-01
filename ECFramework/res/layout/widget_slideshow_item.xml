@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/widget_slideshow_item_relativelayout_background"
+    android:orientation="vertical" >
+
+    <it.sephiroth.android.library.imagezoom.ImageViewTouch
+        android:id="@+id/widget_slideshow_item_imageview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/app_name" />
+    <!--
+         <ImageView
+        android:id="@+id/widget_slideshow_item_imageview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:contentDescription="@string/app_name" />
+    -->
+
+    <!-- android:scaleType="fitXY" -->
+
+    <TextView
+        android:id="@+id/widget_slideshow_item_des"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/widget_slideshow_item_textview_des_layout_margin"
+        android:maxLines="2"
+        android:text=""
+        android:textColor="@color/widget_slideshow_item_textview_des_textcolor"
+        android:textSize="@dimen/widget_slideshow_item_textview_des_textsize"
+        android:textStyle="bold" />
+
+</RelativeLayout>

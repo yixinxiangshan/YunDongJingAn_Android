@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_listviewcell_news_outlook"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:background="#EBEBEB"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:visibility="visible" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/widget_listviewitem_deflaut_bg_color"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp" >
+
+        <TextView
+            android:id="@+id/widget_listviewcell_news_outlook_title"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="4dp"
+            android:text=""
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/widget_listviewcell_news_outlook_time"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="@color/widget_listview_text_gray"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/widget_listviewcell_news_outlook_img"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/widget_listviewcell_news_outlook_overview"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:ellipsize="end"
+            android:gravity="left|top"
+            android:lines="2"
+            android:text=""
+            android:textColor="@color/widget_listview_text_gray"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/widget_listviewcell_news_outlook_todetail"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text=""
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</LinearLayout>

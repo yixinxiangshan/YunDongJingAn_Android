@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<EditText xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/widget_form_input_style"
+    android:textColorHint="@color/widget_form_input_style_text_hint_color"
+    android:inputType="text"
+    android:lines="1"
+    android:textCursorDrawable="@null"
+    android:textColor="@color/widget_form_input_style_text_color"
+    android:textSize="@dimen/widget_form_input_text_edittext_textsize"
+    android:gravity="top|left" />
