@@ -186,6 +186,7 @@
     //add by 李立波
     ECAPI.prototype.fullImage = function(call_with_params) {};
     ECAPI.prototype.showCalendarConfirm = function(call_with_params) {};
+    ECAPI.prototype.showMulRadioConfirm = function(call_with_params) {};
     
     //add by 程巍巍
     //map method
