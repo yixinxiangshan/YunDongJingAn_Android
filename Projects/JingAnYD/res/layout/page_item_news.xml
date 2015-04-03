@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/widget_item_news_linearlayout_background"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none" 
+        >
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+            <include layout="@layout/view_detail_up_part"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"/>
+
+            <TextView
+                android:id="@+id/widget_item_news_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/widget_item_news_textview_content_layout_marginbottom"
+                android:layout_marginLeft="@dimen/widget_item_news_textview_content_layout_marginleft"
+                android:layout_marginRight="@dimen/widget_item_news_textview_content_layout_marginright"
+                android:layout_marginTop="@dimen/widget_item_news_textview_content_layout_margintop"
+                android:lineSpacingExtra="@dimen/widget_item_news_textview_content_linespacingextra"
+                android:text="@string/app_name"
+                android:textColor="@color/widget_item_news_textview_content_textcolor"
+                android:textSize="@dimen/widget_item_news_textview_content_textsize" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_item_news_linearlayoutbutton_layout_margin"
+                android:layout_marginBottom="@dimen/widget_item_news_linearlayoutbutton_layout_marginbottom"
+                android:gravity="center_horizontal" >
+
+                <Button
+                    android:id="@+id/widget_item_news_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/general_btn_submit"
+                    android:text="@string/widget_item_news_button_text"
+                    android:textSize="@dimen/widget_item_news_button_textsize"
+                    android:textColor="@color/widget_item_news_textview_button_textcolor"
+                    android:visibility="gone" >
+                </Button>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+   <!--  <Button 
+        android:id="@+id/testRefresh"
+        android:text="testRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button> -->
+
+</LinearLayout>

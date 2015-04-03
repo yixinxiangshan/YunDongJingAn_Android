@@ -1,0 +1,199 @@
+{
+	"name": "page_fragment_group",
+	"page_id": "page_fragment_group",
+	"page_layout": "",
+	"datasource": {
+		"method": "",
+		"cache": "",
+		"data": {},
+		"params": [],
+		"adapter": []
+	},
+	"setEvent": [],
+	"configs": [{
+		"key": "name",
+		"value": "",
+		"defaultValue": "null"
+	}, {
+		"key": "page_level",
+		"value": "fragment",
+		"defaultValue": "null"
+	}],
+	"auto_start_controls": ["page_actionBar_aboutus", "page_itemnews_wode", "page_fragment_group"],
+	"controls": [{
+		"control_id": "page_actionBar_aboutus",
+		"xtype": "ActionBarWidget",
+		"layout": "",
+		"datasource": {
+			"method": "http://abc/",
+			"cache": "",
+			"data": {
+				"withActionBar": "true",
+				"withHomeItem": "",
+				"homeIcon": "",
+				"actionBarBg": "",
+				"title": "我的",
+				"withHomeAsUp": "",
+				"navTagData": {}
+			},
+			"params": [],
+			"adapter": []
+		},
+		"setEvent": [],
+		"position": [],
+		"attr": [],
+		"configs": []
+	}, {
+		"control_id": "page_itemnews_wode",
+		"xtype": "ItemNewsWidget",
+		"layout": "page_fragment_item_news",
+		"datasource": {
+			"method": "{#ecct://sign/userInfo}",
+			"cache": "",
+			"data": {
+				"title": ""
+			},
+			"params": [],
+			"adapter": [{
+				"key": "model",
+				"value": "free",
+				"defaultValue": "null"
+			}, {
+				"key": "{#ecct://sign/userInfo}",
+				"value": "title",
+				"defaultValue": "null"
+			}]
+		},
+		"setEvent": [],
+		"position": [{
+			"key": "parent",
+			"value": "blank_llayout",
+			"defaultValue": "null"
+		}, {
+			"key": "location",
+			"value": "0",
+			"defaultValue": "null"
+		}, {
+			"key": "insertType",
+			"value": "1",
+			"defaultValue": "null"
+		}],
+		"attr": [],
+		"configs": []
+	}, {
+		"control_id": "page_fragment_group",
+		"xtype": "GroupWidget",
+		"layout": "",
+		"datasource": {
+			"method": "{#ecct://sign/loginform}",
+			"cache": "",
+			"data": {
+				"groupList": [{
+					"tableList": [{
+						"title": "我的课程",
+						"summary": ""
+					}, {
+						"title": "我的收藏",
+						"summary": ""
+					}]
+				}, {
+					"tableList": [{
+						"title": "扫一扫",
+						"summary": ""
+					}, {
+						"title": "签到记录/运动记录",
+						"summary": ""
+					}]
+				}, {
+					"tableList": [{
+						"title": "我的订单",
+						"summary": ""
+					}, {
+						"title": "我的优惠",
+						"summary": ""
+					}]
+				}]
+			},
+			"params": [],
+			"adapter": [{
+				"key": "model",
+				"value": "free",
+				"defaultValue": "null"
+			}, {
+				"key": "groupList[]",
+				"value": "groupList[]",
+				"defaultValue": "null"
+			}, {
+				"key": "{#ecct://sign/loginform}",
+				"value": "groupList[]",
+				"defaultValue": "null"
+			}]
+		},
+		"setEvent": [{
+			"name": "groupItemClick",
+			"id": "0:0",
+			"javascript": "$C.handle('pecct://app/openActivity?pageName=page_list_kecheng');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "0:1",
+			"javascript": "$C.handle('pecct://app/openActivity?pageName=page_list_fav_changguan');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "0:2",
+			"javascript": "$C.handle('pecct://app/openActivity?pageName=page_fragment_wode_list_yudong');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "1:0",
+			"javascript": "$O.openQRCapture()",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "1:1",
+			"javascript": "$C.handle('pecct://app/openActivity?pageName=page_list_signin');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "2:0",
+			"javascript": "$C.handle('pecct://order/getMyOrderList');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "2:1",
+			"javascript": "$C.handle('pecct://app/openActivity?pageName=page_list_youhui');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "3:0",
+			"javascript": "$C.handle('pecct://sign/redirectSFYZ');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "3:1",
+			"javascript": "$C.handle('pecct://user/isLogin?pageName=page_login');",
+			"params": []
+		}, {
+			"name": "groupItemClick",
+			"id": "3:2",
+			"javascript": "$C.handle('pecct://user/isLogin?pageName=page_register');",
+			"params": []
+		}],
+		"position": [{
+			"key": "parent",
+			"value": "widget_item_news_extends",
+			"defaultValue": "null"
+		}, {
+			"key": "location",
+			"value": "0",
+			"defaultValue": "null"
+		}, {
+			"key": "insertType",
+			"value": "1",
+			"defaultValue": "null"
+		}],
+		"attr": [],
+		"configs": []
+	}]
+}

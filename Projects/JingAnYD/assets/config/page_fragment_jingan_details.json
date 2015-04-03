@@ -1,0 +1,136 @@
+{
+	"name": "page_fragment_map_demo",
+	"page_id": "page_fragment_map_demo",
+	"configs": [{
+		"key": "name",
+		"value": ""
+	}, {
+		"key": "page_level",
+		"value": "fragment"
+	}],
+	"cmds": [],
+	"auto_start_controls": ["page_actionBar", "page_newslist"],
+	"controls": [{
+		"control_id": "page_actionBar",
+		"xtype": "ActionBarWidget",
+		"layout": "",
+		"position": [],
+		"attr": [],
+		"configs": [],
+		"setEvent": [{
+			"name": "optionItemClick",
+			"id": "",
+			"params": [{
+				"key": "name",
+				"value": "{_view.title}",
+				"defaultValue": ""
+			}, {
+				"key": "itemId",
+				"value": "{_view.itemId}",
+				"defaultValue": ""
+			}],
+			"javascript": "$O.openQRCapture()"
+		}, {
+			"name": "navItemClick",
+			"id": "0",
+			"params": [],
+			"javascript": ""
+		}, {
+			"name": "navItemClick",
+			"id": "1",
+			"params": [],
+			"javascript": "new ActivityController().showMapWithLocation({'sonid':'404','type':'activity'});"
+		}, {
+			"name": "navItemClick",
+			"id": "2",
+			"params": [],
+			"javascript": "new ActivityController().showMapWithLocation({'sonid':'405','type':'activity'});"
+		}, {
+			"name": "navItemClick",
+			"id": "3",
+			"params": [],
+			"javascript": "new ActivityController().showMapWithLocation({'sonid':'406','type':'activity'});"
+		}],
+		"datasource": {
+			"method": "{_page.barconfig}",
+			"params": [],
+			"data": {},
+			"adapter": [{
+				"key": "model",
+				"value": "free"
+			}, {
+				"key": "title",
+				"value": "title"
+			}, {
+				"key": "{$true}",
+				"value": "withActionBar"
+			}, {
+				"key": "{$true}",
+				"value": "withHomeItem"
+			}]
+		}
+	}, {
+		"control_id": "page_newslist",
+		"xtype": "ListViewWidget",
+		"layout": "",
+		"position": [{
+			"key": "parent",
+			"value": "activity_item_container_llayout"
+		}, {
+			"key": "location",
+			"value": "0"
+		}, {
+			"key": "insertType",
+			"value": "1"
+		}],
+		"attr": [],
+		"configs": [],
+		"setEvent": [{
+			"name": "itemClick",
+			"params": [{
+				"key": "id",
+				"value": "{_widgetData.ListByType[position].id}",
+				"defaultValue": ""
+			}, {
+				"key": "title",
+				"value": "{_widgetData.ListByType[position].title}",
+				"defaultValue": ""
+			}, {
+				"key": "method",
+				"value": "{_page.page_level}",
+				"defaultValue": ""
+			}, {
+				"key": "parentView",
+				"value": "{_widgetConfig.parent}",
+				"defaultValue": ""
+			}],
+			"javascript": "$C.handle('pecct://app/openActivity?id='+params.id+'&pageName=page_news_detai')"
+
+		}, {
+			"name": "refresh",
+			"params": [],
+			"javascript": "$C.handle('pecct://news/refreshList?sortid=416,417&widgetId=list_view_widget')"
+
+		}, {
+			"name": "loadMore",
+			"id": "",
+			"params": [{
+				"key": "lastid",
+				"value": "{_widgetData.ListByType[position].id}",
+				"defaultValue": ""
+			}],
+			"javascript": "new NewsController().loadMoreList({'sortid':416,417,'lastid':params.lastid,'widgetId':'list_view_widget'});"
+		}],
+		"datasource": {
+			"method": "content.getlistbytype",
+			"params": [{
+				"key": "sortid",
+				"value": "{_page.contentid}"
+			}],
+			"data": {
+			},
+			"adapter": []
+		}
+	}]
+
+}

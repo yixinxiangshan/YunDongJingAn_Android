@@ -1,0 +1,196 @@
+{
+	"name": "page_login",
+	"page_id": "page_login",
+	"configs": [{
+			"key": "name",
+			"value": ""
+		}, {
+			"key": "page_level",
+			"value": "fragment"
+		}
+	],
+	"cmds": [
+	],
+	"auto_start_controls": ["page_actionBar","page_form"],
+	"controls": [{
+			"control_id": "page_actionBar",
+			"xtype": "ActionBarWidget",
+			"layout": "",
+			"position": [],
+			"attr": [],
+			"configs": [],
+			"setEvent": [{
+					"name": "optionItemClick",
+					"id": "",
+					"params": [{
+							"key": "name",
+							"value": "{_view.title}",
+							"defaultValue": ""
+						}, {
+							"key": "itemId",
+							"value": "{_view.itemId}",
+							"defaultValue": ""
+						}
+					],
+					"javascript": "$C.handle('pecct://app/openActivity?pageName=page_register')"
+				}],
+			"datasource": {
+				"method": "http://abc/",
+				"params": [],
+				"data": {
+					"withActionBar": "true",
+					"withHomeItem": "true",
+					"homeIcon": "",
+					"actionBarBg": "test_actionbar_bg",
+					"title": "登录",
+					"withHomeAsUp": "true",
+					"menuItemsData": {
+						"menuList": [{
+								"itemId": "action_bar_menu_item_register",
+								"clickTag": "menu_item_clickTag",
+								"actionViewName": "",
+								"neverCollapses": "false",
+								"title": "注册",
+								"iconName": "",
+								"showAsAction": "always"
+							}
+						]
+					}
+				},
+				"adapter": []
+			}
+		},{
+			 "control_id":"page_form",
+			    "xtype":"FormWidget",
+			    "layout":"",
+			    "position":[
+			        {
+			            "key":"parent",
+			            "value":"activity_item_container_llayout"
+			        },
+			        {
+			            "key":"location",
+			            "value":"0"
+			        },
+			        {
+			            "key":"insertType",
+			            "value":"1"
+			        }
+			    ],
+			    "attr":[
+			        
+			    ],
+			    "configs":[
+			        {
+			            "key":"test",
+			            "value":"test"
+			        }
+			    ],
+			    "setEvent":[
+			        {
+			            "id":"widget_form_button_next",
+			            "name":"buttonClick",
+			            "params":[
+			                {
+			                    "key":"button",
+			                    "value":"{_widgetData.button_next}",
+			                    "defaultValue":""
+			                }
+			            ],
+			            "javascript":"alert(params.button);"
+			        },
+			        {
+			            "id":"widget_form_button_submit",
+			            "name":"buttonClick",
+			            "params":[
+			                {
+			                    "key":"username",
+			                    "value":"{_widgetConfig.TextInput}",
+			                    "defaultValue":""
+			                },
+			                {
+			                    "key":"password",
+			                    "value":"{_widgetConfig.PasswordInput}",
+			                    "defaultValue":""
+			                }
+			            ],
+			            "javascript":"new UserController().doLogin({'username':params.username,'password':params.password,'successUri':'pecct://user/feedbackPage'});"
+			        },
+			        {
+			            "id":"widget_form_button_cancel",
+			            "name":"buttonClick",
+			            "params":[
+			                {
+			                    "key":"button",
+			                    "value":"{_widgetData.button_cancel}",
+			                    "defaultValue":""
+			                }
+			            ],
+			            "javascript":"alert(params.button);"
+			        }
+			    ],
+			    "datasource":{
+			        "method":"http://abc/",
+			        "params":[
+			            
+			        ],
+			        "data":{
+			            "subtilte":"",
+			            "button_submit":"登录",
+			            "title":"title",
+			            "_uri":"",
+			            "post_uri":"",
+			            "check_enable_uri":"",
+			            "input_list":[
+			            		{
+				                    "input_id":"003",
+				                    "input_type":"",
+				                    "default_layout":"label",
+				                    "name":"手机号",
+				                    "text":"手机号",
+				                    "default_value":"",
+				                    "background_wrods":"手机号",
+				                    "des_wrods":"",
+				                    "checker_uri":""
+				                },
+				                {
+				                    "input_id":"001",
+				                    "input_type":"",
+				                    "default_layout":"text",
+				                    "name":"TextInput",
+				                    "text":"",
+				                    "default_value":"",
+				                    "background_wrods":"请输入手机号……",
+				                    "des_wrods":"",
+				                    "checker_uri":""
+				                },
+				                {
+				                    "input_id":"003",
+				                    "input_type":"",
+				                    "default_layout":"label",
+				                    "name":"密码",
+				                    "text":"密码",
+				                    "default_value":"",
+				                    "background_wrods":"密码",
+				                    "des_wrods":"",
+				                    "checker_uri":""
+				                },
+				                {
+				                    "input_id":"002",
+				                    "input_type":"",
+				                    "default_layout":"password",
+				                    "name":"PasswordInput",
+				                    "text":"",
+				                    "default_value":"",
+				                    "background_wrods":"请输入密码……",
+				                    "des_wrods":"",
+				                    "checker_uri":""
+				                }
+				            ],
+			            "helper_list":[
+			            ]
+			        }
+			    }
+			}
+		]
+}

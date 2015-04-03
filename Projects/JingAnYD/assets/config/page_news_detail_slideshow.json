@@ -1,0 +1,86 @@
+{
+	"name": "page_news_detail_slideshow",
+	"page_id": "page_news_detail_slideshow",
+	"configs": [{
+		"key": "name",
+		"value": ""
+	}, {
+		"key": "page_level",
+		"value": "activity"
+	}],
+	"cmds": [],
+	"datasource": {
+		"method": "content.getcontentinfo",
+		"params": [{
+			"key": "contentid",
+			"value": "{_page.contentid}"
+		}],
+		"data": {},
+		"adapter": [{
+			"key": "model",
+			"value": "free"
+		}, {
+			"key": "ContentInfo.imgList[]",
+			"value": "imgs.itemList[]"
+		}, {
+			"key": "ContentInfo.Title",
+			"value": "actionBartitle.title"
+		}]
+	},
+	"auto_start_controls": ["page_actionBar", "page_fragment_slideshow"],
+	"controls": [{
+		"control_id": "page_actionBar",
+		"xtype": "ActionBarWidget",
+		"layout": "",
+		"position": [],
+		"attr": [],
+		"configs": [],
+		"setEvent": [],
+		"datasource": {
+			"method": "{_pageData.actionBartitle}",
+			"params": [],
+			"data": {},
+			"adapter": [{
+				"key": "model",
+				"value": "free"
+			}, {
+				"key": "title",
+				"value": "title"
+			}, {
+				"key": "{$true}",
+				"value": "withActionBar"
+			}, {
+				"key": "{$true}",
+				"value": "withHomeItem"
+			}]
+		}
+	}, {
+		"control_id": "page_fragment_slideshow",
+		"xtype": "SlideShowWidget",
+		"layout": "",
+		"position": [{
+			"key": "parent",
+			"value": "activity_item_container_llayout"
+		}, {
+			"key": "location",
+			"value": "0"
+		}, {
+			"key": "insertType",
+			"value": "1"
+		}],
+		"attr": [
+
+		],
+		"configs": [{
+			"key": "test",
+			"value": "test"
+		}],
+		"datasource": {
+			"method": "{_pageData.imgs}",
+			"params": [],
+			"data": {},
+			"adapter": []
+		}
+	}]
+
+}

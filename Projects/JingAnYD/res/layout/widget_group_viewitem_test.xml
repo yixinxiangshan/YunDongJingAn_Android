@@ -1,0 +1,22 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/widget_group_viewitem_test_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content">
+
+    <TextView 
+        android:layout_centerVertical="true"
+        android:text="消息推送"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/expand"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        tools:ignore="Orientation" >
+
+    </LinearLayout>
+
+</RelativeLayout>

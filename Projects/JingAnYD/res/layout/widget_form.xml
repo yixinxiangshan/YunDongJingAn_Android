@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_form"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/widget_form_linearlayout_padding" >
+
+            <LinearLayout
+                android:id="@+id/widget_form_headersection"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="@dimen/widget_form_linearlayout_headersection_padding"
+                android:paddingBottom="@dimen/widget_form_linearlayout_headersection_paddingbottom"
+                android:visibility="gone" >
+
+                <TextView
+                    android:id="@+id/widget_form_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="left"
+                    android:maxLines="2"
+                    android:text="@string/app_name"
+                    android:textSize="@dimen/widget_form_textview_textsize"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/widget_form_itemsection"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/widget_form_submitsection"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:id="@+id/widget_form_submitsection_header"
+                    android:layout_width="fill_parent"
+                    android:layout_height="@dimen/widget_form_linearlayout_header_layout_height" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/widget_form_submitsection_helper"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/widget_form_submitsection_header"
+                    android:layout_below="@id/widget_form_submitsection_header"
+                    android:orientation="vertical" >
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/widget_form_submitsection_nextbtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignRight="@id/widget_form_submitsection_header"
+                    android:layout_below="@id/widget_form_submitsection_header" >
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/widget_form_submitsection_submitbtn"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/widget_form_linearlayout_submitbtn_layout_margintop"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

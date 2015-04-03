@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/left_image_relativeLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/widget_listviewitem_common_bg_color"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/left_image"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/widget_listview_item_twoline_linearlayout_left_image_layout_marginbottom"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="@dimen/widget_listview_item_twoline_linearlayout_left_image_layout_margintop"
+            android:background="@drawable/view_bg_round_corner"
+            android:baselineAligned="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <!-- 带阴影的背景图片 -->
+            <!--  -->
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/widget_listview_item_twoline_linearlayout_layout_marginbottom"
+                android:layout_marginLeft="@dimen/widget_listview_item_twoline_linearlayout_layout_marginleft"
+                android:layout_marginRight="@dimen/widget_listview_item_twoline_linearlayout_layout_marginright"
+                android:layout_marginTop="@dimen/widget_listview_item_twoline_linearlayout_layout_margintop"
+                android:layout_weight="1"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="center_vertical"
+                android:orientation="vertical" >
+
+                <!-- title -->
+
+                <RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+
+                    <TextView
+                        android:id="@+id/widget_listview_item_twoline_title"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_toLeftOf="@+id/widget_listview_item_twoline_time"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:tag="contenttitle"
+                        android:text="@string/default_words"
+                        android:textColor="@color/widget_listview_item_twoline_title_textcolor"
+                        android:textSize="@dimen/widget_listview_item_twoline_tile_textsize" />
+
+                    <TextView
+                        android:id="@id/widget_listview_item_twoline_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/default_words"
+                        android:textColor="#000000" />
+                </RelativeLayout>
+				<RelativeLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical" >
+                <TextView
+                    android:id="@+id/widget_listview_item_twoline_subtile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    android:maxLines="2"
+                    android:tag="contentinfo"
+                    android:text="@string/default_words"
+                    />
+
+                <TextView
+                        android:id="@+id/widget_listview_item_twoline_expandtext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                       	android:layout_alignParentRight="true"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/default_words" 
+                        />
+                 </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF" >
+
+    <LinearLayout
+        android:id="@+id/widget_item_news_up"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/page_fragment_wode_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:id="@+id/left_detail_image"
+            android:layout_width="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_layout_width"
+            android:layout_height="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_layout_height"
+            android:layout_margin="8dp"
+            android:background="@drawable/general_shadow"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_padding" >
+
+            <ImageView
+                android:id="@+id/view_image_big_imageview"
+                android:layout_width="@dimen/widget_listview_item_twoline_imageview_left_layout_width"
+                android:layout_height="@dimen/widget_listview_item_twoline_imageview_left_layout_height"
+                android:background="@drawable/default_user"
+                android:contentDescription="@string/default_words"
+                android:scaleType="centerCrop" 
+                android:visibility="gone"/>
+            <ImageView
+                android:id="@+id/view_image_user"
+                android:layout_width="@dimen/widget_listview_item_twoline_imageview_left_layout_width"
+                android:layout_height="@dimen/widget_listview_item_twoline_imageview_left_layout_height"
+                android:background="@drawable/person_grey"
+                android:contentDescription="@string/default_words"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/widget_item_news_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/widget_item_news_textview_content_layout_marginleft"
+            android:maxLines="2"
+            android:textColor="@color/widget_item_news_title_textcolor"
+            android:textSize="@dimen/widget_item_news_textview_title_textsize"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/widget_item_news_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/widget_item_news_textview_content_layout_marginbottom"
+        android:layout_marginLeft="@dimen/widget_item_news_textview_content_layout_marginleft"
+        android:layout_marginRight="@dimen/widget_item_news_textview_content_layout_marginright"
+        android:lineSpacingExtra="@dimen/widget_item_news_textview_content_linespacingextra"
+        android:text="@string/app_name"
+        android:textColor="@color/widget_item_news_textview_content_textcolor"
+        android:textSize="@dimen/widget_item_news_textview_content_textsize"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/widget_item_news_extends"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@id/widget_item_news_up"
+        android:orientation="vertical" />
+
+</RelativeLayout>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="secondary_menu_item">#595757</color>
+    <color name="secondary_menu_item_press_color">#848484</color>
+    <color name="list_item_commoon">#EFEFEF</color>
+</resources>

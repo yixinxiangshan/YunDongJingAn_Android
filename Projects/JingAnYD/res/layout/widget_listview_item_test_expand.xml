@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/left_image_relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:orientation="vertical"
+    android:paddingLeft="10dp" >
+
+    <!-- title -->
+
+    <RelativeLayout
+        android:id="@+id/widget_listview_item_title_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/widget_listview_item_title_layout_margingRight"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:layout_toLeftOf="@+id/image_layout"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/widget_listview_item_twoline_title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toLeftOf="@+id/widget_listview_item_twoline_time"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:tag="contenttitle"
+            android:text="@string/default_words"
+            android:textColor="@color/widget_listview_item_twoline_title_textcolor"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@id/widget_listview_item_twoline_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:text="@string/default_words" />
+
+        <TextView
+            android:id="@+id/widget_listview_item_twoline_subtile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@id/widget_listview_item_twoline_title"
+            android:layout_marginBottom="20dp"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:tag="contentinfo"
+            android:text="@string/default_words"
+            android:textColor="#848484"
+            android:textSize="16sp" 
+            />
+    </RelativeLayout>
+
+    <!-- 带阴影的背景图片 -->
+
+    <LinearLayout
+        android:id="@+id/image_layout"
+        android:layout_width="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_layout_width"
+        android:layout_height="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_layout_height"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/left_image_parrow"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/widget_listview_item_twoline_linearlayout_left_detail_image_padding" >
+
+        <ImageView
+            android:id="@+id/imageview_left"
+            android:layout_width="@dimen/widget_listview_item_twoline_imageview_left_layout_width"
+            android:layout_height="@dimen/widget_listview_item_twoline_imageview_left_layout_height"
+            android:background="@drawable/general_default_simage"
+            android:contentDescription="@string/default_words"
+            android:scaleType="centerCrop"
+            android:tag="simgpath" />
+    </LinearLayout>
+
+    <!-- 右边箭头 -->
+
+    <LinearLayout
+        android:id="@+id/left_image_parrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:visibility="visible" >
+
+        <ImageView
+            android:layout_width="@dimen/widget_listview_item_twoline_imageview_layout_width"
+            android:layout_height="@dimen/widget_listview_item_twoline_imageview_layout_height"
+            android:layout_marginRight="@dimen/widget_listview_item_twoline_imageview_layout_marginright"
+            android:background="@drawable/general_right_parrow"
+            android:contentDescription="@string/default_words"
+            android:focusable="false"
+            android:focusableInTouchMode="false" />
+    </LinearLayout>
+
+</RelativeLayout>

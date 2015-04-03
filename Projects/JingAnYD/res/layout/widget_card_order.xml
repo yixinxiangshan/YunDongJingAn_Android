@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget_card_llayout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/widget_card_llayout_margin"
+    android:background="@drawable/view_bg_round_corner"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/widget_card_llayout_header_llayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        android:visibility="gone"
+        >
+
+        <TextView
+            android:id="@+id/widget_card_header_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/widget_card_llayout_header_text_padding"
+            android:text="@string/default_words"
+            android:textColor="@color/widget_card_llayout_header_text1_color"
+            android:textSize="@dimen/widget_card_llayout_header_text1_textsize" />
+
+        <TextView
+            android:id="@+id/widget_card_header_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/widget_card_llayout_header_text_padding"
+            android:text="@string/default_words"
+            android:textColor="@color/widget_card_llayout_header_text2_color"
+            android:textSize="@dimen/widget_card_llayout_header_text2_textsize"
+            android:visibility="gone" />
+
+        <Button
+            android:id="@+id/widget_card_header_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/default_words"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <include
+        android:id="@+id/widget_card_separate_header"
+        layout="@layout/view_separation" />
+
+    <LinearLayout
+        android:id="@+id/widget_card_llayout_content_llayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="20dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp" >
+    </LinearLayout>
+
+    <include
+        android:id="@+id/widget_card_separate_root"
+        layout="@layout/view_separation" />
+
+    <LinearLayout
+        android:id="@+id/widget_card_llayout_foot_llayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:orientation="horizontal" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" 
+            android:visibility="gone"
+            >
+
+            <TextView
+                android:id="@+id/widget_card_foot_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/widget_card_llayout_foot_text_padding"
+                android:text="@string/default_words"
+                android:textColor="@color/widget_card_llayout_foot_text1_color"
+                android:textSize="@dimen/widget_card_llayout_foot_text1_textsize"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/widget_card_foot_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/widget_card_llayout_foot_text_padding"
+                android:text="@string/default_words"
+                android:textColor="@color/widget_card_llayout_foot_text2_color"
+                android:textSize="@dimen/widget_card_llayout_foot_text2_textsize"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/widget_card_foot_text3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/widget_card_llayout_foot_text_padding"
+                android:text="@string/default_words"
+                android:textColor="@color/widget_card_llayout_foot_text3_color"
+                android:textSize="@dimen/widget_card_llayout_foot_text3_textsize" />
+
+            <TextView
+                android:id="@+id/widget_card_foot_text4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/widget_card_llayout_foot_text_padding"
+                android:text="@string/default_words"
+                android:textColor="@color/widget_card_llayout_foot_text4_color"
+                android:textSize="@dimen/widget_card_llayout_foot_text4_textsize" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

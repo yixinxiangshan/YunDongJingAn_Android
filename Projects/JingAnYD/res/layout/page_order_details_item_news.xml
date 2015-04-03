@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#F2F3F3"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="none" >
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/widget_item_news_linearlayouttextview_layout_marginbottom"
+                android:layout_marginLeft="@dimen/widget_item_news_linearlayouttextview_layout_marginleft"
+                android:layout_marginRight="@dimen/widget_item_news_linearlayouttextview_layout_marginright"
+                android:layout_marginTop="@dimen/widget_item_news_linearlayouttextview_layout_margintop"
+                android:orientation="vertical" 
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/widget_item_news_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/widget_item_news_textview_title_layout_margin"
+                    android:maxLines="2"
+                    android:text=""
+                    android:textColor="@color/widget_item_news_title_textcolor"
+                    android:textSize="@dimen/widget_item_news_textview_title_textsize"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/view_image_big"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/widget_listview_item_twoline_expandtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/widget_item_news_textview_content_layout_marginleft"
+                android:layout_marginRight="@dimen/widget_item_news_textview_content_layout_marginright"
+                android:lineSpacingExtra="@dimen/widget_item_news_textview_content_linespacingextra"
+                android:textColor="@color/widget_item_news_textview_content_textcolor"
+                android:textSize="13dp" 
+                />
+
+            <TextView
+                android:id="@+id/widget_item_news_des"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/widget_item_news_textview_des_layout_marginleft"
+                android:textColor="#666666"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_item_news_linearlayoutbutton_layout_margin"
+                android:layout_marginBottom="@dimen/widget_item_news_linearlayoutbutton_layout_marginbottom"
+                android:gravity="center_vertical" >
+
+                <Button
+                    android:id="@+id/widget_item_news_comments"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/general_btn_submit"
+                    android:text="@string/widget_item_news_button_text"
+                    android:textColor="@color/widget_item_news_textview_button_textcolor"
+                    android:textSize="@dimen/widget_item_news_button_textsize"
+                    android:visibility="gone" >
+                </Button>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!--
+         <Button 
+        android:id="@+id/testRefresh"
+        android:text="testRefresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></Button>
+    -->
+
+</LinearLayout>

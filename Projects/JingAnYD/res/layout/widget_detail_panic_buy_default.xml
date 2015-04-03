@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/widget_detail_panic_buy_default_bgcolor"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/widget_detail_panic_buy_default_layout_padding" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical" >
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/view_detail_up_part" />
+
+            <LinearLayout
+                android:id="@+id/widget_panic_buy_extends"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_detail_panic_buy_count_margin"
+                android:background="#cc0000" >
+            </LinearLayout>
+
+            <!--
+                 <Button
+                android:id="@+id/widget_detail_panic_buy_applybt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_detail_panic_buy_applybt_margin"
+                android:background="@drawable/widget_panic_buy_applybt_active_bg"
+                android:text="@string/widget_detail_panic_buy_applybt_text_default"
+                android:textColor="@color/widget_detail_panic_buy_applybt_textcolor"
+                android:textSize="@dimen/widget_detail_panic_buy_applybt_textsize" />
+            -->
+
+            <LinearLayout
+                android:id="@+id/widget_panic_buy_extends2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/widget_detail_panic_buy_applybt_margin" >
+            </LinearLayout>
+
+            <include
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/view_panic_buy_desc" />
+
+            <Button
+                android:id="@+id/widget_item_news_comments"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/general_btn_submit"
+                android:text="@string/widget_item_news_button_text"
+                android:textColor="@color/widget_detail_panic_buy_commentbt_textcolor"
+                android:textSize="@dimen/widget_item_news_button_textsize"
+                android:visibility="gone" >
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

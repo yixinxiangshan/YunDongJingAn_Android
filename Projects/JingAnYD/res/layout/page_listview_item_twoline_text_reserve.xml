@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/left_image_relativeLayout"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/widget_listview_item_twoline_relativelayout_layout_height"
+    android:background="#EFEFEF"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
+    android:descendantFocusability="blocksDescendants"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:id="@+id/left_image"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/widget_listview_item_twoline_linearlayout_left_image_layout_marginbottom"
+        android:layout_marginTop="@dimen/widget_listview_item_twoline_linearlayout_left_image_layout_margintop"
+        android:baselineAligned="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <!-- 带阴影的背景图片 -->
+        <!--  -->
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/widget_listview_item_twoline_linearlayout_layout_marginbottom"
+            android:layout_marginLeft="18dp"
+            android:layout_marginRight="@dimen/widget_listview_item_twoline_linearlayout_layout_marginright"
+            android:layout_marginTop="@dimen/widget_listview_item_twoline_linearlayout_layout_margintop"
+            android:layout_weight="1"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center_vertical"
+            android:orientation="vertical" >
+
+            <!-- title -->
+
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                >
+
+                <TextView
+                    android:id="@+id/widget_listview_item_twoline_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_toLeftOf="@+id/widget_listview_item_twoline_time"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:tag="contenttitle"
+                    android:text="@string/default_words"
+                    android:textColor="@color/widget_listview_item_twoline_title_textcolor"
+                    android:textSize="16sp" />
+                <TextView  android:id="@id/widget_listview_item_twoline_time"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000000"
+                    android:textSize="16sp"
+                    android:text="@string/default_words"/>
+            </RelativeLayout>
+             <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                >
+			  <TextView
+			      android:id="@+id/price_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_gravity="center_horizontal"
+                android:maxLines="2"
+                android:tag="contentinfo"
+                android:text="现价："
+                android:textColor="#000000"
+                android:textSize="18sp" />
+			   <TextView
+                android:id="@+id/widget_listview_item_twoline_subtile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/price_title"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_marginTop="10dp"
+                android:maxLines="2"
+                android:tag="contentinfo"
+                android:text="20"
+                android:textColor="#DC143C"
+                android:textSize="18sp" />
+            <TextView
+                android:id="@+id/widget_listview_item_twoline_expandtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_toRightOf="@+id/widget_listview_item_twoline_subtile"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:layout_gravity="center_horizontal"
+                android:maxLines="2"
+                android:tag="contentinfo"
+                android:text="@string/default_words"
+                android:textSize="18sp" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,39 @@
+{
+  "uninstall_package" : "",
+  "appname" : "jayd",
+  "start_controller": "page_index_tab",
+  "startPushService": "false",
+  "splash": {},
+  "guide":{
+    	"showGuide":"false",
+        "datasource": {
+        "method": "http://abc/",
+        "data": {
+          "guideImgList": [
+            {
+              "image_cover": "proj_activity_guide_01"
+            },
+             {
+              "image_cover": "proj_activity_guide_02"
+            },
+             {
+              "image_cover": "proj_activity_guide_03"
+            },
+             {
+              "image_cover": "proj_activity_guide_04"
+            },
+             {
+              "image_cover": "proj_activity_guide_03"
+            },
+             {
+              "image_cover": "proj_activity_guide_04"
+            }
+          ]
+        }
+      }
+  },
+  "controllerFilter":{
+  },
+  "menu": [
+  ]
+}
