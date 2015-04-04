@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/view_panic_buy_desc_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/view_panic_buy_des_bg"
+    android:padding="@dimen/view_panic_buy_desc_rlayout_padding" >
+
+    <TextView
+        android:id="@+id/view_panic_buy_desc_text_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/view_panic_buy_desc_text_content_textcolor"
+        android:textSize="@dimen/view_panic_buy_desc_text_content_textsize"
+        android:layout_marginBottom="@dimen/view_panic_buy_desc_text_content_marginbottom"/>
+    
+    <TextView
+        android:id="@+id/view_panic_buy_desc_text_starttime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/view_panic_buy_desc_text_starttime_textcolor"
+        android:textSize="@dimen/view_panic_buy_desc_text_starttime_textsize" />
+    
+    <TextView
+        android:id="@+id/view_panic_buy_desc_text_endtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/view_panic_buy_desc_text_endtime_textcolor"
+        android:textSize="@dimen/view_panic_buy_desc_text_endtime_textsize" />
+
+</LinearLayout>

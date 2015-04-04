@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="textedit_radius">3dp</dimen>
+    <dimen name="corner_radius">5dp</dimen>
+    <dimen name="tab_space_top">4dp</dimen>
+    <dimen name="tab_space">0dp</dimen>
+    <dimen name="tab_space_plus1">3dp</dimen>
+    <dimen name="tab_space_bottom_line">36sp</dimen>
+    <dimen name="tab_space_unselected_top">6sp</dimen>
+
+    <!-- proj_activity_tab_item_focus -->
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabtransparent_bottom">26dp</dimen>
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabtransparent_top">1dp</dimen>
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabbackground_bottom">1dp</dimen>
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabbackground_left">1dp</dimen>
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabbackground_right">1dp</dimen>
+    <dimen name="proj_activity_tab_item_focus_layer_item_tabbackground_top">1dp</dimen>
+    <!-- proj_activity_tab_item_press -->
+    <dimen name="proj_activity_tab_item_press_layer_item_tabtransparent_bottom">26dp</dimen>
+    <dimen name="proj_activity_tab_item_press_layer_item_tabtransparent_top">1dp</dimen>
+    <dimen name="proj_activity_tab_item_press_layer_item_tabbackground_bottom">2dp</dimen>
+    <dimen name="proj_activity_tab_item_press_layer_item_tabbackground_left">2dp</dimen>
+    <dimen name="proj_activity_tab_item_press_layer_item_tabbackground_right">2dp</dimen>
+    <dimen name="proj_activity_tab_item_press_layer_item_tabbackground_top">3dp</dimen>
+    <!-- proj_activity_tab_item_selected -->
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabtransparent_bottom">26dp</dimen>
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabtransparent_top">1dp</dimen>
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabbackground_bottom">2dp</dimen>
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabbackground_left">2dp</dimen>
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabbackground_right">2dp</dimen>
+    <dimen name="proj_activity_tab_item_selected_layer_item_tabbackground_top">3dp</dimen>
+    <!-- proj_activity_tab_item_unselected -->
+    <dimen name="proj_activity_tab_item_unselected_layer_item_tabtransparent_bottom">26dp</dimen>
+    <dimen name="proj_activity_tab_item_unselected_layer_item_tabtransparent_top">1dp</dimen>
+    <!-- widget_form_input_style -->
+    <dimen name="widget_form_input_style_stroke_width">2dp</dimen>
+    <dimen name="widget_form_input_style_padding_bottom">10dp</dimen>
+    <dimen name="widget_form_input_style_padding_left">10dp</dimen>
+    <dimen name="widget_form_input_style_padding_right">10dp</dimen>
+    <dimen name="widget_form_input_style_padding_top">10dp</dimen>
+    <!-- activity_item -->
+    <dimen name="activity_item_linearlayout_item_layout_height">0dp</dimen>
+    <!-- activity_map_location_popview -->
+    <dimen name="activity_map_location_popview_relativeLayout_paddingbottom">10dp</dimen>
+    <dimen name="activity_map_location_popview_relativeLayout_paddingleft">5dp</dimen>
+    <dimen name="activity_map_location_popview_relativeLayout_paddingright">5dp</dimen>
+    <dimen name="activity_map_location_popview_relativeLayout_paddingtop">5dp</dimen>
+    <dimen name="activity_map_location_popview_textview_location_title_layout_margin">2dp</dimen>
+    <dimen name="activity_map_location_popview_textview_location_title_textsize">16sp</dimen>
+    <dimen name="activity_map_location_popview_textview_location_address_layout_margin">2dp</dimen>
+    <dimen name="activity_map_location_popview_textview_location_number_layout_margin">2dp</dimen>
+    <!-- activity_map_main_layout -->
+    <dimen name="activity_map_main_layout_relativelayout_padding">0dp</dimen>
+    <dimen name="activity_map_relativelayout_edit_padding">5dp</dimen>
+    <dimen name="activity_map_main_layout_button_exchange_button_layout_margin">10dp</dimen>
+    <!-- activity_tab_item -->
+    <dimen name="activity_tab_item_relativelayout_layout_width">0dp</dimen>
+    <dimen name="activity_tab_item_relativelayout_layout_height">55dp</dimen>
+    <dimen name="activity_tab_item_relativelayout_padding">5dp</dimen>
+    <dimen name="activity_tab_item_textview_textsize">12sp</dimen>
+    <!-- activity_tab -->
+    <dimen name="activity_tab_framelayout_layout_height">0dp</dimen>
+    <!-- widget_channel_tab_default -->
+    <dimen name="widget_channel_tab_default_viewpagertabbutton_layout_width">0dp</dimen>
+    <dimen name="widget_channel_tab_default_viewpagertabbutton_paddingbottom">10dp</dimen>
+    <dimen name="widget_channel_tab_default_viewpagertabbutton_paddingtop">8dp</dimen>
+    <dimen name="widget_channel_tab_default_viewpagertabbutton_textsize">12sp</dimen>
+    <dimen name="widget_channel_tab_default_viewpagertabbutton_lineheight">1dp</dimen>
+    <!-- widget_form_button_cancel -->
+    <dimen name="widget_form_button_cancel_button_textsize">18sp</dimen>
+    <!-- widget_form_button_next -->
+    <dimen name="widget_form_button_next_button_textsize">18sp</dimen>
+    <!-- widget_form_button_submit -->
+    <dimen name="widget_form_button_submit_button_textsize">18sp</dimen>
+    <!-- widget_form_clicklable -->
+    <dimen name="widget_form_clicklable_textview_textsize">16sp</dimen>
+    <!-- widget_form_description -->
+    <dimen name="widget_form_description_textview_paddingbottom">10dp</dimen>
+    <dimen name="widget_form_description_textview_paddingtop">5dp</dimen>
+    <dimen name="widget_form_description_textview_textsize">13sp</dimen>
+    <!-- widget_form_input_checkbox -->
+    <dimen name="widget_form_input_checkbox_checkbox_textsize">18sp</dimen>
+    <!-- widget_form_input_lable -->
+    <dimen name="widget_form_input_lable_textview_textsize">18sp</dimen>
+    <!-- widget_form_input_number -->
+    <dimen name="widget_form_input_number_edittext_layout_margin">10dp</dimen>
+    <dimen name="widget_form_input_number_edittext_textsize">18sp</dimen>
+    <!-- widget_form_input_password -->
+    <dimen name="widget_form_input_password_edittext_layout_margin">10dp</dimen>
+    <dimen name="widget_form_input_password_edittext_textsize">18sp</dimen>
+    <!-- widget_form_input_radio -->
+    <dimen name="widget_form_input_radio_radiogroup_textsize">18sp</dimen>
+    <!-- widget_form_input_select -->
+    <dimen name="widget_form_input_select_spinner_textsize">18sp</dimen>
+    <!-- widget_form_input_selectitem -->
+    <dimen name="widget_form_input_selectitem_textview_padding">8dp</dimen>
+    <dimen name="widget_form_input_selectitem_textview_textsize">18sp</dimen>
+    <!-- widget_form_input_text -->
+    <dimen name="widget_form_input_text_edittext_layout_margin">10dp</dimen>
+    <dimen name="widget_form_input_text_edittext_textsize">18sp</dimen>
+    <!-- widget_form_input_textarea -->
+    <dimen name="widget_form_input_textarea_edittext_textsize">18sp</dimen>
+    <!-- widget_form_sep -->
+    <dimen name="widget_form_sep_textview_paddingtop">5dp</dimen>
+    <dimen name="widget_form_sep_textview_textsize">0sp</dimen>
+    <!-- widget_form -->
+    <dimen name="widget_form_linearlayout_padding">10dp</dimen>
+    <dimen name="widget_form_linearlayout_headersection_padding">10dp</dimen>
+    <dimen name="widget_form_linearlayout_headersection_paddingbottom">20dp</dimen>
+    <dimen name="widget_form_textview_textsize">20sp</dimen>
+    <dimen name="widget_form_linearlayout_header_layout_height">0dp</dimen>
+    <dimen name="widget_form_linearlayout_submitbtn_layout_margintop">10dp</dimen>
+    <!-- widget_grid -->
+    <dimen name="widget_grid_llayout_padding">10dp</dimen>
+    <!-- widget_grid_item -->
+    <dimen name="widget_grid_item_rlayout_padding">5dp</dimen>
+    <dimen name="widget_grid_item_imageview_layout_width">110dp</dimen>
+    <dimen name="widget_grid_item_imageview_layout_height">150dp</dimen>
+    <dimen name="widget_grid_item_imageview_layout_margin">3dp</dimen>
+    <dimen name="widget_grid_item_title_marginleft">0dp</dimen>
+    <dimen name="widget_grid_item_textview_textsize">14sp</dimen>
+    <!-- widget_item_news_bigimage -->
+    <dimen name="widget_item_news_bigimage_tablelayout_layout_margin">5dp</dimen>
+    <dimen name="widget_item_news_bigimage_tablerow_layout_marginleft">5dp</dimen>
+    <dimen name="widget_item_news_bigimage_tablerow_layout_marginright">5dp</dimen>
+    <dimen name="widget_item_news_bigimage_textview_layout_width">8dp</dimen>
+    <dimen name="widget_item_news_bigimage_textview_layout_height">8dp</dimen>
+    <!-- widget_item_news -->
+    <dimen name="widget_item_news_scrollview_layout_height">0dp</dimen>
+    <dimen name="widget_item_news_linearlayouttextview_layout_marginbottom">20dp</dimen>
+    <dimen name="widget_item_news_linearlayouttextview_layout_marginleft">10dp</dimen>
+    <dimen name="widget_item_news_linearlayouttextview_layout_marginright">10dp</dimen>
+    <dimen name="widget_item_news_linearlayouttextview_layout_margintop">10dp</dimen>
+    <dimen name="widget_item_news_textview_title_layout_margin">6dp</dimen>
+    <dimen name="widget_item_news_textview_title_textsize">18sp</dimen>
+    <dimen name="widget_item_news_textview_des_layout_marginleft">6dp</dimen>
+    <dimen name="widget_item_news_textview_des_textsize">12sp</dimen>
+    <dimen name="widget_item_news_textview_content_layout_marginbottom">10dp</dimen>
+    <dimen name="widget_item_news_textview_content_layout_marginleft">14dp</dimen>
+    <dimen name="widget_item_news_textview_content_layout_marginright">10dp</dimen>
+    <dimen name="widget_item_news_textview_content_layout_margintop">20dp</dimen>
+    <dimen name="widget_item_news_textview_content_linespacingextra">5dp</dimen>
+    <dimen name="widget_item_news_textview_content_textsize">16sp</dimen>
+    <dimen name="widget_item_news_linearlayoutbutton_layout_margin">10dp</dimen>
+    <dimen name="widget_item_news_linearlayoutbutton_layout_marginbottom">20sp</dimen>
+    <dimen name="widget_item_news_button_textsize">18sp</dimen>
+    <!-- widget_layout_button_default -->
+    <dimen name="widget_layout_button_default_linearlayout_padding">20dp</dimen>
+    <dimen name="widget_layout_button_default_imageview_layout_margintop">20dp</dimen>
+    <dimen name="widget_layout_button_default_gridview_layout_verticalspacing">20dp</dimen>
+    <!-- widget_listview_default -->
+    <dimen name="widget_listview_rootview_llayout_padding">10dp</dimen>
+    <!-- widget_listview_item_twoline -->
+    <dimen name="widget_listview_item_twoline_relativelayout_padding">3dp</dimen>
+    <dimen name="widget_listview_item_twoline_relativelayout_layout_height">100dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_left_image_layout_marginbottom">10dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_left_image_layout_margintop">8dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_left_detail_image_layout_width">96dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_left_detail_image_layout_height">75dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_left_detail_image_padding">6dp</dimen>
+    <dimen name="widget_listview_item_twoline_imageview_left_layout_width">84dp</dimen>
+    <dimen name="widget_listview_item_twoline_imageview_left_layout_height">63dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_layout_marginbottom">5dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_layout_marginleft">10dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_layout_marginright">8dp</dimen>
+    <dimen name="widget_listview_item_twoline_linearlayout_layout_margintop">0dp</dimen>
+    <dimen name="widget_listview_item_twoline_tile_textsize">14sp</dimen>
+    <dimen name="widget_listview_item_twoline_subtile_margintop">3dp</dimen>
+    <dimen name="widget_listview_item_twoline_subtile_textsize">12sp</dimen>
+    <dimen name="widget_listview_item_twoline_imageview_layout_width">10dp</dimen>
+    <dimen name="widget_listview_item_twoline_imageview_layout_height">17dp</dimen>
+    <dimen name="widget_listview_item_twoline_imageview_layout_marginright">6dp</dimen>
+    <dimen name="widget_listview_item_title_layout_margingTop">8dp</dimen>
+    <dimen name="widget_listview_item_title_layout_marginLeft">10dp</dimen>
+    <dimen name="widget_listview_item_title_layout_margingRight">20dp</dimen>
+    <dimen name="widget_listview_item_left_image_parrow_paddingLeft">10dp</dimen>
+    <!-- widget_loading_default -->
+    <dimen name="widget_loading_default_textview_layout_marginleft">12dp</dimen>
+    <!-- widget_prog_apply -->
+    <dimen name="widget_prog_apply_linearlayout_layout_margin">10dp</dimen>
+    <dimen name="widget_prog_apply_linearlayout_layout_marginbottom">20dp</dimen>
+    <dimen name="widget_prog_apply_button_apply_btn_textsize">18dp</dimen>
+    <!-- widget_slideshow_item -->
+    <dimen name="widget_slideshow_item_textview_des_layout_margin">10dp</dimen>
+    <dimen name="widget_slideshow_item_textview_des_textsize">15sp</dimen>
+
+    <!-- view_panic_buy_desc -->
+    <dimen name="view_panic_buy_desc_rlayout_padding">20dp</dimen>
+    <dimen name="view_panic_buy_desc_text_content_textsize">16sp</dimen>
+    <dimen name="view_panic_buy_desc_text_starttime_textsize">16sp</dimen>
+    <dimen name="view_panic_buy_desc_text_endtime_textsize">16sp</dimen>
+    <dimen name="view_panic_buy_desc_text_content_marginbottom">20dp</dimen>
+
+    <!-- view_count_down_item -->
+    <dimen name="view_count_down_item_value_textsize">20sp</dimen>
+    <dimen name="view_count_down_item_unit_textsize">16sp</dimen>
+    <dimen name="view_count_down_item_value_padding">2dp</dimen>
+    <dimen name="view_count_down_item_unit_padding">2dp</dimen>
+
+    <!-- view_image_big -->
+    <dimen name="view_image_big_layout_paddingtop">0dp</dimen>
+    <dimen name="view_image_big_layout_paddingleft">0dp</dimen>
+    <dimen name="view_image_big_layout_paddingright">0dp</dimen>
+    <dimen name="view_image_big_layout_paddingbottom">0dp</dimen>
+
+    <!-- widget_detail_panic_buy_default -->
+    <dimen name="widget_detail_panic_buy_default_layout_padding">10dp</dimen>
+    <dimen name="widget_detail_panic_buy_count_margin">10dp</dimen>
+    <dimen name="widget_detail_panic_buy_applybt_margin">10dp</dimen>
+    <dimen name="widget_detail_panic_buy_applybt_textsize">16sp</dimen>
+    <!-- WidgetMultiViewpager -->
+    <dimen name="multi_viewpager_widget_pagercontainer_padding_top">10dp</dimen>
+    <dimen name="multi_viewpager_widget_pagercontainer_padding_bottom">10dp</dimen>
+
+    <!-- WinMetroWidget -->
+    <dimen name="widget_win_metro_item_layout_padding">10dp</dimen>
+
+    <!-- widget_list_item -->
+    <dimen name="widget_list_item_oneline_rlayout_padding">10dp</dimen>
+    <dimen name="widget_list_item_oneline_rlayout_margin_top">10dp</dimen>
+    <dimen name="widget_list_item_oneline_rlayout_margin_bottom">10dp</dimen>
+    <dimen name="widget_list_item_oneline_rlayout_margin_left">10dp</dimen>
+    <dimen name="widget_list_item_oneline_rlayout_margin_right">10dp</dimen>
+    <dimen name="widget_list_item_oneline_title_textsize">14sp</dimen>
+    <dimen name="widget_list_item_oneline_title_margin_left">10dp</dimen>
+    <dimen name="widget_list_item_oneline_title_margin_right">10dp</dimen>
+
+    <!-- LayoutSlidingActivity -->
+    <dimen name="activity_slidemenu_behindwidth">200dp</dimen>
+    <!-- widget card -->
+    <dimen name="widget_card_llayout_margin">10dp</dimen>
+    <dimen name="widget_card_llayout_header_text1_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_header_text2_textsize">12sp</dimen>
+    <dimen name="widget_card_llayout_header_text3_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_header_text4_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_foot_text1_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_foot_text2_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_foot_text3_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_foot_text4_textsize">16sp</dimen>
+    <dimen name="widget_card_llayout_header_text_padding">8dp</dimen>
+    <dimen name="widget_card_llayout_foot_text_padding">8dp</dimen>
+    <!-- view separation -->
+    <dimen name="view_separation_margin">4dp</dimen>
+    <!-- calendar widget -->
+    <dimen name="widget_calendar_view_padding_bottom">16dp</dimen>
+    <dimen name="widget_calendar_view_padding_left">16dp</dimen>
+    <dimen name="widget_calendar_view_padding_right">16dp</dimen>
+
+    <!-- dimen as project -->
+    <dimen name="page_padding_left">10dp</dimen>
+	 <!-- widget ECSignInputWidget -->
+    <dimen name="widget_sign_input_edit_textsize">50sp</dimen>
+</resources>

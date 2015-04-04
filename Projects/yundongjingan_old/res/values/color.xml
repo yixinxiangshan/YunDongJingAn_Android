@@ -3,4 +3,188 @@
     <color name="secondary_menu_item">#595757</color>
     <color name="secondary_menu_item_press_color">#848484</color>
     <color name="list_item_commoon">#EFEFEF</color>
+    
+    <color name="actionbar_separator">#CCCCCC</color>
+    <color name="actionbar_background_start">#000000</color>
+    <color name="actionbar_background_end">#000000</color>
+    <color name="list_item">#ffffff</color>
+    <!-- item颜色 -->
+    <color name="list_item_press">#cccccc</color>
+    <!-- item按下颜色 -->
+
+
+    <!-- 颜色 -->
+    <color name="gray">#808080</color>
+    <color name="black">#000000</color>
+    <color name="Pink">#FFC0CB</color>
+    <color name="Blue">#0000FF</color>
+    <color name="LightSeaGreen">#20B2AA</color>    
+    <color name="Green">#008000</color>
+    <color name="GreenYellow">#ADFF2F</color>
+    <color name="Yellow">#FFFF00</color>
+    <color name="Olive">#808000</color>
+    <color name="Gold">#FFD700</color>
+    <color name="Orange">#FFA500</color>
+    <color name="Red">#FF0000</color>
+    <color name="OrangeRed">#FF4500</color>
+    <color name="WhiteSmoke">#F5F5F5</color>
+    <color name="Silver">#C0C0C0</color>
+    <!-- tab 相关颜色 -->
+    <color name="tabMedium">#2B2B2B</color>
+    <color name="tabDark">#000000</color>
+    <color name="tabTransparent">#10FFFFFF</color>
+
+    <!-- 一下代码请勿随便更改名称 -->
+    <!-- 底排menu未选中项的颜色 -->
+    <color name="bottom_tab_non_choice_color">#666666</color>
+    <color name="ad_title_color">#595757</color>
+    <color name="ad_cotent_color">#727171</color>
+    <color name="vip_login_bg_color">#DAD5D4</color>
+    <color name="login_choice_color">#0092CF</color>
+    <color name="login_non_choice_color">#595757</color>
+    <color name="image_bg">#E3E3E3</color>
+
+    <!-- proj_activity_tab_icon_shadow -->
+    <color name="proj_activity_tab_icon_shadow_gradient_endcolor">#00000000</color>
+    <color name="proj_activity_tab_icon_shadow_gradient_startcolor">#33000000</color>
+    <!-- proj_activity_tab_item_focus -->
+    <color name="proj_activity_tab_item_focus_layer_item_tabbackground_gradient_endcolor">#50FFFFFF</color>
+    <color name="proj_activity_tab_item_focus_layer_item_tabbackground_gradient_startcolor">#50FFFFFF</color>
+    <!-- proj_activity_tab_item_press -->
+    <color name="proj_activity_tab_item_press_layer_item_tabbackground_gradient_endcolor">#20FFFFFF</color>
+    <color name="proj_activity_tab_item_press_layer_item_tabbackground_gradient_startcolor">#20FFFFFF</color>
+    <!-- proj_activity_tab_item_selected -->
+    <color name="proj_activity_tab_item_selected_layer_item_tabbackground_gradient_endcolor">#20FFFFFF</color>
+    <color name="proj_activity_tab_item_selected_layer_item_tabbackground_gradient_startcolor">#20FFFFFF</color>
+    <!-- widget_form_clicklable_textcolor -->
+    <color name="widget_form_clicklable_textcolor_selector_item_state_pressedtrue_color">#5779C6</color>
+    <color name="widget_form_clicklable_textcolor_selector_item_state_pressedfalse_color">#2E4A89</color>
+    <color name="widget_form_clicklable_textcolor_selector_item_state_enabledfalse_color">#808080</color>
+    <color name="widget_form_clicklable_textcolor_selector_item_state_focusedtrue_color">#5779C6</color>
+    <!-- widget_form_input_style -->
+    <color name="widget_form_input_style_shape_stroke_color">#969696</color>
+    <color name="widget_form_input_style_shape_gradient_centercolor">#FFFFFF</color>
+    <color name="widget_form_input_style_shape_gradient_endcolor">#FFFFFF</color>
+    <color name="widget_form_input_style_shape_gradient_startcolor">#FFFFFF</color>
+    <!-- widget_tab_icon_background_focused -->
+    <color name="widget_tab_icon_background_focused_gradient_endcolor">#44FFFFFF</color>
+    <color name="widget_tab_icon_background_focused_gradient_startcolor">#44FFFFFF</color>
+    <!-- widget_tab_icon_background_normal -->
+    <color name="widget_tab_icon_background_normal_gradient_endcolor">#00000000</color>
+    <color name="widget_tab_icon_background_normal_gradient_startcolor">#00000000</color>
+    <!-- widget_tab_icon_background_pressed -->
+    <color name="widget_tab_icon_background_pressed_gradient_endcolor">#44FFFFFF</color>
+    <color name="widget_tab_icon_background_pressed_gradient_startcolor">#44FFFFFF</color>
+    <!-- activity_map -->
+    <color name="activity_map_location_popview_textview_location_title_textcolor">#3C3C3C</color>
+    <color name="activity_map_location_popview_textview_location_address_textcolor">#8E8E8E</color>
+    <color name="activity_map_location_popview_textview_location_number_textcolor">#8E8E8E</color>
+    <color name="activity_map_start_text_color">#000000</color>
+    <color name="activity_map_end_text_color">#000000</color>
+    <color name="activity_map_relativelayout_edit_bg">#FFFFFF</color>
+    <!-- activity_map_main_layout -->
+    <color name="activity_map_main_layout_linearlayout_search_layout_background">#EAEAEA</color>
+    <!-- activity_tab -->
+    <color name="activity_tab_linearlayout_content_view_background">#ffffff</color>
+    <!-- widget_channel_default -->
+    <color name="widget_channel_default_fixedtabsview_background">#3C3C3C</color>
+    <!-- widget_channel_tab_default -->
+    <color name="widget_channel_tab_default_tabbutton_background">#CCCCCC</color>
+    <color name="widget_channel_tab_default_tabbutton_textcolor">#000000</color>
+    <!-- widget_form_description -->
+    <color name="widget_form_description_textview_textcolor">#808080</color>
+    <!-- widget_form_sep -->
+    <color name="widget_form_sep_textview_textcolor">#808080</color>
+    <!-- widget_grid_default -->
+    <color name="widget_grid_default_listSelector_color">#00000000</color>
+    <color name="widget_grid_default_linearlayout_background">#ffffff</color>
+    <!-- widget_grid_item -->
+    <color name="widget_grid_item_linearlayout_background">#cccccc</color>
+    <color name="widget_grid_item_textview_item_text_textcolor">#000000</color>
+    <!-- widget_group_default -->
+    <color name="widget_group_default_scrollview_background">#00FFFFFF</color>
+    <!-- widget_item_news -->
+    <color name="widget_item_news_linearlayout_background">#FFFFFF</color>
+    <color name="widget_item_news_textview_title_textcolor">#000000</color>
+    <color name="widget_item_news_textview_des_textcolor">#666666</color>
+    <color name="widget_item_news_textview_content_textcolor">#666666</color>
+    <color name="widget_item_news_textview_button_textcolor">#000000</color>
+    <!-- widget_layout_button_item_default -->
+    <color name="widget_layout_button_item_default_textview_gridtitle_textcolor">#FFFFFF</color>
+    <!-- widget_listview_default -->
+    <color name="widget_listview_default_linearlayout_background">#CC0000</color>
+    <color name="widget_listview_default_pulllistview_background">#FFFFFF</color>
+    <!-- widget_listview_item_twoline -->
+    <color name="widget_listview_item_twoline_title_textcolor">#000000</color>
+    <color name="widget_listview_item_twoline_subtile_textcolor">#AAAAAA</color>
+    <!-- widget_prog_apply -->
+    <color name="widget_prog_apply_linearlayout_background">#FFFFFF</color>
+    <!-- widget_slideshow_item -->
+    <color name="widget_slideshow_item_relativelayout_background">#000000</color>
+    <color name="widget_slideshow_item_textview_des_textcolor">#FFFFFF</color>
+    <!-- widget_detail_panic_buy_default -->
+    <color name="widget_detail_panic_buy_default_bgcolor">#FFFFFF</color>
+    <color name="widget_detail_panic_buy_default_countdown_bgcolor">#A9A9A9</color>
+    <color name="widget_detail_panic_buy_applybt_textcolor">#FFFFFF</color>
+    <color name="widget_item_news_title_textcolor">#000000</color>
+    <color name="widget_detail_panic_buy_commentbt_textcolor">#000000</color>
+    <!-- view_panic_buy_desc -->
+    <color name="view_panic_buy_desc_layout_bgcolor">#DAA520</color>
+    <color name="view_panic_buy_desc_text_content_textcolor">#000000</color>
+    <color name="view_panic_buy_desc_text_starttime_textcolor">#000000</color>
+    <color name="view_panic_buy_desc_text_endtime_textcolor">#000000</color>
+
+    <!-- view_count_down_item -->
+    <color name="view_count_down_item_value_textcolor">#FDF5E6</color>
+    <color name="view_count_down_item_unit_textcolor">#000000</color>
+
+    <!-- WidgetMultiViewpager -->
+    <color name="multi_viewpager_widget_content_layout_bgcolor">#00000000</color>
+    <color name="multi_viewpager_widget_viewpager_container_bgcolor">#FFFFFF</color>
+
+    <!-- widget_list_item_oneline -->
+    <color name="widget_list_item_oneline_rlayout_bg">#CCCCCC</color>
+    <!-- activity_item -->
+    <color name="activity_item_container_llayout_bg">#F2F3F3</color>
+    <!-- activity_video -->
+    <color name="activity_video_container_llayout_bg">#000000</color>
+    <!-- widget card -->
+    <color name="widget_card_llayout_header_text1_color">#000000</color>
+    <color name="widget_card_llayout_header_text2_color">#AAAAAA</color>
+    <color name="widget_card_llayout_header_text3_color">#000000</color>
+    <color name="widget_card_llayout_header_text4_color">#000000</color>
+    <color name="widget_card_llayout_foot_text1_color">#000000</color>
+    <color name="widget_card_llayout_foot_text2_color">#000000</color>
+    <color name="widget_card_llayout_foot_text3_color">#000000</color>
+    <color name="widget_card_llayout_foot_text4_color">#cc0000</color>
+    <color name="choose_eara_item_press_color">#f4f4f4</color>
+    <color name="white">#ffffff</color>
+    <!-- widget canlendar background -->
+    <color name="widget_canlendar_view_background">#FFFFFF</color>
+    <!-- color as project -->
+    <color name="page_backgroud">#F2F3F3</color>
+
+    <!-- widget stickylistheader selector -->
+    <color name="header_normal">#e74c3c</color>
+    <color name="header_pressed">#c0392b</color>
+    <!-- widget matrix  -->
+    <color name="matrix_item_uncheckable">#C0C0C0</color>
+    <color name="matrix_item_checkable">#BCDF4A</color>
+    <color name="matrix_item_checked">#D83830</color>
+    
+    	<!-- LIST BORDER COLOR -->
+	<color name="rounded_container_border">#ffb7babb</color>
+
+	<!-- ITEM BACKGROUND COLOR - STATE - DEFAULT -->
+	<color name="base_start_color_default">#FFFFFF</color>
+    <color name="base_end_color_default">#FFFFFF</color>
+    	
+	<!-- ITEM BACKGROUND COLOR - STATE - PRESSED -->
+	<color name="base_start_color_pressed">#ff3590c4</color>
+    <color name="base_end_color_pressed">#ff2570ba</color>
+    
+    <!-- ITEM TEXT COLORS - STATES - PRESSED AND DEFAULT -->
+    <color name="text_color_default">#000000</color>
+    <color name="text_color_pressed">#ffffff</color>
+    <color name="group_list_container">#00ffffff</color>
 </resources>

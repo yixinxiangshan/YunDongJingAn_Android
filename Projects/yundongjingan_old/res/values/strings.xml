@@ -10,4 +10,8 @@
      <!-- 网络请求相关 -->
     <string name="base_api_url"  tools:ignore="MissingTranslation">http://856854478.cloudapi.nowapp.cn/</string>
 	<string name="xiaozhan_yuding" translatable="false">预  订</string>
+	<string name="default_words">ecloud</string>
+	<string name="loading">加载中&#8230;</string>
+	<string name="widget_item_news_button_text">查看评论列表</string>
+	<string name="preferences_name">Settings</string>
 </resources>
