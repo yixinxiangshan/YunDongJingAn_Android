@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECFramework.iml" filepath="$PROJECT_DIR$/ECFramework/ECFramework.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-AES/ECLibrary-AES.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-AES/ECLibrary-AES.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Appcompat-v7/ECLibrary-Appcompat-v7.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Appcompat-v7/ECLibrary-Appcompat-v7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Camera/ECLibrary-Camera.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Camera/ECLibrary-Camera.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-CaptureQRCode/ECLibrary-CaptureQRCode.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-CaptureQRCode/ECLibrary-CaptureQRCode.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-FloatingActionButton/ECLibrary-FloatingActionButton.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-FloatingActionButton/ECLibrary-FloatingActionButton.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-HoloCircularProgressBar/ECLibrary-HoloCircularProgressBar.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-HoloCircularProgressBar/ECLibrary-HoloCircularProgressBar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-HorizontalListview/ECLibrary-HorizontalListView.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-HorizontalListview/ECLibrary-HorizontalListView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ImageViewZoom/ImageViewTouch/ECLibrary-ImageViewZoom.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ImageViewZoom/ImageViewTouch/ECLibrary-ImageViewZoom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-JV8/ECLibrary-JV8.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-JV8/ECLibrary-JV8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-JazzyViewPager/lib/ECLibrary-JazzyViewPager.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-JazzyViewPager/lib/ECLibrary-JazzyViewPager.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-NumberPicker/ECLibrary-NumberPicker.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-NumberPicker/ECLibrary-NumberPicker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-PulltoRefresh/ECLibrary-PullToRefresh.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-PulltoRefresh/ECLibrary-PullToRefresh.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-TableFixHeaders/ECLibrary-TableFixHeaders.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-TableFixHeaders/ECLibrary-TableFixHeaders.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-times-square/ECLibrary-TimesSquare.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-times-square/ECLibrary-TimesSquare.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ViewBadger/ECLibrary-ViewBadger.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ViewBadger/ECLibrary-ViewBadger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ViewPagerIndicator-2.4.1/ECLibrary-ViewPagerIndicator-2.4.1.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-ViewPagerIndicator-2.4.1/ECLibrary-ViewPagerIndicator-2.4.1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Viewpager-Extensions/ECLibrary-Viewpager-Extensions.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-Viewpager-Extensions/ECLibrary-Viewpager-Extensions.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-VirtualDeviceJv8/ECLibrary-VirtualDeviceJv8.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-VirtualDeviceJv8/ECLibrary-VirtualDeviceJv8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-pinned-section-listview/ECLibrary-pinned-section-listview.iml" filepath="$PROJECT_DIR$/ECFramework/ECLibrary/ECLibrary-pinned-section-listview/ECLibrary-pinned-section-listview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects/kangfuzhushou/Project-kangfuzhushou.iml" filepath="$PROJECT_DIR$/Projects/kangfuzhushou/Project-kangfuzhushou.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Projects/yundongjingan_old/Project-yundongjingan_old.iml" filepath="$PROJECT_DIR$/Projects/yundongjingan_old/Project-yundongjingan_old.iml" />
+    </modules>
+  </component>
+</project>

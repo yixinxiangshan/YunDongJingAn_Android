@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jv8">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ECFramework/libs/jv8.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

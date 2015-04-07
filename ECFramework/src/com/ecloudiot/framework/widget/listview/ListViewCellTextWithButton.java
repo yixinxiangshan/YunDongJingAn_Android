@@ -25,7 +25,7 @@ import com.ecloudiot.framework.widget.listview.ListViewCellTextWithButton.ViewHo
 import com.google.gson.JsonObject;
 
 @SuppressWarnings("hiding")
-public class ListViewCellTextWithButton<ViewHolder, DataModel> extends ListViewCellBase {
+public class ListViewCellTextWithButton extends ListViewCellBase {
 	private static String TAG = "ListViewCellTextWithButton";
 	public ListViewCellTextWithButton(String cellType, Context context, ListViewBaseAdapter listViewBaseAdapter) {
 		super(cellType, context, listViewBaseAdapter);

@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="EC_AES">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ECFramework/libs/EC_AES.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

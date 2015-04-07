@@ -1,0 +1,3 @@
+set solib-search-path C:/Users/rzhou1/workspace/YunDongJingAn_Android/ECFramework/ECLibrary/ECLibrary-JV8//obj/local/armeabi-v7a
+source C:/Users/rzhou1/Documents/mine/android-ndk-r10d/prebuilt/common/gdb/common.setup
+directory C:/Users/rzhou1/Documents/mine/android-ndk-r10d/platforms/android-9/arch-arm/usr/include C:/Users/rzhou1/workspace/YunDongJingAn_Android/ECFramework/ECLibrary/ECLibrary-JV8//jni/../third_party/v8/include C:/Users/rzhou1/Documents/mine/android-ndk-r10d/sources/cxx-stl/stlport/stlport C:/Users/rzhou1/Documents/mine/android-ndk-r10d/sources/cxx-stl//gabi++/include
