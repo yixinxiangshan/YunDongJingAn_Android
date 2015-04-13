@@ -1,121 +1,128 @@
 {
-	"name": "page_widget_list",
-	"page_id": "page_widget_list",
-	"configs": [{
-			"key": "name",
-			"value": ""
-		}, {
-			"key": "page_level",
-			"value": "fragment"
-		}
-	],
-	"cmds": [{
-			"key": "admin.showitem",
-			"value": "alert('123123')"
-		}
-	],
-	"controls": [{
-			"control_id": "page_widget_list_actionBar",
-			"xtype": "ActionBarWidget",
-			"layout": "",
-			"position": [
-
-			],
-			"attr": [
-
-			],
-			"configs": [
-
-			],
-			"datasource": {
-				"method": "http://abc/",
-				"params": [
-
-				],
-				"data": {
-					"withActionBar": "true",
-					"withHomeItem": "true",
-					"homeIcon": "",
-					"actionBarBg": "test_actionbar_bg",
-					"title": "widget测试",
-					"withHomeAsUp": "true",
-					"homeClickTag": "homeClickTag"
-				},
-				"adapter": [
-
-				]
-			}
-		}, {
-			"control_id": "page_widget_list",
-			"xtype": "ListViewWidget",
-			"layout": "widget_listview_widgetlist_item.widget_listview_widgetlist",
-			"position": [{
-					"key": "parent",
-					"value": "activity_item_container_llayout"
-				}, {
-					"key": "location",
-					"value": "0"
-				}, {
-					"key": "insertType",
-					"value": "1"
-				}
-			],
-			"attr": [
-
-			],
-			"configs": [{
-					"key": "parent",
-					"value": "blank_llayout"
-				}
-			],
-			"setEvent": [{
-					"name": "itemClick",
-					"id":"",
-					"params": [{
-							"key": "widgetName",
-							"value": "{_widgetData.ListByType[position].abstracts}",
-							"defaultValue": ""
-						}
-					],
-					"javascript": "$O.postEvent('openActivity', \"com.nowapp.elcoffee.activity.TestWidgetActivity\" , 'countdown_widget_demo' , \"params\" , null);"
-				}
-			],
-			"datasource": {
-				"method": "http://abc/",
-				"params": [
-
-				],
-				"data": {
-					ListByType: [{
-							title: "ListViewWidget",
-							abstracts: "listview_widget_demo"
-						},{
-							title: "CountDownWidget",
-							abstracts: "countdown_widget_demo"
-						},
-						{
-							title : "ECButtonWidget",
-							abstracts : "ecbutton_widget_demo"
-						},
-						{
-							title: "GridWidget",
-							"abstracts" : "gridview_widget_demo"
-
-						},
-						{
-							title: "ActionBarWidget",
-							abstracts: "actionbar_data_demo"
-						},{
-							title: "CardWidget",
-							abstracts: "card_widget_demo"
-						},{
-							title: "TabWidget",
-							abstracts: "tab_widget_demo"
-						}
-					]
-				},
-				"adapter": []
-			}
-		}
-	]
+  "name": "page_widget_list",
+  "page_id": "page_widget_list",
+  "configs": [
+    {
+      "key": "name",
+      "value": ""
+    },
+    {
+      "key": "page_level",
+      "value": "fragment"
+    }
+  ],
+  "cmds": [
+    {
+      "key": "admin.showitem",
+      "value": "alert('123123')"
+    }
+  ],
+  "controls": [
+    {
+      "control_id": "page_widget_list_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "position": [
+      ],
+      "attr": [
+      ],
+      "configs": [
+      ],
+      "datasource": {
+        "method": "http://abc/",
+        "params": [
+        ],
+        "data": {
+          "withActionBar": "true",
+          "withHomeItem": "true",
+          "homeIcon": "",
+          "actionBarBg": "test_actionbar_bg",
+          "title": "widget测试",
+          "withHomeAsUp": "true",
+          "homeClickTag": "homeClickTag"
+        },
+        "adapter": [
+        ]
+      }
+    },
+    {
+      "control_id": "page_widget_list",
+      "xtype": "ListViewWidget",
+      "layout": "widget_listview_widgetlist_item.widget_listview_widgetlist",
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "1"
+        }
+      ],
+      "attr": [
+      ],
+      "configs": [
+        {
+          "key": "parent",
+          "value": "blank_llayout"
+        }
+      ],
+      "setEvent": [
+        {
+          "name": "itemClick",
+          "id": "",
+          "params": [
+            {
+              "key": "widgetName",
+              "value": "{_widgetData.ListByType[position].abstracts}",
+              "defaultValue": ""
+            }
+          ],
+          "javascript": "$O.postEvent('openActivity', \"com.nowapp.elcoffee.activity.TestWidgetActivity\" , 'countdown_widget_demo' , \"params\" , null);"
+        }
+      ],
+      "datasource": {
+        "method": "http://abc/",
+        "params": [
+        ],
+        "data": {
+          ListByType: [
+            {
+              title: "ListViewWidget",
+              abstracts: "listview_widget_demo"
+            },
+            {
+              title: "CountDownWidget",
+              abstracts: "countdown_widget_demo"
+            },
+            {
+              title: "ECButtonWidget",
+              abstracts: "ecbutton_widget_demo"
+            },
+            {
+              title: "GridWidget",
+              "abstracts": "gridview_widget_demo"
+            },
+            {
+              title: "ActionBarWidget",
+              abstracts: "actionbar_data_demo"
+            },
+            {
+              title: "CardWidget",
+              abstracts: "card_widget_demo"
+            },
+            {
+              title: "TabWidget",
+              abstracts: "tab_widget_demo"
+            }
+          ]
+        },
+        "adapter": []
+      }
+    }
+  ]
 }

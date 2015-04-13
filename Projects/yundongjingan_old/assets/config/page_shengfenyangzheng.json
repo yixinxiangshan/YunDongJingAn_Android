@@ -1,1 +1,228 @@
-{"name":"page_fragment_map_demo","page_id":"page_fragment_map_demo","page_layout":"","datasource":{"method":"","cache":"","data":"","params":[],"adapter":[]},"setEvent":[],"configs":[{"key":"name","value":"","defaultValue":"null"},{"key":"page_level","value":"activity","defaultValue":"null"}],"auto_start_controls":["page_actionBar","page_sfyz"],"controls":[{"control_id":"page_actionBar","xtype":"ActionBarWidget","layout":"","datasource":{"method":"","cache":"","data":{"withActionBar":"true","withHomeItem":"true","homeIcon":"","actionBarBg":"","title":"身份验证","withHomeAsUp":"true"},"params":[],"adapter":[]},"setEvent":[{"name":"optionItemClick","id":"","javascript":"$O.openQRCapture()","params":[{"key":"name","value":"{_view.title}","defaultValue":""},{"key":"itemId","value":"{_view.itemId}","defaultValue":""}]},{"name":"navItemClick","id":"0","javascript":"","params":[]},{"name":"navItemClick","id":"1","javascript":"new ActivityController().showMapWithLocation({'sonid':'404','type':'activity'});","params":[]},{"name":"navItemClick","id":"2","javascript":"new ActivityController().showMapWithLocation({'sonid':'405','type':'activity'});","params":[]},{"name":"navItemClick","id":"3","javascript":"new ActivityController().showMapWithLocation({'sonid':'406','type':'activity'});","params":[]}],"position":[],"attr":[],"configs":[]},{"control_id":"page_sfyz","xtype":"FormWidget","layout":"","datasource":{"method":"http://abc/","cache":"","data":{"subtilte":"","button_submit":"验证","title":"title","_uri":"","post_uri":"","check_enable_uri":"","input_list":[{"input_id":"009","input_type":"","default_layout":"upload","name":"bitmapDir","text":"","default_value":"","background_wrods":"Upload","des_wrods":"","checker_uri":""},{"input_id":"003","input_type":"","default_layout":"label","name":"姓名","text":"姓名","default_value":"","background_wrods":"姓名","des_wrods":"","checker_uri":""},{"input_id":"001","input_type":"","default_layout":"text","name":"name","text":"","default_value":"","background_wrods":"请输入姓名","des_wrods":"","checker_uri":""},{"input_id":"003","input_type":"","default_layout":"label","name":"身份证号","text":"身份证号","default_value":"","background_wrods":"身份证号","des_wrods":"","checker_uri":""},{"input_id":"002","input_type":"","default_layout":"text","name":"num","text":"","default_value":"","background_wrods":"输入身份证号","des_wrods":"","checker_uri":""}],"helper_list":[{"_uri":"","name":"","text":"身份验证通过可以帮助您更便捷的使用什么,您的身份将被完全保密."}]},"params":[],"adapter":[]},"setEvent":[{"name":"buttonClick","id":"widget_form_button_submit","javascript":"//alert(params.bitmapDir+\",name:\"++\",num:\"+params.num);\nif(params.bitmapDir == \"\" || params.name  == \"\"|| params.num  == \"\"){\n    alert(\"请将信息填写完整\", \"pecct://app/null\");\n}else{\n    if (\"true\" == $O.getPreference(\"isLogin\")) {\n   var newData = {\n    method:\"user/users/id_card/add\",\n    img_0 : params.bitmapDir,\n    char_value_0 :params.name,\n    char_value_1 :params.num\n   }\n    $O.postEvent(\"upload\", Object.toJSON(newData), null,null);\n    }else{\n      alert(\"请先登录\", \"pecct://user/isLogin?pageName=page_login\");\n    }\n}","params":[{"key":"bitmapDir","value":"{_widgetConfig.bitmapDir}","defaultValue":""},{"key":"name","value":"{_widgetConfig.name}","defaultValue":""},{"key":"num","value":"{_widgetConfig.num}","defaultValue":""}]}],"position":[{"key":"parent","value":"activity_item_container_llayout","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[],"configs":[{"key":"test","value":"test","defaultValue":"null"}]}]}
+{
+  "name": "page_fragment_map_demo",
+  "page_id": "page_fragment_map_demo",
+  "page_layout": "",
+  "datasource": {
+    "method": "",
+    "cache": "",
+    "data": "",
+    "params": [],
+    "adapter": []
+  },
+  "setEvent": [],
+  "configs": [
+    {
+      "key": "name",
+      "value": "",
+      "defaultValue": "null"
+    },
+    {
+      "key": "page_level",
+      "value": "activity",
+      "defaultValue": "null"
+    }
+  ],
+  "auto_start_controls": [
+    "page_actionBar",
+    "page_sfyz"
+  ],
+  "controls": [
+    {
+      "control_id": "page_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "data": {
+          "withActionBar": "true",
+          "withHomeItem": "true",
+          "homeIcon": "",
+          "actionBarBg": "",
+          "title": "身份验证",
+          "withHomeAsUp": "true"
+        },
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "optionItemClick",
+          "id": "",
+          "javascript": "$O.openQRCapture()",
+          "params": [
+            {
+              "key": "name",
+              "value": "{_view.title}",
+              "defaultValue": ""
+            },
+            {
+              "key": "itemId",
+              "value": "{_view.itemId}",
+              "defaultValue": ""
+            }
+          ]
+        },
+        {
+          "name": "navItemClick",
+          "id": "0",
+          "javascript": "",
+          "params": []
+        },
+        {
+          "name": "navItemClick",
+          "id": "1",
+          "javascript": "new ActivityController().showMapWithLocation({'sonid':'404','type':'activity'});",
+          "params": []
+        },
+        {
+          "name": "navItemClick",
+          "id": "2",
+          "javascript": "new ActivityController().showMapWithLocation({'sonid':'405','type':'activity'});",
+          "params": []
+        },
+        {
+          "name": "navItemClick",
+          "id": "3",
+          "javascript": "new ActivityController().showMapWithLocation({'sonid':'406','type':'activity'});",
+          "params": []
+        }
+      ],
+      "position": [],
+      "attr": [],
+      "configs": []
+    },
+    {
+      "control_id": "page_sfyz",
+      "xtype": "FormWidget",
+      "layout": "",
+      "datasource": {
+        "method": "http://abc/",
+        "cache": "",
+        "data": {
+          "subtilte": "",
+          "button_submit": "验证",
+          "title": "title",
+          "_uri": "",
+          "post_uri": "",
+          "check_enable_uri": "",
+          "input_list": [
+            {
+              "input_id": "009",
+              "input_type": "",
+              "default_layout": "upload",
+              "name": "bitmapDir",
+              "text": "",
+              "default_value": "",
+              "background_wrods": "Upload",
+              "des_wrods": "",
+              "checker_uri": ""
+            },
+            {
+              "input_id": "003",
+              "input_type": "",
+              "default_layout": "label",
+              "name": "姓名",
+              "text": "姓名",
+              "default_value": "",
+              "background_wrods": "姓名",
+              "des_wrods": "",
+              "checker_uri": ""
+            },
+            {
+              "input_id": "001",
+              "input_type": "",
+              "default_layout": "text",
+              "name": "name",
+              "text": "",
+              "default_value": "",
+              "background_wrods": "请输入姓名",
+              "des_wrods": "",
+              "checker_uri": ""
+            },
+            {
+              "input_id": "003",
+              "input_type": "",
+              "default_layout": "label",
+              "name": "身份证号",
+              "text": "身份证号",
+              "default_value": "",
+              "background_wrods": "身份证号",
+              "des_wrods": "",
+              "checker_uri": ""
+            },
+            {
+              "input_id": "002",
+              "input_type": "",
+              "default_layout": "text",
+              "name": "num",
+              "text": "",
+              "default_value": "",
+              "background_wrods": "输入身份证号",
+              "des_wrods": "",
+              "checker_uri": ""
+            }
+          ],
+          "helper_list": [
+            {
+              "_uri": "",
+              "name": "",
+              "text": "身份验证通过可以帮助您更便捷的使用什么,您的身份将被完全保密."
+            }
+          ]
+        },
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "buttonClick",
+          "id": "widget_form_button_submit",
+          "javascript": "//alert(params.bitmapDir+\",name:\"++\",num:\"+params.num);\nif(params.bitmapDir == \"\" || params.name  == \"\"|| params.num  == \"\"){\n    alert(\"请将信息填写完整\", \"pecct://app/null\");\n}else{\n    if (\"true\" == $O.getPreference(\"isLogin\")) {\n   var newData = {\n    method:\"user/users/id_card/add\",\n    img_0 : params.bitmapDir,\n    char_value_0 :params.name,\n    char_value_1 :params.num\n   }\n    $O.postEvent(\"upload\", Object.toJSON(newData), null,null);\n    }else{\n      alert(\"请先登录\", \"pecct://user/isLogin?pageName=page_login\");\n    }\n}",
+          "params": [
+            {
+              "key": "bitmapDir",
+              "value": "{_widgetConfig.bitmapDir}",
+              "defaultValue": ""
+            },
+            {
+              "key": "name",
+              "value": "{_widgetConfig.name}",
+              "defaultValue": ""
+            },
+            {
+              "key": "num",
+              "value": "{_widgetConfig.num}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [],
+      "configs": [
+        {
+          "key": "test",
+          "value": "test",
+          "defaultValue": "null"
+        }
+      ]
+    }
+  ]
+}

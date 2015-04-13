@@ -1,1 +1,496 @@
-{"name":"page_fragment_zuixin","page_id":"page_fragment_zuixin","page_layout":"","datasource":{"method":"","cache":"","data":"","params":[],"adapter":[]},"setEvent":[],"configs":[{"key":"page_level","value":"activity","defaultValue":"null"},{"key":"pageLayout","value":"activity_item_yumaoqiu_reserve","defaultValue":"null"}],"auto_start_controls":["page_actionBar","page_ecbutton","page_widget_martrix","page_ecbutton_commit","page_order_details"],"controls":[{"control_id":"page_actionBar","xtype":"ActionBarWidget","layout":"","datasource":{"method":"{_page.actionbardata}","cache":"","data":{},"params":[],"adapter":[]},"setEvent":[],"position":[],"attr":[],"configs":[]},{"control_id":"page_ecbutton","xtype":"ECButtonWidget","layout":"widget_button_shq","datasource":{"method":"{_page.currentDate}","cache":"","data":{},"params":[],"adapter":[]},"setEvent":[{"name":"buttonClick","id":"","javascript":"$O.postEvent('openPopupwindow','activity_item_extends_button', 'page_secondarymenu_date', null)","params":[{"key":"pageData","value":"{_page.sortSecondaryMenu}","defaultValue":""}]}],"position":[{"key":"parent","value":"activity_item_extends_button","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[],"configs":[]},{"control_id":"page_widget_martrix","xtype":"MatrixWidget","layout":"","datasource":{"method":"jing_an_yd/content/products/with_lock_info","cache":"","data":{},"params":[{"key":"apiversion","value":"1.0","defaultValue":"null"},{"key":"date","value":"{_page.cDate}","defaultValue":"null"},{"key":"product_id","value":"{_page.productId}","defaultValue":"null"}],"adapter":[{"key":"model","value":"free","defaultValue":"null"},{"key":"times[].id","value":"xCoordList[].id","defaultValue":"null"},{"key":"times[].name","value":"xCoordList[].value","defaultValue":"null"},{"key":"area[].id","value":"yCoordList[].id","defaultValue":"null"},{"key":"area[].name","value":"yCoordList[].value","defaultValue":"null"},{"key":"not_locked[].time_title","value":"checkableList[].xValue","defaultValue":"null"},{"key":"not_locked[].area_title","value":"checkableList[].yValue","defaultValue":"null"},{"key":"not_locked[].price","value":"checkableList[].price","defaultValue":""},{"key":"not_locked[].price_id","value":"checkableList[].expand0","defaultValue":""}]},"setEvent":[{"name":"matrixItemCheck","id":"","javascript":"//alert(params.price_id+','+params.price);\n//alert(11);\nnew OrderController().ymqMatrixItemCheck({'price_id':params.price_id,'price':params.price,'checked':params.checked,'rowVlaue': params.rowVlaue, 'columnVlaue' : params.columnVlaue,'tempvalue':params.tempvalue,'listTempValue':params.listTempValue,'num':params.num})","params":[{"key":"rowVlaue","value":"{_widgetData.yCoordList[row].value}","defaultValue":""},{"key":"columnVlaue","value":"{_widgetData.xCoordList[column].value}","defaultValue":""},{"key":"checked","value":"{_self.checked}","defaultValue":""},{"key":"tempvalue","value":"{_page.tempvalue}","defaultValue":""},{"key":"num","value":"{_page.num}","defaultValue":""},{"key":"listTempValue","value":"{_page.listTempValue}","defaultValue":""},{"key":"price","value":"{_self.price}","defaultValue":""},{"key":"price_id","value":"{_self.expand0}","defaultValue":""}]}],"position":[{"key":"parent","value":"activity_item_container_llayout","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[{"key":"columnHeaderWidth","value":"30","defaultValue":"null"},{"key":"rowHeaderHeight","value":"30","defaultValue":"null"},{"key":"itemWidth","value":"40","defaultValue":"null"},{"key":"itemHeight","value":"35","defaultValue":"null"},{"key":"checkableString","value":"可预订","defaultValue":"null"},{"key":"checkableBg","value":"widget_matrix_checkable_bg","defaultValue":"null"},{"key":"checkedString","value":"我的预订","defaultValue":"null"},{"key":"checkedBg","value":"widget_matrix_checked_bg","defaultValue":"null"},{"key":"unCheckableString","value":"已出售","defaultValue":"null"},{"key":"unCheckableBg","value":"widget_matrix_uncheckable_bg","defaultValue":"null"},{"key":"maxChoiceCount","value":"4","defaultValue":"null"}],"configs":[]},{"control_id":"page_secondarymenu_date","xtype":"SecondaryMenuWidget","layout":"","datasource":{"method":"{_page.menuData}","cache":"","data":{},"params":[],"adapter":[]},"setEvent":[{"name":"itemClick","id":"","javascript":"var selecttion = {\n    defaultSelection:params.position\n}\n$O.putPageParams(Object.toJSON(selecttion));\nnew OrderController().dateButtonClick({'title':params.title,'selectDate':params.selectDate});","params":[{"key":"title","value":"{_widgetData.menulList[position].title}","defaultValue":""},{"key":"selectDate","value":"{_widgetData.menulList[position].id}","defaultValue":""},{"key":"position","value":"{_self.position}","defaultValue":""}]}],"position":[],"attr":[{"key":"defaultSelection","value":"{_page.defaultSelection}","defaultValue":""}],"configs":[]},{"control_id":"page_order_details","xtype":"ItemNewsWidget","layout":"page_order_details_item_news","datasource":{"method":"","cache":"","data":{},"params":[],"adapter":[]},"setEvent":[],"position":[{"key":"parent","value":"widget_item_news_extends1","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[{"key":"withHtml","value":"true","defaultValue":""}],"configs":[]},{"control_id":"page_ecbutton_commit","xtype":"ECButtonWidget","layout":"widget_button_commit","datasource":{"method":"","cache":"","data":{"text":"提交订单"},"params":[],"adapter":[]},"setEvent":[{"name":"buttonClick","id":"","javascript":"if(params.num == \"0\"){\n    alert(\"请选择场地\");\n}else{\n    var valid_status = new SignController().checkUsersBindStatus();\n    if(valid_status== \"1\"){\n         new OrderController().orderConfirm({'project': params.project,'title': params.title,'shiduan': params.shiduan,'shichang': params.shichang,'renshu': params.renshu,'price': params.price,'address':params.address,'date':params.date,'listTempValue':params.listTempValue,'num':params.num,'tPrice':params.tPrice,'cms_sort_id':params.cms_sort_id,'phone_num':params.phone_num,'user_info_id':params.user_info_id,'productId':params.productId,'price_id':params.price_id})\n    }\n   \n}","params":[{"key":"address","value":"{_page.address}","defaultValue":""},{"key":"title","value":"{_page.title}","defaultValue":""},{"key":"date","value":"{_page.date}","defaultValue":""},{"key":"shiduan","value":"{_page.title1}","defaultValue":""},{"key":"shichang","value":"{_page.title2}","defaultValue":""},{"key":"renshu","value":"{_page.title3}","defaultValue":""},{"key":"price","value":"{_page.price}","defaultValue":""},{"key":"listTempValue","value":"{_page.listTempValue}","defaultValue":""},{"key":"num","value":"{_page.num}","defaultValue":""},{"key":"tPrice","value":"{_page.tPrice}","defaultValue":""},{"key":"project","value":"{_page.project}","defaultValue":""},{"key":"cms_sort_id","value":"{_page.cms_sort_id}","defaultValue":""},{"key":"phone_num","value":"{_page.phone_num}","defaultValue":""},{"key":"user_info_id","value":"{_page.user_info_id}","defaultValue":""},{"key":"productId","value":"{_page.productId}","defaultValue":""},{"key":"price_id","value":"{_page.price_id}","defaultValue":""}]}],"position":[{"key":"parent","value":"widget_item_news_extends2","defaultValue":""},{"key":"location","value":"0","defaultValue":""},{"key":"insertType","value":"1","defaultValue":""}],"attr":[],"configs":[]}]}
+{
+  "name": "page_fragment_zuixin",
+  "page_id": "page_fragment_zuixin",
+  "page_layout": "",
+  "datasource": {
+    "method": "",
+    "cache": "",
+    "data": "",
+    "params": [],
+    "adapter": []
+  },
+  "setEvent": [],
+  "configs": [
+    {
+      "key": "page_level",
+      "value": "activity",
+      "defaultValue": "null"
+    },
+    {
+      "key": "pageLayout",
+      "value": "activity_item_yumaoqiu_reserve",
+      "defaultValue": "null"
+    }
+  ],
+  "auto_start_controls": [
+    "page_actionBar",
+    "page_ecbutton",
+    "page_widget_martrix",
+    "page_ecbutton_commit",
+    "page_order_details"
+  ],
+  "controls": [
+    {
+      "control_id": "page_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "{_page.actionbardata}",
+        "cache": "",
+        "data": {},
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [],
+      "position": [],
+      "attr": [],
+      "configs": []
+    },
+    {
+      "control_id": "page_ecbutton",
+      "xtype": "ECButtonWidget",
+      "layout": "widget_button_shq",
+      "datasource": {
+        "method": "{_page.currentDate}",
+        "cache": "",
+        "data": {},
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "buttonClick",
+          "id": "",
+          "javascript": "$O.postEvent('openPopupwindow','activity_item_extends_button', 'page_secondarymenu_date', null)",
+          "params": [
+            {
+              "key": "pageData",
+              "value": "{_page.sortSecondaryMenu}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_extends_button",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [],
+      "configs": []
+    },
+    {
+      "control_id": "page_widget_martrix",
+      "xtype": "MatrixWidget",
+      "layout": "",
+      "datasource": {
+        "method": "jing_an_yd/content/products/with_lock_info",
+        "cache": "",
+        "data": {},
+        "params": [
+          {
+            "key": "apiversion",
+            "value": "1.0",
+            "defaultValue": "null"
+          },
+          {
+            "key": "date",
+            "value": "{_page.cDate}",
+            "defaultValue": "null"
+          },
+          {
+            "key": "product_id",
+            "value": "{_page.productId}",
+            "defaultValue": "null"
+          }
+        ],
+        "adapter": [
+          {
+            "key": "model",
+            "value": "free",
+            "defaultValue": "null"
+          },
+          {
+            "key": "times[].id",
+            "value": "xCoordList[].id",
+            "defaultValue": "null"
+          },
+          {
+            "key": "times[].name",
+            "value": "xCoordList[].value",
+            "defaultValue": "null"
+          },
+          {
+            "key": "area[].id",
+            "value": "yCoordList[].id",
+            "defaultValue": "null"
+          },
+          {
+            "key": "area[].name",
+            "value": "yCoordList[].value",
+            "defaultValue": "null"
+          },
+          {
+            "key": "not_locked[].time_title",
+            "value": "checkableList[].xValue",
+            "defaultValue": "null"
+          },
+          {
+            "key": "not_locked[].area_title",
+            "value": "checkableList[].yValue",
+            "defaultValue": "null"
+          },
+          {
+            "key": "not_locked[].price",
+            "value": "checkableList[].price",
+            "defaultValue": ""
+          },
+          {
+            "key": "not_locked[].price_id",
+            "value": "checkableList[].expand0",
+            "defaultValue": ""
+          }
+        ]
+      },
+      "setEvent": [
+        {
+          "name": "matrixItemCheck",
+          "id": "",
+          "javascript": "//alert(params.price_id+','+params.price);\n//alert(11);\nnew OrderController().ymqMatrixItemCheck({'price_id':params.price_id,'price':params.price,'checked':params.checked,'rowVlaue': params.rowVlaue, 'columnVlaue' : params.columnVlaue,'tempvalue':params.tempvalue,'listTempValue':params.listTempValue,'num':params.num})",
+          "params": [
+            {
+              "key": "rowVlaue",
+              "value": "{_widgetData.yCoordList[row].value}",
+              "defaultValue": ""
+            },
+            {
+              "key": "columnVlaue",
+              "value": "{_widgetData.xCoordList[column].value}",
+              "defaultValue": ""
+            },
+            {
+              "key": "checked",
+              "value": "{_self.checked}",
+              "defaultValue": ""
+            },
+            {
+              "key": "tempvalue",
+              "value": "{_page.tempvalue}",
+              "defaultValue": ""
+            },
+            {
+              "key": "num",
+              "value": "{_page.num}",
+              "defaultValue": ""
+            },
+            {
+              "key": "listTempValue",
+              "value": "{_page.listTempValue}",
+              "defaultValue": ""
+            },
+            {
+              "key": "price",
+              "value": "{_self.price}",
+              "defaultValue": ""
+            },
+            {
+              "key": "price_id",
+              "value": "{_self.expand0}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [
+        {
+          "key": "columnHeaderWidth",
+          "value": "30",
+          "defaultValue": "null"
+        },
+        {
+          "key": "rowHeaderHeight",
+          "value": "30",
+          "defaultValue": "null"
+        },
+        {
+          "key": "itemWidth",
+          "value": "40",
+          "defaultValue": "null"
+        },
+        {
+          "key": "itemHeight",
+          "value": "35",
+          "defaultValue": "null"
+        },
+        {
+          "key": "checkableString",
+          "value": "可预订",
+          "defaultValue": "null"
+        },
+        {
+          "key": "checkableBg",
+          "value": "widget_matrix_checkable_bg",
+          "defaultValue": "null"
+        },
+        {
+          "key": "checkedString",
+          "value": "我的预订",
+          "defaultValue": "null"
+        },
+        {
+          "key": "checkedBg",
+          "value": "widget_matrix_checked_bg",
+          "defaultValue": "null"
+        },
+        {
+          "key": "unCheckableString",
+          "value": "已出售",
+          "defaultValue": "null"
+        },
+        {
+          "key": "unCheckableBg",
+          "value": "widget_matrix_uncheckable_bg",
+          "defaultValue": "null"
+        },
+        {
+          "key": "maxChoiceCount",
+          "value": "4",
+          "defaultValue": "null"
+        }
+      ],
+      "configs": []
+    },
+    {
+      "control_id": "page_secondarymenu_date",
+      "xtype": "SecondaryMenuWidget",
+      "layout": "",
+      "datasource": {
+        "method": "{_page.menuData}",
+        "cache": "",
+        "data": {},
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "itemClick",
+          "id": "",
+          "javascript": "var selecttion = {\n    defaultSelection:params.position\n}\n$O.putPageParams(Object.toJSON(selecttion));\nnew OrderController().dateButtonClick({'title':params.title,'selectDate':params.selectDate});",
+          "params": [
+            {
+              "key": "title",
+              "value": "{_widgetData.menulList[position].title}",
+              "defaultValue": ""
+            },
+            {
+              "key": "selectDate",
+              "value": "{_widgetData.menulList[position].id}",
+              "defaultValue": ""
+            },
+            {
+              "key": "position",
+              "value": "{_self.position}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [],
+      "attr": [
+        {
+          "key": "defaultSelection",
+          "value": "{_page.defaultSelection}",
+          "defaultValue": ""
+        }
+      ],
+      "configs": []
+    },
+    {
+      "control_id": "page_order_details",
+      "xtype": "ItemNewsWidget",
+      "layout": "page_order_details_item_news",
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "data": {},
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [],
+      "position": [
+        {
+          "key": "parent",
+          "value": "widget_item_news_extends1",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [
+        {
+          "key": "withHtml",
+          "value": "true",
+          "defaultValue": ""
+        }
+      ],
+      "configs": []
+    },
+    {
+      "control_id": "page_ecbutton_commit",
+      "xtype": "ECButtonWidget",
+      "layout": "widget_button_commit",
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "data": {"text": "提交订单"},
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "buttonClick",
+          "id": "",
+          "javascript": "if(params.num == \"0\"){\n    alert(\"请选择场地\");\n}else{\n    var valid_status = new SignController().checkUsersBindStatus();\n    if(valid_status== \"1\"){\n         new OrderController().orderConfirm({'project': params.project,'title': params.title,'shiduan': params.shiduan,'shichang': params.shichang,'renshu': params.renshu,'price': params.price,'address':params.address,'date':params.date,'listTempValue':params.listTempValue,'num':params.num,'tPrice':params.tPrice,'cms_sort_id':params.cms_sort_id,'phone_num':params.phone_num,'user_info_id':params.user_info_id,'productId':params.productId,'price_id':params.price_id})\n    }\n   \n}",
+          "params": [
+            {
+              "key": "address",
+              "value": "{_page.address}",
+              "defaultValue": ""
+            },
+            {
+              "key": "title",
+              "value": "{_page.title}",
+              "defaultValue": ""
+            },
+            {
+              "key": "date",
+              "value": "{_page.date}",
+              "defaultValue": ""
+            },
+            {
+              "key": "shiduan",
+              "value": "{_page.title1}",
+              "defaultValue": ""
+            },
+            {
+              "key": "shichang",
+              "value": "{_page.title2}",
+              "defaultValue": ""
+            },
+            {
+              "key": "renshu",
+              "value": "{_page.title3}",
+              "defaultValue": ""
+            },
+            {
+              "key": "price",
+              "value": "{_page.price}",
+              "defaultValue": ""
+            },
+            {
+              "key": "listTempValue",
+              "value": "{_page.listTempValue}",
+              "defaultValue": ""
+            },
+            {
+              "key": "num",
+              "value": "{_page.num}",
+              "defaultValue": ""
+            },
+            {
+              "key": "tPrice",
+              "value": "{_page.tPrice}",
+              "defaultValue": ""
+            },
+            {
+              "key": "project",
+              "value": "{_page.project}",
+              "defaultValue": ""
+            },
+            {
+              "key": "cms_sort_id",
+              "value": "{_page.cms_sort_id}",
+              "defaultValue": ""
+            },
+            {
+              "key": "phone_num",
+              "value": "{_page.phone_num}",
+              "defaultValue": ""
+            },
+            {
+              "key": "user_info_id",
+              "value": "{_page.user_info_id}",
+              "defaultValue": ""
+            },
+            {
+              "key": "productId",
+              "value": "{_page.productId}",
+              "defaultValue": ""
+            },
+            {
+              "key": "price_id",
+              "value": "{_page.price_id}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "widget_item_news_extends2",
+          "defaultValue": ""
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": ""
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": ""
+        }
+      ],
+      "attr": [],
+      "configs": []
+    }
+  ]
+}

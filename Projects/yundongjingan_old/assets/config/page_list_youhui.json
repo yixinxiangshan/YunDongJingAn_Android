@@ -1,1 +1,132 @@
-{"name":"page_fragment_map_demo","page_id":"page_fragment_map_demo","page_layout":"","datasource":{"method":"","cache":"","data":"","params":[],"adapter":[]},"setEvent":[],"configs":[{"key":"name","value":"","defaultValue":"null"},{"key":"page_level","value":"fragment","defaultValue":"null"}],"auto_start_controls":["page_actionBar","page_newslist"],"controls":[{"control_id":"page_actionBar","xtype":"ActionBarWidget","layout":"","datasource":{"method":"","cache":"","data":{"withActionBar":"true","withHomeItem":"true","homeIcon":"","actionBarBg":"","title":"我的优惠","withHomeAsUp":"true"},"params":[],"adapter":[]},"setEvent":[],"position":[],"attr":[],"configs":[]},{"control_id":"page_newslist","xtype":"ListViewWidget","layout":"widget_listview_item_twoline_text.widget_listview_default_common_list","datasource":{"method":"mycoupons/get","cache":"","data":{},"params":[{"key":"sonid","value":"571,574,575,577,578,580,581,485,486,487,488,489,529,1038","defaultValue":"null"}],"adapter":[{"key":"model","value":"light","defaultValue":"null"},{"key":"MyCoupon","value":"ListByType","defaultValue":"null"},{"key":"apply_code","value":"abstracts","defaultValue":"null"},{"key":"updated_at","value":"timeString","defaultValue":"null"}]},"setEvent":[{"name":"itemClick","id":"","javascript":"new Panicbuycontroller().getcontentinfo({'contentid':params.id});","params":[{"key":"id","value":"{_widgetData.ListByType[position].id}","defaultValue":""}]}],"position":[{"key":"parent","value":"activity_item_container_llayout","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[],"configs":[{"key":"parent","value":"blank_llayout_content","defaultValue":"null"}]}]}
+{
+  "name": "page_fragment_map_demo",
+  "page_id": "page_fragment_map_demo",
+  "page_layout": "",
+  "datasource": {
+    "method": "",
+    "cache": "",
+    "data": "",
+    "params": [],
+    "adapter": []
+  },
+  "setEvent": [],
+  "configs": [
+    {
+      "key": "name",
+      "value": "",
+      "defaultValue": "null"
+    },
+    {
+      "key": "page_level",
+      "value": "fragment",
+      "defaultValue": "null"
+    }
+  ],
+  "auto_start_controls": [
+    "page_actionBar",
+    "page_newslist"
+  ],
+  "controls": [
+    {
+      "control_id": "page_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "data": {
+          "withActionBar": "true",
+          "withHomeItem": "true",
+          "homeIcon": "",
+          "actionBarBg": "",
+          "title": "我的优惠",
+          "withHomeAsUp": "true"
+        },
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [],
+      "position": [],
+      "attr": [],
+      "configs": []
+    },
+    {
+      "control_id": "page_newslist",
+      "xtype": "ListViewWidget",
+      "layout": "widget_listview_item_twoline_text.widget_listview_default_common_list",
+      "datasource": {
+        "method": "mycoupons/get",
+        "cache": "",
+        "data": {},
+        "params": [
+          {
+            "key": "sonid",
+            "value": "571,574,575,577,578,580,581,485,486,487,488,489,529,1038",
+            "defaultValue": "null"
+          }
+        ],
+        "adapter": [
+          {
+            "key": "model",
+            "value": "light",
+            "defaultValue": "null"
+          },
+          {
+            "key": "MyCoupon",
+            "value": "ListByType",
+            "defaultValue": "null"
+          },
+          {
+            "key": "apply_code",
+            "value": "abstracts",
+            "defaultValue": "null"
+          },
+          {
+            "key": "updated_at",
+            "value": "timeString",
+            "defaultValue": "null"
+          }
+        ]
+      },
+      "setEvent": [
+        {
+          "name": "itemClick",
+          "id": "",
+          "javascript": "new Panicbuycontroller().getcontentinfo({'contentid':params.id});",
+          "params": [
+            {
+              "key": "id",
+              "value": "{_widgetData.ListByType[position].id}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [],
+      "configs": [
+        {
+          "key": "parent",
+          "value": "blank_llayout_content",
+          "defaultValue": "null"
+        }
+      ]
+    }
+  ]
+}

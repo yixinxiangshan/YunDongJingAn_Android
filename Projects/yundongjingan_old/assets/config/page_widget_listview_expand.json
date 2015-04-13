@@ -1,121 +1,121 @@
 {
-    "name": "page_widget_list",
-    "page_id": "page_widget_list",
-    "configs": [
+  "name": "page_widget_list",
+  "page_id": "page_widget_list",
+  "configs": [
+    {
+      "key": "name",
+      "value": ""
+    },
+    {
+      "key": "page_level",
+      "value": "fragment"
+    }
+  ],
+  "cmds": [
+    {
+      "key": "admin.showitem",
+      "value": "alert('123123')"
+    }
+  ],
+  "auto_start_controls": [
+    "page_fragment_newslist_demo_list"
+  ],
+  "controls": [
+    {
+      "control_id": "page_fragment_newslist_demo_list",
+      "xtype": "ListViewWidget",
+      "layout": "widget_listview_item_test_expand",
+      "position": [
         {
-            "key": "name",
-            "value": ""
+          "key": "parent",
+          "value": "activity_item_container_llayout"
         },
         {
-            "key": "page_level",
-            "value": "fragment"
-        }
-    ],
-    "cmds": [
-        {
-            "key": "admin.showitem",
-            "value": "alert('123123')"
-        }
-    ],
-    "auto_start_controls": [
-        "page_fragment_newslist_demo_list"
-    ],
-    "controls": [
-        {
-            "control_id": "page_fragment_newslist_demo_list",
-            "xtype": "ListViewWidget",
-            "layout": "widget_listview_item_test_expand",
-            "position": [
-                {
-                    "key": "parent",
-                    "value": "activity_item_container_llayout"
-                },
-                {
-                    "key": "location",
-                    "value": "0"
-                },
-                {
-                    "key": "insertType",
-                    "value": "1"
-                }
-            ],
-            "attr": [],
-            "configs": [],
-            "setEvent": [
-            ],
-            "datasource": {
-                "method": "http://abc/",
-                "params": [],
-                "data": {
-                    "ListByType": [
-                        {
-                            "title": "课程器械",
-                            "abstracts": "哑铃 呼啦圈 拉力绳"
-                        },
-                        {
-                            "title": "课程视频"
-                        },
-                        {
-                            "title": "课程价格",
-                            "abstracts": "￥：28",
-                            "controlId": "page_fragment_ecbutton_demo",
-                            "clickable":"false"
-                        },
-                        {
-                            "title": "适合人群",
-                            "abstracts": "办公室白领，缺乏锻炼的中老年人群",
-                            "clickable":"false"
-                        },
-                        {
-                            "abstracts": "课程介绍-功能：\n该课程可有效缓解办公室伏案而坐白领的疲惫状态,\n促进新陈代谢，增强体质。\n\n课程特色:\n简单易学，针对性强",
-                            "clickable":"false"
-                        }
-                    ]
-                },
-                "adapter": []
-            }
+          "key": "location",
+          "value": "0"
         },
         {
-            "control_id": "page_fragment_ecbutton_demo",
-            "xtype": "SwitchButtonWidget",
-            "position": [
-                {
-                    "key": "parent",
-                    "value": "hollow"
-                },
-                {
-                    "key": "location",
-                    "value": "0"
-                },
-                {
-                    "key": "insertType",
-                    "value": "4"
-                }
-            ],
-            "attr": [],
-            "configs": [],
-            "setEvent": [
-                {
-                    "name": "SwitchButtonChanged",
-                    "params": [
-                        {
-                            "key": "state",
-                            "value": "state",
-                            "defaultValue": ""
-                        }
-                    ],
-                    "javascript": "alert(params.state)"
-                }
-            ],
-            "datasource": {
-                "method": "http://abc/",
-                "params": [],
-                "data": {
-                    "state": 0,
-                    "switchOnBackgroud": "slideron",
-                    "switchOffBackgroud": "slideroff"
-                }
-            }
+          "key": "insertType",
+          "value": "1"
         }
-    ]
+      ],
+      "attr": [],
+      "configs": [],
+      "setEvent": [
+      ],
+      "datasource": {
+        "method": "http://abc/",
+        "params": [],
+        "data": {
+          "ListByType": [
+            {
+              "title": "课程器械",
+              "abstracts": "哑铃 呼啦圈 拉力绳"
+            },
+            {
+              "title": "课程视频"
+            },
+            {
+              "title": "课程价格",
+              "abstracts": "￥：28",
+              "controlId": "page_fragment_ecbutton_demo",
+              "clickable": "false"
+            },
+            {
+              "title": "适合人群",
+              "abstracts": "办公室白领，缺乏锻炼的中老年人群",
+              "clickable": "false"
+            },
+            {
+              "abstracts": "课程介绍-功能：\n该课程可有效缓解办公室伏案而坐白领的疲惫状态,\n促进新陈代谢，增强体质。\n\n课程特色:\n简单易学，针对性强",
+              "clickable": "false"
+            }
+          ]
+        },
+        "adapter": []
+      }
+    },
+    {
+      "control_id": "page_fragment_ecbutton_demo",
+      "xtype": "SwitchButtonWidget",
+      "position": [
+        {
+          "key": "parent",
+          "value": "hollow"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "4"
+        }
+      ],
+      "attr": [],
+      "configs": [],
+      "setEvent": [
+        {
+          "name": "SwitchButtonChanged",
+          "params": [
+            {
+              "key": "state",
+              "value": "state",
+              "defaultValue": ""
+            }
+          ],
+          "javascript": "alert(params.state)"
+        }
+      ],
+      "datasource": {
+        "method": "http://abc/",
+        "params": [],
+        "data": {
+          "state": 0,
+          "switchOnBackgroud": "slideron",
+          "switchOffBackgroud": "slideroff"
+        }
+      }
+    }
+  ]
 }

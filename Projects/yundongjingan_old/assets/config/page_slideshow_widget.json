@@ -1,74 +1,79 @@
 {
-	"name": "page_slideshow_widget",
-	"page_id": "page_slideshow_widget",
-	"configs": [{
-			"key": "name",
-			"value": ""
-		}, {
-			"key": "page_level",
-			"value": "activity"
-		}
-	],
-	"cmds": [],
-	"controls": [{
-			"control_id": "index_tab_demo_actionBar",
-			"xtype": "ActionBarWidget",
-			"layout": "",
-			"position": [],
-			"attr": [],
-			"configs": [],
-			"setEvent": [],
-			"datasource": {
-				"method": "{_page.gridviewbarconfig}",
-				"params": [],
-				"data": {},
-				"adapter": []
-			}
-		}, {
-			    "control_id":"page_fragment_newslist_demo_list",
-			    "xtype":"SlideShowWidget",
-			    "layout":"",
-			    "position":[
-			        {
-			            "key":"parent",
-			            "value":"activity_item_container_llayout"
-			        },
-			        {
-			            "key":"location",
-			            "value":"0"
-			        },
-			        {
-			            "key":"insertType",
-			            "value":"1"
-			        }
-			    ],
-			    "attr":[
-			        
-			    ],
-			    "configs":[
-			        {
-			            "key":"test",
-			            "value":"test"
-			        }
-			    ],
-			    "datasource":{
-			     "method": "content.getcontentinfo",
-				 "params": [{
-						"key": "contentid",
-						"value": "{_page.contentid}"
-					}
-				 ],
-			     "data":{},
-				"adapter": [{
-							"key": "model",
-							"value": "deep"
-						}, {
-							"key": "ContentInfo.imgList",
-							"value": "itemList"
-						}
-					]
-			    }
-			}
-	]
-
+  "name": "page_slideshow_widget",
+  "page_id": "page_slideshow_widget",
+  "configs": [
+    {
+      "key": "name",
+      "value": ""
+    },
+    {
+      "key": "page_level",
+      "value": "activity"
+    }
+  ],
+  "cmds": [],
+  "controls": [
+    {
+      "control_id": "index_tab_demo_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "position": [],
+      "attr": [],
+      "configs": [],
+      "setEvent": [],
+      "datasource": {
+        "method": "{_page.gridviewbarconfig}",
+        "params": [],
+        "data": {},
+        "adapter": []
+      }
+    },
+    {
+      "control_id": "page_fragment_newslist_demo_list",
+      "xtype": "SlideShowWidget",
+      "layout": "",
+      "position": [
+        {
+          "key": "parent",
+          "value": "activity_item_container_llayout"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "1"
+        }
+      ],
+      "attr": [
+      ],
+      "configs": [
+        {
+          "key": "test",
+          "value": "test"
+        }
+      ],
+      "datasource": {
+        "method": "content.getcontentinfo",
+        "params": [
+          {
+            "key": "contentid",
+            "value": "{_page.contentid}"
+          }
+        ],
+        "data": {},
+        "adapter": [
+          {
+            "key": "model",
+            "value": "deep"
+          },
+          {
+            "key": "ContentInfo.imgList",
+            "value": "itemList"
+          }
+        ]
+      }
+    }
+  ]
 }

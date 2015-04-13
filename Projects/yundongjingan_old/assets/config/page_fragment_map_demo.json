@@ -1,48 +1,54 @@
 {
-	"name": "page_fragment_map_demo",
-	"page_id": "page_fragment_map_demo",
-	"configs": [{
-			"key": "name",
-			"value": ""
-		}, {
-			"key": "page_level",
-			"value": "fragment"
-		}
-	],
-	"cmds": [{
-			"key": "admin.showitem",
-			"value": "alert('123123')"
-		}
-	],
-	"controls": [{
-			"control_id": "page_fragment_map_demo",
-			"xtype": "MapWidget",
-			"position": [{
-					"key": "parent",
-					"value": "blank_llayout"
-				}, {
-					"key": "location",
-					"value": "0"
-				}, {
-					"key": "insertType",
-					"value": "1"
-				}
-			],
-			"attr": [],
-			"configs": [
-			],
-			"setEvent": [
-			],
-			"datasource":{
-			        "method":"http://abc/",
-			        "params":[],
-			        "data":{
-						 "address" : "USST",
-				        "longitude" : "31.29139177787853",
-				        "latitude" : "122.552"
-			        }
-			    }
-		}
-	]
-
+  "name": "page_fragment_map_demo",
+  "page_id": "page_fragment_map_demo",
+  "configs": [
+    {
+      "key": "name",
+      "value": ""
+    },
+    {
+      "key": "page_level",
+      "value": "fragment"
+    }
+  ],
+  "cmds": [
+    {
+      "key": "admin.showitem",
+      "value": "alert('123123')"
+    }
+  ],
+  "controls": [
+    {
+      "control_id": "page_fragment_map_demo",
+      "xtype": "MapWidget",
+      "position": [
+        {
+          "key": "parent",
+          "value": "blank_llayout"
+        },
+        {
+          "key": "location",
+          "value": "0"
+        },
+        {
+          "key": "insertType",
+          "value": "1"
+        }
+      ],
+      "attr": [],
+      "configs": [
+      ],
+      "setEvent": [
+      ],
+      "datasource": {
+        "method": "http://abc/",
+        "params": [],
+        "data": {
+          "address": "USST",
+          "longitude": "31.29139177787853",
+          "latitude": "122.552"
+        }
+      }
+    }
+  ]
 }

@@ -1,1 +1,123 @@
-{"name":"page_fragment_map_demo","page_id":"page_fragment_map_demo","page_layout":"","datasource":{"method":"","cache":"","data":"","params":[],"adapter":[]},"setEvent":[],"configs":[{"key":"page_level","value":"fragment","defaultValue":""}],"auto_start_controls":["page_actionBar","page_newslist"],"controls":[{"control_id":"page_actionBar","xtype":"ActionBarWidget","layout":"","datasource":{"method":"","cache":"","data":{"withActionBar":"true","withHomeItem":"","homeIcon":"","actionBarBg":"","title":"运动加油站","withHomeAsUp":"","navTagData":{}},"params":[],"adapter":[]},"setEvent":[],"position":[],"attr":[],"configs":[]},{"control_id":"page_newslist","xtype":"ListViewWidget","layout":"","datasource":{"method":"content.getlistbytype","cache":"","data":{},"params":[{"key":"sortid","value":"481","defaultValue":"null"}],"adapter":[]},"setEvent":[{"name":"itemClick","id":"","javascript":"//new AppController().openActivity({'id':params.id,'pageName':'page_fragment_xiaozhan_details'})\nnew ActivityController().openXiaoZhanDetails({'contentid':params.id,'pageName':'page_fragment_xiaozhan_details'});\n//$O.postEvent(\"getWidget\",\"page_itemnews_xiaozhan\",\"\",\"\");","params":[{"key":"id","value":"{_widgetData.ListByType[position].id}","defaultValue":""},{"key":"title","value":"{_widgetData.ListByType[position].title}","defaultValue":""}]}],"position":[{"key":"parent","value":"blank_llayout","defaultValue":"null"},{"key":"location","value":"0","defaultValue":"null"},{"key":"insertType","value":"1","defaultValue":"null"}],"attr":[{"key":"dividerHeight","value":"2","defaultValue":""},{"key":"dividerName","value":"general_separation_repeate","defaultValue":""}],"configs":[{"key":"parent","value":"blank_llayout_content","defaultValue":"null"}]}]}
+{
+  "name": "page_fragment_map_demo",
+  "page_id": "page_fragment_map_demo",
+  "page_layout": "",
+  "datasource": {
+    "method": "",
+    "cache": "",
+    "data": "",
+    "params": [],
+    "adapter": []
+  },
+  "setEvent": [],
+  "configs": [
+    {
+      "key": "page_level",
+      "value": "fragment",
+      "defaultValue": ""
+    }
+  ],
+  "auto_start_controls": [
+    "page_actionBar",
+    "page_newslist"
+  ],
+  "controls": [
+    {
+      "control_id": "page_actionBar",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "",
+        "cache": "",
+        "data": {
+          "withActionBar": "true",
+          "withHomeItem": "",
+          "homeIcon": "",
+          "actionBarBg": "",
+          "title": "运动加油站",
+          "withHomeAsUp": "",
+          "navTagData": {}
+        },
+        "params": [],
+        "adapter": []
+      },
+      "setEvent": [],
+      "position": [],
+      "attr": [],
+      "configs": []
+    },
+    {
+      "control_id": "page_newslist",
+      "xtype": "ListViewWidget",
+      "layout": "",
+      "datasource": {
+        "method": "content.getlistbytype",
+        "cache": "",
+        "data": {},
+        "params": [
+          {
+            "key": "sortid",
+            "value": "481",
+            "defaultValue": "null"
+          }
+        ],
+        "adapter": []
+      },
+      "setEvent": [
+        {
+          "name": "itemClick",
+          "id": "",
+          "javascript": "//new AppController().openActivity({'id':params.id,'pageName':'page_fragment_xiaozhan_details'})\nnew ActivityController().openXiaoZhanDetails({'contentid':params.id,'pageName':'page_fragment_xiaozhan_details'});\n//$O.postEvent(\"getWidget\",\"page_itemnews_xiaozhan\",\"\",\"\");",
+          "params": [
+            {
+              "key": "id",
+              "value": "{_widgetData.ListByType[position].id}",
+              "defaultValue": ""
+            },
+            {
+              "key": "title",
+              "value": "{_widgetData.ListByType[position].title}",
+              "defaultValue": ""
+            }
+          ]
+        }
+      ],
+      "position": [
+        {
+          "key": "parent",
+          "value": "blank_llayout",
+          "defaultValue": "null"
+        },
+        {
+          "key": "location",
+          "value": "0",
+          "defaultValue": "null"
+        },
+        {
+          "key": "insertType",
+          "value": "1",
+          "defaultValue": "null"
+        }
+      ],
+      "attr": [
+        {
+          "key": "dividerHeight",
+          "value": "2",
+          "defaultValue": ""
+        },
+        {
+          "key": "dividerName",
+          "value": "general_separation_repeate",
+          "defaultValue": ""
+        }
+      ],
+      "configs": [
+        {
+          "key": "parent",
+          "value": "blank_llayout_content",
+          "defaultValue": "null"
+        }
+      ]
+    }
+  ]
+}
