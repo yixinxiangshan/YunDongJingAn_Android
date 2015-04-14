@@ -1,7 +1,7 @@
 {
   "uninstall_package" : "",
-  "appname" : "kangfuzhushou",
-  "start_controller": "page_home",
+  "appname" : "yundongjingan",
+  "start_controller": "page_tab_send",
   "guide_page":"",
   "startPushService": "false",
   "splash": {},
