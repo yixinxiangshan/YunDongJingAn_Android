@@ -931,8 +931,8 @@ var HttpController = Class.create({
   // api_url: "http://api.nowapp.cn/api/",
 //  token_url: "http://openapi.nowapp.cn/oauth/token",
 //  api_url: "http://openapi.nowapp.cn/api",
-  token_url: "http://856854472.cloudapi.nowapp.cn/oauth/token/",
-  api_url: "http://856854472.cloudapi.nowapp.cn/api/",
+  token_url: "http://856854478.cloudapi.nowapp.cn/oauth/token/",
+  api_url: "http://856854478.cloudapi.nowapp.cn/api/",
 
   // 如果没有token，直接返回false
   callAPI: function(method, params, version, force_new) {
