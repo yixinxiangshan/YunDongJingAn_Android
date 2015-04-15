@@ -56,9 +56,37 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
-      if ((root._platform != null) && root._platform === "ios") {
-        return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
-      }
+      return $A().app().callApi({
+        method: "content/news/index",
+        sort_id: 525,
+        cacheTime: 0
+      }).then(function(data) {
+        var content, i, len, ref;
+        if (data.errors != null) {
+          if (data.errors[0].error_num != null) {
+            return $A().app().makeToast("网络状态不好，请重新加载");
+          } else {
+            return $A().app().makeToast("没有网络");
+          }
+        } else {
+          root._listview_data.data = [];
+          ref = data.content_list;
+          for (i = 0, len = ref.length; i < len; i++) {
+            content = ref[i];
+            root._listview_data.data.push({
+              viewType: "ListViewCellLine",
+              centerTitle: "" + content.title,
+              leftImage: {
+                imageType: "imageServer",
+                imageSize: "middle",
+                imageSrc: "" + content.image_cover.url
+              },
+              centerBottomdes: "" + content.abstract
+            });
+          }
+          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+        }
+      });
     };
 
     ECpageClass.prototype.onItemClick = function(data) {};
@@ -70,17 +98,9 @@
     ECpageClass.prototype.onResult = function(data) {};
 
     ECpageClass.prototype.prepareForInitView = function() {
-      $A().app().platform().then(function(platform) {
+      return $A().app().platform().then(function(platform) {
         return root._platform = platform;
       });
-      this._listview_data.data[0].centerTitle = "Richard Center Title";
-      this._listview_data.data[0].leftImage = {
-        imageType: "imageServer",
-        imageSize: "middle",
-        imageSrc: "3012659.jpg"
-      };
-      this._listview_data.data[0].centerBottomdes = "Richard Center Bottomes";
-      return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
     };
 
     return ECpageClass;

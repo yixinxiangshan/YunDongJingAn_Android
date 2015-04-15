@@ -37,7 +37,42 @@ class ECpageClass
         @_constructor(_page_name)
 
     onCreated: () ->
-        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
+        $A().app().callApi
+            method:"content/news/index"
+            sort_id: 525
+            cacheTime: 0
+        .then (data) ->
+            if data.errors?
+                if data.errors[0].error_num?
+                    $A().app().makeToast "网络状态不好，请重新加载"
+                else
+                    $A().app().makeToast "没有网络"
+            else
+                root._listview_data.data = []
+
+                for content in data.content_list
+                    root._listview_data.data.push
+                        viewType : "ListViewCellLine"
+                        centerTitle : "#{content.title}"
+                        leftImage : {
+                            imageType : "imageServer"
+                            imageSize : "middle"
+                            imageSrc : "#{content.image_cover.url}"
+                        }
+                        centerBottomdes : "#{content.abstract}"
+                $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+
+#        @_listview_data.data[0].centerTitle = "Richard Center Title"
+#        @_listview_data.data[0].leftImage = {
+#            imageType : "imageServer"
+#            imageSize : "middle"
+#            imageSrc : "3012659.jpg"
+#        }
+#        @_listview_data.data[0].centerBottomdes = "Richard Center Bottomes"
+
+#        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
+
+#        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
         #自定义函数
     
     onItemClick: (data) ->
@@ -75,15 +110,6 @@ class ECpageClass
     prepareForInitView: () ->
         $A().app().platform().then (platform) ->
             root._platform = platform
-        @_listview_data.data[0].centerTitle = "Richard Center Title"
-        @_listview_data.data[0].leftImage = {
-            imageType : "imageServer"
-            imageSize : "middle"
-            imageSrc : "3012659.jpg"
-        }
-        @_listview_data.data[0].centerBottomdes = "Richard Center Bottomes"
-
-        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data
 
 #启动程序
 Page = new ECpageClass("page_tab_send")
