@@ -89,7 +89,18 @@
       });
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      var item;
+      item = this._listview_data.data[data.position];
+      $A().app().log("=======================================item_type" + item._type);
+      return $A().app().openPage({
+        page_name: "page_send_info",
+        params: {
+          info: JSON.stringify(this._listview_data.data[data.position].item)
+        },
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 

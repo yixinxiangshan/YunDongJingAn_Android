@@ -1,6 +1,6 @@
 {
-  "name": "page_feedback",
-  "page_id": "page_feedback",
+  "name": "page_send_info",
+  "page_id": "page_send_info",
   "glb_ctl_cfg": false,
   "datasource": {
     "method": "",
@@ -11,14 +11,13 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_feedback_ActionBarWidget_0",
-    "page_feedback_ListViewBase_0"
+    "page_send_info_ListViewBase_0"
   ],
   "position": [],
   "attr": [],
   "controls": [
     {
-      "control_id": "page_feedback_ListViewBase_0",
+      "control_id": "page_send_info_ListViewBase_0",
       "xtype": "ListViewBase",
       "layout": "",
       "script": false,
@@ -47,27 +46,6 @@
           "value": "1"
         }
       ]
-    },
-    {
-      "control_id": "page_feedback_ActionBarWidget_0",
-      "xtype": "ActionBarWidget",
-      "layout": "",
-      "datasource": {
-        "method": "",
-        "params": [],
-        "adapter": [],
-        "data": {
-          "actionBarBg": "#FFf9f9f9",
-          "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "意见反馈",
-          "withActionBar": "true"
-        }
-      },
-      "setEvent": [],
-      "configs": [],
-      "auto_start_controls": false,
-      "position": [],
-      "attr": []
     }
   ]
 }
