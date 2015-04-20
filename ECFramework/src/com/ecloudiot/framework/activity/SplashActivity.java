@@ -128,10 +128,10 @@ public class SplashActivity extends Activity implements Observer {
 
 	//友盟更新
 	private void UmengUpdate(){
-		UmengUpdateAgent.setAppkey("54717128fd98c52e0a000507");
-		UmengUpdateAgent.setChannel(Constants.CHANNEL);
-		UmengUpdateAgent.update(SplashActivity.this);
-		UmengUpdateAgent.setUpdateOnlyWifi(false);
+//		UmengUpdateAgent.setAppkey("");
+//		UmengUpdateAgent.setChannel(Constants.CHANNEL);
+//		UmengUpdateAgent.update(SplashActivity.this);
+//		UmengUpdateAgent.setUpdateOnlyWifi(false);
 	}
 	
 	//蒲公英内测
