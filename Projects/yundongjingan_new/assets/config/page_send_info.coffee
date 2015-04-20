@@ -40,6 +40,18 @@ class ECpageClass
     onItemClick: (data) ->
 
     onItemInnerClick: (data) ->
+        item = @_listview_data.data[data.position]
+        if item._type? and item._type == 'ok'
+            content =
+            {
+                content_id: item.content_id
+                content_title: item.content_title
+            }
+            $A().app().openPage
+                page_name:"page_send_input"
+                params:
+                    info : content
+                close_option: ""
 
     onResume: () ->
     
@@ -51,7 +63,6 @@ class ECpageClass
         $A().app().platform().then (platform) ->
             root._platform = platform
             $A().page().param("info").then (info) ->
-                $A().app().log "=======================================info: " + info
                 $A().app().callApi
                     method:"content/news/detail"
                     content_id: info
@@ -66,7 +77,7 @@ class ECpageClass
                         root._listview_data.data = []
                         root._listview_data.data.push
                             viewType : "ListViewCellArticleTitle"
-                            article_title : "#{data.content_info.title}"
+                            headTitle : "#{data.content_info.title}"
                         root._listview_data.data.push
                             viewType : "ListViewCellImage"
                             image : {
@@ -77,7 +88,17 @@ class ECpageClass
                         root._listview_data.data.push
                             viewType : "ListViewCellArticle"
                             content : "#{data.content_info.content}"
-                        $A().app().log "==============================JSON.stringify root._listview_data" + JSON.stringify root._listview_data
+                        root._listview_data.data.push
+                            viewType: "ListViewCellButton",
+                            btnTitle: "我要申请",
+                            btnType: "ok"
+                            _type: "ok"
+                            content_id : "#{data.content_info.id}"
+                            content_title : "#{data.content_info.title}"
+                        root._listview_data.data.push
+                            viewType: "ListViewCellButton",
+                            btnTitle: "已申请列表",
+                            btnType: "cancel"
                         $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
 #启动程序

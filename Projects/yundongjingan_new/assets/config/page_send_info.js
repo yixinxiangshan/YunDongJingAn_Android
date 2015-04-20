@@ -57,7 +57,23 @@
 
     ECpageClass.prototype.onItemClick = function(data) {};
 
-    ECpageClass.prototype.onItemInnerClick = function(data) {};
+    ECpageClass.prototype.onItemInnerClick = function(data) {
+      var content, item;
+      item = this._listview_data.data[data.position];
+      if ((item._type != null) && item._type === 'ok') {
+        content = {
+          content_id: item.content_id,
+          content_title: item.content_title
+        };
+        return $A().app().openPage({
+          page_name: "page_send_input",
+          params: {
+            info: content
+          },
+          close_option: ""
+        });
+      }
+    };
 
     ECpageClass.prototype.onResume = function() {};
 
@@ -67,7 +83,6 @@
       return $A().app().platform().then(function(platform) {
         root._platform = platform;
         return $A().page().param("info").then(function(info) {
-          $A().app().log("=======================================info: " + info);
           return $A().app().callApi({
             method: "content/news/detail",
             content_id: info,
@@ -83,7 +98,7 @@
               root._listview_data.data = [];
               root._listview_data.data.push({
                 viewType: "ListViewCellArticleTitle",
-                article_title: "" + data.content_info.title
+                headTitle: "" + data.content_info.title
               });
               root._listview_data.data.push({
                 viewType: "ListViewCellImage",
@@ -97,7 +112,19 @@
                 viewType: "ListViewCellArticle",
                 content: "" + data.content_info.content
               });
-              $A().app().log("==============================JSON.stringify root._listview_data" + JSON.stringify(root._listview_data));
+              root._listview_data.data.push({
+                viewType: "ListViewCellButton",
+                btnTitle: "我要申请",
+                btnType: "ok",
+                _type: "ok",
+                content_id: "" + data.content_info.id,
+                content_title: "" + data.content_info.title
+              });
+              root._listview_data.data.push({
+                viewType: "ListViewCellButton",
+                btnTitle: "已申请列表",
+                btnType: "cancel"
+              });
               return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
             }
           });
