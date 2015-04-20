@@ -240,7 +240,7 @@ class ECpageClass
                                 all_fav_id_ids.push item.fav_id_id if item.fav_id_id? and item.fav_id_id != ""
                         $A().lrucache().massRemove(JSON.stringify all_fav_id_ids) #清除本地记录的完成状态
                         $A().lrucache().massRemove(JSON.stringify v_fav_id["index"]) #清除每天的数据
-                        delete fav_id_arr["#{fav_id}"]
+                        delete lfav_id_arr["#{fav_id}"]
                         
                         #更新 fav_id_arr
                         $A().lrucache().set

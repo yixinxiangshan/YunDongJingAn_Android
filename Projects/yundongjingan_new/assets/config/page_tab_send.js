@@ -59,7 +59,8 @@
       return $A().app().callApi({
         method: "content/news/index",
         sort_id: 525,
-        cacheTime: 0
+        cacheTime: 0,
+        simple_result: true
       }).then(function(data) {
         var content, i, len, ref;
         if (data.errors != null) {
@@ -79,9 +80,10 @@
               leftImage: {
                 imageType: "imageServer",
                 imageSize: "middle",
-                imageSrc: "" + content.image_cover.url
+                imageSrc: "" + content.image
               },
-              centerBottomdes: "" + content.abstract
+              centerBottomdes: "" + content.abstract,
+              content_id: "" + content.id
             });
           }
           return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
@@ -89,7 +91,17 @@
       });
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      var item;
+      item = this._listview_data.data[data.position];
+      return $A().app().openPage({
+        page_name: "page_send_info",
+        params: {
+          info: item.content_id
+        },
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 

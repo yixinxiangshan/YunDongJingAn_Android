@@ -41,6 +41,7 @@ class ECpageClass
             method:"content/news/index"
             sort_id: 525
             cacheTime: 0
+            simple_result : true
         .then (data) ->
             if data.errors?
                 if data.errors[0].error_num?
@@ -57,51 +58,22 @@ class ECpageClass
                         leftImage : {
                             imageType : "imageServer"
                             imageSize : "middle"
-                            imageSrc : "#{content.image_cover.url}"
+                            imageSrc : "#{content.image}"
                         }
                         centerBottomdes : "#{content.abstract}"
+                        content_id : "#{content.id}"
                 $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
-#        @_listview_data.data[0].centerTitle = "Richard Center Title"
-#        @_listview_data.data[0].leftImage = {
-#            imageType : "imageServer"
-#            imageSize : "middle"
-#            imageSrc : "3012659.jpg"
-#        }
-#        @_listview_data.data[0].centerBottomdes = "Richard Center Bottomes"
-
-#        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
-
-#        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
-        #自定义函数
-    
     onItemClick: (data) ->
+        item = @_listview_data.data[data.position]
+        $A().app().openPage
+            page_name:"page_send_info"
+            params:
+                info : item.content_id
+            close_option: ""
 
-    
     onItemInnerClick: (data) ->
-        # data._form = JSON.parse data._form
-#        content = if data._form.content? then data._form.content else ""
-#        contact = if data._form.contact? then data._form.contact else ""
-#        if content == ""
-#            $A().app().makeToast "请输入您的反馈意见！"
-#        else if contact == ""
-#            $A().app().makeToast "请输入您的联系方式"
-#        else
-#            $A().app().makeToast "正在提交"
-#            $A().app().callApi
-#                method:"project/feedbaks/create"
-#                content:content
-#                contact_info:contact
-#                cacheTime: 0
-#            .then (data) ->
-                # $A().app().log JSON.stringify data
-#                if data.success == true
-#                    $A().app().makeToast "提交成功，谢谢您的反馈。"
-#                    $A().page().setTimeout("2000").then () ->
-#                        $A().app().closePage()
-#                else
-#                    $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
-    
+
     onResume: () ->
         
     onResult: (data) ->
