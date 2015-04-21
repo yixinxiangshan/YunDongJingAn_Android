@@ -52,6 +52,16 @@ class ECpageClass
                 params:
                     info : content
                 close_option: ""
+        if item._type? and item._type == 'cancel'
+            content =
+            {
+                content_id: item.content_id
+            }
+            $A().app().openPage
+                page_name:"page_send_list"
+                params:
+                    info : content
+                close_option: ""
 
     onResume: () ->
     
@@ -99,6 +109,9 @@ class ECpageClass
                             viewType: "ListViewCellButton",
                             btnTitle: "已申请列表",
                             btnType: "cancel"
+                            _type: "cancel"
+                            content_id : "#{data.content_info.id}"
+                            content_title : "#{data.content_info.title}"
                         $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
 #启动程序

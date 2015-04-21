@@ -15,6 +15,7 @@ class ECpageClass
                 inputType:"text"
                 hint:"姓名（必填）"
                 name:"name"
+                inputText:""
             }
             {
                 viewType: "ListViewCellInputText"
@@ -22,6 +23,7 @@ class ECpageClass
                 hint:"地址（必填）"
                 lines:2
                 name:"address"
+                inputText:""
             }
             {
                 viewType: "ListViewCellInputText"
@@ -64,14 +66,45 @@ class ECpageClass
         @_constructor(_page_name)
 
     onCreated: () ->
-        $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
+        $A().page().param("info").then (info) ->
+            info_ = JSON.parse info
+            if info_.order_id?
+                $A().app().callApi
+                    method:"trade/ships/detail"
+                    order_id: info_.order_id
+                    cacheTime: 0
+                .then (data) ->
+                    if data.errors?
+                        if data.errors[0].error_num?
+                            $A().app().makeToast "网络状态不好，请重新加载"
+                        else
+                            $A().app().makeToast "没有网络"
+                    else
+#                        $A().app().log "---------------------data.order.consignee_name" + data.order.consignee_name
+                        root._listview_data.data[0].inputText = data.order.consignee_name
+#                        $A().app().log "---------------------data.order.consignee_address" + data.order.consignee_address
+                        root._listview_data.data[1].inputText = data.order.consignee_address
+#                        $A().app().log "---------------------data.order.phone" + data.order.phone
+                        root._listview_data.data[2].inputText = data.order.phone
+#                        $A().app().log "---------------------data.order.consignee_zip" + data.order.consignee_zip
+                        root._listview_data.data[3].inputText = data.order.consignee_zip
+                        root._listview_data.data.push
+                            viewType : "ListViewCellButton"
+                            inputType:"number"
+                            btnTitle: "删 除"
+                            btnType : "cancel"
+                            _type : "cancel"
+#                        $A().app().log "---------------------JSON.stringify @_listview_data" + JSON.stringify root._listview_data
+                        $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+
+            $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data if root._platform? and root._platform == "ios"
         #自定义函数
-    
+
     onItemClick: (data) ->
     
     onItemInnerClick: (data) ->
-        $A().app().log "---------------------data" + data
-        $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
+#        $A().app().log "---------------------data" + data
+#        $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
         # data._form = JSON.parse data._form
         name = if data._form.name? then data._form.name else ""
         address = if data._form.address? then data._form.address else ""
@@ -96,7 +129,6 @@ class ECpageClass
                     consignee_address: address
                     phone: phone
                     consignee_zip: zip
-                    is_default: 0
                     cacheTime: 0
                 .then (data) ->
                     if data.success == true

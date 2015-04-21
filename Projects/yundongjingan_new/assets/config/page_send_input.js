@@ -24,13 +24,15 @@
           viewType: "ListViewCellInputText",
           inputType: "text",
           hint: "姓名（必填）",
-          name: "name"
+          name: "name",
+          inputText: ""
         }, {
           viewType: "ListViewCellInputText",
           inputType: "text",
           hint: "地址（必填）",
           lines: 2,
-          name: "address"
+          name: "address",
+          inputText: ""
         }, {
           viewType: "ListViewCellInputText",
           inputType: "number",
@@ -74,17 +76,47 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
-      if ((root._platform != null) && root._platform === "ios") {
-        return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
-      }
+      return $A().page().param("info").then(function(info) {
+        var info_;
+        info_ = JSON.parse(info);
+        if (info_.order_id != null) {
+          $A().app().callApi({
+            method: "trade/ships/detail",
+            order_id: info_.order_id,
+            cacheTime: 0
+          }).then(function(data) {
+            if (data.errors != null) {
+              if (data.errors[0].error_num != null) {
+                return $A().app().makeToast("网络状态不好，请重新加载");
+              } else {
+                return $A().app().makeToast("没有网络");
+              }
+            } else {
+              root._listview_data.data[0].inputText = data.order.consignee_name;
+              root._listview_data.data[1].inputText = data.order.consignee_address;
+              root._listview_data.data[2].inputText = data.order.phone;
+              root._listview_data.data[3].inputText = data.order.consignee_zip;
+              root._listview_data.data.push({
+                viewType: "ListViewCellButton",
+                inputType: "number",
+                btnTitle: "删 除",
+                btnType: "cancel",
+                _type: "cancel"
+              });
+              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+            }
+          });
+        }
+        if ((root._platform != null) && root._platform === "ios") {
+          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+        }
+      });
     };
 
     ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var address, name, phone, zip;
-      $A().app().log("---------------------data" + data);
-      $A().app().log("---------------------JSON.stringify data" + JSON.stringify(data));
       name = data._form.name != null ? data._form.name : "";
       address = data._form.address != null ? data._form.address : "";
       phone = data._form.phone != null ? data._form.phone : "";
@@ -108,7 +140,6 @@
             consignee_address: address,
             phone: phone,
             consignee_zip: zip,
-            is_default: 0,
             cacheTime: 0
           }).then(function(data) {
             if (data.success === true) {

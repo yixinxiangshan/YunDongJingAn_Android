@@ -65,8 +65,20 @@
           content_id: item.content_id,
           content_title: item.content_title
         };
-        return $A().app().openPage({
+        $A().app().openPage({
           page_name: "page_send_input",
+          params: {
+            info: content
+          },
+          close_option: ""
+        });
+      }
+      if ((item._type != null) && item._type === 'cancel') {
+        content = {
+          content_id: item.content_id
+        };
+        return $A().app().openPage({
+          page_name: "page_send_list",
           params: {
             info: content
           },
@@ -123,7 +135,10 @@
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
                 btnTitle: "已申请列表",
-                btnType: "cancel"
+                btnType: "cancel",
+                _type: "cancel",
+                content_id: "" + data.content_info.id,
+                content_title: "" + data.content_info.title
               });
               return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
             }
