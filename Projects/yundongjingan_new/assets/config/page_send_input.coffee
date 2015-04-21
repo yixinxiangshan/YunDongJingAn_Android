@@ -13,27 +13,27 @@ class ECpageClass
             {
                 viewType: "ListViewCellInputText"
                 inputType:"text"
-                hint:"姓名"
+                hint:"姓名（必填）"
                 name:"name"
             }
             {
                 viewType: "ListViewCellInputText"
                 inputType:"text"
-                hint:"地址"
-                lines:3
+                hint:"地址（必填）"
+                lines:2
                 name:"address"
             }
             {
                 viewType: "ListViewCellInputText"
                 inputType:"number"
-                hint:"电话"
+                hint:"电话（必填）"
                 name:"phone"
                 inputText:""
             }
             {
                 viewType: "ListViewCellInputText"
                 inputType:"number"
-                hint:"邮编"
+                hint:"邮编（可选）"
                 name:"zip"
                 inputText:""
             }
@@ -70,11 +70,14 @@ class ECpageClass
     onItemClick: (data) ->
     
     onItemInnerClick: (data) ->
+        $A().app().log "---------------------data" + data
+        $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
         # data._form = JSON.parse data._form
         name = if data._form.name? then data._form.name else ""
         address = if data._form.address? then data._form.address else ""
         phone = if data._form.phone? then data._form.phone else ""
         zip = if data._form.zip? then data._form.zip else ""
+
         if name == ""
             $A().app().makeToast "请输入您的姓名！"
         else if address == ""
@@ -84,18 +87,18 @@ class ECpageClass
         else
             $A().page().param("info").then (info) ->
                 $A().app().makeToast "正在提交"
-#                $A().app().callApi
-#                    method: "trade/ships/create"
-#                    cms_content_id: info.content_id
-#                    title: info.content_title
-#                    consignee_name: name
-#                    consignee_address: address
-#                    phone: phone
-#                    consignee_zip: consignee_zip
-#                    is_default: 0
-#                    cacheTime: 0
+                info_ = JSON.parse info
+                $A().app().callApi
+                    method: "trade/ships/create"
+                    cms_content_id: info_.content_id
+                    title: info_.content_title
+                    consignee_name: name
+                    consignee_address: address
+                    phone: phone
+                    consignee_zip: zip
+                    is_default: 0
+                    cacheTime: 0
                 .then (data) ->
-                    $A().app().log "---------------------------------" + JSON.stringify data
                     if data.success == true
                         $A().app().makeToast "提交成功，谢谢您的申请。"
                         $A().page().setTimeout("2000").then () ->

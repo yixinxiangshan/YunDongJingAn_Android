@@ -23,24 +23,24 @@
         {
           viewType: "ListViewCellInputText",
           inputType: "text",
-          hint: "姓名",
+          hint: "姓名（必填）",
           name: "name"
         }, {
           viewType: "ListViewCellInputText",
           inputType: "text",
-          hint: "地址",
-          lines: 3,
+          hint: "地址（必填）",
+          lines: 2,
           name: "address"
         }, {
           viewType: "ListViewCellInputText",
           inputType: "number",
-          hint: "电话",
+          hint: "电话（必填）",
           name: "phone",
           inputText: ""
         }, {
           viewType: "ListViewCellInputText",
           inputType: "number",
-          hint: "邮编",
+          hint: "邮编（可选）",
           name: "zip",
           inputText: ""
         }, {
@@ -83,6 +83,8 @@
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var address, name, phone, zip;
+      $A().app().log("---------------------data" + data);
+      $A().app().log("---------------------JSON.stringify data" + JSON.stringify(data));
       name = data._form.name != null ? data._form.name : "";
       address = data._form.address != null ? data._form.address : "";
       phone = data._form.phone != null ? data._form.phone : "";
@@ -95,16 +97,22 @@
         return $A().app().makeToast("请输入您的电话");
       } else {
         return $A().page().param("info").then(function(info) {
+          var info_;
           $A().app().makeToast("正在提交");
+          info_ = JSON.parse(info);
           return $A().app().callApi({
-            method: "project/feedbaks/create",
-            content: "aaa",
-            contact_info: "bbb",
+            method: "trade/ships/create",
+            cms_content_id: info_.content_id,
+            title: info_.content_title,
+            consignee_name: name,
+            consignee_address: address,
+            phone: phone,
+            consignee_zip: zip,
+            is_default: 0,
             cacheTime: 0
           }).then(function(data) {
-            $A().app().log("---------------------------------" + JSON.stringify(data));
             if (data.success === true) {
-              $A().app().makeToast("提交成功，谢谢您的反馈。");
+              $A().app().makeToast("提交成功，谢谢您的申请。");
               return $A().page().setTimeout("2000").then(function() {
                 return $A().app().closePage();
               });
