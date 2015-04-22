@@ -10,7 +10,7 @@
     <!-- SqiqlRCUIcWWGUqYnM5yxluv -->
     <string name="base_api_url" tools:ignore="MissingTranslation">http://856854478.cloudapi.nowapp.cn/</string>
     <!-- 调试相关 -->
-    <string name="config_js_url" tools:ignore="MissingTranslation">http://central.nowapp.cn:5180/eceditor/downJs?project=yundongjingan_new</string>
+    <string name="config_js_url" tools:ignore="MissingTranslation">http://jinganapi.nowapp.cn/eceditor/downCoffee</string>
     <!-- 加密内容 -->
     <string name="ori_key" tools:ignore="MissingTranslation">ECloudChangeFuture</string>
 </resources>
