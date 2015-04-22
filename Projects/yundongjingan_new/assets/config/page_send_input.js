@@ -77,12 +77,11 @@
 
     ECpageClass.prototype.onCreated = function() {
       return $A().page().param("info").then(function(info) {
-        var info_;
-        info_ = JSON.parse(info);
-        if (info_.order_id != null) {
+        root._item_info = JSON.parse(info);
+        if (root._item_info.order_id != null) {
           $A().app().callApi({
             method: "trade/ships/detail",
-            order_id: info_.order_id,
+            order_id: root._item_info.order_id,
             cacheTime: 0
           }).then(function(data) {
             if (data.errors != null) {
@@ -116,7 +115,7 @@
     ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
-      var address, name, phone, zip;
+      var address, item, name, phone, zip;
       name = data._form.name != null ? data._form.name : "";
       address = data._form.address != null ? data._form.address : "";
       phone = data._form.phone != null ? data._form.phone : "";
@@ -128,16 +127,34 @@
       } else if (phone === "") {
         return $A().app().makeToast("请输入您的电话");
       } else {
-        return $A().page().param("info").then(function(info) {
-          var info_, item;
-          item = this._listview_data.data[data.position];
-          if ((item._type != null) && item._type === 'ok') {
-            $A().app().makeToast("正在提交");
-            info_ = JSON.parse(info);
+        item = this._listview_data.data[data.position];
+        if ((item._type != null) && item._type === 'ok') {
+          $A().app().makeToast("正在提交");
+          if (root._item_info.consignee_id != null) {
+            $A().app().callApi({
+              method: "user/users/consignees/modify",
+              id: root._item_info.consignee_id,
+              title: root._item_info.content_title,
+              consignee_name: name,
+              consignee_address: address,
+              phone: phone,
+              consignee_zip: zip,
+              cacheTime: 0
+            }).then(function(data) {
+              if (data.success === true) {
+                $A().app().makeToast("提交成功，谢谢您的申请。");
+                return $A().page().setTimeout("2000").then(function() {
+                  return $A().app().closePage();
+                });
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
+          } else {
             $A().app().callApi({
               method: "trade/ships/create",
-              cms_content_id: info_.content_id,
-              title: info_.content_title,
+              cms_content_id: root._item_info.content_id,
+              title: root._item_info.content_title,
               consignee_name: name,
               consignee_address: address,
               phone: phone,
@@ -154,30 +171,24 @@
               }
             });
           }
-          if ((item._type != null) && item._type === 'cancel') {
-            $A().app().makeToast("正在提交");
-            info_ = JSON.parse(info);
-            return $A().app().callApi({
-              method: "user/users/consignees/modify",
-              id: info_.consignee_id,
-              title: info_.content_title,
-              consignee_name: name,
-              consignee_address: address,
-              phone: phone,
-              consignee_zip: zip,
-              cacheTime: 0
-            }).then(function(data) {
-              if (data.success === true) {
-                $A().app().makeToast("提交成功，谢谢您的申请。");
-                return $A().page().setTimeout("2000").then(function() {
-                  return $A().app().closePage();
-                });
-              } else {
-                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
-              }
-            });
-          }
-        });
+        }
+        if ((item._type != null) && item._type === 'cancel') {
+          $A().app().makeToast("正在删除");
+          return $A().app().callApi({
+            method: "trade/ships/destroy",
+            id: root._item_info.order_id,
+            cacheTime: 0
+          }).then(function(data) {
+            if (data.success === true) {
+              $A().app().makeToast("删除成功。");
+              return $A().page().setTimeout("2000").then(function() {
+                return $A().app().closePage();
+              });
+            } else {
+              return $A().app().makeToast("删除失败，请重试或者检查您的网络是否打开。");
+            }
+          });
+        }
       }
     };
 

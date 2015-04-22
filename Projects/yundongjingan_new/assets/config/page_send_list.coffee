@@ -39,32 +39,6 @@ class ECpageClass
   onCreated: () ->
     $A().page().param("info").then (info) ->
       root._item_info = JSON.parse info
-      $A().app().callApi
-        method: "trade/ships/detail"
-        cms_content_id: root._item_info.content_id
-        cacheTime: 0
-      .then (data) ->
-        if data.errors?
-          if data.errors[0].error_num?
-            if data.errors[0].error_msg?
-              root._listview_data.data[0].centerTitle = data.errors[0].error_msg
-              $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
-            else
-              $A().app().makeToast "网络状态不好，请重新加载"
-          else
-            $A().app().makeToast "没有网络"
-        else
-          root._listview_data.data = []
-          for content in data.order
-            root._listview_data.data.push
-              viewType: "ListViewCellLine"
-              centerTitle: "#{content.consignee_name}"
-              centerBottomdes: "#{content.updated_at}"
-              content_id: "#{content.cms_content_id}"
-              content_title: "#{content.title}"
-              order_id: "#{content.id}"
-              consignee_id: "#{content.user_consignee_id}"
-          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
@@ -84,9 +58,35 @@ class ECpageClass
   onItemInnerClick: (data) ->
 
   onResume: () ->
-    $A().page("page_send_list").param {key: "info" , value: JSON.stringify root._item_info}
-    # 本地刷新
-    root.onCreated()
+    $A().app().callApi
+      method: "trade/ships/detail"
+      cms_content_id: root._item_info.content_id
+      cacheTime: 0
+    .then (data) ->
+      if data.errors?
+        if data.errors[0].error_num?
+          if data.errors[0].error_msg?
+            root._listview_data.data = []
+            root._listview_data.data.push
+              viewType: "ListViewCellLine"
+              centerTitle: data.errors[0].error_msg
+            $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+          else
+            $A().app().makeToast "网络状态不好，请重新加载"
+        else
+          $A().app().makeToast "没有网络"
+      else
+        root._listview_data.data = []
+        for content in data.order
+          root._listview_data.data.push
+            viewType: "ListViewCellLine"
+            centerTitle: "#{content.consignee_name}"
+            centerBottomdes: "#{content.updated_at}"
+            content_id: "#{content.cms_content_id}"
+            content_title: "#{content.title}"
+            order_id: "#{content.id}"
+            consignee_id: "#{content.user_consignee_id}"
+        $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onResult: (data) ->
 

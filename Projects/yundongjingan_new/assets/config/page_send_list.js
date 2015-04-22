@@ -57,44 +57,7 @@
 
     ECpageClass.prototype.onCreated = function() {
       return $A().page().param("info").then(function(info) {
-        var info_;
-        info_ = JSON.parse(info);
-        return $A().app().callApi({
-          method: "trade/ships/detail",
-          cms_content_id: info_.content_id,
-          cacheTime: 0
-        }).then(function(data) {
-          var content, i, len, ref;
-          $A().app().log("---------------------JSON.stringify data" + JSON.stringify(data));
-          if (data.errors != null) {
-            if (data.errors[0].error_num != null) {
-              if (data.errors[0].error_msg != null) {
-                root._listview_data.data[0].centerTitle = data.errors[0].error_msg;
-                return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
-              } else {
-                return $A().app().makeToast("网络状态不好，请重新加载");
-              }
-            } else {
-              return $A().app().makeToast("没有网络");
-            }
-          } else {
-            root._listview_data.data = [];
-            ref = data.order;
-            for (i = 0, len = ref.length; i < len; i++) {
-              content = ref[i];
-              root._listview_data.data.push({
-                viewType: "ListViewCellLine",
-                centerTitle: "" + content.consignee_name,
-                centerBottomdes: "" + content.updated_at,
-                content_id: "" + content.cms_content_id,
-                content_title: "" + content.title,
-                order_id: "" + content.id,
-                consignee_id: "" + content.user_consignee_id
-              });
-            }
-            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
-          }
-        });
+        return root._item_info = JSON.parse(info);
       });
     };
 
@@ -118,7 +81,43 @@
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 
-    ECpageClass.prototype.onResume = function() {};
+    ECpageClass.prototype.onResume = function() {
+      return $A().app().callApi({
+        method: "trade/ships/detail",
+        cms_content_id: root._item_info.content_id,
+        cacheTime: 0
+      }).then(function(data) {
+        var content, i, len, ref;
+        if (data.errors != null) {
+          if (data.errors[0].error_num != null) {
+            if (data.errors[0].error_msg != null) {
+              root._listview_data.data[0].centerTitle = data.errors[0].error_msg;
+              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+            } else {
+              return $A().app().makeToast("网络状态不好，请重新加载");
+            }
+          } else {
+            return $A().app().makeToast("没有网络");
+          }
+        } else {
+          root._listview_data.data = [];
+          ref = data.order;
+          for (i = 0, len = ref.length; i < len; i++) {
+            content = ref[i];
+            root._listview_data.data.push({
+              viewType: "ListViewCellLine",
+              centerTitle: "" + content.consignee_name,
+              centerBottomdes: "" + content.updated_at,
+              content_id: "" + content.cms_content_id,
+              content_title: "" + content.title,
+              order_id: "" + content.id,
+              consignee_id: "" + content.user_consignee_id
+            });
+          }
+          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+        }
+      });
+    };
 
     ECpageClass.prototype.onResult = function(data) {};
 

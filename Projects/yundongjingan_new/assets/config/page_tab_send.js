@@ -51,9 +51,9 @@
       });
     };
 
-    function ECpageClass(_page_name) {}
-
-    ECpageClass._constructor(_page_name);
+    function ECpageClass(_page_name) {
+      this._constructor(_page_name);
+    }
 
     ECpageClass.prototype.onCreated = function() {
       return $A().app().callApi({

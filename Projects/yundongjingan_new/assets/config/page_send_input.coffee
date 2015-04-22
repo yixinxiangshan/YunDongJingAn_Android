@@ -98,68 +98,69 @@ class ECpageClass
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
-    name = if data._form.name? then data._form.name else ""
-    address = if data._form.address? then data._form.address else ""
-    phone = if data._form.phone? then data._form.phone else ""
-    zip = if data._form.zip? then data._form.zip else ""
-
-    if name == ""
-      $A().app().makeToast "请输入您的姓名"
-    else if address == ""
-      $A().app().makeToast "请输入您的地址"
-    else if phone == ""
-      $A().app().makeToast "请输入您的电话"
+    item = @_listview_data.data[data.position]
+    if item._type? and item._type == 'cancel'
+      $A().app().makeToast "正在删除"
+      $A().app().callApi
+        method: "trade/ships/destroy"
+        id: root._item_info.order_id
+        cacheTime: 0
+      .then (data) ->
+        if data.success == true
+          $A().app().makeToast "删除成功。"
+          $A().page().setTimeout("2000").then () ->
+            $A().app().closePage()
+        else
+          $A().app().makeToast "删除失败，请重试或者检查您的网络是否打开。"
     else
-      item = @_listview_data.data[data.position]
-      if item._type? and item._type == 'ok'
-        $A().app().makeToast "正在提交"
-        if root._item_info.consignee_id? #已存在，修改
-          $A().app().callApi
-            method: "user/users/consignees/modify"
-            id: root._item_info.consignee_id
-            title: root._item_info.content_title
-            consignee_name: name
-            consignee_address: address
-            phone: phone
-            consignee_zip: zip
-            cacheTime: 0
-          .then (data) ->
-            if data.success == true
-              $A().app().makeToast "提交成功，谢谢您的申请。"
-              $A().page().setTimeout("2000").then () ->
-                $A().app().closePage()
-            else
-              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
-        else #未存在，创建
-          $A().app().callApi
-            method: "trade/ships/create"
-            cms_content_id: root._item_info.content_id
-            title: root._item_info.content_title
-            consignee_name: name
-            consignee_address: address
-            phone: phone
-            consignee_zip: zip
-            cacheTime: 0
-          .then (data) ->
-            if data.success == true
-              $A().app().makeToast "提交成功，谢谢您的申请。"
-              $A().page().setTimeout("2000").then () ->
-                $A().app().closePage()
-            else
-              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
-      if item._type? and item._type == 'cancel'
-        $A().app().makeToast "正在删除"
-        $A().app().callApi
-          method: "trade/ships/destroy"
-          id: root._item_info.order_id
-          cacheTime: 0
-        .then (data) ->
-          if data.success == true
-            $A().app().makeToast "删除成功。"
-            $A().page().setTimeout("2000").then () ->
-              $A().app().closePage()
-          else
-            $A().app().makeToast "删除失败，请重试或者检查您的网络是否打开。"
+      name = if data._form.name? then data._form.name else ""
+      address = if data._form.address? then data._form.address else ""
+      phone = if data._form.phone? then data._form.phone else ""
+      zip = if data._form.zip? then data._form.zip else ""
+
+      if name == ""
+        $A().app().makeToast "请输入您的姓名"
+      else if address == ""
+        $A().app().makeToast "请输入您的地址"
+      else if phone == ""
+        $A().app().makeToast "请输入您的电话"
+      else
+        if item._type? and item._type == 'ok'
+          $A().app().makeToast "正在提交"
+          if root._item_info.consignee_id? #已存在，修改
+            $A().app().callApi
+              method: "user/users/consignees/modify"
+              id: root._item_info.consignee_id
+              title: root._item_info.content_title
+              consignee_name: name
+              consignee_address: address
+              phone: phone
+              consignee_zip: zip
+              cacheTime: 0
+            .then (data) ->
+              if data.success == true
+                $A().app().makeToast "提交成功，谢谢您的申请。"
+                $A().page().setTimeout("2000").then () ->
+                  $A().app().closePage()
+              else
+                $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+          else #未存在，创建
+            $A().app().callApi
+              method: "trade/ships/create"
+              cms_content_id: root._item_info.content_id
+              title: root._item_info.content_title
+              consignee_name: name
+              consignee_address: address
+              phone: phone
+              consignee_zip: zip
+              cacheTime: 0
+            .then (data) ->
+              if data.success == true
+                $A().app().makeToast "提交成功，谢谢您的申请。"
+                $A().page().setTimeout("2000").then () ->
+                  $A().app().closePage()
+              else
+                $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
 
   onResume: () ->
 
