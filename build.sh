@@ -1,7 +1,7 @@
 rm -rf tmp
 mkdir tmp
 cp -r Projects/yundongjingan_new/assets/* tmp/
-coffee -c tmp/config/*.coffee
+coffee -c tmp/config/*.coffee||exit
 rm -f tmp/config/*.coffee
 cd tmp
 zip -r config.zip config javascript webview
