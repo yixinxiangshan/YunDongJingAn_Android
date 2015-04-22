@@ -67,11 +67,11 @@ class ECpageClass
 
   onCreated: () ->
     $A().page().param("info").then (info) ->
-      info_ = JSON.parse info
-      if info_.order_id?
+      root._item_info = JSON.parse info
+      if root._item_info.order_id?
         $A().app().callApi
           method: "trade/ships/detail"
-          order_id: info_.order_id
+          order_id: root._item_info.order_id
           cacheTime: 0
         .then (data) ->
           if data.errors?
@@ -80,13 +80,9 @@ class ECpageClass
             else
               $A().app().makeToast "没有网络"
           else
-#                        $A().app().log "---------------------data.order.consignee_name" + data.order.consignee_name
             root._listview_data.data[0].inputText = data.order.consignee_name
-            #                        $A().app().log "---------------------data.order.consignee_address" + data.order.consignee_address
             root._listview_data.data[1].inputText = data.order.consignee_address
-            #                        $A().app().log "---------------------data.order.phone" + data.order.phone
             root._listview_data.data[2].inputText = data.order.phone
-            #                        $A().app().log "---------------------data.order.consignee_zip" + data.order.consignee_zip
             root._listview_data.data[3].inputText = data.order.consignee_zip
             root._listview_data.data.push
               viewType: "ListViewCellButton"
@@ -94,7 +90,6 @@ class ECpageClass
               btnTitle: "删 除"
               btnType: "cancel"
               _type: "cancel"
-            #                        $A().app().log "---------------------JSON.stringify @_listview_data" + JSON.stringify root._listview_data
             $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
       $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data if root._platform? and root._platform == "ios"
@@ -103,40 +98,68 @@ class ECpageClass
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
-#        $A().app().log "---------------------data" + data
-#        $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
-    # data._form = JSON.parse data._form
     name = if data._form.name? then data._form.name else ""
     address = if data._form.address? then data._form.address else ""
     phone = if data._form.phone? then data._form.phone else ""
     zip = if data._form.zip? then data._form.zip else ""
 
     if name == ""
-      $A().app().makeToast "请输入您的姓名！"
+      $A().app().makeToast "请输入您的姓名"
     else if address == ""
       $A().app().makeToast "请输入您的地址"
     else if phone == ""
       $A().app().makeToast "请输入您的电话"
     else
-      $A().page().param("info").then (info) ->
+      item = @_listview_data.data[data.position]
+      if item._type? and item._type == 'ok'
         $A().app().makeToast "正在提交"
-        info_ = JSON.parse info
+        if root._item_info.consignee_id? #已存在，修改
+          $A().app().callApi
+            method: "user/users/consignees/modify"
+            id: root._item_info.consignee_id
+            title: root._item_info.content_title
+            consignee_name: name
+            consignee_address: address
+            phone: phone
+            consignee_zip: zip
+            cacheTime: 0
+          .then (data) ->
+            if data.success == true
+              $A().app().makeToast "提交成功，谢谢您的申请。"
+              $A().page().setTimeout("2000").then () ->
+                $A().app().closePage()
+            else
+              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+        else #未存在，创建
+          $A().app().callApi
+            method: "trade/ships/create"
+            cms_content_id: root._item_info.content_id
+            title: root._item_info.content_title
+            consignee_name: name
+            consignee_address: address
+            phone: phone
+            consignee_zip: zip
+            cacheTime: 0
+          .then (data) ->
+            if data.success == true
+              $A().app().makeToast "提交成功，谢谢您的申请。"
+              $A().page().setTimeout("2000").then () ->
+                $A().app().closePage()
+            else
+              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+      if item._type? and item._type == 'cancel'
+        $A().app().makeToast "正在删除"
         $A().app().callApi
-          method: "trade/ships/create"
-          cms_content_id: info_.content_id
-          title: info_.content_title
-          consignee_name: name
-          consignee_address: address
-          phone: phone
-          consignee_zip: zip
+          method: "trade/ships/destroy"
+          id: root._item_info.order_id
           cacheTime: 0
         .then (data) ->
           if data.success == true
-            $A().app().makeToast "提交成功，谢谢您的申请。"
+            $A().app().makeToast "删除成功。"
             $A().page().setTimeout("2000").then () ->
               $A().app().closePage()
           else
-            $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+            $A().app().makeToast "删除失败，请重试或者检查您的网络是否打开。"
 
   onResume: () ->
 

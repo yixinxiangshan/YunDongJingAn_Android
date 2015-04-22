@@ -122,35 +122,61 @@
       phone = data._form.phone != null ? data._form.phone : "";
       zip = data._form.zip != null ? data._form.zip : "";
       if (name === "") {
-        return $A().app().makeToast("请输入您的姓名！");
+        return $A().app().makeToast("请输入您的姓名");
       } else if (address === "") {
         return $A().app().makeToast("请输入您的地址");
       } else if (phone === "") {
         return $A().app().makeToast("请输入您的电话");
       } else {
         return $A().page().param("info").then(function(info) {
-          var info_;
-          $A().app().makeToast("正在提交");
-          info_ = JSON.parse(info);
-          return $A().app().callApi({
-            method: "trade/ships/create",
-            cms_content_id: info_.content_id,
-            title: info_.content_title,
-            consignee_name: name,
-            consignee_address: address,
-            phone: phone,
-            consignee_zip: zip,
-            cacheTime: 0
-          }).then(function(data) {
-            if (data.success === true) {
-              $A().app().makeToast("提交成功，谢谢您的申请。");
-              return $A().page().setTimeout("2000").then(function() {
-                return $A().app().closePage();
-              });
-            } else {
-              return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
-            }
-          });
+          var info_, item;
+          item = this._listview_data.data[data.position];
+          if ((item._type != null) && item._type === 'ok') {
+            $A().app().makeToast("正在提交");
+            info_ = JSON.parse(info);
+            $A().app().callApi({
+              method: "trade/ships/create",
+              cms_content_id: info_.content_id,
+              title: info_.content_title,
+              consignee_name: name,
+              consignee_address: address,
+              phone: phone,
+              consignee_zip: zip,
+              cacheTime: 0
+            }).then(function(data) {
+              if (data.success === true) {
+                $A().app().makeToast("提交成功，谢谢您的申请。");
+                return $A().page().setTimeout("2000").then(function() {
+                  return $A().app().closePage();
+                });
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
+          }
+          if ((item._type != null) && item._type === 'cancel') {
+            $A().app().makeToast("正在提交");
+            info_ = JSON.parse(info);
+            return $A().app().callApi({
+              method: "user/users/consignees/modify",
+              id: info_.consignee_id,
+              title: info_.content_title,
+              consignee_name: name,
+              consignee_address: address,
+              phone: phone,
+              consignee_zip: zip,
+              cacheTime: 0
+            }).then(function(data) {
+              if (data.success === true) {
+                $A().app().makeToast("提交成功，谢谢您的申请。");
+                return $A().page().setTimeout("2000").then(function() {
+                  return $A().app().closePage();
+                });
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
+          }
         });
       }
     };

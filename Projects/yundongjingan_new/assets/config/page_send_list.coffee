@@ -38,13 +38,12 @@ class ECpageClass
 
   onCreated: () ->
     $A().page().param("info").then (info) ->
-      info_ = JSON.parse info
+      root._item_info = JSON.parse info
       $A().app().callApi
         method: "trade/ships/detail"
-        cms_content_id: info_.content_id
+        cms_content_id: root._item_info.content_id
         cacheTime: 0
       .then (data) ->
-        $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
         if data.errors?
           if data.errors[0].error_num?
             if data.errors[0].error_msg?
@@ -56,9 +55,7 @@ class ECpageClass
             $A().app().makeToast "没有网络"
         else
           root._listview_data.data = []
-          #                    $A().app().log "---------------------JSON.stringify data" + JSON.stringify data
           for content in data.order
-#                        $A().app().log "---------------------JSON.stringify content" + JSON.stringify content
             root._listview_data.data.push
               viewType: "ListViewCellLine"
               centerTitle: "#{content.consignee_name}"
@@ -66,7 +63,7 @@ class ECpageClass
               content_id: "#{content.cms_content_id}"
               content_title: "#{content.title}"
               order_id: "#{content.id}"
-          #                    $A().app().log "---------------------JSON.stringify root._listview_data" + JSON.stringify root._listview_data
+              consignee_id: "#{content.user_consignee_id}"
           $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onItemClick: (data) ->
@@ -76,6 +73,7 @@ class ECpageClass
       content_id: item.content_id
       content_title: item.content_title
       order_id: item.order_id
+      consignee_id: item.consignee_id
     }
     $A().app().openPage
       page_name: "page_send_input"
@@ -86,6 +84,9 @@ class ECpageClass
   onItemInnerClick: (data) ->
 
   onResume: () ->
+    $A().page("page_send_list").param {key: "info" , value: JSON.stringify root._item_info}
+    # 本地刷新
+    root.onCreated()
 
   onResult: (data) ->
 
