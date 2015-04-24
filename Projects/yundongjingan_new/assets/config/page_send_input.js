@@ -116,78 +116,90 @@
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var address, item, name, phone, zip;
-      name = data._form.name != null ? data._form.name : "";
-      address = data._form.address != null ? data._form.address : "";
-      phone = data._form.phone != null ? data._form.phone : "";
-      zip = data._form.zip != null ? data._form.zip : "";
-      if (name === "") {
-        return $A().app().makeToast("请输入您的姓名");
-      } else if (address === "") {
-        return $A().app().makeToast("请输入您的地址");
-      } else if (phone === "") {
-        return $A().app().makeToast("请输入您的电话");
-      } else {
-        item = this._listview_data.data[data.position];
-        if ((item._type != null) && item._type === 'ok') {
-          $A().app().makeToast("正在提交");
-          if (root._item_info.consignee_id != null) {
-            $A().app().callApi({
-              method: "user/users/consignees/modify",
-              id: root._item_info.consignee_id,
-              title: root._item_info.content_title,
-              consignee_name: name,
-              consignee_address: address,
-              phone: phone,
-              consignee_zip: zip,
+      item = this._listview_data.data[data.position];
+      if ((item._type != null) && item._type === 'cancel') {
+        return $A().app().showConfirm({
+          ok: "确定",
+          title: "警告",
+          cancel: "取消",
+          message: "删除之后将无法恢复，您需要重新申请。确定需要删除吗？"
+        }).then(function(data) {
+          if (data.state === "ok") {
+            $A().app().makeToast("正在删除");
+            return $A().app().callApi({
+              method: "trade/ships/destroy",
+              id: root._item_info.order_id,
               cacheTime: 0
             }).then(function(data) {
               if (data.success === true) {
-                $A().app().makeToast("提交成功，谢谢您的申请。");
+                $A().app().makeToast("删除成功。");
                 return $A().page().setTimeout("2000").then(function() {
                   return $A().app().closePage();
                 });
               } else {
-                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+                return $A().app().makeToast("删除失败，请重试或者检查您的网络是否打开。");
               }
             });
           } else {
-            $A().app().callApi({
-              method: "trade/ships/create",
-              cms_content_id: root._item_info.content_id,
-              title: root._item_info.content_title,
-              consignee_name: name,
-              consignee_address: address,
-              phone: phone,
-              consignee_zip: zip,
-              cacheTime: 0
-            }).then(function(data) {
-              if (data.success === true) {
-                $A().app().makeToast("提交成功，谢谢您的申请。");
-                return $A().page().setTimeout("2000").then(function() {
-                  return $A().app().closePage();
-                });
-              } else {
-                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
-              }
-            });
+            return false;
           }
-        }
-        if ((item._type != null) && item._type === 'cancel') {
-          $A().app().makeToast("正在删除");
-          return $A().app().callApi({
-            method: "trade/ships/destroy",
-            id: root._item_info.order_id,
-            cacheTime: 0
-          }).then(function(data) {
-            if (data.success === true) {
-              $A().app().makeToast("删除成功。");
-              return $A().page().setTimeout("2000").then(function() {
-                return $A().app().closePage();
+        });
+      } else {
+        name = data._form.name != null ? data._form.name : "";
+        address = data._form.address != null ? data._form.address : "";
+        phone = data._form.phone != null ? data._form.phone : "";
+        zip = data._form.zip != null ? data._form.zip : "";
+        if (name === "") {
+          return $A().app().makeToast("请输入您的姓名");
+        } else if (address === "") {
+          return $A().app().makeToast("请输入您的地址");
+        } else if (phone === "") {
+          return $A().app().makeToast("请输入您的电话");
+        } else {
+          if ((item._type != null) && item._type === 'ok') {
+            $A().app().makeToast("正在提交");
+            if (root._item_info.consignee_id != null) {
+              return $A().app().callApi({
+                method: "user/users/consignees/modify",
+                id: root._item_info.consignee_id,
+                title: root._item_info.content_title,
+                consignee_name: name,
+                consignee_address: address,
+                phone: phone,
+                consignee_zip: zip,
+                cacheTime: 0
+              }).then(function(data) {
+                if (data.success === true) {
+                  $A().app().makeToast("提交成功，谢谢您的申请。");
+                  return $A().page().setTimeout("2000").then(function() {
+                    return $A().app().closePage();
+                  });
+                } else {
+                  return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+                }
               });
             } else {
-              return $A().app().makeToast("删除失败，请重试或者检查您的网络是否打开。");
+              return $A().app().callApi({
+                method: "trade/ships/create",
+                cms_content_id: root._item_info.content_id,
+                title: root._item_info.content_title,
+                consignee_name: name,
+                consignee_address: address,
+                phone: phone,
+                consignee_zip: zip,
+                cacheTime: 0
+              }).then(function(data) {
+                if (data.success === true) {
+                  $A().app().makeToast("提交成功，谢谢您的申请。");
+                  return $A().page().setTimeout("2000").then(function() {
+                    return $A().app().closePage();
+                  });
+                } else {
+                  return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+                }
+              });
             }
-          });
+          }
         }
       }
     };
