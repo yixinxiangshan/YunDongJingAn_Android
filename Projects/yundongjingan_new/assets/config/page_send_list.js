@@ -91,7 +91,11 @@
         if (data.errors != null) {
           if (data.errors[0].error_num != null) {
             if (data.errors[0].error_msg != null) {
-              root._listview_data.data[0].centerTitle = data.errors[0].error_msg;
+              root._listview_data.data = [];
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: data.errors[0].error_msg
+              });
               return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
             } else {
               return $A().app().makeToast("网络状态不好，请重新加载");

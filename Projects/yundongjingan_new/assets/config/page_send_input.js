@@ -123,8 +123,8 @@
           title: "警告",
           cancel: "取消",
           message: "删除之后将无法恢复，您需要重新申请。确定需要删除吗？"
-        }).then(function(data) {
-          if (data.state === "ok") {
+        }).then(function(result) {
+          if (result.state === "ok") {
             $A().app().makeToast("正在删除");
             return $A().app().callApi({
               method: "trade/ships/destroy",
