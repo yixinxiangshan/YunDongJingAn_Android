@@ -82,8 +82,8 @@ class ECpageClass
           else
             root._listview_data.data[0].inputText = data.order.consignee_name
             root._listview_data.data[1].inputText = data.order.consignee_address
-            root._listview_data.data[2].inputText = data.order.phone
-            root._listview_data.data[3].inputText = data.order.consignee_zip
+            root._listview_data.data[2].inputText = "#{data.order.phone}"
+            root._listview_data.data[3].inputText = "#{data.order.consignee_zip}"
             root._listview_data.data.push
               viewType: "ListViewCellButton"
               inputType: "number"

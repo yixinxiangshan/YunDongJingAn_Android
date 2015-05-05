@@ -92,8 +92,8 @@
             } else {
               root._listview_data.data[0].inputText = data.order.username;
               root._listview_data.data[1].inputText = data.order.age;
-              root._listview_data.data[2].inputText = data.order.phone;
-              root._listview_data.data[3].inputText = data.order.address;
+              root._listview_data.data[2].inputText = "" + data.order.phone;
+              root._listview_data.data[3].inputText = "" + data.order.address;
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
                 inputType: "number",

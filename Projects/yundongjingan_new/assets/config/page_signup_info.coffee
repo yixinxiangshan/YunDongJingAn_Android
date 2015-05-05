@@ -50,7 +50,7 @@ class ECpageClass
       $A().app().openPage
         page_name: "page_signup_input"
         params:
-          info: content
+          info: JSON.stringify content
         close_option: ""
     if item._type? and item._type == 'cancel'
       content =
@@ -60,7 +60,7 @@ class ECpageClass
       $A().app().openPage
         page_name: "page_signup_list"
         params:
-          info: content
+          info: JSON.stringify content
         close_option: ""
 
   onResume: () ->
@@ -96,8 +96,8 @@ class ECpageClass
                 imageSrc: "#{data.content_info.image_cover.url}"
               }
             root._listview_data.data.push
-              viewType: "ListViewCellArticle"
-              content: "#{data.content_info.content}"
+              viewType: "ListViewCellFixedTitle"
+              title: "#{data.content_info.content}"
             root._listview_data.data.push
               viewType: "ListViewCellButton",
               btnTitle: "我要申请",

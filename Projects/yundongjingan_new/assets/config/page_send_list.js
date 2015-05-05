@@ -73,7 +73,7 @@
       return $A().app().openPage({
         page_name: "page_send_input",
         params: {
-          info: content
+          info: JSON.stringify(content)
         },
         close_option: ""
       });
