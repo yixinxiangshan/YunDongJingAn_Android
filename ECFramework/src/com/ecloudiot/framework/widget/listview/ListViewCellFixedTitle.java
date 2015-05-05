@@ -44,7 +44,7 @@ public class ListViewCellFixedTitle extends ListViewCellBase {
 		eventParams.put("target", "");
 		eventParams.put("position", "" + position);
 		if (getListViewBaseAdapter().getListViewBase().getPageContext() instanceof ItemActivity) {
-			JsAPI.runEvent(((ItemFragment) getListViewBaseAdapter().getListViewBase().getPageContext()).getWidgetJsEvents(), getListViewBaseAdapter()
+			JsAPI.runEvent(((ItemActivity) getListViewBaseAdapter().getListViewBase().getPageContext()).getWidgetJsEvents(), getListViewBaseAdapter()
 			        .getListViewBase().getControlId(), "onFixedItemDisplay", new JSONObject(eventParams));
 		} else if (getListViewBaseAdapter().getListViewBase().getPageContext() instanceof ItemFragment) {
 
