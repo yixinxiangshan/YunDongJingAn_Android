@@ -35,7 +35,7 @@
       "position": [
         {
           "key": "parent",
-          "value": "activity_item_container_llayout"
+          "value": "blank_llayout"
         },
         {
           "key": "location",

@@ -68,7 +68,7 @@
         $A().app().openPage({
           page_name: "page_send_input",
           params: {
-            info: JSON.stringify(content)
+            info: content
           },
           close_option: ""
         });
@@ -80,7 +80,7 @@
         return $A().app().openPage({
           page_name: "page_send_list",
           params: {
-            info: JSON.stringify(content)
+            info: content
           },
           close_option: ""
         });
@@ -121,8 +121,8 @@
                 }
               });
               root._listview_data.data.push({
-                viewType: "ListViewCellFixedTitle",
-                title: "" + data.content_info.content
+                viewType: "ListViewCellArticle",
+                content: "" + data.content_info.content
               });
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
