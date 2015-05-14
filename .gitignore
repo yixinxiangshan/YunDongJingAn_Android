@@ -7,3 +7,4 @@ build.gradle
 .idea/workspace.xml
 .idea/uiDesigner.xml
 *.orig
+.idea/misc.xml
