@@ -11,7 +11,8 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_send_list_ListViewBase_0"
+    "page_send_list_ListViewBase_0",
+    "page_send_list_ActionBarWidget_0"
   ],
   "position": [],
   "attr": [],
@@ -46,6 +47,27 @@
           "value": "1"
         }
       ]
+    },
+    {
+      "control_id": "page_send_list_ActionBarWidget_0",
+      "xtype": "ActionBarWidget",
+      "layout": "",
+      "datasource": {
+        "method": "",
+        "params": [],
+        "adapter": [],
+        "data": {
+          "actionBarBg": "#FFf9f9f9",
+          "homeIcon": "webview/images/icon/default/actionbar_back.png",
+          "title": "你点我送",
+          "withActionBar": "true"
+        }
+      },
+      "setEvent": [],
+      "configs": [],
+      "auto_start_controls": false,
+      "position": [],
+      "attr": []
     }
   ]
 }
