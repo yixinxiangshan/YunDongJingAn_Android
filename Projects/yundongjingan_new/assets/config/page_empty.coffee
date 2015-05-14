@@ -12,34 +12,10 @@ class ECpageClass
     dividerColor: "#EBEBEB"
     data: [
       {
-        viewType: "ListViewCellButton",
-        btnTitle: "运动地图",
-        btnType: "ok"
-        _type: "map"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "你点我送",
-        btnType: "ok"
-        _type: "send"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "赛事报名",
-        btnType: "ok"
-        _type: "signup"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "在线预定",
-        btnType: "ok"
-        _type: "booking"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "我的",
-        btnType: "ok"
-        _type: "mine"
+        viewType: "ListViewCellLine"
+        _rightLayoutSize: 0
+        _leftLayoutSize: 60
+        centerTitle: "正在开发中，敬请期待"
       }
     ]
 
@@ -64,22 +40,6 @@ class ECpageClass
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
-    item = @_listview_data.data[data.position]
-    if item._type? and item._type == 'send'
-      $A().app().openPage
-        page_name: "page_tab_send"
-        params: []
-        close_option: ""
-    else if item._type? and item._type == 'signup'
-      $A().app().openPage
-        page_name: "page_tab_signup"
-        params: []
-        close_option: ""
-    else
-      $A().app().openPage
-        page_name: "page_empty"
-        params: []
-        close_option: ""
 
   onResume: () ->
 
@@ -92,4 +52,4 @@ class ECpageClass
       root._platform = platform
 
 #启动程序
-new ECpageClass("page_index")
+new ECpageClass("page_empty")
