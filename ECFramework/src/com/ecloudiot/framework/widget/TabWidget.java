@@ -3,6 +3,7 @@ package com.ecloudiot.framework.widget;
 import java.util.HashMap;
 import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -170,18 +171,19 @@ public class TabWidget extends BaseWidget {
 		@Override
 		public Drawable getIconDrawable(int index) {
 			TabItemModel dataItem = widgetDataModel.getTabDataList().get(index);
-			if (StringUtil.isNotEmpty(getItemTextColor())) {
+//			if (StringUtil.isNotEmpty(getItemTextColor())) {
 				return ImageUtil.getDrawableFromConfig(dataItem.getIcon());
-			}
-			return null;
+//			}
+//			return null;
 		}
 
 		@Override
 		public ColorStateList getTitleColorList(int index) {
-			if (StringUtil.isNotEmpty(getItemTextColor())) {
-				return ColorUtil.getColorStateFromConfig(getItemTextColor());
-			}
-			return null;
+//			if (StringUtil.isNotEmpty(getItemTextColor())) {
+				return ColorUtil.getColorState("", "", "");
+//				return ColorUtil.getColorStateFromConfig(getItemTextColor());
+//			}
+//			return null;
 		}
 
 	}

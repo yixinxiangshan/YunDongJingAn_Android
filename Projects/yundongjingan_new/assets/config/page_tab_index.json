@@ -26,15 +26,15 @@
         "data": {
           "tabDataList": [
             {
-              "title": "ÄãµãÎÒËÍ",
-              "icon": "3013443.png",
+              "title": "ä½ ç‚¹æˆ‘é€",
+              "icon": "webview/images/icon/default/proj_activity_tab_tab1.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_tab_send",
               "tag": "page_tab_send"
             },
             {
-              "title": "ÈüÊÂ±¨Ãû",
-              "icon": "3013443.png",
+              "title": "èµ›äº‹æŠ¥å",
+              "icon": "webview/images/icon/default/proj_activity_tab_tab1.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_tab_signup",
               "tag": "page_tab_signup"
