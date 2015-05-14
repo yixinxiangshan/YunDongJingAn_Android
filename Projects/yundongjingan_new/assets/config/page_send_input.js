@@ -46,6 +46,13 @@
           name: "zip",
           inputText: ""
         }, {
+          viewType: "ListViewCellInputText",
+          inputType: "text",
+          hint: "备注（可选）",
+          name: "remarks",
+          inputText: "",
+          lines: 3
+        }, {
           viewType: "ListViewCellButton",
           inputType: "number",
           btnTitle: "提 交",
@@ -95,6 +102,7 @@
               root._listview_data.data[1].inputText = data.order.consignee_address;
               root._listview_data.data[2].inputText = "" + data.order.phone;
               root._listview_data.data[3].inputText = "" + data.order.consignee_zip;
+              root._listview_data.data[4].inputText = data.order.comments;
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
                 inputType: "number",
@@ -115,7 +123,7 @@
     ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
-      var address, item, name, phone, zip;
+      var address, item, name, phone, remarks, zip;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'cancel') {
         return $A().app().showConfirm({
@@ -149,6 +157,7 @@
         address = data._form.address != null ? data._form.address : "";
         phone = data._form.phone != null ? data._form.phone : "";
         zip = data._form.zip != null ? data._form.zip : "";
+        remarks = data._form.remarks != null ? data._form.remarks : "";
         if (name === "") {
           return $A().app().makeToast("请输入您的姓名");
         } else if (address === "") {
@@ -167,6 +176,7 @@
                 consignee_address: address,
                 phone: phone,
                 consignee_zip: zip,
+                remarks: remarks,
                 cacheTime: 0
               }).then(function(data) {
                 if (data.success === true) {
@@ -187,6 +197,7 @@
                 consignee_address: address,
                 phone: phone,
                 consignee_zip: zip,
+                remarks: remarks,
                 cacheTime: 0
               }).then(function(data) {
                 if (data.success === true) {
