@@ -87,7 +87,7 @@ class ECpageClass
               $A().app().makeToast "没有网络"
           else
             root._listview_data.data[0].inputText = data.order.username
-            root._listview_data.data[1].inputText = data.order.age
+            root._listview_data.data[1].inputText = "#{data.order.age}"
 #            root._listview_data.data[2].inputText = data.order.gender
             root._listview_data.data[2].inputText = "#{data.order.phone}"
             root._listview_data.data[3].inputText = "#{data.order.address}"
