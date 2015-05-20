@@ -125,7 +125,7 @@ public class ListViewCellInputText extends ListViewCellBase {
 			public void afterTextChanged(Editable s) {
 
 				getListViewBaseAdapter().addInputMap(data.name, holder.editText.getText().toString());
-				LogUtil.d(TAG, getListViewBaseAdapter().getInputMap().toString());
+//				LogUtil.d(TAG, getListViewBaseAdapter().getInputMap().toString());
 			}
 		});
 		if ((!StringUtil.isEmpty(data.type)) && data.type.equals("captcha")) {
