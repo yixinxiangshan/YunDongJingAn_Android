@@ -1,9 +1,8 @@
 rm -rf tmp
 mkdir tmp
+coffee -c Projects/yundongjingan_new/assets/config/*.coffee || exit
 cp -r Projects/yundongjingan_new/assets/* tmp/
-coffee -c tmp/config/*.coffee||exit
-shopt -s extglob
-rm -rf !(tmp/config/*.json|tmp/config/*.js)
+rm -rf tmp/config/*.coffee
 cd tmp
 zip -r config.zip config javascript webview
 cd ..
