@@ -22,29 +22,34 @@
       data: [
         {
           viewType: "ListViewCellButton",
-          btnTitle: "运动地图",
+          btnTitle: "最新消息",
           btnType: "ok",
-          _type: "map"
+          _type: "519"
         }, {
           viewType: "ListViewCellButton",
-          btnTitle: "你点我送",
+          btnTitle: "主题活动",
           btnType: "ok",
-          _type: "send"
+          _type: "520"
         }, {
           viewType: "ListViewCellButton",
-          btnTitle: "赛事报名",
+          btnTitle: "楼宇特色",
           btnType: "ok",
-          _type: "signup"
+          _type: "521"
         }, {
           viewType: "ListViewCellButton",
-          btnTitle: "新闻发布",
+          btnTitle: "静安体彩",
           btnType: "ok",
-          _type: "news"
+          _type: "522"
         }, {
           viewType: "ListViewCellButton",
-          btnTitle: "我的",
+          btnTitle: "竞技体育",
           btnType: "ok",
-          _type: "mine"
+          _type: "523"
+        }, {
+          viewType: "ListViewCellButton",
+          btnTitle: "公共体育",
+          btnType: "ok",
+          _type: "524"
         }
       ]
     };
@@ -80,28 +85,12 @@
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
-      if ((item._type != null) && item._type === 'send') {
+      if (item._type) {
         return $A().app().openPage({
-          page_name: "page_tab_send",
-          params: [],
-          close_option: ""
-        });
-      } else if ((item._type != null) && item._type === 'signup') {
-        return $A().app().openPage({
-          page_name: "page_tab_signup",
-          params: [],
-          close_option: ""
-        });
-      } else if ((item._type != null) && item._type === 'news') {
-        return $A().app().openPage({
-          page_name: "page_tab_news",
-          params: [],
-          close_option: ""
-        });
-      } else {
-        return $A().app().openPage({
-          page_name: "page_empty",
-          params: [],
+          page_name: "page_tab_news_list",
+          params: {
+            sort_id: item._type
+          },
           close_option: ""
         });
       }
@@ -121,6 +110,6 @@
 
   })();
 
-  new ECpageClass("page_index");
+  new ECpageClass("page_tab_news");
 
 }).call(this);
