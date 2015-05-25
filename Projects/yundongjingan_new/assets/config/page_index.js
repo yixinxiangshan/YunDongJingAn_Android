@@ -22,9 +22,9 @@
       data: [
         {
           viewType: "ListViewCellButton",
-          btnTitle: "运动地图",
+          btnTitle: "场馆优惠",
           btnType: "ok",
-          _type: "map"
+          _type: "coupon"
         }, {
           viewType: "ListViewCellButton",
           btnTitle: "你点我送",
@@ -80,7 +80,13 @@
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
-      if ((item._type != null) && item._type === 'send') {
+      if ((item._type != null) && item._type === 'coupon') {
+        return $A().app().openPage({
+          page_name: "page_tab_coupon",
+          params: [],
+          close_option: ""
+        });
+      } else if ((item._type != null) && item._type === 'send') {
         return $A().app().openPage({
           page_name: "page_tab_send",
           params: [],

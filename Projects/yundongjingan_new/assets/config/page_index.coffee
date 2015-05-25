@@ -13,9 +13,9 @@ class ECpageClass
     data: [
       {
         viewType: "ListViewCellButton",
-        btnTitle: "运动地图",
+        btnTitle: "场馆优惠",
         btnType: "ok"
-        _type: "map"
+        _type: "coupon"
       }
       {
         viewType: "ListViewCellButton",
@@ -65,7 +65,12 @@ class ECpageClass
 
   onItemInnerClick: (data) ->
     item = @_listview_data.data[data.position]
-    if item._type? and item._type == 'send'
+    if item._type? and item._type == 'coupon'
+      $A().app().openPage
+        page_name: "page_tab_coupon"
+        params: []
+        close_option: ""
+    else if item._type? and item._type == 'send'
       $A().app().openPage
         page_name: "page_tab_send"
         params: []
