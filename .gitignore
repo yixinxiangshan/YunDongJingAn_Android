@@ -8,3 +8,4 @@ build.gradle
 .idea/uiDesigner.xml
 *.orig
 .idea/misc.xml
+.idea/encodings.xml
