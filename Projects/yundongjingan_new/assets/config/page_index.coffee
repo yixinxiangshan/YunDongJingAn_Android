@@ -48,9 +48,9 @@ class ECpageClass
     #获取其他界面传来的数据
     @prepareForInitView()
 
-    $A().page().widget("#{@_page_name}_ListViewBase_0").data JSON.stringify @_listview_data
-    $A().page().widget("#{@_page_name}_ListViewBase_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
-    $A().page().widget("#{@_page_name}_ListViewBase_0").onItemClick (data)-> root.onItemClick(data)
+    $A().page().widget("#{@_page_name}_SatelliteWidget_0").data JSON.stringify @_listview_data
+    $A().page().widget("#{@_page_name}_SatelliteWidget_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
+    $A().page().widget("#{@_page_name}_SatelliteWidget_0").onItemClick (data)-> root.onItemClick(data)
     # $A().page().onResume ()-> root.onResume()
     # $A().page().onResult (data)-> root.onResult(data)
     $A().page().onCreated -> root.onCreated()
@@ -59,37 +59,37 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
-    $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
+    $A().page().widget("#{@_page_name}_SatelliteWidget_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
   #自定义函数
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
-    item = @_listview_data.data[data.position]
-    if item._type? and item._type == 'coupon'
-      $A().app().openPage
-        page_name: "page_tab_coupon"
-        params: []
-        close_option: ""
-    else if item._type? and item._type == 'send'
-      $A().app().openPage
-        page_name: "page_tab_send"
-        params: []
-        close_option: ""
-    else if item._type? and item._type == 'signup'
-      $A().app().openPage
-        page_name: "page_tab_signup"
-        params: []
-        close_option: ""
-    else if item._type? and item._type == 'news'
-      $A().app().openPage
-        page_name: "page_tab_news"
-        params: []
-        close_option: ""
-    else
-      $A().app().openPage
-        page_name: "page_empty"
-        params: []
-        close_option: ""
+#    item = @_listview_data.data[data.position]
+#    if item._type? and item._type == 'coupon'
+#      $A().app().openPage
+#        page_name: "page_tab_coupon"
+#        params: []
+#        close_option: ""
+#    else if item._type? and item._type == 'send'
+#      $A().app().openPage
+#        page_name: "page_tab_send"
+#        params: []
+#        close_option: ""
+#    else if item._type? and item._type == 'signup'
+#      $A().app().openPage
+#        page_name: "page_tab_signup"
+#        params: []
+#        close_option: ""
+#    else if item._type? and item._type == 'news'
+#      $A().app().openPage
+#        page_name: "page_tab_news"
+#        params: []
+#        close_option: ""
+#    else
+#      $A().app().openPage
+#        page_name: "page_empty"
+#        params: []
+#        close_option: ""
 
   onResume: () ->
 

@@ -106,5 +106,6 @@
     <orderEntry type="library" name="pgyer_sdk" level="project" />
     <orderEntry type="library" name="universal-image-loader-1.9.0" level="project" />
     <orderEntry type="module" module-name="ECLibrary-AES" scope="PROVIDED" />
+    <orderEntry type="module" module-name="satellite-menu" />
   </component>
 </module>
