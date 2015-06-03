@@ -64,18 +64,20 @@
     ECpageClass.prototype.onItemClick = function(data) {
       var content, item;
       item = this._listview_data.data[data.position];
-      content = {
-        content_id: item.content_id,
-        content_title: item.content_title,
-        signup_id: item.signup_id
-      };
-      return $A().app().openPage({
-        page_name: "page_signup_input",
-        params: {
-          info: JSON.stringify(content)
-        },
-        close_option: ""
-      });
+      if (item.signup_id != null) {
+        content = {
+          content_id: item.content_id,
+          content_title: item.content_title,
+          signup_id: item.signup_id
+        };
+        return $A().app().openPage({
+          page_name: "page_signup_input",
+          params: {
+            info: JSON.stringify(content)
+          },
+          close_option: ""
+        });
+      }
     };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};

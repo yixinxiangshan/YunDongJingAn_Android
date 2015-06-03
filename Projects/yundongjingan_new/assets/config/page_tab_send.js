@@ -95,13 +95,15 @@
     ECpageClass.prototype.onItemClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
-      return $A().app().openPage({
-        page_name: "page_send_info",
-        params: {
-          info: item.content_id
-        },
-        close_option: ""
-      });
+      if (item.content_id != null) {
+        return $A().app().openPage({
+          page_name: "page_send_info",
+          params: {
+            info: item.content_id
+          },
+          close_option: ""
+        });
+      }
     };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};

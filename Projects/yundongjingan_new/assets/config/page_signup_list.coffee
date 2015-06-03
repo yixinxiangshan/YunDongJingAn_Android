@@ -42,17 +42,18 @@ class ECpageClass
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
-    content =
-    {
-      content_id: item.content_id
-      content_title: item.content_title
-      signup_id: item.signup_id
-    }
-    $A().app().openPage
-      page_name: "page_signup_input"
-      params:
-        info: JSON.stringify content
-      close_option: ""
+    if item.signup_id?
+      content =
+      {
+        content_id: item.content_id
+        content_title: item.content_title
+        signup_id: item.signup_id
+      }
+      $A().app().openPage
+        page_name: "page_signup_input"
+        params:
+          info: JSON.stringify content
+        close_option: ""
 
   onItemInnerClick: (data) ->
 

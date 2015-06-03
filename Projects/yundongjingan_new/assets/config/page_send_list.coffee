@@ -42,18 +42,19 @@ class ECpageClass
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
-    content =
-    {
-      content_id: item.content_id
-      content_title: item.content_title
-      order_id: item.order_id
-      consignee_id: item.consignee_id
-    }
-    $A().app().openPage
-      page_name: "page_send_input"
-      params:
-        info: JSON.stringify content
-      close_option: ""
+    if item.order_id?
+      content =
+      {
+        content_id: item.content_id
+        content_title: item.content_title
+        order_id: item.order_id
+        consignee_id: item.consignee_id
+      }
+      $A().app().openPage
+        page_name: "page_send_input"
+        params:
+          info: JSON.stringify content
+        close_option: ""
 
   onItemInnerClick: (data) ->
 
@@ -90,7 +91,7 @@ class ECpageClass
 
   onResult: (data) ->
 
-    #---------------------------------------具体业务代码---------------------------------------------
+#---------------------------------------具体业务代码---------------------------------------------
   prepareForInitView: () ->
     $A().app().platform().then (platform) ->
       root._platform = platform

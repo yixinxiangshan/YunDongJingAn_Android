@@ -68,11 +68,12 @@ class ECpageClass
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
-    $A().app().openPage
-      page_name: "page_news_info"
-      params:
-        info: item.content_id
-      close_option: ""
+    if item.content_id?
+      $A().app().openPage
+        page_name: "page_news_info"
+        params:
+          info: item.content_id
+        close_option: ""
 
   onItemInnerClick: (data) ->
 
