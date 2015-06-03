@@ -70,8 +70,9 @@
           if (data1.success === true) {
             $A().app().makeToast("提交成功，谢谢您的申请。");
             $A().page().setTimeout("2000").then(function() {});
-            root._listview_data.data[3].viewType = "ListViewCellFixedTitle";
-            root._listview_data.data[3].title = "优惠码:" + data1.order.apply_code;
+            root._listview_data.data[3].btnType = "cancel";
+            root._listview_data.data[3]._type = "cancel";
+            root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code;
             return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           } else {
             return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
@@ -131,8 +132,10 @@
                 } else {
                   if (data1.order.length === 1) {
                     root._listview_data.data.push({
-                      viewType: "ListViewCellFixedTitle",
-                      title: "优惠码:" + data1.order[0].apply_code
+                      viewType: "ListViewCellButton",
+                      btnTitle: "优惠码:" + data1.order[0].apply_code,
+                      btnType: "cancel",
+                      _type: "cancel"
                     });
                   } else {
                     root._listview_data.data.push({
