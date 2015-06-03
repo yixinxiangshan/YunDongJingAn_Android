@@ -77,6 +77,9 @@ public class ListViewBaseAdapter extends BaseAdapter implements PinnedSectionLis
 					break;
 				}
 			}
+			if (cellDataObject.getAsJsonObject().get("viewType").getAsString().equals("ListViewCellInputText")){
+				addInputMap(cellDataObject.getAsJsonObject().get("name").getAsString(), cellDataObject.getAsJsonObject().get("inputText").getAsString());
+			}
 			if (isNewType)
 				addViewType(cellViewType);
 		}
