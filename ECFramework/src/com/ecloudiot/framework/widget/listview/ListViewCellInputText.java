@@ -73,8 +73,10 @@ public class ListViewCellInputText extends ListViewCellBase {
 
 		// if (!StringUtil.isEmpty(data.inputText)) {
 		holder.editText.setText(getListViewBaseAdapter().getInputMap().get(data.name));
-		setEnable(holder.editText, data.enable);
-		// holder.editText.setSelection(data.inputText.length());
+        if (position == 0) {
+            setEnable(holder.editText, data.enable);
+        }
+        // holder.editText.setSelection(data.inputText.length());
 		// holder.editText.setMovementMethod(ScrollingMovementMethod.getInstance());
 		getListViewBaseAdapter().addInputMap(data.name, holder.editText.getText().toString());
 		// }
