@@ -1,12 +1,14 @@
 package com.ecloudiot.framework.widget;
 
 import android.annotation.SuppressLint;
+import android.app.ActionBar;
 import android.util.Log;
 import android.view.ext.SatelliteMenu;
 import android.view.ext.SatelliteMenuItem;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import com.ecloudiot.framework.R;
+import com.ecloudiot.framework.appliction.ECApplication;
 import com.ecloudiot.framework.utility.IntentUtil;
 import com.ecloudiot.framework.utility.LogUtil;
 import com.ecloudiot.framework.utility.StringUtil;
@@ -24,9 +26,14 @@ public class SatelliteWidget extends BaseWidget {
 
 	public SatelliteWidget(Object pageContext, String dataString, String layoutName) {
 		super(pageContext, dataString, layoutName);
-		LogUtil.d(TAG, "init SatelliteWidget");
+        ActionBar actionBar = ECApplication.getInstance().getNowActivity().getActionBar();
+        if (actionBar != null) {
+            actionBar.hide();
+        }
+        LogUtil.d(TAG, "init SatelliteWidget");
 		this.setId(R.id.satelite_menu_widget);
 		parsingData();
+
 //		loading(LOADING_0N_OFF.TURN_OFF);
 	}
 
