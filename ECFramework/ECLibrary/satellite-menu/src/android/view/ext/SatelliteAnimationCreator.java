@@ -1,13 +1,13 @@
 package android.view.ext;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
-import android.view.ext.R;
 
 /**
  * Factory class for creating satellite in/out animations
@@ -18,7 +18,8 @@ import android.view.ext.R;
 public class SatelliteAnimationCreator {
     
     public static Animation createItemInAnimation(Context context, int index, long expandDuration, int x, int y){        
-        RotateAnimation rotate = new RotateAnimation(720, 0, 
+        Log.e("createItemInAnimation","createItemInAnimation");
+    	RotateAnimation rotate = new RotateAnimation(720, 0, 
                 Animation.RELATIVE_TO_SELF, 0.5f,
                 Animation.RELATIVE_TO_SELF, 0.5f);
         
@@ -68,7 +69,7 @@ public class SatelliteAnimationCreator {
     }
     
     public static Animation createItemOutAnimation(Context context, int index, long expandDuration, int x, int y){
-    	
+    	  Log.e("createItemOutAnimation","createItemOutAnimation");
         AlphaAnimation alphaAnimation = new AlphaAnimation(0f, 1f);
         long alphaDuration = 60;
         if(expandDuration < 60){
@@ -113,23 +114,28 @@ public class SatelliteAnimationCreator {
     }
     
     public static Animation createMainButtonAnimation(Context context){
+    	Log.e("createMainButtonAnimation","createMainButtonAnimation");
     	return AnimationUtils.loadAnimation(context, R.anim.sat_main_rotate_left);
     }
     
     public static Animation createMainButtonInverseAnimation(Context context){
+    	Log.e("createMainButtonInverseAnimation","createMainButtonInverseAnimation");
     	return AnimationUtils.loadAnimation(context, R.anim.sat_main_rotate_right);
     }
     
     public static Animation createItemClickAnimation(Context context){
+    	Log.e("createItemClickAnimation","createItemClickAnimation");
     	return AnimationUtils.loadAnimation(context, R.anim.sat_item_anim_click);
     }
 
     
     public static int getTranslateX(float degree, int distance){
+    	Log.e("getTranslateX","getTranslateX");
         return Double.valueOf(distance * Math.cos(Math.toRadians(degree))).intValue();
     }
     
     public static int getTranslateY(float degree, int distance){
+    	Log.e("getTranslateY","getTranslateY");
         return Double.valueOf(-1 * distance * Math.sin(Math.toRadians(degree))).intValue();
     }
 

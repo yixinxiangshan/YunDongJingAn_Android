@@ -1,5 +1,7 @@
 package android.view.ext;
 
+import android.util.Log;
+
 /**
  * Default provider for degrees between satellites. For number of satellites up to 3
  * tries to keep satellites centered in the given total degrees. For number equal and
@@ -10,6 +12,7 @@ package android.view.ext;
  */
 public class DefaultDegreeProvider implements IDegreeProvider {
 	public float[] getDegrees(int count, float totalDegrees){
+		Log.e("DefaultDegreeProvider","DefaultDegreeProvider");
 		if(count < 1)
         {
             return new float[]{};
