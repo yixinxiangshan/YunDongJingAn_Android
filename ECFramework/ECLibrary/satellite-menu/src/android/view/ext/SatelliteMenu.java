@@ -281,8 +281,8 @@ public class SatelliteMenu extends FrameLayout {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		recalculateMeasureDiff();
 
-		int totalHeight = imgMain.getHeight() + satelliteDistance + measureDiff;
-		int totalWidth = imgMain.getWidth() + satelliteDistance + measureDiff;
+		int totalHeight = imgMain.getHeight() + satelliteDistance + measureDiff + 250;
+		int totalWidth = imgMain.getWidth() + satelliteDistance + measureDiff + 250;
 		setMeasuredDimension(totalWidth, totalHeight);
 	}
 
