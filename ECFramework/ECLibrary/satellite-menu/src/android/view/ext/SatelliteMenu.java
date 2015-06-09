@@ -189,8 +189,8 @@ public class SatelliteMenu extends FrameLayout {
 		float[] degrees = getDegrees(menuItems.size());
 		int index = 0;
 		for (SatelliteMenuItem menuItem : menuItems) {
-			int finalX = SatelliteAnimationCreator.getTranslateX(degrees[index], satelliteDistance);
-			int finalY = SatelliteAnimationCreator.getTranslateY(degrees[index], satelliteDistance);
+			int finalX = SatelliteAnimationCreator.getTranslateX(degrees[items.size() - 1 - index], satelliteDistance);
+			int finalY = SatelliteAnimationCreator.getTranslateY(degrees[items.size() - 1 - index], satelliteDistance);
 
 			ImageView itemView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.sat_item_cr, this,
 					false);
