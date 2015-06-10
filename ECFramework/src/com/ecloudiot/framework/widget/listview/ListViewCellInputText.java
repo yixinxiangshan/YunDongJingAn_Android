@@ -57,15 +57,15 @@ public class ListViewCellInputText extends ListViewCellBase {
 		final ViewHolder holder;
 		// 初始化数据及holder
 		data = GsonUtil.fromJson(dataObj, DataModel.class);
-		if (convertView == null) {
-			convertView = LayoutInflater.from(getContext()).inflate(R.layout.widget_listviewcell_input_text, null);
-			holder = new ViewHolder();
-			holder.editText = (EditText) convertView.findViewById(R.id.widget_listviewcell_input_text_edittext);
-			holder.btn = (Button) convertView.findViewById(R.id.widget_listviewcell_input_text_btn);
-			convertView.setTag(holder);
-		} else {
-			holder = (ViewHolder) convertView.getTag();
-		}
+//		if (convertView == null) {
+		convertView = LayoutInflater.from(getContext()).inflate(R.layout.widget_listviewcell_input_text, null);
+		holder = new ViewHolder();
+		holder.editText = (EditText) convertView.findViewById(R.id.widget_listviewcell_input_text_edittext);
+		holder.btn = (Button) convertView.findViewById(R.id.widget_listviewcell_input_text_btn);
+		convertView.setTag(holder);
+//		} else {
+//			holder = (ViewHolder) convertView.getTag();
+//		}
 
 		setHint(holder.editText, data.hint);
 		setlines(holder.editText, data.lines);
