@@ -70,6 +70,32 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
+      $A().page().setTimeout("3000").then(function() {
+        return $A().app().callApi({
+          method: "project/projects/detail",
+          cacheTime: 0
+        }).then(function(res) {
+          $A().app().preference({
+            key: "net_version_num",
+            value: res.version_num
+          });
+          $A().app().preference({
+            key: "net_version_url",
+            value: res.download_url
+          });
+          return $A().app().getAppVersion().then(function(version) {
+            if (parseFloat(res.version_num) > parseFloat(version)) {
+              if (res.update_des == null) {
+                res.update_des = "";
+              }
+              return $A().app().confirmDownloadNewVersion({
+                ok: "下载",
+                data: res.update_des != null ? ("最新版本:" + res.version_num + "\n\n【更新内容】\n") + res.update_des : void 0
+              });
+            }
+          });
+        });
+      });
       if ((root._platform != null) && root._platform === "ios") {
         return $A().page().widget(this._page_name + "_SatelliteWidget_0").refreshData(JSON.stringify(this._listview_data));
       }

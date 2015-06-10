@@ -59,8 +59,22 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
+    $A().page().setTimeout("3000").then () ->
+      $A().app().callApi
+        method: "project/projects/detail"
+        cacheTime: 0
+      .then (res) ->
+        $A().app().preference {key: "net_version_num", value: res.version_num}
+        $A().app().preference {key: "net_version_url", value: res.download_url}
+        $A().app().getAppVersion().then (version)->
+          if parseFloat(res.version_num) > parseFloat(version)
+            res.update_des = "" if !res.update_des?
+            $A().app().confirmDownloadNewVersion
+              ok: "下载"
+              data: "最新版本:#{res.version_num}\n\n【更新内容】\n" + res.update_des if res.update_des? #and res.update_des != ""
+
     $A().page().widget("#{@_page_name}_SatelliteWidget_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
-  #自定义函数
+#自定义函数
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
@@ -95,7 +109,7 @@ class ECpageClass
 
   onResult: (data) ->
 
-    #---------------------------------------具体业务代码---------------------------------------------
+#---------------------------------------具体业务代码---------------------------------------------
 
   prepareForInitView: () ->
     $A().app().platform().then (platform) ->
