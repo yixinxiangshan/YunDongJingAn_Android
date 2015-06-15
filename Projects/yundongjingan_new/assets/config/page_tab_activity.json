@@ -1,6 +1,6 @@
 {
-  "name": "page_tab_news",
-  "page_id": "page_tab_news",
+  "name": "page_tab_activity",
+  "page_id": "page_tab_activity",
   "glb_ctl_cfg": false,
   "datasource": {
     "method": "",
@@ -11,14 +11,14 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_tab_news_ListViewBase_0",
-    "page_tab_news_ActionBarWidget_0"
+    "page_tab_activity_ListViewBase_0",
+    "page_tab_activity_ActionBarWidget_0"
   ],
   "position": [],
   "attr": [],
   "controls": [
     {
-      "control_id": "page_tab_news_ListViewBase_0",
+      "control_id": "page_tab_activity_ListViewBase_0",
       "xtype": "ListViewBase",
       "layout": "",
       "script": false,
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "control_id": "page_tab_news_ActionBarWidget_0",
+      "control_id": "page_tab_activity_ActionBarWidget_0",
       "xtype": "ActionBarWidget",
       "layout": "",
       "datasource": {
@@ -59,7 +59,7 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "信息发布",
+          "title": "赛事活动",
           "withActionBar": "true"
         }
       },

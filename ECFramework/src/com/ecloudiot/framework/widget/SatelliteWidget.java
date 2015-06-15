@@ -72,13 +72,13 @@ public class SatelliteWidget extends BaseWidget {
 				Log.i("sat", "Clicked on " + id);
 				switch (id) {
 					case 1:
-						IntentUtil.openActivity("", "page_tab_news", "");
+						IntentUtil.openActivity("", "page_empty", "");
 						break;
 					case 2:
 						IntentUtil.openActivity("", "page_tab_coupon", "");
 						break;
 					case 3:
-						IntentUtil.openActivity("", "page_tab_signup", "");
+						IntentUtil.openActivity("", "page_tab_activity", "");
 						break;
 					case 4:
 						IntentUtil.openActivity("", "page_tab_send", "");

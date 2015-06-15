@@ -59,7 +59,7 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "新闻发布",
+          "title": "信息发布",
           "withActionBar": "true"
         }
       },

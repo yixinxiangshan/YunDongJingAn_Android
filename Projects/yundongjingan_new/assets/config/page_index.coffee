@@ -10,38 +10,6 @@ class ECpageClass
     hasHeaderDivider: true
     dividerHeight: 0
     dividerColor: "#EBEBEB"
-    data: [
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "场馆优惠",
-        btnType: "ok"
-        _type: "coupon"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "你点我送",
-        btnType: "ok"
-        _type: "send"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "赛事报名",
-        btnType: "ok"
-        _type: "signup"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "新闻发布",
-        btnType: "ok"
-        _type: "news"
-      }
-      {
-        viewType: "ListViewCellButton",
-        btnTitle: "我的",
-        btnType: "ok"
-        _type: "mine"
-      }
-    ]
 
   _constructor: (@_page_name) ->
     root = this
@@ -59,19 +27,29 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
-    $A().page().setTimeout("3000").then () ->
-      $A().app().callApi
-        method: "project/projects/detail"
-        cacheTime: 0
-      .then (res) ->
-        $A().app().preference {key: "net_version_num", value: res.version_num}
-        $A().app().preference {key: "net_version_url", value: res.download_url}
-        $A().app().getAppVersion().then (version)->
-          if parseFloat(res.version_num) > parseFloat(version)
-            res.update_des = "" if !res.update_des?
-            $A().app().confirmDownloadNewVersion
-              ok: "下载"
-              data: "最新版本:#{res.version_num}\n\n【更新内容】\n" + res.update_des if res.update_des? #and res.update_des != ""
+    $A().app().netState().then (net_state) ->
+      if net_state == "offline"
+        $A().app().makeToast "没有网络"
+      else
+        $A().page().setTimeout("3000").then () ->
+          $A().app().callApi
+            method: "project/projects/detail"
+            cacheTime: 0
+          .then (data) ->
+            if data.errors?
+              if data.errors[0].error_num?
+                $A().app().makeToast "网络状态不好，请重新加载"
+              else
+                $A().app().makeToast "没有网络"
+            else
+              $A().app().preference {key: "net_version_num", value: data.version_num}
+              $A().app().preference {key: "net_version_url", value: data.download_url}
+              $A().app().getAppVersion().then (version)->
+                if parseFloat(data.version_num) > parseFloat(version)
+                  data.update_des = "" if !data.update_des?
+                  $A().app().confirmDownloadNewVersion
+                    ok: "下载"
+                    data: "最新版本:#{data.version_num}\n\n【更新内容】\n" + data.update_des if data.update_des? #and res.update_des != ""
 
     $A().page().widget("#{@_page_name}_SatelliteWidget_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 #自定义函数
