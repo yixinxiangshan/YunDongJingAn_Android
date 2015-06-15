@@ -41,6 +41,7 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
+    $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 
 #自定义函数
   onItemClick: (data) ->

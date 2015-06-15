@@ -54,7 +54,11 @@
       this._constructor(_page_name);
     }
 
-    ECpageClass.prototype.onCreated = function() {};
+    ECpageClass.prototype.onCreated = function() {
+      if ((root._platform != null) && root._platform === "ios") {
+        return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
+      }
+    };
 
     ECpageClass.prototype.onItemClick = function(data) {};
 
