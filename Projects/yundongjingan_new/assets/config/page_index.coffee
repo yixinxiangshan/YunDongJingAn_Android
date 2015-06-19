@@ -46,10 +46,10 @@ class ECpageClass
               $A().app().preference {key: "net_version_url", value: data.download_url}
               $A().app().getAppVersion().then (version)->
                 if parseFloat(data.version_num) > parseFloat(version)
-                  data.update_des = "" if !data.update_des?
+                  data.description = "" if !data.description?
                   $A().app().confirmDownloadNewVersion
                     ok: "下载"
-                    data: "最新版本:#{data.version_num}\n\n【更新内容】\n" + data.update_des if data.update_des? #and res.update_des != ""
+                    data: "最新版本:#{data.version_num}\n\n【更新内容】\n" + data.description if data.description?
 
     $A().page().widget("#{@_page_name}_SatelliteWidget_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 #自定义函数

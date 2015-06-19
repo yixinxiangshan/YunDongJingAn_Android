@@ -68,12 +68,12 @@
                 });
                 return $A().app().getAppVersion().then(function(version) {
                   if (parseFloat(data.version_num) > parseFloat(version)) {
-                    if (data.update_des == null) {
-                      data.update_des = "";
+                    if (data.description == null) {
+                      data.description = "";
                     }
                     return $A().app().confirmDownloadNewVersion({
                       ok: "下载",
-                      data: data.update_des != null ? ("最新版本:" + data.version_num + "\n\n【更新内容】\n") + data.update_des : void 0
+                      data: data.description != null ? ("最新版本:" + data.version_num + "\n\n【更新内容】\n") + data.description : void 0
                     });
                   }
                 });
