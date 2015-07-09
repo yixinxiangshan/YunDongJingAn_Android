@@ -77,7 +77,13 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
-    $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
+    $A().lrucache().get("phone").then (phone) ->
+# $A().app().makeToast "phone" + "#{phone}"
+      if phone? and phone != ""
+        root._listview_data.data[0].centerTitle = "#{phone}"
+      else
+        root._listview_data.data[0].centerTitle = "未登录"
+      $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 #自定义函数
 #root.
 
@@ -142,11 +148,6 @@ class ECpageClass
   prepareForInitView: () ->
     $A().app().platform().then (platform) ->
       root._platform = platform
-    $A().lrucache().get("phone").then (phone) ->
-# $A().app().makeToast "phone" + "#{phone}"
-      if phone? and phone != ""
-        root._listview_data.data[0].centerTitle = "#{phone}"
-      else
-        root._listview_data.data[0].centerTitle = "未登录"
+
 #启动程序
 new ECpageClass("page_my")

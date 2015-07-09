@@ -60,9 +60,14 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
-      if ((root._platform != null) && root._platform === "ios") {
-        return $A().page().widget(this._page_name + "_ListViewBase_0").refreshData(JSON.stringify(this._listview_data));
-      }
+      return $A().lrucache().get("phone").then(function(phone) {
+        if ((phone != null) && phone !== "") {
+          root._listview_data.data[0].centerTitle = "" + phone;
+        } else {
+          root._listview_data.data[0].centerTitle = "未登录";
+        }
+        return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+      });
     };
 
     ECpageClass.prototype.onItemClick = function(data) {
@@ -93,13 +98,6 @@
     ECpageClass.prototype.onResult = function(data) {};
 
     ECpageClass.prototype.onResume = function() {
-      $A().lrucache().get("phone").then(function(phone) {
-        if ((phone != null) && phone !== "") {
-          return root._listview_data.data[0].centerTitle = "" + phone;
-        } else {
-          return root._listview_data.data[0].centerTitle = "未登录";
-        }
-      });
       return $A().page("page_my").param("_setting_changed").then(function(data) {
         if ((data != null) && data !== "") {
           $A().page("page_my").param({
