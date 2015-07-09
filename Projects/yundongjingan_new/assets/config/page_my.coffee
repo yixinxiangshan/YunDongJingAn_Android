@@ -51,14 +51,14 @@ class ECpageClass
 #                name:"feedback"
 #                hasFooterDivider:"true"
 #            }
-#            {
-#                viewType: "ListViewCellLine"
-#                _rightLayoutSize: 0
-#                _leftLayoutSize: 0
-#                centerTitle: "设置"
-#                name:"setting"
-#                hasFooterDivider:"true"
-#            }
+      {
+        viewType: "ListViewCellLine"
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "设置"
+        name: "setting"
+        hasFooterDivider: "true"
+      }
     ]
 
   _constructor: (@_page_name) ->
@@ -120,13 +120,13 @@ class ECpageClass
 #                    page_name:"page_feedback",
 #                    params: {}
 #                    close_option: ""
-#            when "setting"
+      when "setting"
 #                $A().app().makeToast  "意见反馈"
 #                $A().app().ttsPlay  "意见反馈"
-#                # $A().app().openPage
-#                #     page_name:"page_setting",
-#                #     params: {}
-#                #     close_option: ""
+        $A().app().openPage
+          page_name: "page_setting",
+          params: {}
+          close_option: ""
 #            when "notification"
 #                $A().app().openPage
 #                    page_name:"page_notification_manage",

@@ -32,6 +32,13 @@
           },
           name: "mycenter",
           hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "设置",
+          name: "setting",
+          hasFooterDivider: "true"
         }
       ]
     };
@@ -89,6 +96,12 @@
                 close_option: ""
               });
             }
+          });
+        case "setting":
+          return $A().app().openPage({
+            page_name: "page_setting",
+            params: {},
+            close_option: ""
           });
       }
     };
