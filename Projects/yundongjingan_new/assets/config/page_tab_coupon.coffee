@@ -37,33 +37,42 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
-    $A().app().callApi
-      method: "content/coupons/index"
-      sort_id: 1038
-      cacheTime: 0
-      simple_result: true
-    .then (data) ->
-      if data.errors?
-        if data.errors[0].error_num?
-          $A().app().makeToast "网络状态不好，请重新加载"
+    $A().page().param("info").then (info) ->
+      $A().app().callApi
+        method: "content/coupons/index"
+        sort_id: 1038
+        shop_content_id: info
+        cacheTime: 0
+        simple_result: true
+      .then (data) ->
+        if data.errors?
+          if data.errors[0].error_num?
+            $A().app().makeToast "网络状态不好，请重新加载"
+          else
+            $A().app().makeToast "没有网络"
         else
-          $A().app().makeToast "没有网络"
-      else
-        root._listview_data.data = []
+          root._listview_data.data = []
 
-        for content in data.content_list
-          root._listview_data.data.push
-            viewType: "ListViewCellLine"
-            centerTitle: "#{content.title}"
-            leftImage: {
-              imageType: "imageServer"
-              imageSize: "middle"
-              imageSrc: "#{content.image}"
-            }
-            _leftLayoutSize:75,
-            centerBottomdes: "#{content.abstract}"
-            content_id: "#{content.id}"
-        $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+          if data.count == 0
+            root._listview_data.data = []
+            root._listview_data.data.push
+              viewType: "ListViewCellLine"
+              centerTitle: "暂无优惠"
+            $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+          else
+            for content in data.content_list
+              root._listview_data.data.push
+                viewType: "ListViewCellLine"
+                centerTitle: "#{content.title}"
+                leftImage: {
+                  imageType: "imageServer"
+                  imageSize: "middle"
+                  imageSrc: "#{content.image}"
+                }
+                _leftLayoutSize:75,
+                centerBottomdes: "#{content.abstract}"
+                content_id: "#{content.id}"
+            $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]

@@ -56,39 +56,51 @@
     }
 
     ECpageClass.prototype.onCreated = function() {
-      return $A().app().callApi({
-        method: "content/coupons/index",
-        sort_id: 1038,
-        cacheTime: 0,
-        simple_result: true
-      }).then(function(data) {
-        var content, i, len, ref;
-        if (data.errors != null) {
-          if (data.errors[0].error_num != null) {
-            return $A().app().makeToast("网络状态不好，请重新加载");
+      return $A().page().param("info").then(function(info) {
+        return $A().app().callApi({
+          method: "content/coupons/index",
+          sort_id: 1038,
+          shop_content_id: info,
+          cacheTime: 0,
+          simple_result: true
+        }).then(function(data) {
+          var content, i, len, ref;
+          if (data.errors != null) {
+            if (data.errors[0].error_num != null) {
+              return $A().app().makeToast("网络状态不好，请重新加载");
+            } else {
+              return $A().app().makeToast("没有网络");
+            }
           } else {
-            return $A().app().makeToast("没有网络");
+            root._listview_data.data = [];
+            if (data.count === 0) {
+              root._listview_data.data = [];
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: "暂无优惠"
+              });
+              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+            } else {
+              ref = data.content_list;
+              for (i = 0, len = ref.length; i < len; i++) {
+                content = ref[i];
+                root._listview_data.data.push({
+                  viewType: "ListViewCellLine",
+                  centerTitle: "" + content.title,
+                  leftImage: {
+                    imageType: "imageServer",
+                    imageSize: "middle",
+                    imageSrc: "" + content.image
+                  },
+                  _leftLayoutSize: 75,
+                  centerBottomdes: "" + content.abstract,
+                  content_id: "" + content.id
+                });
+              }
+              return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+            }
           }
-        } else {
-          root._listview_data.data = [];
-          ref = data.content_list;
-          for (i = 0, len = ref.length; i < len; i++) {
-            content = ref[i];
-            root._listview_data.data.push({
-              viewType: "ListViewCellLine",
-              centerTitle: "" + content.title,
-              leftImage: {
-                imageType: "imageServer",
-                imageSize: "middle",
-                imageSrc: "" + content.image
-              },
-              _leftLayoutSize: 75,
-              centerBottomdes: "" + content.abstract,
-              content_id: "" + content.id
-            });
-          }
-          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
-        }
+        });
       });
     };
 

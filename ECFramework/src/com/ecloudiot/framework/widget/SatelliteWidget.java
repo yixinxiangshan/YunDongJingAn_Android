@@ -75,7 +75,7 @@ public class SatelliteWidget extends BaseWidget {
 						IntentUtil.openActivity("", "page_empty", "");
 						break;
 					case 2:
-						IntentUtil.openActivity("", "page_tab_coupon", "");
+						IntentUtil.openActivity("", "page_coupon_main", "");
 						break;
 					case 3:
 						IntentUtil.openActivity("", "page_tab_activity", "");
