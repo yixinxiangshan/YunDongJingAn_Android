@@ -24,7 +24,8 @@
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
           _leftLayoutSize: 60,
-          centerTitle: "正在加载......"
+          centerTitle: "正在加载......",
+          hasFooterDivider: "true"
         }
       ]
     };
@@ -86,7 +87,8 @@
               },
               _leftLayoutSize: 75,
               centerBottomdes: "" + content.abstract,
-              content_id: "" + content.id
+              content_id: "" + content.id,
+              hasFooterDivider: "true"
             });
           }
           return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));

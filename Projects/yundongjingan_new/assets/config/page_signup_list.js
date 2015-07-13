@@ -115,7 +115,8 @@
               centerBottomdes: "" + content.updated_at,
               content_id: "" + content.cms_content_id,
               content_title: "" + content.title,
-              signup_id: "" + content.id
+              signup_id: "" + content.id,
+              hasFooterDivider: "true"
             });
           }
           return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));

@@ -117,7 +117,8 @@
               content_id: "" + content.cms_content_id,
               content_title: "" + content.title,
               order_id: "" + content.id,
-              consignee_id: "" + content.user_consignee_id
+              consignee_id: "" + content.user_consignee_id,
+              hasFooterDivider: "true"
             });
           }
           return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));

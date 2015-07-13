@@ -85,6 +85,7 @@ class ECpageClass
             content_id: "#{content.cms_content_id}"
             content_title: "#{content.title}"
             signup_id: "#{content.id}"
+            hasFooterDivider: "true"
         $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onResult: (data) ->
