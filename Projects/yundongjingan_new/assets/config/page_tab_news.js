@@ -50,6 +50,16 @@
           btnTitle: "公共体育",
           btnType: "ok",
           _type: "524"
+        }, {
+          viewType: "ListViewCellButton",
+          btnTitle: "静安健身",
+          btnType: "ok",
+          _type: "524"
+        }, {
+          viewType: "ListViewCellButton",
+          btnTitle: "其他",
+          btnType: "ok",
+          _type: "524"
         }
       ]
     };

@@ -114,7 +114,7 @@
     <color name="widget_item_news_textview_content_textcolor">#666666</color>
     <color name="widget_item_news_textview_button_textcolor">#000000</color>
     <!-- widget_layout_button_item_default -->
-    <color name="widget_layout_button_item_default_textview_gridtitle_textcolor">#FFFFFF</color>
+    <color name="widget_layout_button_item_default_textview_gridtitle_textcolor">#000000</color>
     <!-- widget_listview_default -->
     <color name="widget_listview_default_linearlayout_background">#CC0000</color>
     <color name="widget_listview_default_pulllistview_background">#FFFFFF</color>

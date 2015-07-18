@@ -58,6 +58,16 @@
               "id": "524",
               "title": "公共体育",
               "icon": "page_fragment_jingan_itembg_zuixinggty"
+            },
+            {
+              "id": "524",
+              "title": "静安健身",
+              "icon": "page_fragment_jingan_itembg_jianshen"
+            },
+            {
+              "id": "524",
+              "title": "其他",
+              "icon": "page_fragment_jingan_itembg_qita"
             }
           ]
         }

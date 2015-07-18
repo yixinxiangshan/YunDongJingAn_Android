@@ -72,8 +72,8 @@ public class LayoutButtonWidget extends BaseWidget implements OnItemClickListene
         // LinearLayout layout = (LinearLayout)
         // getBaseView().findViewById(R.id.widget_gridview_bg);
         // layout.setBackgroundResource(R.drawable.proj_activity_splash_screen);
-        ImageView activity_logo = (ImageView) getBaseView().findViewById(R.id.proj_activity_logo);
-        activity_logo.setImageResource(R.drawable.proj_activity_layoutbutton_logo);
+//        ImageView activity_logo = (ImageView) getBaseView().findViewById(R.id.proj_activity_logo);
+//        activity_logo.setImageResource(R.drawable.proj_activity_layoutbutton_logo);
         // 实现GridView
 //        LogUtil.d(TAG, "start init griview...");
         gridview = (GridView) getBaseView().findViewById(R.id.gridview);
@@ -88,7 +88,7 @@ public class LayoutButtonWidget extends BaseWidget implements OnItemClickListene
     }
 
     public int getImageCol() {
-        return imageCol > 0 ? imageCol : 3;
+        return imageCol > 0 ? imageCol : 2;
     }
 
     public void setImageCol(String numColumns) {

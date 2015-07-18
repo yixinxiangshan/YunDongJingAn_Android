@@ -3,7 +3,6 @@
     android:id="@+id/widget_gridview_btn_bg"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/widget_gridview_btn_bg"
     android:gravity="center_vertical"
     android:orientation="vertical" >
 

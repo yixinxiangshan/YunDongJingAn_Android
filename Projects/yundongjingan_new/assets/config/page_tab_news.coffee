@@ -47,6 +47,18 @@ class ECpageClass
         btnType: "ok"
         _type: "524"
       }
+      {
+        viewType: "ListViewCellButton",
+        btnTitle: "静安健身",
+        btnType: "ok"
+        _type: "524"
+      }
+      {
+        viewType: "ListViewCellButton",
+        btnTitle: "其他",
+        btnType: "ok"
+        _type: "524"
+      }
     ]
 
   _constructor: (@_page_name) ->
@@ -69,7 +81,6 @@ class ECpageClass
   #自定义函数
   onItemClick: (data) ->
     item = root._listview_data.data[data.position]
-    $A().app().log "================================" + JSON.stringify item
     if item._type
       $A().app().openPage
         page_name: "page_tab_news_list"
