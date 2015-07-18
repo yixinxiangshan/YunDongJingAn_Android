@@ -24,8 +24,7 @@
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
           _leftLayoutSize: 60,
-          centerTitle: "正在加载......",
-          hasFooterDivider: "true"
+          centerTitle: "正在加载......"
         }
       ]
     };

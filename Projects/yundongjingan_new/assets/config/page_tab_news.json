@@ -19,7 +19,7 @@
   "controls": [
     {
       "control_id": "page_tab_news_ListViewBase_0",
-      "xtype": "ListViewBase",
+      "xtype": "LayoutButtonWidget",
       "layout": "",
       "script": false,
       "datasource": {
@@ -27,7 +27,40 @@
         "cache": "",
         "params": [],
         "adapter": [],
-        "data": {}
+        "data": {
+          "tabDataList": [
+            {
+              "id": "519",
+              "title": "最新消息",
+              "icon": "page_fragment_jingan_itembg_zuixin"
+            },
+            {
+              "id": "520",
+              "title": "主题活动",
+              "icon": "page_fragment_jingan_itembg_huodong"
+            },
+            {
+              "id": "521",
+              "icon": "page_fragment_jingan_itembg_tese",
+              "title": "楼宇特色"
+            },
+            {
+              "id": "522",
+              "title": "静安体彩",
+              "icon": "page_fragment_jingan_itembg_ticai"
+            },
+            {
+              "id": "523",
+              "title": "竞技体育",
+              "icon": "page_fragment_jingan_itembg_tiyu"
+            },
+            {
+              "id": "524",
+              "title": "公共体育",
+              "icon": "page_fragment_jingan_itembg_zuixinggty"
+            }
+          ]
+        }
       },
       "setEvent": [],
       "configs": [],

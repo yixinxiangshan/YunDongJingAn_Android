@@ -58,7 +58,7 @@
       this._page_name = _page_name1;
       root = this;
       this.prepareForInitView();
-      $A().page().widget(this._page_name + "_ListViewBase_0").data(JSON.stringify(this._listview_data));
+      $A().page().widget(this._page_name + "_ListViewBase_0").data(JSON.stringify(root._listview_data));
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemInnerClick(function(data) {
         return root.onItemInnerClick(data);
       });
@@ -80,11 +80,10 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
-
-    ECpageClass.prototype.onItemInnerClick = function(data) {
+    ECpageClass.prototype.onItemClick = function(data) {
       var item;
-      item = this._listview_data.data[data.position];
+      item = root._listview_data.data[data.position];
+      $A().app().log("================================" + JSON.stringify(item));
       if (item._type) {
         return $A().app().openPage({
           page_name: "page_tab_news_list",
@@ -95,6 +94,8 @@
         });
       }
     };
+
+    ECpageClass.prototype.onItemInnerClick = function(data) {};
 
     ECpageClass.prototype.onResume = function() {};
 

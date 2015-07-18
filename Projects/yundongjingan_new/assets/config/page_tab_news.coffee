@@ -54,7 +54,7 @@ class ECpageClass
     #获取其他界面传来的数据
     @prepareForInitView()
 
-    $A().page().widget("#{@_page_name}_ListViewBase_0").data JSON.stringify @_listview_data
+    $A().page().widget("#{@_page_name}_ListViewBase_0").data JSON.stringify root._listview_data
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemClick (data)-> root.onItemClick(data)
     # $A().page().onResume ()-> root.onResume()
@@ -68,15 +68,16 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
   #自定义函数
   onItemClick: (data) ->
-
-  onItemInnerClick: (data) ->
-    item = @_listview_data.data[data.position]
+    item = root._listview_data.data[data.position]
+    $A().app().log "================================" + JSON.stringify item
     if item._type
       $A().app().openPage
         page_name: "page_tab_news_list"
         params:
           sort_id: item._type
         close_option: ""
+
+  onItemInnerClick: (data) ->
 
   onResume: () ->
 

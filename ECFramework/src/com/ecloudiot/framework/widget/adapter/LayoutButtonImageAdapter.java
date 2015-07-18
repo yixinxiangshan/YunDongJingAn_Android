@@ -33,7 +33,7 @@ public class LayoutButtonImageAdapter extends BaseAdapter {
 		}else {
 			itemLayoutId = ResourceUtil.getLayoutIdFromContext(activity, "widget_layout_button_item_default");
 		}
-		LogUtil.d(TAG, "itemLayoutName"+itemLayoutName);
+//		LogUtil.d(TAG, "itemLayoutName"+itemLayoutName);
 		// 得到屏幕的大小
 		dm = new DisplayMetrics();
 		activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
@@ -57,7 +57,7 @@ public class LayoutButtonImageAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder holder;
-		LogUtil.d(TAG, "getView.............................................");
+//		LogUtil.d(TAG, "getView.............................................");
 		if (convertView == null) { // if it's not recycled, initialize some
 			holder = new ViewHolder();
 			convertView = LayoutInflater.from(ECApplication.getInstance().getNowActivity()).inflate(itemLayoutId, null);
