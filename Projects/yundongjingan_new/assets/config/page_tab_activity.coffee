@@ -12,16 +12,22 @@ class ECpageClass
     dividerColor: "#EBEBEB"
     data: [
       {
-        viewType: "ListViewCellButton",
-        btnTitle: "赛事报名",
+        viewType: "ListViewCellLine",
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "赛事报名",
         btnType: "ok"
         _type: "signup"
+        hasFooterDivider: "true"
       }
       {
-        viewType: "ListViewCellButton",
-        btnTitle: "信息发布",
+        viewType: "ListViewCellLine",
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "信息发布",
         btnType: "ok"
         _type: "news"
+        hasFooterDivider: "true"
       }
     ]
 
@@ -45,8 +51,6 @@ class ECpageClass
 
 #自定义函数
   onItemClick: (data) ->
-
-  onItemInnerClick: (data) ->
     item = @_listview_data.data[data.position]
     if item._type? and item._type == 'signup'
       $A().app().openPage
@@ -58,6 +62,8 @@ class ECpageClass
         page_name: "page_tab_news"
         params: []
         close_option: ""
+
+  onItemInnerClick: (data) ->
 
   onResume: () ->
 

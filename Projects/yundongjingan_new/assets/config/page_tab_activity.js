@@ -21,15 +21,21 @@
       dividerColor: "#EBEBEB",
       data: [
         {
-          viewType: "ListViewCellButton",
-          btnTitle: "赛事报名",
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "赛事报名",
           btnType: "ok",
-          _type: "signup"
+          _type: "signup",
+          hasFooterDivider: "true"
         }, {
-          viewType: "ListViewCellButton",
-          btnTitle: "信息发布",
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "信息发布",
           btnType: "ok",
-          _type: "news"
+          _type: "news",
+          hasFooterDivider: "true"
         }
       ]
     };
@@ -60,9 +66,7 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
-
-    ECpageClass.prototype.onItemInnerClick = function(data) {
+    ECpageClass.prototype.onItemClick = function(data) {
       var item;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'signup') {
@@ -79,6 +83,8 @@
         });
       }
     };
+
+    ECpageClass.prototype.onItemInnerClick = function(data) {};
 
     ECpageClass.prototype.onResume = function() {};
 
