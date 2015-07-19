@@ -93,7 +93,6 @@
     ECpageClass.prototype.onItemClick = function(data) {
       var item;
       item = root._listview_data.data[data.position];
-      $A().app().log("================================" + JSON.stringify(item));
       if (item._type) {
         return $A().app().openPage({
           page_name: "page_tab_news_list",
