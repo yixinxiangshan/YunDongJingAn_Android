@@ -92,4 +92,4 @@ class ECpageClass
       root._platform = platform
 
 #启动程序
-Page = new ECpageClass("page_coupon_main")
+new ECpageClass("page_coupon_main")

@@ -69,26 +69,26 @@ public class SatelliteWidget extends BaseWidget {
 		menu.setOnItemClickedListener(new SatelliteMenu.SateliteClickedListener() {
 
 			public void eventOccured(int id) {
-				Log.i("sat", "Clicked on " + id);
-				switch (id) {
-					case 1:
-						IntentUtil.openActivity("", "page_empty", "");
-						break;
-					case 2:
-						IntentUtil.openActivity("", "page_coupon_main", "");
-						break;
-					case 3:
-						IntentUtil.openActivity("", "page_tab_activity", "");
-						break;
-					case 4:
-						IntentUtil.openActivity("", "page_tab_send", "");
-						break;
-					case 5:
-						IntentUtil.openActivity("", "page_my", "");
-						break;
-					default:
-						break;
-				}
+//				Log.i("sat", "Clicked on " + id);
+//				switch (id) {
+//					case 1:
+						IntentUtil.openActivity("", "page_index_tab", String.valueOf(id));
+//						break;
+//					case 2:
+//						IntentUtil.openActivity("", "page_coupon_main", "");
+//						break;
+//					case 3:
+//						IntentUtil.openActivity("", "page_tab_activity", "");
+//						break;
+//					case 4:
+//						IntentUtil.openActivity("", "page_tab_send", "");
+//						break;
+//					case 5:
+//						IntentUtil.openActivity("", "page_my", "");
+//						break;
+//					default:
+//						break;
+//				}
 			}
 		});
 	}

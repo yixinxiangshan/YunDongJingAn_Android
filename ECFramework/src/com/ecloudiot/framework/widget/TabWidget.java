@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -39,6 +40,7 @@ public class TabWidget extends BaseWidget {
 	private String itemTextColor;
 	private JazzyViewPager pager;
 	private HashMap<Integer, ItemFragment> tabFragments = new HashMap<Integer, ItemFragment>();
+	private int currentPosition;
 	public TabWidget(Object pageContext, String dataString, String layoutName) {
 		super(pageContext, dataString, layoutName);
 		this.setId(R.id.tab_widget);
@@ -57,7 +59,8 @@ public class TabWidget extends BaseWidget {
 		// necessary
 		try {
 			widgetDataModel = GsonUtil.fromJson(widgetDataJObject, TabModel.class);
-		} catch (Exception e) {
+            currentPosition = Integer.valueOf(ECApplication.getInstance().getNowActivity().getIntent().getExtras().getString("paramsString")) - 1;
+        } catch (Exception e) {
 			LogUtil.e(TAG, "parsingWidgetData error: tab data is not valid ...");
 		}
 	}
@@ -90,7 +93,9 @@ public class TabWidget extends BaseWidget {
 					JsonParser jsonParser = new JsonParser();
 					JsonObject pageJsonObject = (JsonObject) jsonParser.parse(pageString);
 					// 执行通知tab里面的widget，当前处于被选中状态
-					JsAPI.runEvent(tabFragments.get(position).getJsEvents(), "onPageSelected", "");
+                    try {
+                        JsAPI.runEvent(tabFragments.get(position).getJsEvents(), "onPageSelected", "");
+                    }catch (Exception e){}
 					// fragment第一次启动时，不设置actionbar，只有切换到framgment的时候，切换action
 					JsonArray controlsList = pageJsonObject.getAsJsonArray("controls");
 					for (int i = 0; i < controlsList.size(); i++) {
@@ -110,6 +115,7 @@ public class TabWidget extends BaseWidget {
 			public void onPageScrollStateChanged(int state) {
 			}
 		});
+        indicator.setCurrentItem(currentPosition);
 
 		loading(LOADING_0N_OFF.TURN_OFF);
 		super.setData();
@@ -146,8 +152,8 @@ public class TabWidget extends BaseWidget {
 			// LogUtil.e(TAG, "getItem" + position);
 			TabItemModel dataItem = widgetDataModel.getTabDataList().get(position);
 			ItemFragment itemFragment = ItemFragment.newInstance(dataItem.getFragmentString());
-			// actionbar设置通过onPageSelected设置，除了第一个默认的
-			if (position != 0)
+			// actionbar设置通过onPageSelected设置，除了被选择为默认的
+			if (position != currentPosition)
 				itemFragment.setNoActionBar(true);
 			tabFragments.put(position, itemFragment);
 			return itemFragment;
