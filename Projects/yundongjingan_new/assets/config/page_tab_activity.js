@@ -27,7 +27,12 @@
           centerTitle: "赛事报名",
           btnType: "ok",
           _type: "signup",
-          hasFooterDivider: "true"
+          hasFooterDivider: "true",
+          leftImage: {
+            imageType: "imageServer",
+            imageSize: "middle",
+            imageSrc: "3013414.png"
+          }
         }, {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
@@ -35,7 +40,12 @@
           centerTitle: "信息发布",
           btnType: "ok",
           _type: "news",
-          hasFooterDivider: "true"
+          hasFooterDivider: "true",
+          leftImage: {
+            imageType: "imageServer",
+            imageSize: "middle",
+            imageSrc: "3013665.jpg"
+          }
         }
       ]
     };

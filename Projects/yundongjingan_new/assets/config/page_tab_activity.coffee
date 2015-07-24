@@ -19,6 +19,11 @@ class ECpageClass
         btnType: "ok"
         _type: "signup"
         hasFooterDivider: "true"
+        leftImage: {
+          imageType: "imageServer"
+          imageSize: "middle"
+          imageSrc: "3013414.png"
+        }
       }
       {
         viewType: "ListViewCellLine",
@@ -28,6 +33,11 @@ class ECpageClass
         btnType: "ok"
         _type: "news"
         hasFooterDivider: "true"
+        leftImage: {
+          imageType: "imageServer"
+          imageSize: "middle"
+          imageSrc: "3013665.jpg"
+        }
       }
     ]
 
