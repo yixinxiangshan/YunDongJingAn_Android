@@ -5,7 +5,7 @@ class ECpageClass
   _platform: ""
   _item_info: {}
   _listview_data:
-    pullable: true
+    pullable: false
     hasFooterDivider: true
     hasHeaderDivider: true
     dividerHeight: 1

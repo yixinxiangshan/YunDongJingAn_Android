@@ -14,7 +14,7 @@
     ECpageClass.prototype._item_info = {};
 
     ECpageClass.prototype._listview_data = {
-      pullable: true,
+      pullable: false,
       hasFooterDivider: true,
       hasHeaderDivider: true,
       dividerHeight: 1,
