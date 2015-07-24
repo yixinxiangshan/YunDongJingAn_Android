@@ -61,21 +61,43 @@
       var item;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'ok') {
-        $A().app().makeToast("正在提交");
-        return $A().app().callApi({
-          method: "trade/coupons/create",
-          cms_coupon_id: item.content_id,
-          cacheTime: 0
-        }).then(function(data1) {
-          if (data1.success === true) {
-            $A().app().makeToast("提交成功，谢谢您的申请。");
-            $A().page().setTimeout("2000").then(function() {});
-            root._listview_data.data[3].btnType = "cancel";
-            root._listview_data.data[3]._type = "cancel";
-            root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code;
-            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            $A().app().makeToast("正在提交");
+            return $A().app().callApi({
+              method: "trade/coupons/create",
+              cms_coupon_id: item.content_id,
+              cacheTime: 0
+            }).then(function(data1) {
+              if (data1.success === true) {
+                $A().app().makeToast("提交成功，谢谢您的申请。");
+                $A().page().setTimeout("2000").then(function() {});
+                root._listview_data.data[3].btnType = "cancel";
+                root._listview_data.data[3]._type = "cancel";
+                root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code;
+                return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
           } else {
-            return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
           }
         });
       }

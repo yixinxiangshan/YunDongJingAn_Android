@@ -58,31 +58,77 @@
     ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
-      var content, item;
+      var item;
       item = this._listview_data.data[data.position];
       if ((item._type != null) && item._type === 'ok') {
-        content = {
-          content_id: item.content_id,
-          content_title: item.content_title
-        };
-        $A().app().openPage({
-          page_name: "page_signup_input",
-          params: {
-            info: JSON.stringify(content)
-          },
-          close_option: ""
+        $A().lrucache().get("phone").then(function(phone) {
+          var content;
+          if ((phone != null) && phone !== "") {
+            content = {
+              content_id: item.content_id,
+              content_title: item.content_title
+            };
+            return $A().app().openPage({
+              page_name: "page_signup_input",
+              params: {
+                info: JSON.stringify(content)
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
         });
       }
       if ((item._type != null) && item._type === 'cancel') {
-        content = {
-          content_id: item.content_id
-        };
-        return $A().app().openPage({
-          page_name: "page_signup_list",
-          params: {
-            info: JSON.stringify(content)
-          },
-          close_option: ""
+        return $A().lrucache().get("phone").then(function(phone) {
+          var content;
+          if ((phone != null) && phone !== "") {
+            content = {
+              content_id: item.content_id
+            };
+            return $A().app().openPage({
+              page_name: "page_signup_list",
+              params: {
+                info: JSON.stringify(content)
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
         });
       }
     };

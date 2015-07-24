@@ -42,21 +42,37 @@ class ECpageClass
   onItemInnerClick: (data) ->
     item = @_listview_data.data[data.position]
     if item._type? and item._type == 'ok'
-      $A().app().makeToast "正在提交"
-      $A().app().callApi
-        method: "trade/coupons/create"
-        cms_coupon_id: item.content_id
-        cacheTime: 0
-      .then (data1) ->
-        if data1.success == true
-          $A().app().makeToast "提交成功，谢谢您的申请。"
-          $A().page().setTimeout("2000").then () ->
-          root._listview_data.data[3].btnType = "cancel"
-          root._listview_data.data[3]._type = "cancel"
-          root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code
-          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+      $A().lrucache().get("phone").then (phone) ->
+        if phone? and phone != ""
+          $A().app().makeToast "正在提交"
+          $A().app().callApi
+            method: "trade/coupons/create"
+            cms_coupon_id: item.content_id
+            cacheTime: 0
+          .then (data1) ->
+            if data1.success == true
+              $A().app().makeToast "提交成功，谢谢您的申请。"
+              $A().page().setTimeout("2000").then () ->
+              root._listview_data.data[3].btnType = "cancel"
+              root._listview_data.data[3]._type = "cancel"
+              root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code
+              $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+            else
+              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
         else
-          $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+          $A().app().showConfirm
+            ok: "登陆"
+            cancel: "取消"
+            title: "警告"
+            message: "您尚未登陆，请先登陆"
+          .then (data) ->
+            if data.state == "ok"
+              $A().app().openPage
+                page_name:"page_login",
+                params: {}
+                close_option: ""
+            if data.state == "cancel"
+              return false
 
   onResume: () ->
 
