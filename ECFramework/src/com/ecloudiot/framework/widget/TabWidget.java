@@ -186,7 +186,7 @@ public class TabWidget extends BaseWidget {
 		@Override
 		public ColorStateList getTitleColorList(int index) {
 //			if (StringUtil.isNotEmpty(getItemTextColor())) {
-				return ColorUtil.getColorState("", "", "");
+				return ColorUtil.getColorState("White", "Yellow", "Yellow");
 //				return ColorUtil.getColorStateFromConfig(getItemTextColor());
 //			}
 //			return null;

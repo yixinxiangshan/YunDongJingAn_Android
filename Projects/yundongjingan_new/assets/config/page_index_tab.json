@@ -41,35 +41,35 @@
           "tabDataList": [
             {
               "title": "运动地图",
-              "icon": "proj_activity_tab_tab1",
+              "icon": "webview/images/icon/default/ic_1.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_empty",
               "tag": "page_empty"
             },
             {
-              "title": "运动加油站",
-              "icon": "proj_activity_tab_tab2",
+              "title": "场馆预定",
+              "icon": "webview/images/icon/default/ic_2.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_coupon_main",
               "tag": "page_coupon_main"
             },
             {
-              "title": "运动静安",
-              "icon": "proj_activity_tab_tab3",
+              "title": "赛事活动",
+              "icon": "webview/images/icon/default/ic_3.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_tab_activity",
               "tag": "page_tab_activity"
             },
             {
-              "title": "我的",
-              "icon": "proj_activity_tab_tab4",
+              "title": "体育配送",
+              "icon": "webview/images/icon/default/ic_4.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_tab_send",
               "tag": "page_tab_send"
             },
             {
-              "title": "更多",
-              "icon": "proj_activity_tab_tab5",
+              "title": "我的",
+              "icon": "webview/images/icon/default/ic_5.png",
               "fragmentName": "ItemFragment",
               "fragmentString": "page_my",
               "tag": "page_my"

@@ -20,6 +20,7 @@ import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -210,6 +211,8 @@ public class TabPageIndicator extends HorizontalScrollView implements PageIndica
 			drawableImgs[location] = icon;
 			tabView.setCompoundDrawablesWithIntrinsicBounds(drawableImgs[0], drawableImgs[1], drawableImgs[2], drawableImgs[3]);
 		}
+
+		tabView.setBackgroundColor(Color.BLACK);
 
 		mTabLayout.addView(tabView, new LinearLayout.LayoutParams(0, MATCH_PARENT, 1));
 	}
