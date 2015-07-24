@@ -36,6 +36,13 @@
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
           _leftLayoutSize: 0,
+          centerTitle: "你点我送申请表",
+          name: "send",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
           centerTitle: "设置",
           name: "setting",
           hasFooterDivider: "true"
@@ -78,7 +85,7 @@
     };
 
     ECpageClass.prototype.onItemClick = function(data) {
-      var item;
+      var content, item;
       item = this._listview_data.data[data.position];
       switch ("" + item.name) {
         case "mycenter":
@@ -101,6 +108,17 @@
           return $A().app().openPage({
             page_name: "page_setting",
             params: {},
+            close_option: ""
+          });
+        case "send":
+          content = {
+            content_id: ""
+          };
+          return $A().app().openPage({
+            page_name: "page_send_list",
+            params: {
+              info: JSON.stringify(content)
+            },
             close_option: ""
           });
       }

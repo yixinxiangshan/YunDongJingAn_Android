@@ -27,14 +27,14 @@ class ECpageClass
         name: "mycenter"
         hasFooterDivider: "true"
       }
-#            {
-#                viewType: "ListViewCellLine"
-#                _rightLayoutSize: 0
-#                _leftLayoutSize: 0
-#                centerTitle: "课程管理"
-#                name:"course_list"
-#                hasFooterDivider:"true"
-#            }
+      {
+        viewType: "ListViewCellLine"
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "你点我送申请表"
+        name: "send"
+        hasFooterDivider: "true"
+      }
 #            {
 #                viewType: "ListViewCellLine"
 #                _rightLayoutSize: 0
@@ -132,6 +132,16 @@ class ECpageClass
 #                    page_name:"page_notification_manage",
 #                    params: {}
 #                    close_option: ""
+      when "send"
+        content =
+        {
+          content_id: ""
+        }
+        $A().app().openPage
+          page_name: "page_send_list"
+          params:
+            info: JSON.stringify content
+          close_option: ""
 
   onItemInnerClick: (data) ->
 
