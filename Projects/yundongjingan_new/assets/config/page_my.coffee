@@ -141,25 +141,57 @@ class ECpageClass
 #                    params: {}
 #                    close_option: ""
       when "signup"
-        content =
-        {
-          content_id: item.content_id
-        }
-        $A().app().openPage
-          page_name: "page_signup_list"
-          params:
-            info: JSON.stringify content
-          close_option: ""
+        $A().lrucache().get("phone").then (phone) ->
+          if phone? and phone != ""
+            content =
+            {
+              content_id: item.content_id
+            }
+            $A().app().openPage
+              page_name: "page_signup_list"
+              params:
+                info: JSON.stringify content
+              close_option: ""
+          else
+            $A().app().showConfirm
+              ok: "登陆"
+              cancel: "取消"
+              title: "警告"
+              message: "您尚未登陆，请先登陆"
+            .then (data) ->
+              if data.state == "ok"
+                $A().app().openPage
+                  page_name:"page_login",
+                  params: {}
+                  close_option: ""
+              if data.state == "cancel"
+                return false
       when "send"
-        content =
-        {
-          content_id: ""
-        }
-        $A().app().openPage
-          page_name: "page_send_list"
-          params:
-            info: JSON.stringify content
-          close_option: ""
+        $A().lrucache().get("phone").then (phone) ->
+          if phone? and phone != ""
+            content =
+            {
+              content_id: ""
+            }
+            $A().app().openPage
+              page_name: "page_send_list"
+              params:
+                info: JSON.stringify content
+              close_option: ""
+          else
+            $A().app().showConfirm
+              ok: "登陆"
+              cancel: "取消"
+              title: "警告"
+              message: "您尚未登陆，请先登陆"
+            .then (data) ->
+              if data.state == "ok"
+                $A().app().openPage
+                  page_name:"page_login",
+                  params: {}
+                  close_option: ""
+              if data.state == "cancel"
+                return false
 
   onItemInnerClick: (data) ->
 
