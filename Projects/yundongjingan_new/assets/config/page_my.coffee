@@ -31,7 +31,15 @@ class ECpageClass
         viewType: "ListViewCellLine"
         _rightLayoutSize: 0
         _leftLayoutSize: 0
-        centerTitle: "你点我送申请表"
+        centerTitle: "我的赛事报名"
+        name: "signup"
+        hasFooterDivider: "true"
+      }
+      {
+        viewType: "ListViewCellLine"
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "我的你点我送"
         name: "send"
         hasFooterDivider: "true"
       }
@@ -132,6 +140,16 @@ class ECpageClass
 #                    page_name:"page_notification_manage",
 #                    params: {}
 #                    close_option: ""
+      when "signup"
+        content =
+        {
+          content_id: item.content_id
+        }
+        $A().app().openPage
+          page_name: "page_signup_list"
+          params:
+            info: JSON.stringify content
+          close_option: ""
       when "send"
         content =
         {

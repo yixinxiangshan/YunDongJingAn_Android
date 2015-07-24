@@ -36,7 +36,14 @@
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
           _leftLayoutSize: 0,
-          centerTitle: "你点我送申请表",
+          centerTitle: "我的赛事报名",
+          name: "signup",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的你点我送",
           name: "send",
           hasFooterDivider: "true"
         }, {
@@ -108,6 +115,17 @@
           return $A().app().openPage({
             page_name: "page_setting",
             params: {},
+            close_option: ""
+          });
+        case "signup":
+          content = {
+            content_id: item.content_id
+          };
+          return $A().app().openPage({
+            page_name: "page_signup_list",
+            params: {
+              info: JSON.stringify(content)
+            },
             close_option: ""
           });
         case "send":
