@@ -51,7 +51,7 @@ class ECpageClass
         viewType: "ListViewCellButton",
         btnTitle: "静安健身",
         btnType: "ok"
-        _type: "524"
+        _type: "0"
       }
       {
         viewType: "ListViewCellButton",
@@ -82,11 +82,15 @@ class ECpageClass
   onItemClick: (data) ->
     item = root._listview_data.data[data.position]
     if item._type
-      $A().app().openPage
-        page_name: "page_tab_news_list"
-        params:
-          sort_id: item._type
-        close_option: ""
+      if item._type == "0"
+        $A().app().openUrl
+          _param: "http://tyj.jingan.gov.cn"
+      else
+        $A().app().openPage
+          page_name: "page_tab_news_list"
+          params:
+            sort_id: item._type
+          close_option: ""
 
   onItemInnerClick: (data) ->
 
