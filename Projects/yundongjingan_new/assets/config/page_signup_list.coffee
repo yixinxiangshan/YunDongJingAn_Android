@@ -4,11 +4,11 @@ class ECpageClass
   _item_info: {}
   _platform: ""
   _listview_data:
-    pullable: false
-    hasFooterDivider: false
-    hasHeaderDivider: false
-    dividerHeight: 0
-    dividerColor: "#cccccc"
+    pullable: true
+    hasFooterDivider: true
+    hasHeaderDivider: true
+    dividerHeight: 1
+    dividerColor: "#EBEBEB"
     data: [
       {
         viewType: "ListViewCellLine"

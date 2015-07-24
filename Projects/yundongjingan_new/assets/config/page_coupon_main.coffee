@@ -5,9 +5,9 @@ class ECpageClass
   _platform: ""
   _item_info: {}
   _listview_data:
-    pullable: false
+    pullable: true
     hasFooterDivider: true
-    hasHeaderDivider: false
+    hasHeaderDivider: true
     dividerHeight: 1
     dividerColor: "#EBEBEB"
     data: [
