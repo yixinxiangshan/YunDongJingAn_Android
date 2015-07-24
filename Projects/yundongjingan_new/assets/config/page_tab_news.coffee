@@ -57,7 +57,7 @@ class ECpageClass
         viewType: "ListViewCellButton",
         btnTitle: "其他",
         btnType: "ok"
-        _type: "524"
+        _type: "1970"
       }
     ]
 

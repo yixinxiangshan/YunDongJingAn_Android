@@ -73,24 +73,33 @@
           }
         } else {
           root._listview_data.data = [];
-          ref = data.content_list;
-          for (i = 0, len = ref.length; i < len; i++) {
-            content = ref[i];
+          if (data.count === 0) {
+            root._listview_data.data = [];
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
-              centerTitle: "" + content.title,
-              leftImage: {
-                imageType: "imageServer",
-                imageSize: "middle",
-                imageSrc: "" + content.image
-              },
-              _leftLayoutSize: 75,
-              centerBottomdes: "" + content.abstract,
-              content_id: "" + content.id,
-              hasFooterDivider: "true"
+              centerTitle: "暂无信息"
             });
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+          } else {
+            ref = data.content_list;
+            for (i = 0, len = ref.length; i < len; i++) {
+              content = ref[i];
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: "" + content.title,
+                leftImage: {
+                  imageType: "imageServer",
+                  imageSize: "middle",
+                  imageSrc: "" + content.image
+                },
+                _leftLayoutSize: 75,
+                centerBottomdes: "" + content.abstract,
+                content_id: "" + content.id,
+                hasFooterDivider: "true"
+              });
+            }
+            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           }
-          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
         }
       });
     };

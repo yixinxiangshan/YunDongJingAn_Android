@@ -52,20 +52,27 @@ class ECpageClass
       else
         root._listview_data.data = []
 
-        for content in data.content_list
+        if data.count == 0
+          root._listview_data.data = []
           root._listview_data.data.push
             viewType: "ListViewCellLine"
-            centerTitle: "#{content.title}"
-            leftImage: {
-              imageType: "imageServer"
-              imageSize: "middle"
-              imageSrc: "#{content.image}"
-            }
-            _leftLayoutSize: 75,
-            centerBottomdes: "#{content.abstract}"
-            content_id: "#{content.id}"
-            hasFooterDivider: "true"
-        $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+            centerTitle: "暂无信息"
+          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+        else
+          for content in data.content_list
+            root._listview_data.data.push
+              viewType: "ListViewCellLine"
+              centerTitle: "#{content.title}"
+              leftImage: {
+                imageType: "imageServer"
+                imageSize: "middle"
+                imageSrc: "#{content.image}"
+              }
+              _leftLayoutSize: 75,
+              centerBottomdes: "#{content.abstract}"
+              content_id: "#{content.id}"
+              hasFooterDivider: "true"
+          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
