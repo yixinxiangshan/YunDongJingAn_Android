@@ -50,8 +50,8 @@
               "title": "场馆预定",
               "icon": "webview/images/icon/default/ic_2.png",
               "fragmentName": "ItemFragment",
-              "fragmentString": "page_coupon_main",
-              "tag": "page_coupon_main"
+              "fragmentString": "page_tab_cheerup",
+              "tag": "page_tab_cheerup"
             },
             {
               "title": "赛事活动",
