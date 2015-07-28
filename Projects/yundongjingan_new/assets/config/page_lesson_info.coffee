@@ -38,15 +38,6 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 #自定义函数
   onItemClick: (data) ->
-    item = root._listview_data.data[data.position]
-    if item.type?
-      switch "#{item.type}"
-        when "lesson"
-          $A().app().openPage
-            page_name: "page_lesson_info"
-            params:
-              info: item.content_id
-            close_option: ""
 
   onItemInnerClick: (data) ->
 
@@ -61,8 +52,8 @@ class ECpageClass
       root._platform = platform
     $A().page().param("info").then (info) ->
       $A().app().callApi
-        method: "ContentsCouponsByShops/get"
-        shopid: info
+        method: "content/coupons/detail"
+        content_id: info
         cacheTime: 0
       .then (data) ->
         if data.errors?
@@ -71,57 +62,29 @@ class ECpageClass
           else
             $A().app().makeToast "没有网络"
         else
-          root._content = data
+          root._content = data.content_info
           root._listview_data.data = []
 
           root._listview_data.data.push
-            viewType: "ListViewCellArticleTitle"
-            headTitle: "#{root._content.shop.title}"
-
-          root._listview_data.data.push
-            viewType: "ListViewCellImage"
-            image: {
+            viewType: "ListViewCellLine"
+            leftTitle: "课程器械"
+            rightImage: {
               imageType: "imageServer"
-              imageSize: "xlarge"
-              imageSrc: "#{root._content.shop.image_cover}"
+              imageSize: "middle"
+              imageSrc: "#{root._content.image_cover.url}"
             }
-
-          root._listview_data.data.push
-            viewType: "ListViewCellGroupTitle"
-            textTitle: "活动优惠"
-
-          for lesson in root._content.info
-            root._listview_data.data.push
-              viewType: "ListViewCellLine"
-              centerTitle: "#{lesson.title}"
-              content_id: "#{lesson.id}"
-              hasFooterDivider: "true"
-              type: "lesson"
-
-          root._listview_data.data.push
-            viewType: "ListViewCellGroupTitle"
-            textTitle: "联系方式"
-
-          root._listview_data.data.push
-            viewType: "ListViewCellLine"
-            centerTitle: "地址：" + "#{root._content.shop.address}"
             hasFooterDivider: "true"
 
           root._listview_data.data.push
             viewType: "ListViewCellLine"
-            centerTitle: "电话：" + "#{root._content.shop.phone_num}"
-            hasFooterDivider: "true"
-
-          root._listview_data.data.push
-            viewType: "ListViewCellLine"
-            centerTitle: "查看所有评论"
+            leftTitle: "课程视频"
             hasFooterDivider: "true"
 
           root._listview_data.data.push
             viewType: "ListViewCellArticle"
-            content: "#{root._content.shop.content}"
+            content: "课程介绍:\n\n" + "#{root._content.content}"
 
           $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
 #启动程序
-new ECpageClass("page_cheerup_info")
+new ECpageClass("page_lesson_info")

@@ -55,22 +55,7 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {
-      var item;
-      item = root._listview_data.data[data.position];
-      if (item.type != null) {
-        switch ("" + item.type) {
-          case "lesson":
-            return $A().app().openPage({
-              page_name: "page_lesson_info",
-              params: {
-                info: item.content_id
-              },
-              close_option: ""
-            });
-        }
-      }
-    };
+    ECpageClass.prototype.onItemClick = function(data) {};
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 
@@ -84,11 +69,10 @@
       });
       return $A().page().param("info").then(function(info) {
         return $A().app().callApi({
-          method: "ContentsCouponsByShops/get",
-          shopid: info,
+          method: "content/coupons/detail",
+          content_id: info,
           cacheTime: 0
         }).then(function(data) {
-          var i, len, lesson, ref;
           if (data.errors != null) {
             if (data.errors[0].error_num != null) {
               return $A().app().makeToast("网络状态不好，请重新加载");
@@ -96,57 +80,26 @@
               return $A().app().makeToast("没有网络");
             }
           } else {
-            root._content = data;
+            root._content = data.content_info;
             root._listview_data.data = [];
             root._listview_data.data.push({
-              viewType: "ListViewCellArticleTitle",
-              headTitle: "" + root._content.shop.title
-            });
-            root._listview_data.data.push({
-              viewType: "ListViewCellImage",
-              image: {
+              viewType: "ListViewCellLine",
+              leftTitle: "课程器械",
+              rightImage: {
                 imageType: "imageServer",
-                imageSize: "xlarge",
-                imageSrc: "" + root._content.shop.image_cover
-              }
-            });
-            root._listview_data.data.push({
-              viewType: "ListViewCellGroupTitle",
-              textTitle: "活动优惠"
-            });
-            ref = root._content.info;
-            for (i = 0, len = ref.length; i < len; i++) {
-              lesson = ref[i];
-              root._listview_data.data.push({
-                viewType: "ListViewCellLine",
-                centerTitle: "" + lesson.title,
-                content_id: "" + lesson.id,
-                hasFooterDivider: "true",
-                type: "lesson"
-              });
-            }
-            root._listview_data.data.push({
-              viewType: "ListViewCellGroupTitle",
-              textTitle: "联系方式"
-            });
-            root._listview_data.data.push({
-              viewType: "ListViewCellLine",
-              centerTitle: "地址：" + ("" + root._content.shop.address),
+                imageSize: "middle",
+                imageSrc: "" + root._content.image_cover.url
+              },
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
-              centerTitle: "电话：" + ("" + root._content.shop.phone_num),
-              hasFooterDivider: "true"
-            });
-            root._listview_data.data.push({
-              viewType: "ListViewCellLine",
-              centerTitle: "查看所有评论",
+              leftTitle: "课程视频",
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({
               viewType: "ListViewCellArticle",
-              content: "" + root._content.shop.content
+              content: "课程介绍:\n\n" + ("" + root._content.content)
             });
             return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           }
@@ -158,6 +111,6 @@
 
   })();
 
-  new ECpageClass("page_cheerup_info");
+  new ECpageClass("page_lesson_info");
 
 }).call(this);
