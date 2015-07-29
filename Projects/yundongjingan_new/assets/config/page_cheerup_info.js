@@ -68,6 +68,10 @@
               },
               close_option: ""
             });
+          case "phone":
+            return $A().app().phone({
+              _param: item.phone
+            });
         }
       }
     };
@@ -121,8 +125,8 @@
                 viewType: "ListViewCellLine",
                 centerTitle: "" + lesson.title,
                 content_id: "" + lesson.id,
-                hasFooterDivider: "true",
-                type: "lesson"
+                type: "lesson",
+                hasFooterDivider: "true"
               });
             }
             root._listview_data.data.push({
@@ -137,6 +141,8 @@
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
               centerTitle: "电话：" + ("" + root._content.shop.phone_num),
+              phone: "" + root._content.shop.phone_num,
+              type: "phone",
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({

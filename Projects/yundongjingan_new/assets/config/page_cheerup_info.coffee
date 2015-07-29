@@ -47,6 +47,9 @@ class ECpageClass
             params:
               info: item.content_id
             close_option: ""
+        when "phone"
+          $A().app().phone
+            _param: item.phone
 
   onItemInnerClick: (data) ->
 
@@ -95,8 +98,8 @@ class ECpageClass
               viewType: "ListViewCellLine"
               centerTitle: "#{lesson.title}"
               content_id: "#{lesson.id}"
-              hasFooterDivider: "true"
               type: "lesson"
+              hasFooterDivider: "true"
 
           root._listview_data.data.push
             viewType: "ListViewCellGroupTitle"
@@ -110,6 +113,8 @@ class ECpageClass
           root._listview_data.data.push
             viewType: "ListViewCellLine"
             centerTitle: "电话：" + "#{root._content.shop.phone_num}"
+            phone: "#{root._content.shop.phone_num}"
+            type: "phone"
             hasFooterDivider: "true"
 
           root._listview_data.data.push
