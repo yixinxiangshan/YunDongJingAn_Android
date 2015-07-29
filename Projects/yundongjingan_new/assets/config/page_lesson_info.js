@@ -55,7 +55,24 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      var item;
+      item = root._listview_data.data[data.position];
+      if (item.type != null) {
+        switch ("" + item.type) {
+          case "image":
+            return $A().app().fullImage({
+              imageurl: item.rightImage.imageSrc,
+              params: {}
+            });
+          case "video":
+            return $A().page().playVideo({
+              _param: item.video_url,
+              params: {}
+            });
+        }
+      }
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {};
 
@@ -90,11 +107,14 @@
                 imageSize: "middle",
                 imageSrc: "" + root._content.image_cover.url
               },
+              type: "image",
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
               leftTitle: "课程视频",
+              video_url: "" + root._content.video_url.url,
+              type: "video",
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({

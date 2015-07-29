@@ -38,6 +38,17 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 #自定义函数
   onItemClick: (data) ->
+    item = root._listview_data.data[data.position]
+    if item.type?
+      switch "#{item.type}"
+        when "image"
+          $A().app().fullImage
+            imageurl: item.rightImage.imageSrc
+            params: {}
+        when "video"
+          $A().page().playVideo
+            _param: item.video_url
+            params: {}
 
   onItemInnerClick: (data) ->
 
@@ -73,11 +84,14 @@ class ECpageClass
               imageSize: "middle"
               imageSrc: "#{root._content.image_cover.url}"
             }
+            type: "image"
             hasFooterDivider: "true"
 
           root._listview_data.data.push
             viewType: "ListViewCellLine"
             leftTitle: "课程视频"
+            video_url: "#{root._content.video_url.url}"
+            type: "video"
             hasFooterDivider: "true"
 
           root._listview_data.data.push

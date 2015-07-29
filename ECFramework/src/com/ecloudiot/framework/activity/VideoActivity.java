@@ -32,6 +32,9 @@ public class VideoActivity extends Activity {
 		String uriString;
 		try {
 			uriString = mBundle.getString("uriString");
+			if (!uriString.startsWith("http://")) {
+				uriString = "http://qymhvideo.oss.aliyuncs.com/" + uriString;
+			}
 		} catch (Exception e) {
 			LogUtil.d(TAG, "onCreate : "+e.toString());
 			Toast.makeText(this, "视频地址错误", Toast.LENGTH_SHORT).show();
@@ -39,7 +42,7 @@ public class VideoActivity extends Activity {
 		}
 		VideoView videoView = new VideoView(this);
 		layout.addView(videoView);
-//		String uriString = "http://admin.nowapp.cn/uploads/news_content/video_url/2113/demo.mp4";
+//		String uriString = "http://qymhvideo.oss.aliyuncs.com/uploads/coupon_content/video_url/14619/01jingan-class-power.mp4";
 		LogUtil.d(TAG, "onCreate : uri= "+uriString);
 		Uri uri = Uri.parse(uriString);
 		LogUtil.d(TAG, "onCreate : uri= "+uri.toString());
