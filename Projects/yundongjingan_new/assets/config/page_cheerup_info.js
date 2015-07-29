@@ -146,11 +146,6 @@
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({
-              viewType: "ListViewCellLine",
-              centerTitle: "查看所有评论",
-              hasFooterDivider: "true"
-            });
-            root._listview_data.data.push({
               viewType: "ListViewCellArticle",
               content: "" + root._content.shop.content
             });
