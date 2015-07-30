@@ -1,6 +1,6 @@
 {
-  "name": "page_tab_coupon",
-  "page_id": "page_tab_coupon",
+  "name": "page_coupon_list",
+  "page_id": "page_coupon_list",
   "glb_ctl_cfg": false,
   "datasource": {
     "method": "",
@@ -11,14 +11,14 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_tab_coupon_ListViewBase_0",
-    "page_tab_coupon_ActionBarWidget_0"
+    "page_coupon_list_ListViewBase_0",
+    "page_coupon_list_ActionBarWidget_0"
   ],
   "position": [],
   "attr": [],
   "controls": [
     {
-      "control_id": "page_tab_coupon_ListViewBase_0",
+      "control_id": "page_coupon_list_ListViewBase_0",
       "xtype": "ListViewBase",
       "layout": "",
       "script": false,
@@ -49,7 +49,7 @@
       ]
     },
     {
-      "control_id": "page_tab_coupon_ActionBarWidget_0",
+      "control_id": "page_coupon_list_ActionBarWidget_0",
       "xtype": "ActionBarWidget",
       "layout": "",
       "datasource": {

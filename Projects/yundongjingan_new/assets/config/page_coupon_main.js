@@ -93,7 +93,7 @@
       item = this._listview_data.data[data.position];
       if (item._type) {
         return $A().app().openPage({
-          page_name: "page_tab_coupon",
+          page_name: "page_coupon_list",
           params: {
             info: item._type
           },

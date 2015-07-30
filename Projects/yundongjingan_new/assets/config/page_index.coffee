@@ -59,7 +59,7 @@ class ECpageClass
 #    item = @_listview_data.data[data.position]
 #    if item._type? and item._type == 'coupon'
 #      $A().app().openPage
-#        page_name: "page_tab_coupon"
+#        page_name: "page_coupon_list"
 #        params: []
 #        close_option: ""
 #    else if item._type? and item._type == 'send'

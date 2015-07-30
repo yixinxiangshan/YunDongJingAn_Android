@@ -135,6 +135,6 @@
 
   })();
 
-  Page = new ECpageClass("page_tab_coupon");
+  Page = new ECpageClass("page_coupon_list");
 
 }).call(this);
