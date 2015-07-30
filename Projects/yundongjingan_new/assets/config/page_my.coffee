@@ -28,6 +28,10 @@ class ECpageClass
         hasFooterDivider: "true"
       }
       {
+        viewType: "ListViewCellGroupTitle"
+        textTitle: "我的订单"
+      }
+      {
         viewType: "ListViewCellLine"
         _rightLayoutSize: 0
         _leftLayoutSize: 0
@@ -67,6 +71,18 @@ class ECpageClass
 #                name:"feedback"
 #                hasFooterDivider:"true"
 #            }
+      {
+        viewType: "ListViewCellGroupTitle"
+        textTitle: "其他"
+      }
+      {
+        viewType: "ListViewCellLine"
+        _rightLayoutSize: 0
+        _leftLayoutSize: 0
+        centerTitle: "扫一扫"
+        name: "scan"
+        hasFooterDivider: "true"
+      }
       {
         viewType: "ListViewCellLine"
         _rightLayoutSize: 0
@@ -221,6 +237,8 @@ class ECpageClass
                   close_option: ""
               if data.state == "cancel"
                 return false
+      when "scan"
+        $A().page("page_my").openQRCapture({})
 
   onItemInnerClick: (data) ->
 

@@ -33,6 +33,9 @@
           name: "mycenter",
           hasFooterDivider: "true"
         }, {
+          viewType: "ListViewCellGroupTitle",
+          textTitle: "我的订单"
+        }, {
           viewType: "ListViewCellLine",
           _rightLayoutSize: 0,
           _leftLayoutSize: 0,
@@ -52,6 +55,16 @@
           _leftLayoutSize: 0,
           centerTitle: "我的你点我送",
           name: "send",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellGroupTitle",
+          textTitle: "其他"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "扫一扫",
+          name: "scan",
           hasFooterDivider: "true"
         }, {
           viewType: "ListViewCellLine",
@@ -220,6 +233,8 @@
               });
             }
           });
+        case "scan":
+          return $A().page("page_my").openQRCapture({});
       }
     };
 

@@ -96,12 +96,13 @@ public class AppAPI {
 	 */
 	public String page_openQRCapture(HashMap<String, String> params) {
 		// //LogUtil.d(TAG, "page_openQRCapture");
-		// IntentUtil.openQRCapture();
-		String page = params.get("_page");
-		Object cx = getPageByJsMakerId(page, params.get("_jsMakerId"));
-		Intent intent = new Intent((ItemActivity) cx, CaptureActivity.class);
-		((ItemActivity) cx).startActivityForResult(intent, Constants.QRCAPTURE);
+		IntentUtil.openQRCapture();
 		return "";
+//		String page = params.get("_page");
+//		Object cx = getPageByJsMakerId(page, params.get("_jsMakerId"));
+//		Intent intent = new Intent((ItemActivity) cx, CaptureActivity.class);
+//		((ItemActivity) cx).startActivityForResult(intent, Constants.QRCAPTURE);
+//		return "";
 	}
 
 	/**
