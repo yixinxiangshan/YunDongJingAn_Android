@@ -107,5 +107,7 @@
     <orderEntry type="library" name="universal-image-loader-1.9.0" level="project" />
     <orderEntry type="module" module-name="ECLibrary-AES" scope="PROVIDED" />
     <orderEntry type="module" module-name="satellite-menu" />
+    <orderEntry type="library" name="BaiduLBS_Android" level="project" />
+    <orderEntry type="library" name="locSDK_5.2" level="project" />
   </component>
 </module>
