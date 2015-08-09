@@ -59,7 +59,7 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "运动加油站",
+          "title": "运动场馆",
           "withActionBar": "true"
         }
       },
