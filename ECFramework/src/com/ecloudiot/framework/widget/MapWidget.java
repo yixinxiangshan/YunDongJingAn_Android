@@ -2,8 +2,10 @@ package com.ecloudiot.framework.widget;
 
 import android.annotation.SuppressLint;
 import android.app.ActionBar;
-import android.content.res.ColorStateList;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.Button;
 import com.baidu.location.BDLocation;
@@ -53,9 +55,11 @@ public class MapWidget extends BaseWidget {
     BitmapDescriptor mCurrentMarker;
     boolean isFirstLoc = true;// 是否首次定位
 
+    private int near_time = 500;
+    private int shop_type = 0;
     private LatLng myLocation = new LatLng(0, 0);
-    private double size = 0.02;
-    private double size_l = size * 1.15;
+    private double background_size = 0.02;
+    private double background_size_long = background_size * 1.15;
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
         super(pageContext, dataString, layoutName);
@@ -99,21 +103,7 @@ public class MapWidget extends BaseWidget {
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(14.0f);
         mBaiduMap.setMapStatus(msu);
-        Button map_near_time = (Button) findViewById(R.id.map_near_time);
-        Button map_shop_type = (Button) findViewById(R.id.map_shop_type);
-        map_near_time.setText("相距时间");
-        map_shop_type.setText("场馆类型");
-        map_near_time.setOnClickListener(new View.OnClickListener() {
-            @SuppressWarnings("unchecked")
-            public void onClick(View v) {
-                shops.clear();
-                shops.add(new Shop(8945, "酷炫武术", "徐汇区龙吴路118号酷贝拉学堂", 31.17522416579, 121.45174180023));
-                shops.add(new Shop(8924, "锦鹰台球会所", "徐汇区黄石路538号", 31.16341362692, 121.46130907222));
-//        shops.add(new Shop(8954, "突破拓展运动中心", "徐汇区黄石路538号", 31.170948895226, 121.44457232753));
-//        shops.add(new Shop(8859, "民航中专足球俱乐部", "徐汇区黄石路538号", 31.174757393363, 121.46020753883));
-                initOverlay();
-            }
-        });
+        initButton();
         initOverlay();
         mBaiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
             public boolean onMarkerClick(final Marker marker) {
@@ -129,6 +119,7 @@ public class MapWidget extends BaseWidget {
                 button.setTextColor(Color.BLACK);
                 listener = new OnInfoWindowClickListener() {
                     public void onInfoWindowClick() {
+                        mBaiduMap.hideInfoWindow();
                         IntentUtil.openActivity("", "page_cheerup_info", "{\"info\":\"" + shop.id + "\"}");
                     }
                 };
@@ -156,7 +147,76 @@ public class MapWidget extends BaseWidget {
         mLocClient.start();
     }
 
-    public void initOverlay() {
+    private void initButton() {
+        doInitButton(R.id.map_near_time, "相距时间", near_time_list);
+        doInitButton(R.id.map_shop_type, "场馆类型", shop_type_list);
+    }
+
+    private void doInitButton(final int buttonId, final String initialTest, final SparseArray<String> list) {
+        final Button button = (Button) findViewById(buttonId);
+        button.setText(initialTest);
+        button.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("unchecked")
+            public void onClick(View v) {
+                final AlertDialog.Builder builder = new AlertDialog.Builder(
+                        ECApplication.getInstance().getNowActivity());
+                builder.setTitle(initialTest);
+//                final String[] items = list..values().toArray(new String[list.size()]);
+                final String[] items = new String[list.size()];
+                for (int i = 0; i != list.size(); i++) {
+                    items[i] = list.valueAt(i);
+                }
+
+                int value = 0;
+                if (R.id.map_near_time == buttonId) {
+                    value = near_time;
+                }
+                if (R.id.map_shop_type == buttonId) {
+                    value = shop_type;
+                }
+                builder.setSingleChoiceItems(items,
+                        list.indexOfKey(value), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, final int which) {
+                                if (R.id.map_near_time == buttonId) {
+                                    near_time = list.keyAt(which);
+                                }
+                                if (R.id.map_shop_type == buttonId) {
+                                    shop_type = list.keyAt(which);
+                                }
+                            }
+                        });
+                builder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                        int tmp = 0;
+                        if (R.id.map_near_time == buttonId) {
+                            tmp = near_time;
+                        }
+                        if (R.id.map_shop_type == buttonId) {
+                            tmp = shop_type;
+                        }
+                        button.setText(list.get(tmp));
+                        LogUtil.d(TAG, "================================" + list.get(tmp));
+
+                        shops.clear();
+                        initOverlay();
+                    }
+                });
+                builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                AlertDialog alertDialog = builder.create();
+                alertDialog.show();
+            }
+        });
+    }
+
+    private void initOverlay() {
         // add marker overlay
         clearMarker();
         for (Shop shop : shops) {
@@ -169,8 +229,8 @@ public class MapWidget extends BaseWidget {
             mMarkerList.add(mMarker);
         }
         // add ground overlay
-        LatLng southwest = new LatLng(myLocation.latitude - size, myLocation.longitude - size_l);
-        LatLng northeast = new LatLng(myLocation.latitude + size, myLocation.longitude + size_l);
+        LatLng southwest = new LatLng(myLocation.latitude - background_size, myLocation.longitude - background_size_long);
+        LatLng northeast = new LatLng(myLocation.latitude + background_size, myLocation.longitude + background_size_long);
         LatLngBounds bounds = new LatLngBounds.Builder().include(northeast)
                 .include(southwest).build();
 
@@ -249,4 +309,38 @@ public class MapWidget extends BaseWidget {
             marker.remove();
         }
     }
+
+    private SparseArray<String> near_time_list = new SparseArray<String>() {
+        {
+            put(500, "5分钟");
+            put(1000, "10分钟");
+            put(2000, "30分钟");
+        }
+    };
+
+    private SparseArray<String> shop_type_list = new SparseArray<String>() {
+        {
+            put(0, "全部");
+            put(985, "在线预订");
+            put(481, "运动加油站");
+            put(604, "健身苑点");
+            put(594, "公共运动场");
+            put(593, "社区文化中心");
+            put(602, "健康驿站");
+            put(488, "健身房");
+            put(603, "综合房");
+            put(598, "运动操场");
+            put(580, "游泳池");
+            put(571, "篮球");
+            put(487, "足球");
+            put(486, "乒乓球");
+            put(485, "羽毛球");
+            put(577, "桌球");
+            put(575, "网球");
+            put(574, "舞蹈");
+            put(489, "瑜伽");
+            put(578, "武术");
+            put(581, "其他");
+        }
+    };
 }
