@@ -192,7 +192,7 @@ public class MapWidget extends BaseWidget {
                         location.getLongitude());
                 MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(myLocation);
                 mBaiduMap.animateMapStatus(u);
-                setContent();
+                initOverlay();
             }
         }
 

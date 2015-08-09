@@ -107,7 +107,6 @@
               headTitle: "" + root._content.shop.title
             });
             if (root._content.shop.image_cover !== "") {
-              $A().app().log("==============ok");
               root._listview_data.data.push({
                 viewType: "ListViewCellImage",
                 image: {
