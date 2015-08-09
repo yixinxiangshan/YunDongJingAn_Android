@@ -106,18 +106,23 @@
               viewType: "ListViewCellArticleTitle",
               headTitle: "" + root._content.shop.title
             });
-            root._listview_data.data.push({
-              viewType: "ListViewCellImage",
-              image: {
-                imageType: "imageServer",
-                imageSize: "xlarge",
-                imageSrc: "" + root._content.shop.image_cover
-              }
-            });
-            root._listview_data.data.push({
-              viewType: "ListViewCellGroupTitle",
-              textTitle: "活动优惠"
-            });
+            if (root._content.shop.image_cover !== "") {
+              $A().app().log("==============ok");
+              root._listview_data.data.push({
+                viewType: "ListViewCellImage",
+                image: {
+                  imageType: "imageServer",
+                  imageSize: "xlarge",
+                  imageSrc: "" + root._content.shop.image_cover
+                }
+              });
+            }
+            if (root._content.info.length !== 0) {
+              root._listview_data.data.push({
+                viewType: "ListViewCellGroupTitle",
+                textTitle: "活动优惠"
+              });
+            }
             ref = root._content.info;
             for (i = 0, len = ref.length; i < len; i++) {
               lesson = ref[i];

@@ -17,6 +17,7 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.ecloudiot.framework.R;
 import com.ecloudiot.framework.appliction.ECApplication;
+import com.ecloudiot.framework.utility.IntentUtil;
 import com.ecloudiot.framework.utility.LogUtil;
 import com.ecloudiot.framework.utility.StringUtil;
 import com.google.gson.JsonObject;
@@ -103,7 +104,7 @@ public class MapWidget extends BaseWidget {
                 button.setBackgroundResource(R.drawable.popup);
                 OnInfoWindowClickListener listener = null;
 
-                Shop shop = findShopById(Integer.valueOf(marker.getTitle()));
+                final Shop shop = findShopById(Integer.valueOf(marker.getTitle()));
                 if (shop == null) {
                     return false;
                 }
@@ -111,11 +112,7 @@ public class MapWidget extends BaseWidget {
                 button.setTextColor(Color.BLACK);
                 listener = new OnInfoWindowClickListener() {
                     public void onInfoWindowClick() {
-                        LatLng ll = marker.getPosition();
-                        LatLng llNew = new LatLng(ll.latitude + 0.005,
-                                ll.longitude + 0.005);
-                        marker.setPosition(llNew);
-                        mBaiduMap.hideInfoWindow();
+                        IntentUtil.openActivity("", "page_cheerup_info", "{\"info\":\"" + shop.id + "\"}");
                     }
                 };
                 LatLng ll = marker.getPosition();
