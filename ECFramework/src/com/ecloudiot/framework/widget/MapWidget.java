@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.ActionBar;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
+import android.view.View;
 import android.widget.Button;
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -53,7 +54,7 @@ public class MapWidget extends BaseWidget {
     boolean isFirstLoc = true;// 是否首次定位
 
     private LatLng myLocation = new LatLng(0, 0);
-    private double size = 0.01;
+    private double size = 0.02;
     private double size_l = size * 1.15;
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
@@ -89,14 +90,30 @@ public class MapWidget extends BaseWidget {
     }
 
     private void setContent() {
-        shops.add(new Shop(8945, "酷炫武术", "徐汇区龙吴路118号酷贝拉学堂", 31.17522416579, 121.45174180023));
-        shops.add(new Shop(8924, "锦鹰台球会所", "徐汇区黄石路538号", 31.16341362692, 121.46130907222));
+//        shops.add(new Shop(8945, "酷炫武术", "徐汇区龙吴路118号酷贝拉学堂", 31.17522416579, 121.45174180023));
+//        shops.add(new Shop(8924, "锦鹰台球会所", "徐汇区黄石路538号", 31.16341362692, 121.46130907222));
+        shops.clear();
         shops.add(new Shop(8954, "突破拓展运动中心", "徐汇区黄石路538号", 31.170948895226, 121.44457232753));
         shops.add(new Shop(8859, "民航中专足球俱乐部", "徐汇区黄石路538号", 31.174757393363, 121.46020753883));
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
         MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(14.0f);
         mBaiduMap.setMapStatus(msu);
+        Button map_near_time = (Button) findViewById(R.id.map_near_time);
+        Button map_shop_type = (Button) findViewById(R.id.map_shop_type);
+        map_near_time.setText("相距时间");
+        map_shop_type.setText("场馆类型");
+        map_near_time.setOnClickListener(new View.OnClickListener() {
+            @SuppressWarnings("unchecked")
+            public void onClick(View v) {
+                shops.clear();
+                shops.add(new Shop(8945, "酷炫武术", "徐汇区龙吴路118号酷贝拉学堂", 31.17522416579, 121.45174180023));
+                shops.add(new Shop(8924, "锦鹰台球会所", "徐汇区黄石路538号", 31.16341362692, 121.46130907222));
+//        shops.add(new Shop(8954, "突破拓展运动中心", "徐汇区黄石路538号", 31.170948895226, 121.44457232753));
+//        shops.add(new Shop(8859, "民航中专足球俱乐部", "徐汇区黄石路538号", 31.174757393363, 121.46020753883));
+                initOverlay();
+            }
+        });
         initOverlay();
         mBaiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
             public boolean onMarkerClick(final Marker marker) {
@@ -141,6 +158,7 @@ public class MapWidget extends BaseWidget {
 
     public void initOverlay() {
         // add marker overlay
+        clearMarker();
         for (Shop shop : shops) {
             LatLng ll = new LatLng(shop.baidu_latitude, shop.baidu_longitude);
 
@@ -148,6 +166,7 @@ public class MapWidget extends BaseWidget {
                     .zIndex(2);
             Marker mMarker = (Marker) (mBaiduMap.addOverlay(oo));
             mMarker.setTitle(String.valueOf(shop.id));
+            mMarkerList.add(mMarker);
         }
         // add ground overlay
         LatLng southwest = new LatLng(myLocation.latitude - size, myLocation.longitude - size_l);
@@ -223,5 +242,11 @@ public class MapWidget extends BaseWidget {
             }
         }
         return null;
+    }
+
+    private void clearMarker() {
+        for (Marker marker : mMarkerList) {
+            marker.remove();
+        }
     }
 }
