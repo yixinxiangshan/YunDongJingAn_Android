@@ -17,15 +17,20 @@ import com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener;
 import com.baidu.mapapi.map.InfoWindow.OnInfoWindowClickListener;
 import com.baidu.mapapi.map.MyLocationConfiguration.LocationMode;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.model.LatLngBounds;
 import com.ecloudiot.framework.R;
 import com.ecloudiot.framework.appliction.ECApplication;
 import com.ecloudiot.framework.utility.IntentUtil;
 import com.ecloudiot.framework.utility.LogUtil;
 import com.ecloudiot.framework.utility.StringUtil;
+import com.ecloudiot.framework.utility.ViewUtil;
+import com.ecloudiot.framework.utility.http.HttpAsyncClient;
+import com.ecloudiot.framework.utility.http.HttpAsyncHandler;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @SuppressLint("ViewConstructor")
@@ -39,22 +44,14 @@ public class MapWidget extends BaseWidget {
      */
     private MapView mMapView;
     private BaiduMap mBaiduMap;
-    //    private List<Marker> mMarkerList = new ArrayList<>();
     private InfoWindow mInfoWindow;
 
     // 初始化全局 bitmap 信息，不用时及时 recycle
-    List<BitmapDescriptor> bdList = new ArrayList<>();
     BitmapDescriptor bd = BitmapDescriptorFactory
             .fromResource(R.drawable.activity_map_location_mark);
-    BitmapDescriptor ol_yellow = BitmapDescriptorFactory
-            .fromResource(R.drawable.activity_map_location_overlap_yellow);
-    BitmapDescriptor ol_green = BitmapDescriptorFactory
-            .fromResource(R.drawable.activity_map_location_overlap_green);
-    BitmapDescriptor ol_blue = BitmapDescriptorFactory
-            .fromResource(R.drawable.activity_map_location_overlap_blue);
-
     // 定位相关
     LocationClient mLocClient;
+
     public MyLocationListenner myListener = new MyLocationListenner();
     private LocationMode mCurrentMode;
     BitmapDescriptor mCurrentMarker;
@@ -63,9 +60,10 @@ public class MapWidget extends BaseWidget {
     private int near_time = 500;
     private int shop_type = 0;
     private LatLng myLocation = new LatLng(0, 0);
-    private double background_size = 0.02;
-    private double background_size_long = background_size * 1.6;
-    private BitmapDescriptor ol = ol_yellow;
+    int ooColor05 = Color.argb(80, 1, 1, 1);
+    int ooColor10 = Color.argb(50, 1, 1, 1);
+    int ooColor30 = Color.argb(20, 1, 1, 1);
+    CircleOptions ooGround = new CircleOptions();
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
         super(pageContext, dataString, layoutName);
@@ -100,17 +98,11 @@ public class MapWidget extends BaseWidget {
     }
 
     private void setContent() {
-//        shops.add(new Shop(8945, "酷炫武术", "徐汇区龙吴路118号酷贝拉学堂", 31.17522416579, 121.45174180023));
-//        shops.add(new Shop(8924, "锦鹰台球会所", "徐汇区黄石路538号", 31.16341362692, 121.46130907222));
-        shops.clear();
-        shops.add(new Shop(8954, "突破拓展运动中心", "徐汇区黄石路538号", 31.170948895226, 121.44457232753));
-        shops.add(new Shop(8859, "民航中专足球俱乐部", "徐汇区黄石路538号", 31.174757393363, 121.46020753883));
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
-        MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(14.0f);
+        MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(16.0f);
         mBaiduMap.setMapStatus(msu);
         initButton();
-        initOverlay();
         mBaiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
             public boolean onMarkerClick(final Marker marker) {
                 Button button = new Button(ECApplication.getInstance().getNowActivity().getApplicationContext());
@@ -167,7 +159,6 @@ public class MapWidget extends BaseWidget {
                 final AlertDialog.Builder builder = new AlertDialog.Builder(
                         ECApplication.getInstance().getNowActivity());
                 builder.setTitle(initialTest);
-//                final String[] items = list..values().toArray(new String[list.size()]);
                 final String[] items = new String[list.size()];
                 for (int i = 0; i != list.size(); i++) {
                     items[i] = list.valueAt(i);
@@ -201,13 +192,19 @@ public class MapWidget extends BaseWidget {
                             tmp = near_time;
                             switch (near_time_list.indexOfKey(tmp)) {
                                 case 0:
-                                    ol = ol_yellow;
+                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(16.0f));
+                                    ooGround.fillColor(ooColor05);
+                                    ooGround.radius(near_time);
                                     break;
                                 case 1:
-                                    ol = ol_green;
+                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(15.0f));
+                                    ooGround.fillColor(ooColor10);
+                                    ooGround.radius(near_time);
                                     break;
                                 case 2:
-                                    ol = ol_blue;
+                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(14.0f));
+                                    ooGround.fillColor(ooColor30);
+                                    ooGround.radius(near_time);
                                     break;
                             }
                         }
@@ -215,10 +212,7 @@ public class MapWidget extends BaseWidget {
                             tmp = shop_type;
                         }
                         button.setText(list.get(tmp));
-                        LogUtil.d(TAG, "================================" + list.get(tmp));
-
-                        shops.clear();
-                        initOverlay();
+                        refreshShop();
                     }
                 });
                 builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
@@ -233,6 +227,53 @@ public class MapWidget extends BaseWidget {
         });
     }
 
+    private void refreshShop() {
+        ViewUtil.showLoadingDialog(IntentUtil.getActivity(), "", "加载中...", false);
+        final HashMap<String, String> params = new HashMap<>();
+        params.put("apiversion", "1.0.000001");
+        params.put("method", "content/place/nearby_shops");
+        params.put("cacheTime", "0");
+        params.put("sort_father_ids", "480");
+        params.put("sort_ids", shop_type == 0 ? "" : String.valueOf(shop_type));
+        params.put("lon", String.valueOf(myLocation.longitude));
+        params.put("lat", String.valueOf(myLocation.latitude));
+        params.put("map_type", "baidu");
+        params.put("distance", String.valueOf(near_time));
+        params.put("page_size", "1000");
+
+        HttpAsyncClient.Instance().post("", params, new HttpAsyncHandler() {
+            @Override
+            public void onFailure(String failResopnse) {
+            }
+
+            @Override
+            public void onSuccess(String response) {
+                JsonObject jsonObject = (JsonObject) (new JsonParser().parse(response));
+                JsonArray jsonArray = jsonObject.getAsJsonArray("shops");
+                shops.clear();
+                for (int i = 0; i != jsonArray.size(); i++) {
+                    JsonObject shopObject = (JsonObject) jsonArray.get(i);
+                    int id = shopObject.get("shop_id").getAsInt();
+                    String title = shopObject.get("title").getAsString();
+                    String address = shopObject.get("address").getAsString();
+                    double baidu_latitude = shopObject.get("baidu_latitude").getAsDouble();
+                    double baidu_longitude = shopObject.get("baidu_longitude").getAsDouble();
+                    shops.add(new Shop(id, title, address, baidu_latitude, baidu_longitude));
+                }
+                initOverlay();
+                ViewUtil.closeLoadingDianlog();
+            }
+
+            @Override
+            public void onProgress(Float progress) {
+            }
+
+            @Override
+            public void onResponse(String resopnseString) {
+            }
+        });
+    }
+
     private void initOverlay() {
         // add marker overlay
         mBaiduMap.clear();
@@ -243,26 +284,16 @@ public class MapWidget extends BaseWidget {
                     .zIndex(2);
             Marker mMarker = (Marker) (mBaiduMap.addOverlay(oo));
             mMarker.setTitle(String.valueOf(shop.id));
-//            mMarkerList.add(mMarker);
         }
         // add ground overlay
-        LatLng southwest = new LatLng(myLocation.latitude - background_size, myLocation.longitude - background_size_long);
-        LatLng northeast = new LatLng(myLocation.latitude + background_size, myLocation.longitude + background_size_long);
-        LatLngBounds bounds = new LatLngBounds.Builder().include(northeast)
-                .include(southwest).build();
-
-        OverlayOptions ooGround = new GroundOverlayOptions()
-                .positionFromBounds(bounds).image(ol).transparency(0.5f);
-//        CircleOptions ooGround = new CircleOptions();
-//        ooGround.center(new LatLng(31.168489, 121.453797));
-//        ooGround.fillColor(Color.YELLOW);
-//        ooGround.radius(100);
-//        ooGround.fillColor(Color.YELLOW);
-//        ooGround.zIndex(1);
+        ooGround.center(myLocation);
+        ooGround.radius(near_time);
+        ooGround.zIndex(1);
+        ooGround.fillColor(ooColor05);
         mBaiduMap.addOverlay(ooGround);
 
         MapStatusUpdate u = MapStatusUpdateFactory
-                .newLatLng(bounds.getCenter());
+                .newLatLng(myLocation);
         mBaiduMap.setMapStatus(u);
     }
 
@@ -288,7 +319,7 @@ public class MapWidget extends BaseWidget {
                         location.getLongitude());
                 MapStatusUpdate u = MapStatusUpdateFactory.newLatLng(myLocation);
                 mBaiduMap.animateMapStatus(u);
-                initOverlay();
+                refreshShop();
             }
         }
 
@@ -320,13 +351,6 @@ public class MapWidget extends BaseWidget {
         }
         return null;
     }
-
-//    private void clearMarker() {
-//        for (Marker marker : mMarkerList) {
-//            marker.remove();
-//        }
-//        ooGround
-//    }
 
     private SparseArray<String> near_time_list = new SparseArray<String>() {
         {
