@@ -39,15 +39,20 @@ public class MapWidget extends BaseWidget {
      */
     private MapView mMapView;
     private BaiduMap mBaiduMap;
-    private List<Marker> mMarkerList = new ArrayList<>();
+    //    private List<Marker> mMarkerList = new ArrayList<>();
     private InfoWindow mInfoWindow;
 
     // 初始化全局 bitmap 信息，不用时及时 recycle
     List<BitmapDescriptor> bdList = new ArrayList<>();
     BitmapDescriptor bd = BitmapDescriptorFactory
             .fromResource(R.drawable.activity_map_location_mark);
-    BitmapDescriptor ol = BitmapDescriptorFactory
-            .fromResource(R.drawable.activity_map_location_overlap);
+    BitmapDescriptor ol_yellow = BitmapDescriptorFactory
+            .fromResource(R.drawable.activity_map_location_overlap_yellow);
+    BitmapDescriptor ol_green = BitmapDescriptorFactory
+            .fromResource(R.drawable.activity_map_location_overlap_green);
+    BitmapDescriptor ol_blue = BitmapDescriptorFactory
+            .fromResource(R.drawable.activity_map_location_overlap_blue);
+
     // 定位相关
     LocationClient mLocClient;
     public MyLocationListenner myListener = new MyLocationListenner();
@@ -59,7 +64,8 @@ public class MapWidget extends BaseWidget {
     private int shop_type = 0;
     private LatLng myLocation = new LatLng(0, 0);
     private double background_size = 0.02;
-    private double background_size_long = background_size * 1.15;
+    private double background_size_long = background_size * 1.6;
+    private BitmapDescriptor ol = ol_yellow;
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
         super(pageContext, dataString, layoutName);
@@ -193,6 +199,17 @@ public class MapWidget extends BaseWidget {
                         int tmp = 0;
                         if (R.id.map_near_time == buttonId) {
                             tmp = near_time;
+                            switch (near_time_list.indexOfKey(tmp)) {
+                                case 0:
+                                    ol = ol_yellow;
+                                    break;
+                                case 1:
+                                    ol = ol_green;
+                                    break;
+                                case 2:
+                                    ol = ol_blue;
+                                    break;
+                            }
                         }
                         if (R.id.map_shop_type == buttonId) {
                             tmp = shop_type;
@@ -218,7 +235,7 @@ public class MapWidget extends BaseWidget {
 
     private void initOverlay() {
         // add marker overlay
-        clearMarker();
+        mBaiduMap.clear();
         for (Shop shop : shops) {
             LatLng ll = new LatLng(shop.baidu_latitude, shop.baidu_longitude);
 
@@ -226,7 +243,7 @@ public class MapWidget extends BaseWidget {
                     .zIndex(2);
             Marker mMarker = (Marker) (mBaiduMap.addOverlay(oo));
             mMarker.setTitle(String.valueOf(shop.id));
-            mMarkerList.add(mMarker);
+//            mMarkerList.add(mMarker);
         }
         // add ground overlay
         LatLng southwest = new LatLng(myLocation.latitude - background_size, myLocation.longitude - background_size_long);
@@ -235,7 +252,7 @@ public class MapWidget extends BaseWidget {
                 .include(southwest).build();
 
         OverlayOptions ooGround = new GroundOverlayOptions()
-                .positionFromBounds(bounds).image(ol).transparency(0.8f);
+                .positionFromBounds(bounds).image(ol).transparency(0.5f);
 //        CircleOptions ooGround = new CircleOptions();
 //        ooGround.center(new LatLng(31.168489, 121.453797));
 //        ooGround.fillColor(Color.YELLOW);
@@ -304,11 +321,12 @@ public class MapWidget extends BaseWidget {
         return null;
     }
 
-    private void clearMarker() {
-        for (Marker marker : mMarkerList) {
-            marker.remove();
-        }
-    }
+//    private void clearMarker() {
+//        for (Marker marker : mMarkerList) {
+//            marker.remove();
+//        }
+//        ooGround
+//    }
 
     private SparseArray<String> near_time_list = new SparseArray<String>() {
         {
