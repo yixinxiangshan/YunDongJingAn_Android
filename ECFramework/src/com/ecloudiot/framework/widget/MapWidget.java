@@ -67,12 +67,8 @@ public class MapWidget extends BaseWidget {
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
         super(pageContext, dataString, layoutName);
-        ActionBar actionBar = ECApplication.getInstance().getNowActivity().getActionBar();
-        if (actionBar != null) {
-            actionBar.hide();
-        }
         LogUtil.d(TAG, "init MapWidget");
-        this.setId(R.id.satelite_menu_widget);
+        this.setId(R.id.map_widget);
         parsingData();
 
 //		loading(LOADING_0N_OFF.TURN_OFF);
