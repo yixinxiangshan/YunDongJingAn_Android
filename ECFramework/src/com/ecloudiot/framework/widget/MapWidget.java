@@ -339,7 +339,7 @@ public class MapWidget extends BaseWidget {
             if (location == null || mMapView == null)
                 return;
             MyLocationData locData = new MyLocationData.Builder()
-                    .accuracy(location.getRadius())
+                    .accuracy(0)
                             // 此处设置开发者获取到的方向信息，顺时针0-360
                     .direction(100).latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
