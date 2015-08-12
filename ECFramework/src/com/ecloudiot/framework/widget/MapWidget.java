@@ -1,7 +1,6 @@
 package com.ecloudiot.framework.widget;
 
 import android.annotation.SuppressLint;
-import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.graphics.Color;
@@ -57,13 +56,53 @@ public class MapWidget extends BaseWidget {
     BitmapDescriptor mCurrentMarker;
     boolean isFirstLoc = true;// 是否首次定位
 
-    private int near_time = 500;
-    private int shop_type = 0;
-    private LatLng myLocation = new LatLng(0, 0);
-    int ooColor05 = Color.argb(80, 1, 1, 1);
-    int ooColor10 = Color.argb(50, 1, 1, 1);
-    int ooColor30 = Color.argb(20, 1, 1, 1);
     CircleOptions ooGround = new CircleOptions();
+
+    int[] ooColorList = {Color.argb(50, 128, 1, 1), Color.argb(50, 1, 128, 1), Color.argb(50, 1, 1, 128)};
+    float[] zoomToList = {16.5f, 15.5f, 14.5f};
+    private SparseArray<String> nearTimeList = new SparseArray<String>() {
+        {
+            put(500, "5分钟");
+            put(1000, "10分钟");
+            put(2000, "30分钟");
+        }
+    };
+
+    private SparseArray<String> shopTypeList = new SparseArray<String>() {
+        {
+            put(0, "全部");
+            put(985, "在线预订");
+            put(481, "运动加油站");
+            put(604, "健身苑点");
+            put(594, "公共运动场");
+            put(593, "社区文化中心");
+            put(602, "健康驿站");
+            put(488, "健身房");
+            put(603, "综合房");
+            put(598, "运动操场");
+            put(580, "游泳池");
+            put(571, "篮球");
+            put(487, "足球");
+            put(486, "乒乓球");
+            put(485, "羽毛球");
+            put(577, "桌球");
+            put(575, "网球");
+            put(574, "舞蹈");
+            put(489, "瑜伽");
+            put(578, "武术");
+            put(581, "其他");
+        }
+    };
+
+    private float myZoomTo = zoomToList[0];
+    private int myNearTime = nearTimeList.keyAt(0);
+    private int myShopType = shopTypeList.keyAt(0);
+    private int myNearTimeBackup = nearTimeList.keyAt(0);
+    private int myShopTypeBackup = shopTypeList.keyAt(0);
+    private LatLng myLocation = new LatLng(0, 0);
+    private int myOoColor = ooColorList[0];
+
+    private String buttonText = "";
 
     public MapWidget(Object pageContext, String dataString, String layoutName) {
         super(pageContext, dataString, layoutName);
@@ -96,7 +135,7 @@ public class MapWidget extends BaseWidget {
     private void setContent() {
         mMapView = (MapView) findViewById(R.id.bmapView);
         mBaiduMap = mMapView.getMap();
-        MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(16.0f);
+        MapStatusUpdate msu = MapStatusUpdateFactory.zoomTo(myZoomTo);
         mBaiduMap.setMapStatus(msu);
         initButton();
         mBaiduMap.setOnMarkerClickListener(new OnMarkerClickListener() {
@@ -125,6 +164,8 @@ public class MapWidget extends BaseWidget {
         });
 
         mCurrentMode = LocationMode.NORMAL;
+        mCurrentMarker = BitmapDescriptorFactory
+                .fromResource(R.drawable.widget_map_mylocation_icon);
         mBaiduMap
                 .setMyLocationConfigeration(new MyLocationConfiguration(
                         mCurrentMode, true, mCurrentMarker));
@@ -142,8 +183,8 @@ public class MapWidget extends BaseWidget {
     }
 
     private void initButton() {
-        doInitButton(R.id.map_near_time, "相距时间", near_time_list);
-        doInitButton(R.id.map_shop_type, "场馆类型", shop_type_list);
+        doInitButton(R.id.map_near_time, "相距时间", nearTimeList);
+        doInitButton(R.id.map_shop_type, "场馆类型", shopTypeList);
     }
 
     private void doInitButton(final int buttonId, final String initialTest, final SparseArray<String> list) {
@@ -162,20 +203,22 @@ public class MapWidget extends BaseWidget {
 
                 int value = 0;
                 if (R.id.map_near_time == buttonId) {
-                    value = near_time;
+                    value = myNearTime;
                 }
                 if (R.id.map_shop_type == buttonId) {
-                    value = shop_type;
+                    value = myShopType;
                 }
                 builder.setSingleChoiceItems(items,
                         list.indexOfKey(value), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, final int which) {
                                 if (R.id.map_near_time == buttonId) {
-                                    near_time = list.keyAt(which);
+                                    myNearTimeBackup = myNearTime;
+                                    myNearTime = list.keyAt(which);
                                 }
                                 if (R.id.map_shop_type == buttonId) {
-                                    shop_type = list.keyAt(which);
+                                    myShopTypeBackup = myShopType;
+                                    myShopType = list.keyAt(which);
                                 }
                             }
                         });
@@ -183,31 +226,16 @@ public class MapWidget extends BaseWidget {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
-                        int tmp = 0;
                         if (R.id.map_near_time == buttonId) {
-                            tmp = near_time;
-                            switch (near_time_list.indexOfKey(tmp)) {
-                                case 0:
-                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(16.0f));
-                                    ooGround.fillColor(ooColor05);
-                                    ooGround.radius(near_time);
-                                    break;
-                                case 1:
-                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(15.0f));
-                                    ooGround.fillColor(ooColor10);
-                                    ooGround.radius(near_time);
-                                    break;
-                                case 2:
-                                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(14.0f));
-                                    ooGround.fillColor(ooColor30);
-                                    ooGround.radius(near_time);
-                                    break;
-                            }
+                            int index = nearTimeList.indexOfKey(myNearTime);
+                            myZoomTo = zoomToList[index];
+                            myOoColor = ooColorList[index];
+                            buttonText = list.get(myNearTime);
                         }
                         if (R.id.map_shop_type == buttonId) {
-                            tmp = shop_type;
+                            buttonText = list.get(myShopType);
                         }
-                        button.setText(list.get(tmp));
+                        button.setText(buttonText);
                         refreshShop();
                     }
                 });
@@ -215,6 +243,12 @@ public class MapWidget extends BaseWidget {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
+                        if (R.id.map_near_time == buttonId) {
+                            myNearTime = myNearTimeBackup;
+                        }
+                        if (R.id.map_shop_type == buttonId) {
+                            myShopType = myShopTypeBackup;
+                        }
                     }
                 });
                 AlertDialog alertDialog = builder.create();
@@ -230,11 +264,11 @@ public class MapWidget extends BaseWidget {
         params.put("method", "content/place/nearby_shops");
         params.put("cacheTime", "0");
         params.put("sort_father_ids", "480");
-        params.put("sort_ids", shop_type == 0 ? "" : String.valueOf(shop_type));
+        params.put("sort_ids", myShopType == 0 ? "" : String.valueOf(myShopType));
         params.put("lon", String.valueOf(myLocation.longitude));
         params.put("lat", String.valueOf(myLocation.latitude));
         params.put("map_type", "baidu");
-        params.put("distance", String.valueOf(near_time));
+        params.put("distance", String.valueOf(myNearTime));
         params.put("page_size", "1000");
 
         HttpAsyncClient.Instance().post("", params, new HttpAsyncHandler() {
@@ -283,14 +317,15 @@ public class MapWidget extends BaseWidget {
         }
         // add ground overlay
         ooGround.center(myLocation);
-        ooGround.radius(near_time);
+        ooGround.radius(myNearTime);
         ooGround.zIndex(1);
-        ooGround.fillColor(ooColor05);
+        ooGround.fillColor(myOoColor);
         mBaiduMap.addOverlay(ooGround);
 
         MapStatusUpdate u = MapStatusUpdateFactory
                 .newLatLng(myLocation);
         mBaiduMap.setMapStatus(u);
+        mBaiduMap.setMapStatus(MapStatusUpdateFactory.zoomTo(myZoomTo));
     }
 
     /**
@@ -347,38 +382,4 @@ public class MapWidget extends BaseWidget {
         }
         return null;
     }
-
-    private SparseArray<String> near_time_list = new SparseArray<String>() {
-        {
-            put(500, "5分钟");
-            put(1000, "10分钟");
-            put(2000, "30分钟");
-        }
-    };
-
-    private SparseArray<String> shop_type_list = new SparseArray<String>() {
-        {
-            put(0, "全部");
-            put(985, "在线预订");
-            put(481, "运动加油站");
-            put(604, "健身苑点");
-            put(594, "公共运动场");
-            put(593, "社区文化中心");
-            put(602, "健康驿站");
-            put(488, "健身房");
-            put(603, "综合房");
-            put(598, "运动操场");
-            put(580, "游泳池");
-            put(571, "篮球");
-            put(487, "足球");
-            put(486, "乒乓球");
-            put(485, "羽毛球");
-            put(577, "桌球");
-            put(575, "网球");
-            put(574, "舞蹈");
-            put(489, "瑜伽");
-            put(578, "武术");
-            put(581, "其他");
-        }
-    };
 }
