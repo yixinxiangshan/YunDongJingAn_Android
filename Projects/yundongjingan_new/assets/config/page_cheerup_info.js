@@ -72,6 +72,16 @@
             return $A().app().phone({
               _param: item.phone
             });
+          case "address":
+            return $A().app().openPage({
+              page_name: "page_simple_map",
+              params: {
+                latitude: item.latitude,
+                longitude: item.longitude,
+                title: item.title
+              },
+              close_option: ""
+            });
         }
       }
     };
@@ -140,7 +150,11 @@
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
               centerTitle: "地址：" + ("" + root._content.shop.address),
-              hasFooterDivider: "true"
+              type: "address",
+              hasFooterDivider: "true",
+              latitude: "" + root._content.shop.baidu_latitude,
+              longitude: "" + root._content.shop.baidu_longitude,
+              title: "" + root._content.shop.title
             });
             root._listview_data.data.push({
               viewType: "ListViewCellLine",

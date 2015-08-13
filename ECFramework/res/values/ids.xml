@@ -20,6 +20,7 @@
     <item name="gallery_widget" type="id"></item>
     <item name="item_news_widget" type="id"></item>
     <item name="map_widget" type="id"></item>
+    <item name="simple_map_widget" type="id"></item>
     <item name="satelite_menu_widget" type="id"></item>
     <item name="slide_menu_widget" type="id"></item>
     <item name="tab_widget" type="id"></item>
