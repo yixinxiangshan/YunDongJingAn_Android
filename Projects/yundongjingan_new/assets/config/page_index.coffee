@@ -10,6 +10,7 @@ class ECpageClass
     hasHeaderDivider: true
     dividerHeight: 1
     dividerColor: "#EBEBEB"
+  _isOnline: true
 
   _constructor: (@_page_name) ->
     root = this
@@ -29,6 +30,7 @@ class ECpageClass
   onCreated: () ->
     $A().app().netState().then (net_state) ->
       if net_state == "offline"
+        root._isOnline = false
         $A().app().makeToast "没有网络"
       else
         $A().page().setTimeout("3000").then () ->
@@ -37,6 +39,7 @@ class ECpageClass
             cacheTime: 0
           .then (data) ->
             if data.errors?
+              root._isOnline = false
               if data.errors[0].error_num?
                 $A().app().makeToast "网络状态不好，请重新加载"
               else
@@ -54,34 +57,15 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_SatelliteWidget_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
 #自定义函数
   onItemClick: (data) ->
+    if root._isOnline
+      $A().app().openPage
+        page_name: "page_index_tab"
+        params: data.id
+        close_option: ""
+    else
+      $A().app().makeToast "无法连接服务器，请检查网络状况，并重新启动应用"
 
   onItemInnerClick: (data) ->
-#    item = @_listview_data.data[data.position]
-#    if item._type? and item._type == 'coupon'
-#      $A().app().openPage
-#        page_name: "page_coupon_list"
-#        params: []
-#        close_option: ""
-#    else if item._type? and item._type == 'send'
-#      $A().app().openPage
-#        page_name: "page_tab_send"
-#        params: []
-#        close_option: ""
-#    else if item._type? and item._type == 'signup'
-#      $A().app().openPage
-#        page_name: "page_tab_signup"
-#        params: []
-#        close_option: ""
-#    else if item._type? and item._type == 'news'
-#      $A().app().openPage
-#        page_name: "page_tab_news"
-#        params: []
-#        close_option: ""
-#    else
-#      $A().app().openPage
-#        page_name: "page_empty"
-#        params: []
-#        close_option: ""
 
   onResume: () ->
 
