@@ -82,6 +82,14 @@
               },
               close_option: ""
             });
+          case "comment":
+            return $A().app().openPage({
+              page_name: "page_comment_list",
+              params: {
+                content_id: item.content_id
+              },
+              close_option: ""
+            });
         }
       }
     };
@@ -162,6 +170,17 @@
               phone: "" + root._content.shop.phone_num,
               type: "phone",
               hasFooterDivider: "true"
+            });
+            root._listview_data.data.push({
+              viewType: "ListViewCellLine",
+              centerTitle: "查看所有评论",
+              content_id: "" + root._content.shop.id,
+              type: "comment",
+              hasFooterDivider: "true"
+            });
+            root._listview_data.data.push({
+              viewType: "ListViewCellGroupTitle",
+              textTitle: "活动内容"
             });
             root._listview_data.data.push({
               viewType: "ListViewCellArticle",

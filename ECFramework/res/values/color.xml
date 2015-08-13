@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <color name="list_item_commoon">#EFEFEF</color>
     <color name="debar_separator">#CCCCCC</color>
     <color name="actionbar_background_start">#4b77e0</color>
     <color name="actionbar_background_end">#4b77e0</color>

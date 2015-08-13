@@ -58,6 +58,12 @@ class ECpageClass
               longitude: item.longitude
               title: item.title
             close_option: ""
+        when "comment"
+          $A().app().openPage
+            page_name: "page_comment_list"
+            params:
+              content_id: item.content_id
+            close_option: ""
 
   onItemInnerClick: (data) ->
 
@@ -131,10 +137,16 @@ class ECpageClass
             type: "phone"
             hasFooterDivider: "true"
 
-          #          root._listview_data.data.push
-          #            viewType: "ListViewCellLine"
-          #            centerTitle: "查看所有评论"
-          #            hasFooterDivider: "true"
+          root._listview_data.data.push
+            viewType: "ListViewCellLine"
+            centerTitle: "查看所有评论"
+            content_id: "#{root._content.shop.id}"
+            type: "comment"
+            hasFooterDivider: "true"
+
+          root._listview_data.data.push
+            viewType: "ListViewCellGroupTitle"
+            textTitle: "活动内容"
 
           root._listview_data.data.push
             viewType: "ListViewCellArticle"
