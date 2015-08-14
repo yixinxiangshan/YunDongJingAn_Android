@@ -61,9 +61,9 @@ class ECpageClass
         for content in data.content_list
           root._listview_data.data.push
             viewType: "ListViewCellTwoLineText"
-            headTitle: "#{content.title}"
+            headTitle: "#{content.content}"
             headTime: "#{content.created_at}"
-            subTitle: "#{content.content}"
+            subTitle: "#{content.nickname}"
             _leftLayoutSize: 75,
             id: "#{content.id}"
             hasFooterDivider: "true"
