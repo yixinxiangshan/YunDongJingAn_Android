@@ -49,6 +49,12 @@ class ECpageClass
           $A().page().playVideo
             _param: item.video_url
             params: {}
+        when "comment"
+          $A().app().openPage
+            page_name: "page_comment_list"
+            params:
+              content_id: item.content_id
+            close_option: ""
 
   onItemInnerClick: (data) ->
 
@@ -77,8 +83,12 @@ class ECpageClass
           root._listview_data.data = []
 
           root._listview_data.data.push
+            viewType: "ListViewCellGroupTitle"
+            textTitle: "课程相关"
+
+          root._listview_data.data.push
             viewType: "ListViewCellLine"
-            leftTitle: "课程器械"
+            centerTitle: "课程器械"
             rightImage: {
               imageType: "imageServer"
               imageSize: "middle"
@@ -89,16 +99,31 @@ class ECpageClass
 
           root._listview_data.data.push
             viewType: "ListViewCellLine"
-            leftTitle: "课程视频"
+            centerTitle: "课程视频"
             video_url: "#{root._content.video_url.url}"
             type: "video"
             hasFooterDivider: "true"
 
           root._listview_data.data.push
+            viewType: "ListViewCellGroupTitle"
+            textTitle: "课程内容"
+
+          root._listview_data.data.push
             viewType: "ListViewCellArticle"
-            content: "课程介绍:\n\n" + "#{root._content.content}"
+            content: "#{root._content.content}"
+            hasFooterDivider: "true"
+
+          root._listview_data.data.push
+            viewType: "ListViewCellGroupTitle"
+            textTitle: "课程评论"
+
+          root._listview_data.data.push
+            viewType: "ListViewCellLine"
+            centerTitle: "查看所有评论"
+            content_id: "#{root._content.id}"
+            type: "comment"
+            hasFooterDivider: "true"
 
           $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
-
 #启动程序
 new ECpageClass("page_lesson_info")

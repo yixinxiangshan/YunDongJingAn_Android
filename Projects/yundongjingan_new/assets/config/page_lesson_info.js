@@ -70,6 +70,14 @@
               _param: item.video_url,
               params: {}
             });
+          case "comment":
+            return $A().app().openPage({
+              page_name: "page_comment_list",
+              params: {
+                content_id: item.content_id
+              },
+              close_option: ""
+            });
         }
       }
     };
@@ -100,8 +108,12 @@
             root._content = data.content_info;
             root._listview_data.data = [];
             root._listview_data.data.push({
+              viewType: "ListViewCellGroupTitle",
+              textTitle: "课程相关"
+            });
+            root._listview_data.data.push({
               viewType: "ListViewCellLine",
-              leftTitle: "课程器械",
+              centerTitle: "课程器械",
               rightImage: {
                 imageType: "imageServer",
                 imageSize: "middle",
@@ -112,14 +124,30 @@
             });
             root._listview_data.data.push({
               viewType: "ListViewCellLine",
-              leftTitle: "课程视频",
+              centerTitle: "课程视频",
               video_url: "" + root._content.video_url.url,
               type: "video",
               hasFooterDivider: "true"
             });
             root._listview_data.data.push({
+              viewType: "ListViewCellGroupTitle",
+              textTitle: "课程内容"
+            });
+            root._listview_data.data.push({
               viewType: "ListViewCellArticle",
-              content: "课程介绍:\n\n" + ("" + root._content.content)
+              content: "" + root._content.content,
+              hasFooterDivider: "true"
+            });
+            root._listview_data.data.push({
+              viewType: "ListViewCellGroupTitle",
+              textTitle: "课程评论"
+            });
+            root._listview_data.data.push({
+              viewType: "ListViewCellLine",
+              centerTitle: "查看所有评论",
+              content_id: "" + root._content.id,
+              type: "comment",
+              hasFooterDivider: "true"
             });
             return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           }
