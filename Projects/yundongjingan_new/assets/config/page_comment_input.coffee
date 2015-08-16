@@ -3,26 +3,20 @@ class ECpageClass
   _page_name: "" # 属性
   _item_info: {}
   _platform: ""
+  _id: 0
   _listview_data:
     pullable: false
-    hasFooterDivider: false
-    hasHeaderDivider: false
-    dividerHeight: 0
+    hasFooterDivider: true
+    hasHeaderDivider: true
+    dividerHeight: 1
     dividerColor: "#cccccc"
     data: [
       {
         viewType: "ListViewCellInputText"
         inputType: "text"
-        hint: "请输入您的反馈意见"
+        hint: "请输入您的评论"
         lines: 3
         name: "content"
-      }
-      {
-        viewType: "ListViewCellInputText"
-        inputType: "number"
-        hint: "联系方式:邮箱/QQ/手机号"
-        name: "contact"
-        inputText: ""
       }
       {
         viewType: "ListViewCellButton"
@@ -58,24 +52,20 @@ class ECpageClass
 
 
   onItemInnerClick: (data) ->
-# data._form = JSON.parse data._form
     content = if data._form.content? then data._form.content else ""
-    contact = if data._form.contact? then data._form.contact else ""
     if content == ""
-      $A().app().makeToast "请输入您的反馈意见！"
-    else if contact == ""
-      $A().app().makeToast "请输入您的联系方式"
+      $A().app().makeToast "请输入您的评论！"
     else
       $A().app().makeToast "正在提交"
       $A().app().callApi
-        method: "project/feedbaks/create"
+        method: "comment/comments/create"
+        content_id: root._id
         content: content
-        contact_info: contact
+        typenum: 2
         cacheTime: 0
       .then (data) ->
-# $A().app().log JSON.stringify data
         if data.success == true
-          $A().app().makeToast "提交成功，谢谢您的反馈。"
+          $A().app().makeToast "提交成功，谢谢您的评论。"
           $A().page().setTimeout("2000").then () ->
             $A().app().closePage()
         else
@@ -89,6 +79,8 @@ class ECpageClass
   prepareForInitView: () ->
     $A().app().platform().then (platform) ->
       root._platform = platform
+    $A().page().param("info").then (info) ->
+      root._id = info
 
 #启动程序
-Page = new ECpageClass("page_feedback")
+Page = new ECpageClass("page_comment_input")

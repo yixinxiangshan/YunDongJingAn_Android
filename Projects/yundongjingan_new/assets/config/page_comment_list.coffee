@@ -38,6 +38,35 @@ class ECpageClass
     @_constructor(_page_name)
 
   onCreated: () ->
+
+  onItemClick: (data) ->
+
+  onItemInnerClick: (data) ->
+    item = root._listview_data.data[data.position]
+    if item._type? and item._type == 'ok'
+      $A().lrucache().get("phone").then (phone) ->
+        if phone? and phone != ""
+          $A().app().openPage
+            page_name: "page_comment_input"
+            params:
+              info: root._content_id
+            close_option: ""
+        else
+          $A().app().showConfirm
+            ok: "登陆"
+            cancel: "取消"
+            title: "警告"
+            message: "您尚未登陆，请先登陆"
+          .then (data) ->
+            if data.state == "ok"
+              $A().app().openPage
+                page_name: "page_login",
+                params: {}
+                close_option: ""
+            if data.state == "cancel"
+              return false
+
+  onResume: () ->
     $A().app().callApi
       method: "comment/comments"
       content_id: root._content_id
@@ -56,31 +85,21 @@ class ECpageClass
           root._listview_data.data.push
             viewType: "ListViewCellLine"
             centerTitle: "暂无信息"
-          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
         else
-        for content in data.content_list
-          root._listview_data.data.push
-            viewType: "ListViewCellTwoLineText"
-            headTitle: "#{content.content}"
-            headTime: "#{content.created_at}"
-            subTitle: "#{content.nickname}"
-            _leftLayoutSize: 75,
-            id: "#{content.id}"
-            hasFooterDivider: "true"
-          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
-
-  onItemClick: (data) ->
-#    item = @_listview_data.data[data.position]
-#    if item.id?
-#      $A().app().openPage
-#        page_name: "page_cheerup_info"
-#        params:
-#          info: item.id
-#        close_option: ""
-
-  onItemInnerClick: (data) ->
-
-  onResume: () ->
+          for content in data.content_list
+            root._listview_data.data.push
+              viewType: "ListViewCellTwoLineText"
+              headTitle: "#{content.content}"
+              headTime: "#{content.created_at}"
+              subTitle: "#{content.nickname}"
+              _leftLayoutSize: 75,
+              hasFooterDivider: "true"
+        root._listview_data.data.push
+          viewType: "ListViewCellButton",
+          btnTitle: "我要评论",
+          btnType: "ok"
+          _type: "ok"
+        $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 
   onResult: (data) ->
 

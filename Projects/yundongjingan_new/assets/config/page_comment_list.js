@@ -57,13 +57,53 @@
       this._constructor(_page_name);
     }
 
-    ECpageClass.prototype.onCreated = function() {
+    ECpageClass.prototype.onCreated = function() {};
+
+    ECpageClass.prototype.onItemClick = function(data) {};
+
+    ECpageClass.prototype.onItemInnerClick = function(data) {
+      var item;
+      item = root._listview_data.data[data.position];
+      if ((item._type != null) && item._type === 'ok') {
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            return $A().app().openPage({
+              page_name: "page_comment_input",
+              params: {
+                info: root._content_id
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
+        });
+      }
+    };
+
+    ECpageClass.prototype.onResume = function() {
       return $A().app().callApi({
         method: "comment/comments",
         content_id: root._content_id,
         cacheTime: 0
       }).then(function(data) {
-        var content, i, len, ref, results;
+        var content, i, len, ref;
         if (data.errors != null) {
           if (data.errors[0].error_num != null) {
             return $A().app().makeToast("网络状态不好，请重新加载");
@@ -78,35 +118,30 @@
               viewType: "ListViewCellLine",
               centerTitle: "暂无信息"
             });
-            $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
           } else {
-
+            ref = data.content_list;
+            for (i = 0, len = ref.length; i < len; i++) {
+              content = ref[i];
+              root._listview_data.data.push({
+                viewType: "ListViewCellTwoLineText",
+                headTitle: "" + content.content,
+                headTime: "" + content.created_at,
+                subTitle: "" + content.nickname,
+                _leftLayoutSize: 75,
+                hasFooterDivider: "true"
+              });
+            }
           }
-          ref = data.content_list;
-          results = [];
-          for (i = 0, len = ref.length; i < len; i++) {
-            content = ref[i];
-            root._listview_data.data.push({
-              viewType: "ListViewCellTwoLineText",
-              headTitle: "" + content.content,
-              headTime: "" + content.created_at,
-              subTitle: "" + content.nickname,
-              _leftLayoutSize: 75,
-              id: "" + content.id,
-              hasFooterDivider: "true"
-            });
-            results.push($A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data)));
-          }
-          return results;
+          root._listview_data.data.push({
+            viewType: "ListViewCellButton",
+            btnTitle: "我要评论",
+            btnType: "ok",
+            _type: "ok"
+          });
+          return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
         }
       });
     };
-
-    ECpageClass.prototype.onItemClick = function(data) {};
-
-    ECpageClass.prototype.onItemInnerClick = function(data) {};
-
-    ECpageClass.prototype.onResume = function() {};
 
     ECpageClass.prototype.onResult = function(data) {};
 
