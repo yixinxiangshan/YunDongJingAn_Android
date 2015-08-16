@@ -34,6 +34,16 @@
           hasFooterDivider: "true"
         }, {
           viewType: "ListViewCellGroupTitle",
+          textTitle: "我的课程"
+        }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的已申请课程",
+          name: "lesson",
+          hasFooterDivider: "true"
+        }, {
+          viewType: "ListViewCellGroupTitle",
           textTitle: "我的订单"
         }, {
           viewType: "ListViewCellLine",
@@ -137,12 +147,44 @@
             params: {},
             close_option: ""
           });
+        case "lesson":
+          return $A().lrucache().get("phone").then(function(phone) {
+            if ((phone != null) && phone !== "") {
+              return $A().app().openPage({
+                page_name: "page_mycoupon_list",
+                params: {
+                  info: 528
+                },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
         case "coupon":
           return $A().lrucache().get("phone").then(function(phone) {
             if ((phone != null) && phone !== "") {
               return $A().app().openPage({
                 page_name: "page_mycoupon_list",
-                params: "",
+                params: {
+                  info: 1038
+                },
                 close_option: ""
               });
             } else {

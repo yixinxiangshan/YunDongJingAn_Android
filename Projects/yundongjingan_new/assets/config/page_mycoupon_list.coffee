@@ -17,6 +17,7 @@ class ECpageClass
         centerTitle: "正在加载......"
       }
     ]
+  _sort_id: ""
 #    _theme = "default"
 
   _constructor: (@_page_name) ->
@@ -40,6 +41,7 @@ class ECpageClass
     $A().app().callApi
       method: "trade/coupons/show"
       cacheTime: 0
+      sort_id: root._sort_id
       simple_result: true
     .then (data) ->
       if data.errors?
@@ -75,11 +77,18 @@ class ECpageClass
   onItemClick: (data) ->
     item = @_listview_data.data[data.position]
     if item.content_id?
-      $A().app().openPage
-        page_name: "page_coupon_info"
-        params:
-          info: item.content_id
-        close_option: ""
+      if root._sort_id == "1038"
+        $A().app().openPage
+          page_name: "page_coupon_info"
+          params:
+            info: item.content_id
+          close_option: ""
+      if root._sort_id == "528"
+        $A().app().openPage
+          page_name: "page_lesson_info"
+          params:
+            info: item.content_id
+          close_option: ""
 
   onItemInnerClick: (data) ->
 
@@ -91,6 +100,8 @@ class ECpageClass
   prepareForInitView: () ->
     $A().app().platform().then (platform) ->
       root._platform = platform
+    $A().page().param("info").then (info) ->
+      root._sort_id = info
 
 #启动程序
 Page = new ECpageClass("page_mycoupon_list")

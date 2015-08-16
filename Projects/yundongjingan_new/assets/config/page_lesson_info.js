@@ -86,7 +86,7 @@
       var item;
       item = this._listview_data.data[data.position];
       if ((item.type != null) && item.type === 'ok') {
-        return $A().lrucache().get("phone").then(function(phone) {
+        $A().lrucache().get("phone").then(function(phone) {
           if ((phone != null) && phone !== "") {
             $A().app().makeToast("正在提交");
             return $A().app().callApi({
@@ -96,11 +96,50 @@
             }).then(function(data1) {
               if (data1.success === true) {
                 $A().app().makeToast("提交成功，谢谢您的申请，请到我的课程中添加运动记录。");
-                $A().page().setTimeout("2000").then(function() {});
-                root._listview_data.data[7].btnType = "cancel";
-                root._listview_data.data[7].type = "cancel";
-                root._listview_data.data[7].btnTitle = "已申请";
-                return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+                return $A().page().setTimeout("2000").then(function() {
+                  root._listview_data.data[7].btnType = "cancel";
+                  root._listview_data.data[7].type = "cancel";
+                  root._listview_data.data[7].btnTitle = "添加运动记录";
+                  root._listview_data.data[7].content_id = "" + item.content_id;
+                  return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+                });
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
+        });
+      }
+      if ((item.type != null) && item.type === 'cancel') {
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            $A().app().makeToast("正在添加运动记录");
+            return $A().app().callApi({
+              method: "comment/comments/create",
+              content_id: item.content_id,
+              typenum: 3,
+              cacheTime: 0
+            }).then(function(data1) {
+              if (data1.success === true) {
+                return $A().app().makeToast("提交成功，请到我的课程中查询我的运动记录。");
               } else {
                 return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
               }
@@ -208,9 +247,10 @@
                 if (data1.order.length === 1) {
                   root._listview_data.data.push({
                     viewType: "ListViewCellButton",
-                    btnTitle: "已申请",
+                    btnTitle: "添加运动记录",
                     btnType: "cancel",
-                    type: "cancel"
+                    type: "cancel",
+                    content_id: "" + root._content.id
                   });
                 } else {
                   root._listview_data.data.push({

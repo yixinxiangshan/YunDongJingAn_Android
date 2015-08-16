@@ -29,6 +29,8 @@
       ]
     };
 
+    ECpageClass.prototype._sort_id = "";
+
     ECpageClass.prototype._constructor = function(_page_name1) {
       this._page_name = _page_name1;
       root = this;
@@ -59,6 +61,7 @@
       return $A().app().callApi({
         method: "trade/coupons/show",
         cacheTime: 0,
+        sort_id: root._sort_id,
         simple_result: true
       }).then(function(data) {
         var i, len, order, ref;
@@ -105,13 +108,24 @@
       var item;
       item = this._listview_data.data[data.position];
       if (item.content_id != null) {
-        return $A().app().openPage({
-          page_name: "page_coupon_info",
-          params: {
-            info: item.content_id
-          },
-          close_option: ""
-        });
+        if (root._sort_id === "1038") {
+          $A().app().openPage({
+            page_name: "page_coupon_info",
+            params: {
+              info: item.content_id
+            },
+            close_option: ""
+          });
+        }
+        if (root._sort_id === "528") {
+          return $A().app().openPage({
+            page_name: "page_lesson_info",
+            params: {
+              info: item.content_id
+            },
+            close_option: ""
+          });
+        }
       }
     };
 
@@ -122,8 +136,11 @@
     ECpageClass.prototype.onResult = function(data) {};
 
     ECpageClass.prototype.prepareForInitView = function() {
-      return $A().app().platform().then(function(platform) {
+      $A().app().platform().then(function(platform) {
         return root._platform = platform;
+      });
+      return $A().page().param("info").then(function(info) {
+        return root._sort_id = info;
       });
     };
 
