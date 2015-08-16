@@ -191,6 +191,8 @@ public class HttpAsyncClient {
 			NetUtil.getNewToken();
 			return;
 		}
+		client.setConnectTimeout(20000);
+		client.setResponseTimeout(20000);
 		client.post(getAbsoluteUrl(url, params), NetUtil.getRequestParams(fullParams), localHandler);
 	}
 	/**
