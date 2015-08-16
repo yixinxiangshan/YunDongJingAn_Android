@@ -57,6 +57,39 @@ class ECpageClass
             close_option: ""
 
   onItemInnerClick: (data) ->
+    item = @_listview_data.data[data.position]
+    if item.type? and item.type == 'ok'
+      $A().lrucache().get("phone").then (phone) ->
+        if phone? and phone != ""
+          $A().app().makeToast "正在提交"
+          $A().app().callApi
+            method: "trade/coupons/create"
+            cms_coupon_id: item.content_id
+            cacheTime: 0
+          .then (data1) ->
+            if data1.success == true
+              $A().app().makeToast "提交成功，谢谢您的申请，请到我的课程中添加运动记录。"
+              $A().page().setTimeout("2000").then () ->
+              root._listview_data.data[7].btnType = "cancel"
+              root._listview_data.data[7].type = "cancel"
+              root._listview_data.data[7].btnTitle = "已申请"
+              $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+            else
+              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+        else
+          $A().app().showConfirm
+            ok: "登陆"
+            cancel: "取消"
+            title: "警告"
+            message: "您尚未登陆，请先登陆"
+          .then (data) ->
+            if data.state == "ok"
+              $A().app().openPage
+                page_name: "page_login",
+                params: {}
+                close_option: ""
+            if data.state == "cancel"
+              return false
 
   onResume: () ->
 
@@ -124,6 +157,31 @@ class ECpageClass
             type: "comment"
             hasFooterDivider: "true"
 
-          $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
+          $A().app().callApi
+            method: "trade/coupons/show"
+            cms_coupon_id: "#{root._content.id}"
+            cacheTime: 0
+          .then (data1) ->
+            if data1.errors?
+              if data1.errors[0].error_num?
+                $A().app().makeToast "网络状态不好，请重新加载"
+              else
+                $A().app().makeToast "没有网络"
+            else
+              if data1.order.length == 1
+                root._listview_data.data.push
+                  viewType: "ListViewCellButton"
+                  btnTitle: "已申请"
+                  btnType: "cancel"
+                  type: "cancel"
+              else
+                root._listview_data.data.push
+                  viewType: "ListViewCellButton"
+                  btnTitle: "我要申请",
+                  btnType: "ok"
+                  type: "ok"
+                  content_id: "#{root._content.id}"
+
+              $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
 #启动程序
 new ECpageClass("page_lesson_info")

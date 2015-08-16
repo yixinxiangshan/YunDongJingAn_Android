@@ -82,7 +82,51 @@
       }
     };
 
-    ECpageClass.prototype.onItemInnerClick = function(data) {};
+    ECpageClass.prototype.onItemInnerClick = function(data) {
+      var item;
+      item = this._listview_data.data[data.position];
+      if ((item.type != null) && item.type === 'ok') {
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            $A().app().makeToast("正在提交");
+            return $A().app().callApi({
+              method: "trade/coupons/create",
+              cms_coupon_id: item.content_id,
+              cacheTime: 0
+            }).then(function(data1) {
+              if (data1.success === true) {
+                $A().app().makeToast("提交成功，谢谢您的申请，请到我的课程中添加运动记录。");
+                $A().page().setTimeout("2000").then(function() {});
+                root._listview_data.data[7].btnType = "cancel";
+                root._listview_data.data[7].type = "cancel";
+                root._listview_data.data[7].btnTitle = "已申请";
+                return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+              } else {
+                return $A().app().makeToast("提交失败，请重试或者检查您的网络是否打开。");
+              }
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
+        });
+      }
+    };
 
     ECpageClass.prototype.onResume = function() {};
 
@@ -149,7 +193,37 @@
               type: "comment",
               hasFooterDivider: "true"
             });
-            return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+            return $A().app().callApi({
+              method: "trade/coupons/show",
+              cms_coupon_id: "" + root._content.id,
+              cacheTime: 0
+            }).then(function(data1) {
+              if (data1.errors != null) {
+                if (data1.errors[0].error_num != null) {
+                  return $A().app().makeToast("网络状态不好，请重新加载");
+                } else {
+                  return $A().app().makeToast("没有网络");
+                }
+              } else {
+                if (data1.order.length === 1) {
+                  root._listview_data.data.push({
+                    viewType: "ListViewCellButton",
+                    btnTitle: "已申请",
+                    btnType: "cancel",
+                    type: "cancel"
+                  });
+                } else {
+                  root._listview_data.data.push({
+                    viewType: "ListViewCellButton",
+                    btnTitle: "我要申请",
+                    btnType: "ok",
+                    type: "ok",
+                    content_id: "" + root._content.id
+                  });
+                }
+                return $A().page().widget(root._page_name + "_ListViewBase_0").refreshData(JSON.stringify(root._listview_data));
+              }
+            });
           }
         });
       });
