@@ -43,6 +43,13 @@
           name: "lesson",
           hasFooterDivider: "true"
         }, {
+          viewType: "ListViewCellLine",
+          _rightLayoutSize: 0,
+          _leftLayoutSize: 0,
+          centerTitle: "我的运动记录",
+          name: "activity",
+          hasFooterDivider: "true"
+        }, {
           viewType: "ListViewCellGroupTitle",
           textTitle: "我的订单"
         }, {
@@ -155,6 +162,34 @@
                 params: {
                   info: 528
                 },
+                close_option: ""
+              });
+            } else {
+              return $A().app().showConfirm({
+                ok: "登陆",
+                cancel: "取消",
+                title: "警告",
+                message: "您尚未登陆，请先登陆"
+              }).then(function(data) {
+                if (data.state === "ok") {
+                  $A().app().openPage({
+                    page_name: "page_login",
+                    params: {},
+                    close_option: ""
+                  });
+                }
+                if (data.state === "cancel") {
+                  return false;
+                }
+              });
+            }
+          });
+        case "activity":
+          return $A().lrucache().get("phone").then(function(phone) {
+            if ((phone != null) && phone !== "") {
+              return $A().app().openPage({
+                page_name: "page_activity_list",
+                params: {},
                 close_option: ""
               });
             } else {

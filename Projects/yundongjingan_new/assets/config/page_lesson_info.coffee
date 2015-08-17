@@ -98,7 +98,7 @@ class ECpageClass
           $A().app().callApi
             method: "comment/comments/create"
             content_id: item.content_id
-            typenum: 3
+            typenum: 1
             cacheTime: 0
           .then (data1) ->
             if data1.success == true
