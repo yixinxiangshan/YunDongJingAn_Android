@@ -124,16 +124,17 @@
               viewType: "ListViewCellArticleTitle",
               headTitle: "" + root._content.shop.title
             });
-            if (root._content.shop.image_cover !== "") {
-              root._listview_data.data.push({
-                viewType: "ListViewCellImage",
-                image: {
-                  imageType: "imageServer",
-                  imageSize: "xlarge",
-                  imageSrc: "" + root._content.shop.image_cover
-                }
-              });
+            if (root._content.shop.image_cover === "") {
+              root._content.shop.image_cover = "3013697.png";
             }
+            root._listview_data.data.push({
+              viewType: "ListViewCellImage",
+              image: {
+                imageType: "imageServer",
+                imageSize: "xlarge",
+                imageSrc: "" + root._content.shop.image_cover
+              }
+            });
             if (root._content.info.length !== 0) {
               root._listview_data.data.push({
                 viewType: "ListViewCellGroupTitle",
