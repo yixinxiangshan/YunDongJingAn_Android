@@ -38,6 +38,29 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"
   #自定义函数
   onItemClick: (data) ->
+    item = @_listview_data.data[data.position]
+    if item._type? and item._type == 'comment'
+      $A().lrucache().get("phone").then (phone) ->
+        if phone? and phone != ""
+          $A().app().openPage
+            page_name: "page_comment_list"
+            params:
+              content_id: item.content_id
+            close_option: ""
+        else
+          $A().app().showConfirm
+            ok: "登陆"
+            cancel: "取消"
+            title: "警告"
+            message: "您尚未登陆，请先登陆"
+          .then (data) ->
+            if data.state == "ok"
+              $A().app().openPage
+                page_name:"page_login",
+                params: {}
+                close_option: ""
+            if data.state == "cancel"
+              return false
 
   onItemInnerClick: (data) ->
     item = @_listview_data.data[data.position]
@@ -131,6 +154,15 @@ class ECpageClass
             root._listview_data.data.push
               viewType: "ListViewCellArticle"
               content: "#{data.content_info.content}"
+            root._listview_data.data.push
+              viewType: "ListViewCellGroupTitle"
+              textTitle: "活动评论"
+            root._listview_data.data.push
+              viewType: "ListViewCellLine"
+              centerTitle: "查看所有评论"
+              content_id: "#{data.content_info.id}"
+              _type: "comment"
+              hasFooterDivider: "true"
             root._listview_data.data.push
               viewType: "ListViewCellButton",
               btnTitle: "我要申请",
