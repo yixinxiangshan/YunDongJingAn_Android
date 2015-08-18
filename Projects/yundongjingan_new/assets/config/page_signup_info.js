@@ -55,7 +55,41 @@
       }
     };
 
-    ECpageClass.prototype.onItemClick = function(data) {};
+    ECpageClass.prototype.onItemClick = function(data) {
+      var item;
+      item = this._listview_data.data[data.position];
+      if ((item._type != null) && item._type === 'comment') {
+        return $A().lrucache().get("phone").then(function(phone) {
+          if ((phone != null) && phone !== "") {
+            return $A().app().openPage({
+              page_name: "page_comment_list",
+              params: {
+                content_id: item.content_id
+              },
+              close_option: ""
+            });
+          } else {
+            return $A().app().showConfirm({
+              ok: "登陆",
+              cancel: "取消",
+              title: "警告",
+              message: "您尚未登陆，请先登陆"
+            }).then(function(data) {
+              if (data.state === "ok") {
+                $A().app().openPage({
+                  page_name: "page_login",
+                  params: {},
+                  close_option: ""
+                });
+              }
+              if (data.state === "cancel") {
+                return false;
+              }
+            });
+          }
+        });
+      }
+    };
 
     ECpageClass.prototype.onItemInnerClick = function(data) {
       var item;
@@ -169,6 +203,17 @@
               root._listview_data.data.push({
                 viewType: "ListViewCellArticle",
                 content: "" + data.content_info.content
+              });
+              root._listview_data.data.push({
+                viewType: "ListViewCellGroupTitle",
+                textTitle: "赛事评论"
+              });
+              root._listview_data.data.push({
+                viewType: "ListViewCellLine",
+                centerTitle: "查看所有评论",
+                content_id: "" + data.content_info.id,
+                _type: "comment",
+                hasFooterDivider: "true"
               });
               root._listview_data.data.push({
                 viewType: "ListViewCellButton",
