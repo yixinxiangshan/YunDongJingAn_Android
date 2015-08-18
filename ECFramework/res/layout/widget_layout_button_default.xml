@@ -7,12 +7,6 @@
     android:orientation="vertical"
     android:padding="@dimen/widget_layout_button_default_linearlayout_padding" >
 
-    <ImageView
-        android:id="@+id/proj_activity_logo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/app_name" />
-
     <GridView
         android:id="@+id/gridview"
         android:layout_width="fill_parent"

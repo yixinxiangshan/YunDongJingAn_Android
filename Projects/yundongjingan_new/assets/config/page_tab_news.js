@@ -22,6 +22,11 @@
       data: [
         {
           viewType: "ListViewCellButton",
+          btnTitle: "赛事报名",
+          btnType: "ok",
+          _type: "0"
+        }, {
+          viewType: "ListViewCellButton",
           btnTitle: "最新消息",
           btnType: "ok",
           _type: "519"
@@ -50,11 +55,6 @@
           btnTitle: "公共体育",
           btnType: "ok",
           _type: "524"
-        }, {
-          viewType: "ListViewCellButton",
-          btnTitle: "静安健身",
-          btnType: "ok",
-          _type: "0"
         }, {
           viewType: "ListViewCellButton",
           btnTitle: "其他",
@@ -95,8 +95,10 @@
       item = root._listview_data.data[data.position];
       if (item._type) {
         if (item._type === "0") {
-          return $A().app().openUrl({
-            _param: "http://tyj.jingan.gov.cn"
+          return $A().app().openPage({
+            page_name: "page_tab_signup",
+            params: [],
+            close_option: ""
           });
         } else {
           return $A().app().openPage({

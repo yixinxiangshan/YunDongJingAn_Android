@@ -30,6 +30,11 @@
         "data": {
           "tabDataList": [
             {
+              "id": "524",
+              "title": "赛事报名",
+              "icon": "page_fragment_jingan_itembg_jianshen"
+            },
+            {
               "id": "519",
               "title": "最新消息",
               "icon": "page_fragment_jingan_itembg_zuixin"
@@ -61,11 +66,6 @@
             },
             {
               "id": "524",
-              "title": "静安健身",
-              "icon": "page_fragment_jingan_itembg_jianshen"
-            },
-            {
-              "id": "524",
               "title": "其他",
               "icon": "page_fragment_jingan_itembg_qita"
             }
@@ -79,7 +79,7 @@
       "position": [
         {
           "key": "parent",
-          "value": "activity_item_container_llayout"
+          "value": "blank_llayout"
         },
         {
           "key": "location",
@@ -102,7 +102,7 @@
         "data": {
           "actionBarBg": "#FFf9f9f9",
           "homeIcon": "webview/images/icon/default/actionbar_back.png",
-          "title": "信息发布",
+          "title": "赛事活动",
           "withActionBar": "true"
         }
       },
