@@ -90,7 +90,7 @@ class ECpageClass
             root._listview_data.data.push
               viewType: "ListViewCellTwoLineText"
               headTitle: "#{content.content}"
-              headTime: "#{content.created_at}"
+              headTime: "#{content.updated_at}"
               subTitle: "#{content.nickname}"
               _leftLayoutSize: 75,
               hasFooterDivider: "true"
