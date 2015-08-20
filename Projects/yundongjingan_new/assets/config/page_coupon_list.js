@@ -40,6 +40,9 @@
       $A().page().widget(this._page_name + "_ListViewBase_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       $A().page().onResume(function(data) {
         return root.onResume();
       });
@@ -54,6 +57,14 @@
     function ECpageClass(_page_name) {
       this._constructor(_page_name);
     }
+
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onCreated = function() {
       return $A().page().param("info").then(function(info) {

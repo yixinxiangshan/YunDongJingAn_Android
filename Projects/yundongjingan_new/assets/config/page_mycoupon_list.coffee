@@ -30,12 +30,19 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_ListViewBase_0").data JSON.stringify @_listview_data
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
     $A().page().widget("#{@_page_name}_ListViewBase_0").onItemClick (data)-> root.onItemClick(data)
+    $A().page().widget("ActionBar").onItemClick (data)-> root.onActionBarItemClick(data)
     $A().page().onResume (data)-> root.onResume()
     $A().page().onResult (data)-> root.onResult(data)
     $A().page().onCreated -> root.onCreated()
 
   constructor: (_page_name) ->
     @_constructor(_page_name)
+
+  onActionBarItemClick: (data) ->
+    $A().app().openPage
+      page_name:"page_my",
+      params: {}
+      close_option: ""
 
   onCreated: () ->
     $A().app().callApi
