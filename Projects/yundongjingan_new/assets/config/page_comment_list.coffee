@@ -40,7 +40,7 @@ class ECpageClass
 
   onActionBarItemClick: (data) ->
     $A().app().openPage
-      page_name:"page_my",
+      page_name: "page_my",
       params: {}
       close_option: ""
 
@@ -94,11 +94,16 @@ class ECpageClass
             centerTitle: "暂无信息"
         else
           for content in data.content_list
+            if content.admin_reply == ""
+              admin_reply = ""
+            else
+              admin_reply = "管理员回复：" + content.admin_reply
             root._listview_data.data.push
               viewType: "ListViewCellTwoLineText"
               headTitle: "#{content.content}"
               headTime: "#{content.updated_at}"
               subTitle: "#{content.nickname}"
+              expandTitle: admin_reply
               _leftLayoutSize: 75,
               hasFooterDivider: "true"
         root._listview_data.data.push

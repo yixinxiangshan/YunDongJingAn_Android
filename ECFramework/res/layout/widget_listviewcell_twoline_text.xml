@@ -89,6 +89,11 @@
                         android:text="@string/default_words"
                         android:textColor="@color/widget_listview_item_twoline_subtile_textcolor"
                         android:textSize="@dimen/widget_listview_item_twoline_subtile_textsize" />
+                <!-- used for expanding more message -->
+                <TextView android:id="@+id/widget_listview_item_twoline_expandtext"
+                          android:layout_width="wrap_content"
+                          android:layout_height="wrap_content"
+                          android:visibility="visible"/>
             </LinearLayout>
         </LinearLayout>
     </RelativeLayout>

@@ -25,6 +25,7 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
             holder.headTitle = (TextView) convertView.findViewById(R.id.widget_listview_item_twoline_title);
             holder.headTime = (TextView) convertView.findViewById(R.id.widget_listview_item_twoline_time);
             holder.subTitle = (TextView) convertView.findViewById(R.id.widget_listview_item_twoline_subtile);
+            holder.expandTitle = (TextView) convertView.findViewById(R.id.widget_listview_item_twoline_expandtext);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
@@ -34,6 +35,13 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
         holder.headTime.setText(model.getHeadTime());
         holder.subTitle.setText(model.getSubTitle());
 
+        if (model.expandTitle.isEmpty()) {
+            holder.expandTitle.setVisibility(View.GONE);
+        } else {
+            holder.expandTitle.setText(model.getExpandTitle());
+            holder.expandTitle.setVisibility(View.VISIBLE);
+        }
+
         return convertView;
     }
 
@@ -41,6 +49,7 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
         private TextView headTitle;
         private TextView headTime;
         private TextView subTitle;
+        private TextView expandTitle;
 
         public TextView getHeadTitle() {
             return headTitle;
@@ -66,12 +75,21 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
         public void setSubTitle(TextView subTitle) {
             this.subTitle = subTitle;
         }
+
+        public TextView getExpandTitle() {
+            return expandTitle;
+        }
+
+        public void setExpandTitle(TextView expandTitle) {
+            this.expandTitle = expandTitle;
+        }
     }
 
     class Model {
         private String headTitle;
         private String headTime;
         private String subTitle;
+        private String expandTitle;
 
         public String getHeadTitle() {
             return headTitle;
@@ -97,5 +115,12 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
             this.subTitle = subTitle;
         }
 
+        public String getExpandTitle() {
+            return expandTitle;
+        }
+
+        public void setExpandTitle(String expandTitle) {
+            this.expandTitle = expandTitle;
+        }
     }
 }

@@ -3,7 +3,7 @@
 
     <string name="app_name"></string>
     <string name="menu_settings">Settings</string>
-    <string name="default_words">ecloud</string>
+    <string name="default_words"></string>
     <string name="loading">加载中&#8230;</string>
     <string name="ok">确定</string>
     <string name="cancel">取消</string>
