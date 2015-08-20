@@ -68,11 +68,11 @@
               "tag": "page_tab_send"
             },
             {
-              "title": "我的",
+              "title": "运动课程",
               "icon": "webview/images/icon/default/ic_5.png",
               "fragmentName": "ItemFragment",
-              "fragmentString": "page_my",
-              "tag": "page_my"
+              "fragmentString": "page_tab_lesson_list",
+              "tag": "page_tab_lesson_list"
             }
           ],
           "badgeDataList": [
