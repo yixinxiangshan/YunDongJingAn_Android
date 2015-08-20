@@ -32,6 +32,9 @@
       $A().page().widget(this._page_name + "_MapWidget_0").onItemClick(function(data) {
         return root.onItemClick(data);
       });
+      $A().page().widget("ActionBar").onItemClick(function(data) {
+        return root.onActionBarItemClick(data);
+      });
       $A().page().onResume(function() {
         return root.onResume();
       });
@@ -48,6 +51,14 @@
     }
 
     ECpageClass.prototype.onCreated = function() {};
+
+    ECpageClass.prototype.onActionBarItemClick = function(data) {
+      return $A().app().openPage({
+        page_name: "page_my",
+        params: {},
+        close_option: ""
+      });
+    };
 
     ECpageClass.prototype.onItemClick = function(data) {};
 

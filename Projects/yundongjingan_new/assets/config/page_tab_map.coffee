@@ -19,6 +19,7 @@ class ECpageClass
     $A().page().widget("#{@_page_name}_MapWidget_0").data JSON.stringify @_listview_data
     $A().page().widget("#{@_page_name}_MapWidget_0").onItemInnerClick (data)-> root.onItemInnerClick(data)
     $A().page().widget("#{@_page_name}_MapWidget_0").onItemClick (data)-> root.onItemClick(data)
+    $A().page().widget("ActionBar").onItemClick (data)-> root.onActionBarItemClick(data)
     $A().page().onResume ()-> root.onResume()
     $A().page().onResult (data)-> root.onResult(data)
     $A().page().onCreated -> root.onCreated()
@@ -29,6 +30,12 @@ class ECpageClass
   onCreated: () ->
 
 #自定义函数
+  onActionBarItemClick: (data) ->
+    $A().app().openPage
+      page_name:"page_my",
+      params: {}
+      close_option: ""
+
   onItemClick: (data) ->
 
   onItemInnerClick: (data) ->
