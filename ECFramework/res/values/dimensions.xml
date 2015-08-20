@@ -147,7 +147,7 @@
     <dimen name="widget_item_news_linearlayoutbutton_layout_marginbottom">20sp</dimen>
     <dimen name="widget_item_news_button_textsize">18sp</dimen>
     <!-- widget_layout_button_default -->
-    <dimen name="widget_layout_button_default_linearlayout_padding">10dp</dimen>
+    <dimen name="widget_layout_button_default_linearlayout_padding">1dp</dimen>
     <dimen name="widget_layout_button_default_imageview_layout_margintop">20dp</dimen>
     <dimen name="widget_layout_button_default_gridview_layout_verticalspacing">20dp</dimen>
     <!-- widget_listview_default -->
