@@ -31,10 +31,11 @@ class ECpageClass
 
 #自定义函数
   onActionBarItemClick: (data) ->
-    $A().app().openPage
-      page_name:"page_my",
-      params: {}
-      close_option: ""
+    if data == "1"
+      $A().app().openPage
+        page_name:"page_my",
+        params: {}
+        close_option: ""
 
   onItemClick: (data) ->
 

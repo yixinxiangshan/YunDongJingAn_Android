@@ -74,11 +74,13 @@
     }
 
     ECpageClass.prototype.onActionBarItemClick = function(data) {
-      return $A().app().openPage({
-        page_name: "page_my",
-        params: {},
-        close_option: ""
-      });
+      if (data === "2") {
+        return $A().app().openPage({
+          page_name: "page_my",
+          params: {},
+          close_option: ""
+        });
+      }
     };
 
     ECpageClass.prototype.onCreated = function() {

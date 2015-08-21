@@ -58,10 +58,11 @@ class ECpageClass
     @_constructor(_page_name)
 
   onActionBarItemClick: (data) ->
-    $A().app().openPage
-      page_name:"page_my",
-      params: {}
-      close_option: ""
+    if data == "2"
+      $A().app().openPage
+        page_name:"page_my",
+        params: {}
+        close_option: ""
 
   onCreated: () ->
     $A().page().widget("#{@_page_name}_ListViewBase_0").refreshData JSON.stringify @_listview_data if root._platform? and root._platform == "ios"

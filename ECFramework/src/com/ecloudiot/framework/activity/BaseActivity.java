@@ -400,7 +400,10 @@ public class BaseActivity extends ActionBarActivity implements OnNavigationListe
 				menuItem.setShowAsAction(MenuItem.SHOW_AS_ACTION_IF_ROOM);
 			}
 		}
-		if (null != menuItem && StringUtil.isNotEmpty(menuItemModel.getActionViewName())) {
+        if (!menuItemModel.getClickTag().isEmpty()) {
+            menuItem.setNumericShortcut(menuItemModel.getClickTag().charAt(0));
+        }
+        if (null != menuItem && StringUtil.isNotEmpty(menuItemModel.getActionViewName())) {
 			// customView
 			try {
 				menuItem.setActionView(ResourceUtil.getLayoutIdFromContext(this, menuItemModel.getActionViewName()));
@@ -803,7 +806,8 @@ public class BaseActivity extends ActionBarActivity implements OnNavigationListe
 				// LogUtil.d(TAG, ((ItemActivity) this).getParam("page_id") + " - fragments num :" + fragments.size() + "");
 				while (iter.hasNext()) {
 					Map.Entry entry = (Map.Entry) iter.next();
-					JsAPI.runEvent(((ItemFragment) entry.getValue()).getWidgetJsEvents(), "ActionBar", "onItemClick", item.getOrder() + "");
+//					JsAPI.runEvent(((ItemFragment) entry.getValue()).getWidgetJsEvents(), "ActionBar", "onItemClick", item.getOrder() + "");
+                    JsAPI.runEvent(((ItemFragment) entry.getValue()).getWidgetJsEvents(), "ActionBar", "onItemClick", item.getNumericShortcut() + "");
 				}
 			}
 			JsAPI.runEvent(((ItemActivity) this).getWidgetJsEvents(), "ActionBar", "onItemClick", item.getTitle() + "");

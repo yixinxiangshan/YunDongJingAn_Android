@@ -108,7 +108,7 @@
             "menuList": [
               {
                 "itemId": "action_bar_menu_item_gen",
-                "clickTag": "1",
+                "clickTag": "3",
                 "title": "我的",
                 "iconName": "webview/images/icon/default/my.png",
                 "showAsAction": "always"
