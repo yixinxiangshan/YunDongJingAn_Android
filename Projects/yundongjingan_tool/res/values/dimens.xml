@@ -1,0 +1,10 @@
+<resources>
+
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!-- widget_grid_item_fragment -->
+    <dimen name="widget_grid_item_title_fragment_margintop">10dp</dimen>
+    <dimen name="widget_grid_item_title_fragment_textsize">12sp</dimen>
+</resources>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <string name="app_name" tools:ignore="MissingTranslation">运动静安</string>
+    <string name="action_settings" tools:ignore="MissingTranslation">Settings</string>
+    <string name="api_key" tools:ignore="MissingTranslation">440fe4b7ddf436fdd77fc75861d2c358</string>
+    <string name="api_secret" tools:ignore="MissingTranslation">1fd1119688b34f122783aca80a242433</string>
+    <string name="baidu_debug_apikey" tools:ignore="MissingTranslation">wYdah4BoGUrUyXgNuNCrVe56</string>
+    <string name="baidu_apikey" tools:ignore="MissingTranslation">Th5TpNvEUXFtXgZwfHv9AHgL</string>
+    <!-- SqiqlRCUIcWWGUqYnM5yxluv -->
+    <string name="base_api_url" tools:ignore="MissingTranslation">http://856854478.cloudapi.nowapp.cn/</string>
+    <!-- 调试相关 -->
+    <string name="config_js_url" tools:ignore="MissingTranslation">http://jinganapi.nowapp.cn/eceditor/downCoffee</string>
+    <!-- 加密内容 -->
+    <string name="ori_key" tools:ignore="MissingTranslation">ECloudChangeFuture</string>
+</resources>
