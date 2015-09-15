@@ -1,6 +1,6 @@
 {
   "uninstall_package" : "",
-  "appname" : "yundongjingan",
+  "appname" : "coupontool",
   "start_controller": "page_index",
   "guide_page":"",
   "startPushService": "false",

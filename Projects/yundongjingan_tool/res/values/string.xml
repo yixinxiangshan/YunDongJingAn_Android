@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="app_name" tools:ignore="MissingTranslation">运动静安</string>
+    <string name="app_name" tools:ignore="MissingTranslation">优惠工具</string>
     <string name="action_settings" tools:ignore="MissingTranslation">Settings</string>
     <string name="api_key" tools:ignore="MissingTranslation">440fe4b7ddf436fdd77fc75861d2c358</string>
     <string name="api_secret" tools:ignore="MissingTranslation">1fd1119688b34f122783aca80a242433</string>

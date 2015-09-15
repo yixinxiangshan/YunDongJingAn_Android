@@ -11,14 +11,14 @@
   "setEvent": [],
   "configs": [],
   "auto_start_controls": [
-    "page_index_SatelliteWidget_0"
+    "page_index_ListViewBase_0"
   ],
   "position": [],
   "attr": [],
   "controls": [
     {
-      "control_id": "page_index_SatelliteWidget_0",
-      "xtype": "SatelliteWidget",
+      "control_id": "page_index_ListViewBase_0",
+      "xtype": "ListViewBase",
       "layout": "",
       "script": false,
       "datasource": {
