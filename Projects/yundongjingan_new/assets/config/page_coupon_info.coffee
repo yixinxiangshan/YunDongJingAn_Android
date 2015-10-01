@@ -1,4 +1,4 @@
-# page类
+﻿# page类
 class ECpageClass
   root = {} # 这是ECpageClass的一个实例的全局变量
   _page_name: "" # 属性
@@ -83,9 +83,9 @@ class ECpageClass
             if data1.success == true
               $A().app().makeToast "提交成功，谢谢您的申请。"
               $A().page().setTimeout("2000").then () ->
-                root._listview_data.data[3].btnType = "cancel"
-                root._listview_data.data[3]._type = "cancel"
-                root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code
+                root._listview_data.data[5].btnType = "cancel"
+                root._listview_data.data[5]._type = "cancel"
+                root._listview_data.data[5].btnTitle = "优惠码:" + data1.order.apply_code
                 $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
             else
               if data1.errors? and data1.errors[0]? and data1.errors[0].error_num?
