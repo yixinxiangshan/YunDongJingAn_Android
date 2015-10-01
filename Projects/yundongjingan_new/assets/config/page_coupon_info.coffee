@@ -88,20 +88,23 @@ class ECpageClass
                 root._listview_data.data[3].btnTitle = "优惠码:" + data1.order.apply_code
                 $A().page().widget("#{root._page_name}_ListViewBase_0").refreshData JSON.stringify root._listview_data
             else
-              $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
+              if data1.errors? and data1.errors[0]? and data1.errors[0].error_num?
+                $A().app().makeToast data1.errors[0].error_msg
+              else
+                $A().app().makeToast "提交失败，请重试或者检查您的网络是否打开。"
         else
           $A().app().showConfirm
             ok: "登陆"
             cancel: "取消"
             title: "警告"
             message: "您尚未登陆，请先登陆"
-          .then (data) ->
-            if data.state == "ok"
+          .then (data2) ->
+            if data2.state == "ok"
               $A().app().openPage
                 page_name:"page_login",
                 params: {}
                 close_option: ""
-            if data.state == "cancel"
+            if data2.state == "cancel"
               return false
 
   onResume: () ->
