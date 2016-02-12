@@ -69,7 +69,7 @@
         android:theme="@style/AppThemeDefault" >
         <meta-data
                 android:name="com.baidu.lbsapi.API_KEY"
-                android:value="f1OLu6Tbj0g0bWScxmfdEcif" />
+                android:value="1KXBGuKUHfftO0FsEQvv8jij" />
         <!--
              <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
