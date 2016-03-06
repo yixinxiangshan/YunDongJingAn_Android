@@ -35,7 +35,7 @@ public class ListViewCellTwoLineText extends ListViewCellBase {
         holder.headTime.setText(model.getHeadTime());
         holder.subTitle.setText(model.getSubTitle());
 
-        if (model.expandTitle.isEmpty()) {
+        if (model.expandTitle != null && model.expandTitle.isEmpty()) {
             holder.expandTitle.setVisibility(View.GONE);
         } else {
             holder.expandTitle.setText(model.getExpandTitle());
