@@ -87,8 +87,11 @@ public class JsAPI {
 			for (String s : actionArrayList) {
 				methodName += s + "_";
 			}
+			if (methodName.equals("page_widget_")) {
+				methodName = "widget_page_";
+			}
 			Object result = (Object) ReflectionUtil.invokeMethod(new AppAPI(getPage(actionObject.getString("pid"), callbackId)), methodName + method, params);
-			if (result.equals("_false"))
+			if (result== null || result.equals("_false"))
 				return;
 			JsAPI.callback(actionObject.getString("pid"), callbackId, result);
 		} catch (JSONException e) {
