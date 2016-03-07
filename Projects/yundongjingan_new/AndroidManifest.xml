@@ -4,7 +4,7 @@
     package="cn.nowapp.yundongjingan_new"
     android:installLocation="auto"
     android:versionCode="1"
-    android:versionName="1.15" >
+    android:versionName="1.16" >
 
     <uses-sdk
         android:minSdkVersion="7"
